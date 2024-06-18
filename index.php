@@ -6,6 +6,13 @@
     <title>Furshet</title>
 </head>
 <body>
-    <p>Hello World!</p>
+    <!-- <p>Hello World!</p> -->
+
+    <p id="loader">Загрузка...</p>
+
+    <table id="table"></table>
+
+    <!-- Scripts -->
+    <script src="csv_reader.js"></script>
 </body>
 </html>
