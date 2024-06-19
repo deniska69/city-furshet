@@ -1,5 +1,4 @@
-const table = document.querySelector("#table");
-const loader = document.querySelector("#loader");
+const content = document.querySelector("#content");
 
 const decode = (responseArrayBuffer) => {
   const dataView = new DataView(responseArrayBuffer),
@@ -16,26 +15,23 @@ fetch("nomenclature.csv")
 const parse = (csv) => {
   const arrRows = csv.trim().split("\n");
 
-  let _table = ``;
+  let _content = ``;
 
   arrRows.forEach((row, index) => {
-    let _row = ``;
+    if (index > 0) {
+      const rowArr = row.split(";");
+      let card = ``;
 
-    if (index === 0) {
-      row.split(";").forEach((cell) => (_row += `<th>${cell}</th>`));
-    } else {
-      row.split(";").forEach((cell, i) => {
-        if (i !== 7) {
-          _row += `<td>${cell}</td>`;
-        } else {
-          _row += `<td><image src="images/${cell}" /></td>`;
-        }
-      });
+      card += `<img src="images/${rowArr[7]}" />`;
+      card += `<span id="title">${rowArr[1]}</span>`;
+      card += `<span id="description">${rowArr[2]}</span>`;
+      card += `<span id="count_of_persons">Количество персон: ${rowArr[3]}</span>`;
+      card += `<span id="weight">Вес: ${rowArr[4]} г.</span>`;
+      card += `<span id="price">${rowArr[5]}</span>`;
+
+      _content += `<div id="card">${card}</div>`;
     }
-
-    _table += `<tr>${_row}</tr>`;
   });
 
-  table.innerHTML = _table;
-  loader.innerHTML = "Успешно загружено!";
+  content.innerHTML = _content;
 };
