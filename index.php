@@ -1,36 +1,30 @@
+<?php
+include 'env.php'
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furshet</title>
-    <link rel="stylesheet" href="mycss.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1, maximum-scale=1, user-scalable=0, interactive-widget=resizes-content" />
+    <link rel="stylesheet" href="<?= $WWW ?>/css/_framework.css?ver=1" />
+    <link rel="stylesheet" href="<?= $WWW ?>/css/_style.css?ver=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title><?= $TITLE ?>"</title>
 </head>
+
 <body>
-    <!-- <p>Hello World!</p> -->
 
-    <!-- <p id="loader">Загрузка...</p> -->
-
-    <div id="header">
-            <span id="logo">Логотип</span>
-
-            <div id="menu">
-                <span>Меню</span>
-                <span>Акции</span>
-                <span>Контакты</span>
-                <span id="basket_label">Корзина</span>
-            </div>
-        </div>
-
-    <div id="root">    
-        <div id="content"></div>
-    </div>
-
-    <!-- <table id="table"></table> -->
+    <p><?= $WWW ?></p>
 
     <!-- Scripts -->
-    <script src="csv_reader.js"></script>
+    <!-- <script src="csv_reader.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="send.js"></script>
+    <!-- <script src="send.js"></script> -->
 </body>
+
 </html>
