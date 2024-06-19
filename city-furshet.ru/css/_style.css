@@ -1,0 +1,30 @@
+@import "./_framework.css";
+
+body {
+  background-color: #eee;
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+/* font-family: "Montserrat", sans-serif;
+font-optical-sizing: auto;
+font-weight: <weight>;
+font-style: normal; */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  gap: 1rem;
+  padding: 1.5rem;
+  max-width: 14rem;
+  border-radius: 0.125rem;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}

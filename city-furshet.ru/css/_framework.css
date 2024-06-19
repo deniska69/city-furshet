@@ -1,0 +1,60 @@
+@import "./justify-content.css";
+@import "./align-items.css";
+@import "./width.css";
+@import "./height.css";
+@import "./background-color.css";
+@import "./gap.css";
+@import "./padding.css";
+@import "./margin.css";
+@import "./border-radius.css";
+@import "./font-size.css";
+@import "./max-width.css";
+@import "./flex.css";
+@import "./flex-basis.css";
+@import "./word-break.css";
+@import "./text-align.css";
+@import "./font-weight.css";
+@import "./text-color.css";
+@import "./opacity.css";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.hstack {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+}
+
+.dev {
+  border: 1px;
+  border-color: brown;
+  border-style: dashed;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
