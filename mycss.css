@@ -22,6 +22,7 @@ body {
 
 #root {
   padding-top: 5rem;
+  padding-bottom: 1rem;
 }
 
 #header #menu {
@@ -50,9 +51,16 @@ body {
   row-gap: 0.5rem;
   background-color: white;
   width: 30%;
+  padding: 1%;
 }
 
 #card img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 200px;
   align-self: center;
+}
+
+#basket_label:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

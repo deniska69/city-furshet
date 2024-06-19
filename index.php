@@ -18,7 +18,7 @@
                 <span>Меню</span>
                 <span>Акции</span>
                 <span>Контакты</span>
-                <span>Корзина</span>
+                <span id="basket_label">Корзина</span>
             </div>
         </div>
 
@@ -30,5 +30,7 @@
 
     <!-- Scripts -->
     <script src="csv_reader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="send.js"></script>
 </body>
 </html>
