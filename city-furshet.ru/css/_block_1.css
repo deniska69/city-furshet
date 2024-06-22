@@ -73,7 +73,7 @@
 
 @media (min-width: 1280px) {
   #block_1 {
-    background-image: url("../images/block_1_bg_desktop.jpg");
+    background-image: url("../images/block_1/block_1-bg_desktop.jpg");
     background-position: center;
     background-size: cover;
   }

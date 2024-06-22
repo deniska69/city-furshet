@@ -31,9 +31,6 @@
 }
 
 #header-basket-badge-wrap {
-  /* position: absolute;
-  right: -1rem;
-  top: -0.6rem; */
   border-radius: 100%;
   width: 1.5rem;
   height: 1.5rem;
@@ -44,6 +41,64 @@
 }
 
 #header-basket-badge-counter {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+#header-menu_mobile {
+  width: 100%;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #8cbe22;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  border-bottom-width: 0.5px;
+  border-bottom-style: solid;
+  border-bottom-color: #b2e93d;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+#header-menu_mobile-logo_wrap,
+#header-menu_mobile-basket_wrap,
+#header-menu_mobile-burger_wrap {
+  display: flex;
+  align-items: center;
+}
+
+#header-menu_mobile-logo,
+#header-menu_mobile-basket,
+#header-menu_mobile-burger {
+  width: 48px;
+  height: 48px;
+}
+
+#header-menu_mobile-basket_wrap {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.3rem;
+  position: relative;
+}
+
+#header-menu_mobile-basket-badge-wrap {
+  position: absolute;
+  right: -7px;
+  top: 9px;
+  border-radius: 100%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7852f;
+}
+
+#header-menu_mobile-basket-badge-counter {
   color: white;
   font-weight: 600;
   font-size: 1rem;
@@ -61,5 +116,9 @@
     flex-direction: row;
     column-gap: 1rem;
     padding-right: 4rem;
+  }
+
+  #header-menu_mobile {
+    display: none;
   }
 }

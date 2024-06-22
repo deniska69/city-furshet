@@ -21,6 +21,7 @@ include 'env.php';
 
     <!-- Header -->
     <div id="header">
+        <!-- Header: Desktop -->
         <div id="header-menu_desktop">
             <a href="">Меню</a>
             <a href="">Акции</a>
@@ -33,12 +34,32 @@ include 'env.php';
                 </div>
             </div>
         </div>
+
+        <!-- Header: Mobile -->
+        <div id="header-menu_mobile">
+            <a href="" id="header-menu_mobile-logo_wrap">
+                <img id="header-menu_mobile-logo" src="<?= $DIR_IMAGES ?>/header/logo_white_250w.png" alt="logo_white_250w">
+            </a>
+
+            <div class="hstack gap-x-4">
+                <div id="header-menu_mobile-basket_wrap">
+                    <img id="header-menu_mobile-basket" src="<?= $DIR_IMAGES ?>/header/icon_basket_64w.png" alt="icon_basket_64w">
+                    <div id="header-menu_mobile-basket-badge-wrap">
+                        <span id="header-menu_mobile-basket-badge-counter">0</span>
+                    </div>
+                </div>
+
+                <a href="" id="header-menu_mobile-burger_wrap">
+                    <img id="header-menu_mobile-burger" src="<?= $DIR_IMAGES ?>/header/icon_burger_64w.png" alt="icon_burger_64w">
+                </a>
+            </div>
+        </div>
     </div>
 
     <!-- Block #1 -->
     <div id="block_1">
         <div id="block_1-container">
-            <img id="block_1-container-logo" src="<?= $DIR_IMAGES ?>/logo_color_500w.png" alt="logo_color_500w">
+            <img id="block_1-container-logo" src="<?= $DIR_IMAGES ?>/block_1/logo_color_500w.png" alt="logo_color_500w">
             <div id="block_1-container-description_first-wrap">
                 <span id="block_1-container-description_first">Вкуснее, чем дома</span>
             </div>
