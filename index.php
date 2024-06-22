@@ -20,19 +20,19 @@ include 'env.php';
 <body>
 
     <!-- Header -->
-    <div id="header">
+    <div id="header" class="noselect">
         <!-- Header: Desktop -->
         <div id="header-menu_desktop">
             <a href="">Меню</a>
             <a href="">Акции</a>
             <a href="">Доставка и оплата</a>
             <a href="">Контакты</a>
-            <div id="header-basket-wrap">
-                <a href="">Корзина</a>
+            <a href="" id="header-basket-wrap">
+                <span>Корзина</span>
                 <div id="header-basket-badge-wrap">
                     <span id="header-basket-badge-counter">0</span>
                 </div>
-            </div>
+            </a>
         </div>
 
         <!-- Header: Mobile -->
@@ -42,12 +42,12 @@ include 'env.php';
             </a>
 
             <div class="hstack gap-x-4">
-                <div id="header-menu_mobile-basket_wrap">
+                <a href="" id="header-menu_mobile-basket_wrap">
                     <img id="header-menu_mobile-basket" src="<?= $DIR_IMAGES ?>/header/icon_basket_64w.png" alt="icon_basket_64w">
                     <div id="header-menu_mobile-basket-badge-wrap">
                         <span id="header-menu_mobile-basket-badge-counter">0</span>
                     </div>
-                </div>
+                </a>
 
                 <a href="" id="header-menu_mobile-burger_wrap">
                     <img id="header-menu_mobile-burger" src="<?= $DIR_IMAGES ?>/header/icon_burger_64w.png" alt="icon_burger_64w">
@@ -56,8 +56,8 @@ include 'env.php';
         </div>
     </div>
 
-    <!-- Block #1 -->
-    <div id="block_1">
+    <!-- Block #1 - Base -->
+    <div id="block_1" class="noselect">
         <div id="block_1-container">
             <img id="block_1-container-logo" src="<?= $DIR_IMAGES ?>/block_1/logo_color_500w.png" alt="logo_color_500w">
             <div id="block_1-container-description_first-wrap">

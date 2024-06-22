@@ -16,6 +16,10 @@
   align-items: center;
   padding-left: 3%;
   padding-right: 3%;
+  background-image: url("../images/block_1/block_1-container-shapes.png");
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
 }
 
 #block_1-container-logo {
@@ -81,6 +85,7 @@
   #block_1-container {
     width: 50%;
     margin-left: 40%;
+    background-size: 80% auto;
   }
 
   #block_1-container-logo {
