@@ -19,6 +19,7 @@ include 'env.php';
 
 <body>
 
+    <!-- Header -->
     <div id="header">
         <div id="header-menu_desktop">
             <a href="">Меню</a>
@@ -34,6 +35,7 @@ include 'env.php';
         </div>
     </div>
 
+    <!-- Block #1 -->
     <div id="block_1">
         <div id="block_1-container">
             <img id="block_1-container-logo" src="<?= $DIR_IMAGES ?>/logo_color_500w.png" alt="logo_color_500w">
