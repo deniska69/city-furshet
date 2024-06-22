@@ -1,6 +1,7 @@
 @import "./_framework.css";
-@import "./_block_1.css";
 @import "./_header.css";
+@import "./_block_1.css";
+@import "./_block_2.css";
 
 body {
   background-color: #eee;

@@ -5,3 +5,4 @@ $CHAT_ID = "350603018";
 $TITLE = 'City Furshet | Новокузнецк';
 $DIR_CSS = $WWW . '/css';
 $DIR_IMAGES = $WWW . '/images';
+$DIR_JS = $WWW . '/js';

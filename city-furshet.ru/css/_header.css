@@ -4,6 +4,8 @@
   width: 100%;
   display: flex;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0px);
 }
 
 #header-menu_desktop {
