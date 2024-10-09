@@ -24,8 +24,8 @@ include 'env.php';
     <div id="header" class="noselect">
         <!-- Header: Desktop -->
         <div id="header-menu_desktop">
-            <a href="">Меню</a>
-            <a href="#block_2">Акции</a>
+            <a href="#block_2">Меню</a>
+            <a href="">Акции</a>
             <a href="">Доставка и оплата</a>
             <a href="">Контакты</a>
             <a href="" id="header-basket-wrap">
@@ -65,13 +65,14 @@ include 'env.php';
                 <span id="block_1-container-description_first">Вкуснее, чем дома</span>
             </div>
             <span id="block_1-container-description_second">Быстрее, чем у плиты</span>
-            <button id="block_1-container-button">Посмотреть меню</button>
+            <a id="block_1-container-button" href="#block_2">Посмотреть меню</a>
         </div>
     </div>
 
     <!-- Block #1 - Menu -->
     <div id="block_2">
-
+        <div id="block_2-aside-left"></div>
+        <div id="block_2-main"></div>
     </div>
 
     <!-- Scripts -->

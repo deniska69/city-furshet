@@ -1,3 +1,8 @@
+const WIDTH = window.innerWidth;
+
+let data = {};
+let categorySelected = "";
+
 const decode = (responseArrayBuffer) => {
   const dataView = new DataView(responseArrayBuffer);
   const decoder = new TextDecoder("windows-1251");
@@ -18,7 +23,6 @@ const processingString = (s) => s.trim().replaceAll("  ", "").replaceAll("\n", "
 
 const processing = (string) => {
   let arr = string.split("\n");
-  let data = {};
 
   arr.forEach((el, index) => {
     if (index > 0) {
@@ -40,5 +44,27 @@ const processing = (string) => {
     }
   });
 
-  console.log(data);
+  categorySelected = Object.keys(data)[0];
+
+  if (WIDTH > 1279) {
+    const categories = document.getElementById("block_2-aside-left");
+
+    Object.keys(data).forEach((cat) => {
+      categories.insertAdjacentHTML(
+        "beforeend",
+        `<button id="${cat}" class="category-button ${cat === categorySelected ? "active" : ""}">${cat}</button>`
+      );
+    });
+
+    Object.keys(data).forEach((cat) => {
+      const button = document.getElementById(cat);
+      button.addEventListener("click", (e) => handlePressCategory(e));
+    });
+  }
+};
+
+const handlePressCategory = (e) => {
+  document.getElementById(categorySelected).classList.remove("active");
+  document.getElementById(e?.target?.innerText).classList.add("active");
+  categorySelected = e?.target?.innerText;
 };
