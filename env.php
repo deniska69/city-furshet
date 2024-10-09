@@ -6,3 +6,4 @@ $TITLE = 'City Furshet | Новокузнецк';
 $DIR_CSS = $WWW . '/css';
 $DIR_IMAGES = $WWW . '/images';
 $DIR_JS = $WWW . '/js';
+$DIR_PRICE = $WWW . '/Price.csv';
