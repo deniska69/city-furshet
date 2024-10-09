@@ -4,8 +4,13 @@
 @import "./_block_2.css";
 
 body {
-  background-color: #eee;
+  background-color: #f2f2f2;
   font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
   padding: 0;
   margin: 0;
 }

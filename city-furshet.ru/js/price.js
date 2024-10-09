@@ -34,7 +34,7 @@ const processing = (string) => {
         }
 
         data[processingString(row[0])].push({
-          image: processingString(row[1]),
+          image: processingString(row[1]) || "city-furshet.ru/images/image_placeholder.jpg",
           title: processingString(row[2]),
           price: processingString(row[3]),
           subtitle: processingString(row[4]),
@@ -60,6 +60,8 @@ const processing = (string) => {
       const button = document.getElementById(cat);
       button.addEventListener("click", (e) => handlePressCategory(e));
     });
+
+    renderMenuDesktop();
   }
 };
 
@@ -67,4 +69,27 @@ const handlePressCategory = (e) => {
   document.getElementById(categorySelected).classList.remove("active");
   document.getElementById(e?.target?.innerText).classList.add("active");
   categorySelected = e?.target?.innerText;
+
+  if (WIDTH > 1279) renderMenuDesktop();
+};
+
+const renderMenuDesktop = () => {
+  document.getElementById("block_2-main-title").innerText = categorySelected;
+  // const menu = document.getElementById("block_2-main");
+
+  // menu.insertAdjacentHTML("afterBegin", `<h1>${categorySelected}</h1>`);
+
+  const menuGrid = document.getElementById("block_2-main-grid");
+  menuGrid.innerHTML = "";
+
+  data[categorySelected].forEach((item) => {
+    menuGrid.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card">
+          <img src="${item?.image}" class="card-image">
+          <span class="card-title">${item?.title}</span>
+          <span class="card-subtitle">${item?.subtitle}</span>
+        </div>`
+    );
+  });
 };
