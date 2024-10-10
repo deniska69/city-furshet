@@ -2,6 +2,7 @@ const WIDTH = window.innerWidth;
 
 let data = {};
 let categorySelected = "";
+let basket = [];
 
 const decode = (responseArrayBuffer) => {
   const dataView = new DataView(responseArrayBuffer);
@@ -34,6 +35,7 @@ const processing = (string) => {
         }
 
         data[processingString(row[0])].push({
+          category: processingString(row[0]),
           image: processingString(row[1]) || "city-furshet.ru/images/image_placeholder.jpg",
           title: processingString(row[2]),
           price: processingString(row[3]),
@@ -75,6 +77,25 @@ const handlePressCategory = (e) => {
   if (WIDTH > 1279) renderMenuDesktop();
 };
 
+const renderCard = (card) => {
+  return `<div class="card">
+            <img src="${card?.image}" class="card-image">
+            <span class="card-title">${card?.title}</span>
+            <span class="card-subtitle">${card?.subtitle}</span>
+            
+            <div class="card-buttons">
+              <button id="minus-${card?.category}-${card?.title}" class="card-btn-minus">
+                <span class="card-minus">-</span>
+              </button>
+
+              <button id="add-${card?.category}-${card?.title}" class="card-btn-plus">
+                <span class="card-price">${card?.price} ₽</span>
+                <span class="card-add">+</span>
+              </button>
+            </div>
+          </div>`;
+};
+
 const renderMenuDesktop = () => {
   const main = document.getElementById("block_2-main");
   main.innerHTML = "";
@@ -82,17 +103,7 @@ const renderMenuDesktop = () => {
   main.insertAdjacentHTML("beforeEnd", `<div id="block_2-main-grid"></div>`);
 
   const grid = document.getElementById("block_2-main-grid");
-
-  data[categorySelected].forEach((item) => {
-    grid.insertAdjacentHTML(
-      "beforeend",
-      `<div class="card">
-          <img src="${item?.image}" class="card-image">
-          <span class="card-title">${item?.title}</span>
-          <span class="card-subtitle">${item?.subtitle}</span>
-        </div>`
-    );
-  });
+  data[cat].forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
 };
 
 const renderMenuMobile = () => {
@@ -106,16 +117,6 @@ const renderMenuMobile = () => {
     main.insertAdjacentHTML("beforeEnd", `<div id="block_2-main-grid"></div>`);
 
     const grid = document.querySelector("#block_2-main-grid:last-of-type");
-
-    data[cat].forEach((item) => {
-      grid.insertAdjacentHTML(
-        "beforeend",
-        `<div class="card">
-            <img src="${item?.image}" class="card-image">
-            <span class="card-title">${item?.title}</span>
-            <span class="card-subtitle">${item?.subtitle}</span>
-          </div>`
-      );
-    });
+    data[cat].forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
   });
 };

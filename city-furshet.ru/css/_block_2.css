@@ -1,10 +1,8 @@
 #block_2 {
   min-height: 64vh;
-  /* max-height: 100vh; */
   width: 100%;
   display: flex;
   justify-content: center;
-  /* padding-bottom: 40px; */
 }
 
 #block_2-aside-left {
@@ -60,6 +58,74 @@
   color: #a6a6a6;
   line-height: 15px;
   letter-spacing: 0.02px;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+  align-items: center;
+}
+
+/* .card-btn-minus {
+  display: none;
+} */
+
+.card-btn-minus {
+  height: 32px;
+  border-radius: 40px;
+  background-color: #ccc;
+  text-decoration: none;
+  padding: 7px 18px;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 8px;
+  transition: 0.5s;
+}
+
+.card-btn-minus:active {
+  background-color: #858585;
+}
+
+.card-minus {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.card-btn-plus {
+  height: 32px;
+  border-radius: 40px;
+  background-color: #8cbe22;
+  text-decoration: none;
+  padding: 7px 12px;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 8px;
+  transition: 0.5s;
+}
+
+.card-btn-plus:active {
+  background-color: #577713;
+}
+
+.card-price {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02px;
+}
+
+.card-add {
+  color: #fff;
+  font-size: 1.5rem;
 }
 
 #block_2-main-grid {
