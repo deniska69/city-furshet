@@ -62,6 +62,8 @@ const processing = (string) => {
     });
 
     renderMenuDesktop();
+  } else {
+    renderMenuMobile();
   }
 };
 
@@ -74,16 +76,15 @@ const handlePressCategory = (e) => {
 };
 
 const renderMenuDesktop = () => {
-  document.getElementById("block_2-main-title").innerText = categorySelected;
-  // const menu = document.getElementById("block_2-main");
+  const main = document.getElementById("block_2-main");
+  main.innerHTML = "";
+  main.insertAdjacentHTML("afterBegin", `<h1 id="block_2-main-title">${categorySelected}</h1>`);
+  main.insertAdjacentHTML("beforeEnd", `<div id="block_2-main-grid"></div>`);
 
-  // menu.insertAdjacentHTML("afterBegin", `<h1>${categorySelected}</h1>`);
-
-  const menuGrid = document.getElementById("block_2-main-grid");
-  menuGrid.innerHTML = "";
+  const grid = document.getElementById("block_2-main-grid");
 
   data[categorySelected].forEach((item) => {
-    menuGrid.insertAdjacentHTML(
+    grid.insertAdjacentHTML(
       "beforeend",
       `<div class="card">
           <img src="${item?.image}" class="card-image">
@@ -91,5 +92,30 @@ const renderMenuDesktop = () => {
           <span class="card-subtitle">${item?.subtitle}</span>
         </div>`
     );
+  });
+};
+
+const renderMenuMobile = () => {
+  const main = document.getElementById("block_2-main");
+  main.innerHTML = "";
+
+  const categories = Object.keys(data);
+
+  categories.forEach((cat) => {
+    main.insertAdjacentHTML("beforeEnd", `<h1 id="block_2-main-title">${cat}</h1>`);
+    main.insertAdjacentHTML("beforeEnd", `<div id="block_2-main-grid"></div>`);
+
+    const grid = document.querySelector("#block_2-main-grid:last-of-type");
+
+    data[cat].forEach((item) => {
+      grid.insertAdjacentHTML(
+        "beforeend",
+        `<div class="card">
+            <img src="${item?.image}" class="card-image">
+            <span class="card-title">${item?.title}</span>
+            <span class="card-subtitle">${item?.subtitle}</span>
+          </div>`
+      );
+    });
   });
 };

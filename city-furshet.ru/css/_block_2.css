@@ -37,8 +37,8 @@
   justify-content: flex-start;
   align-items: flex-start;
   row-gap: 10px;
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 46%;
+  max-width: 46%;
 }
 
 .card-image {
@@ -60,6 +60,16 @@
   color: #a6a6a6;
   line-height: 15px;
   letter-spacing: 0.02px;
+}
+
+#block_2-main-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px 20px;
+  width: 100%;
 }
 
 @media (min-width: 1280px) {
@@ -100,12 +110,13 @@
 }
 
 @media (min-width: 1280px) {
-  #block_2-main-grid {
+  .card {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 30px 20px;
+    row-gap: 10px;
+    min-width: 18%;
+    max-width: 18%;
   }
 }
