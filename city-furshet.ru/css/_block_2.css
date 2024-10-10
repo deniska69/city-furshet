@@ -67,11 +67,8 @@
   align-items: center;
 }
 
-/* .card-btn-minus {
-  display: none;
-} */
-
 .card-btn-minus {
+  display: none;
   height: 32px;
   border-radius: 40px;
   background-color: #ccc;
@@ -80,7 +77,6 @@
   box-sizing: border-box;
   border: none;
   cursor: pointer;
-  display: flex;
   flex-direction: row;
   align-items: center;
   column-gap: 8px;

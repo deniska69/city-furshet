@@ -103,7 +103,7 @@ const renderMenuDesktop = () => {
   main.insertAdjacentHTML("beforeEnd", `<div id="block_2-main-grid"></div>`);
 
   const grid = document.getElementById("block_2-main-grid");
-  data[cat].forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
+  data[categorySelected].forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
 };
 
 const renderMenuMobile = () => {
