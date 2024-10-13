@@ -1,5 +1,3 @@
-import { transliterate } from "./helpers.js";
-
 const WIDTH = window.innerWidth;
 const IS_MOBILE = WIDTH < 1280;
 
@@ -41,31 +39,32 @@ const renderMenuCategories = (categories, selectedCategory, onPress) => {
   });
 };
 
-const renderMenuMobile = (data) => {
+const renderMenuItemsMobile = (categories, data) => {
   const main = document.getElementById("menu-main");
   main.innerHTML = "";
 
-  const categories = Object.keys(data);
-
   categories.forEach((cat) => {
-    const idSection = `menu-main-${transliterate(cat)}`;
-    main.insertAdjacentHTML("beforeEnd", `<div id="${idSection}"></div>`);
+    const idSection = `menu-main-${cat?.id}`;
+    main.insertAdjacentHTML("beforeEnd", `<div id="${idSection}" class="menu-section"></div>`);
 
     const section = document.querySelector(`#${idSection}:last-of-type`);
+    section.insertAdjacentHTML("beforeEnd", `<h1 id="menu-main-title"">${cat?.title}</h1>`);
 
-    section.insertAdjacentHTML("beforeEnd", `<h1 id="menu-main-title">${cat}</h1>`);
-    section.insertAdjacentHTML("beforeEnd", `<div id="menu-main-grid"></div>`);
+    const idGrid = `menu-main-grid-${cat?.id}`;
+    section.insertAdjacentHTML("beforeEnd", `<div id="${idGrid}" class="menu-items"></div>`);
 
-    // const grid = document.querySelector("#menu-main-grid:last-of-type");
-    // data[cat].forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
+    const grid = document.getElementById(idGrid);
+    data[cat?.id]?.items.forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
   });
 };
 
-const renderMenuItems = (data) => {
+const renderMenuItemsDesktop = (data) => {};
+
+const renderMenuItems = (...args) => {
   if (IS_MOBILE) {
-    renderMenuMobile(data);
+    renderMenuItemsMobile(...args);
   } else {
-    // renderMenuDesktop(data);
+    renderMenuItemsDesktop(...args);
   }
 };
 

@@ -13,7 +13,7 @@ const start = (res) => {
   selectedCategory = categories[0];
 
   renderMenuCategories(categories, selectedCategory, handlePressCategory);
-  //   renderMenuItems(data);
+  renderMenuItems(categories, data);
 };
 
 const handlePressCategory = (e) => {
