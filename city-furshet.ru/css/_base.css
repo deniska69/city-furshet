@@ -24,7 +24,7 @@
 
 #block_1-container-logo {
   max-width: 80vw;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 #block_1-container-description_first-wrap {
@@ -42,33 +42,50 @@
 }
 
 #block_1-container-description_first {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
   font-weight: 500;
 }
 
 #block_1-container-description_second {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #8cbe22;
   font-weight: 500;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 #block_1-container-button {
   background: #8cbe22;
-  border-radius: 20px;
+  border-radius: 10px;
   text-decoration: none;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 10px 20px;
   text-align: center;
   box-sizing: border-box;
   border: none;
   cursor: pointer;
+}
+
+@media (min-width: 321px) {
+  #block_1-container-logo {
+    margin-bottom: 3rem;
+  }
+
+  #block_1-container-description_first {
+    font-size: 2rem;
+  }
+
+  #block_1-container-description_second {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  #block_1-container-button {
+    font-size: 2rem;
+    padding: 20px 40px;
+  }
 }
 
 #block_1-container-button:hover {
@@ -96,5 +113,13 @@
   #block_1-container-description_first-wrap {
     width: 450px;
     height: 95px;
+  }
+}
+
+@media (min-width: 1536px) {
+  #block_1-container {
+    width: 50%;
+    margin-left: 40%;
+    background-size: 70% auto;
   }
 }

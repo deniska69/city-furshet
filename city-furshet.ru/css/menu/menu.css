@@ -10,6 +10,11 @@
   justify-content: center;
 }
 
+#menu,
+.menu-section {
+  scroll-margin-top: 11vh;
+}
+
 #menu .container {
   max-width: 1280px;
   gap: 20px;

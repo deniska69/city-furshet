@@ -1,5 +1,4 @@
-const WIDTH = window.innerWidth;
-const IS_MOBILE = WIDTH < 1280;
+const IS_MOBILE = window.innerWidth < 1280;
 
 const renderCard = (card) =>
   `<div class="card">
@@ -29,10 +28,10 @@ const renderMenuCategories = (categories, selectedCategory, onPress) => {
   categories.forEach((cat) => {
     const active = cat?.id === selectedCategory?.id ? " active" : "";
 
-    el.insertAdjacentHTML(
-      "beforeend",
-      `<${typeEl} id="${cat?.id}" class="category-button${active}">${cat?.title}</${typeEl}>`
-    );
+    const elMobile = `<a id="${cat?.id}" class="category-button${active}" href="#menu-main-${cat?.id}">${cat?.title}</a>`;
+    const elDesktop = `<button id="${cat?.id}" class="category-button${active}">${cat?.title}</button>`;
+
+    el.insertAdjacentHTML("beforeend", IS_MOBILE ? elMobile : elDesktop);
   });
 
   categories.forEach((cat) => {

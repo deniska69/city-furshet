@@ -15,7 +15,7 @@
     <!-- Block #1 - Base -->
     <?php include($DIR_BLOCKS . "/base.php"); ?>
 
-    <!-- Block #1 - Menu -->
+    <!-- Block #2 - Menu -->
     <?php include($DIR_BLOCKS . "/menu.php"); ?>
 
     <!-- Scripts -->
