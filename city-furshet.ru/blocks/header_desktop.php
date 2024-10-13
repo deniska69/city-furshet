@@ -1,5 +1,5 @@
 <div id="header-desktop" class="noselect">
-    <a href="#block_2">Меню</a>
+    <a href="#menu">Меню</a>
     <a href="">Акции</a>
     <a href="">Доставка и оплата</a>
     <a href="">Контакты</a>
