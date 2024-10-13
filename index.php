@@ -12,8 +12,8 @@ include 'env.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= $DIR_CSS ?>/_framework.css?ver=1" />
-    <link rel="stylesheet" href="<?= $DIR_CSS ?>/_style.css?ver=1" />
+    <link rel="stylesheet" href="<?= $DIR_CSS ?>/_framework.css?ver=<?= $CACHE_V ?>" />
+    <link rel="stylesheet" href="<?= $DIR_CSS ?>/_style.css?ver=<?= $CACHE_V ?>" />
     <title><?= $TITLE ?></title>
 </head>
 
@@ -22,19 +22,19 @@ include 'env.php';
     <!-- Header: Mobile -->
     <div id="header-mobile" class="noselect">
         <a href="/" id="header-mobile-logo-wrap">
-            <img id="header-mobile-logo" src="<?= $DIR_IMAGES ?>/header/logo_250w.png" alt="logo_white_250w">
+            <img id="header-mobile-logo" src="<?= $DIR_IMAGES ?>/header/logo_250w.png?ver=<?= $CACHE_V ?>" alt="logo_white_250w">
         </a>
 
         <div class="hstack gap-x-4">
             <a href="" id="header-mobile-basket-wrap">
-                <img id="header-mobile-basket" src="<?= $DIR_IMAGES ?>/header/icon_basket_64w.png" alt="icon_basket_64w">
+                <img id="header-mobile-basket" src="<?= $DIR_IMAGES ?>/header/icon_basket_64w.png?ver=<?= $CACHE_V ?>" alt="icon_basket_64w">
                 <div id="header-mobile-basket-badge-wrap">
                     <span id="header-mobile-basket-badge-counter">0</span>
                 </div>
             </a>
 
             <a href="" id="header-mobile-burger-wrap">
-                <img id="header-mobile-burger" src="<?= $DIR_IMAGES ?>/header/icon_burger_64w.png" alt="icon_burger_64w">
+                <img id="header-mobile-burger" src="<?= $DIR_IMAGES ?>/header/icon_burger_64w.png?ver=<?= $CACHE_V ?>" alt="icon_burger_64w">
             </a>
         </div>
     </div>
@@ -56,7 +56,7 @@ include 'env.php';
     <!-- Block #1 - Base -->
     <div id="block_1" class="noselect">
         <div id="block_1-container">
-            <img id="block_1-container-logo" src="<?= $DIR_IMAGES ?>/block_1/logo_color_500w.png" alt="logo_color_500w">
+            <img id="block_1-container-logo" src="<?= $DIR_IMAGES ?>/block_1/logo_color_500w.png?ver=<?= $CACHE_V ?>" alt="logo_color_500w">
             <div id="block_1-container-description_first-wrap">
                 <span id="block_1-container-description_first">Вкуснее, чем дома</span>
             </div>
