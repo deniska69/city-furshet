@@ -17,7 +17,6 @@
   .card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     row-gap: 10px;
     min-width: 200px;
     max-width: 200px;
@@ -113,10 +112,16 @@
   .card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: flex-start;
     row-gap: 10px;
     min-width: 18%;
     max-width: 18%;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 100%;
   }
 }

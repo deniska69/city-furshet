@@ -23,8 +23,6 @@ const renderCard = (card) =>
 const renderMenuCategories = (categories, selectedCategory, onPress) => {
   const el = document.getElementById(`menu-categories-${IS_MOBILE ? "mobile" : "desktop"}`);
 
-  const typeEl = IS_MOBILE ? "a" : "button";
-
   categories.forEach((cat) => {
     const active = cat?.id === selectedCategory?.id ? " active" : "";
 
@@ -40,11 +38,13 @@ const renderMenuCategories = (categories, selectedCategory, onPress) => {
   });
 };
 
-const renderMenuItemsMobile = (categories, data) => {
+const renderMenuItems = (categories, data, selectedCategory) => {
+  const listCategories = IS_MOBILE ? categories : [selectedCategory];
+
   const main = document.getElementById("menu-main");
   main.innerHTML = "";
 
-  categories.forEach((cat) => {
+  listCategories.forEach((cat) => {
     const idSection = `menu-main-${cat?.id}`;
     main.insertAdjacentHTML("beforeEnd", `<div id="${idSection}" class="menu-section"></div>`);
 
@@ -57,16 +57,6 @@ const renderMenuItemsMobile = (categories, data) => {
     const grid = document.getElementById(idGrid);
     data[cat?.id]?.items.forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
   });
-};
-
-const renderMenuItemsDesktop = (data) => {};
-
-const renderMenuItems = (...args) => {
-  if (IS_MOBILE) {
-    renderMenuItemsMobile(...args);
-  } else {
-    renderMenuItemsDesktop(...args);
-  }
 };
 
 export { renderMenuCategories, renderMenuItems };

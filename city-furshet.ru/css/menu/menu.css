@@ -12,7 +12,7 @@
 
 #menu,
 .menu-section {
-  scroll-margin-top: 11vh;
+  scroll-margin-top: 10vh;
 }
 
 #menu .container {
@@ -50,11 +50,12 @@
 @media (min-width: 1279px) {
   #menu-main {
     width: 100%;
+    align-self: flex-start;
+    overflow-y: auto;
   }
 
   #menu .container {
     flex-direction: row;
-
     padding: 20px 16px;
   }
 }
