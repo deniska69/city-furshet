@@ -12,7 +12,6 @@ include 'env.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="<?= $DIR_CSS ?>/_framework.css?ver=1" />
     <link rel="stylesheet" href="<?= $DIR_CSS ?>/_style.css?ver=1" />
     <title><?= $TITLE ?></title>
@@ -20,41 +19,38 @@ include 'env.php';
 
 <body>
 
-    <!-- Header -->
-    <div id="header" class="noselect">
-        <!-- Header: Desktop -->
-        <div id="header-menu_desktop">
-            <a href="#block_2">Меню</a>
-            <a href="">Акции</a>
-            <a href="">Доставка и оплата</a>
-            <a href="">Контакты</a>
-            <a href="" id="header-basket-wrap">
-                <span>Корзина</span>
-                <div id="header-basket-badge-wrap">
-                    <span id="header-basket-badge-counter">0</span>
+    <!-- Header: Mobile -->
+    <div id="header-mobile" class="noselect">
+        <a href="/" id="header-mobile-logo-wrap">
+            <img id="header-mobile-logo" src="<?= $DIR_IMAGES ?>/header/logo_250w.png" alt="logo_white_250w">
+        </a>
+
+        <div class="hstack gap-x-4">
+            <a href="" id="header-mobile-basket-wrap">
+                <img id="header-mobile-basket" src="<?= $DIR_IMAGES ?>/header/icon_basket_64w.png" alt="icon_basket_64w">
+                <div id="header-mobile-basket-badge-wrap">
+                    <span id="header-mobile-basket-badge-counter">0</span>
                 </div>
             </a>
-        </div>
 
-        <!-- Header: Mobile -->
-        <div id="header-menu_mobile">
-            <a href="" id="header-menu_mobile-logo_wrap">
-                <img id="header-menu_mobile-logo" src="<?= $DIR_IMAGES ?>/header/logo_white_250w.png" alt="logo_white_250w">
+            <a href="" id="header-mobile-burger-wrap">
+                <img id="header-mobile-burger" src="<?= $DIR_IMAGES ?>/header/icon_burger_64w.png" alt="icon_burger_64w">
             </a>
-
-            <div class="hstack gap-x-4">
-                <a href="" id="header-menu_mobile-basket_wrap">
-                    <img id="header-menu_mobile-basket" src="<?= $DIR_IMAGES ?>/header/icon_basket_64w.png" alt="icon_basket_64w">
-                    <div id="header-menu_mobile-basket-badge-wrap">
-                        <span id="header-menu_mobile-basket-badge-counter">0</span>
-                    </div>
-                </a>
-
-                <a href="" id="header-menu_mobile-burger_wrap">
-                    <img id="header-menu_mobile-burger" src="<?= $DIR_IMAGES ?>/header/icon_burger_64w.png" alt="icon_burger_64w">
-                </a>
-            </div>
         </div>
+    </div>
+
+    <!-- Header: Desktop -->
+    <div id="header-desktop" class="noselect">
+        <a href="#block_2">Меню</a>
+        <a href="">Акции</a>
+        <a href="">Доставка и оплата</a>
+        <a href="">Контакты</a>
+        <a href="" id="header-basket-wrap">
+            <span>Корзина</span>
+            <div id="header-basket-badge-wrap">
+                <span id="header-basket-badge-counter">0</span>
+            </div>
+        </a>
     </div>
 
     <!-- Block #1 - Base -->
@@ -86,7 +82,7 @@ include 'env.php';
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="<?= $DIR_JS ?>/header.js"></script>
-    <script src="<?= $DIR_JS ?>/price.js" type="text/javascript" language="JavaScript"></script>
+    <script src="<?= $DIR_JS ?>/price.js"></script>
     <!-- <script src="send.js"></script> -->
 </body>
 
