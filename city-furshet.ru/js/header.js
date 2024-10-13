@@ -2,7 +2,9 @@ const headerMobile = document.getElementById("header-mobile");
 const headerDesktop = document.getElementById("header-desktop");
 
 window.addEventListener("scroll", (e) => {
-  let scroll = Math.round((this.scrollY < 200 ? this.scrollY : 200) / 4);
+  const pos = (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+  let scroll = Math.round((pos < 200 ? pos : 200) / 4);
 
   if (headerMobile) {
     headerMobile.style.backgroundColor = `rgba(255, 255, 255, 0.${scroll < 10 ? "0" + scroll : scroll})`;
