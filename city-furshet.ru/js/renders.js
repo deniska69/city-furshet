@@ -3,9 +3,11 @@ const IS_MOBILE = WIDTH < 1280;
 
 const renderCard = (card) =>
   `<div class="card">
-      <img src="${card?.image}" class="card-image">
-      <span class="card-title">${card?.title}</span>
-      <span class="card-subtitle">${card?.subtitle}</span>
+      <div class="card-info">
+        <img src="${card?.image}" class="card-image">
+        <span class="card-title">${card?.title}</span>
+        <span class="card-subtitle">${card?.subtitle}</span>
+      </div>
       
       <div class="card-buttons">
         <button id="minus-${card?.category}-${card?.title}" class="card-btn-minus">

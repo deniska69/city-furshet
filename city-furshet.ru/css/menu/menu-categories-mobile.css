@@ -7,6 +7,17 @@
   column-gap: 10px;
 }
 
+#menu-categories-mobile {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#menu-categories-mobile::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 #menu-categories-mobile a:first-child {
   margin-left: 10px;
 }
