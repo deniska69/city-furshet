@@ -1,8 +1,8 @@
 @import "./_framework.css";
 @import "./_header_mobile.css";
 @import "./_header_desktop.css";
-@import "./_block_1.css";
-@import "./_block_2.css";
+@import "./_base.css";
+@import "./_menu.css";
 
 body {
   background-color: #f2f2f2;
