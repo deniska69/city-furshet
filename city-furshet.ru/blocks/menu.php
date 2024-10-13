@@ -1,12 +1,12 @@
- <div id="block_2">
+ <div id="menu">
      <div class="container">
-         <div id="block_2-aside-left"></div>
+         <div id="menu-categories-desktop"></div>
 
-         <div id="block_2-main">
-             <h1 id="block_2-main-title"></h1>
-             <div id="block_2-main-grid">
+         <div id="menu-categories-mobile"></div>
 
-             </div>
+         <div id="menu-main">
+             <h1 id="menu-main-title"></h1>
+             <div id="menu-main-grid"></div>
          </div>
      </div>
  </div>

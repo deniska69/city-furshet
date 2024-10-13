@@ -49,7 +49,7 @@ const processing = (string) => {
   categorySelected = Object.keys(data)[0];
 
   if (WIDTH > 1279) {
-    const categories = document.getElementById("block_2-aside-left");
+    const categories = document.getElementById("menu-categories-desktop");
 
     Object.keys(data).forEach((cat) => {
       categories.insertAdjacentHTML(
@@ -77,46 +77,45 @@ const handlePressCategory = (e) => {
   if (WIDTH > 1279) renderMenuDesktop();
 };
 
-const renderCard = (card) => {
-  return `<div class="card">
-            <img src="${card?.image}" class="card-image">
-            <span class="card-title">${card?.title}</span>
-            <span class="card-subtitle">${card?.subtitle}</span>
-            
-            <div class="card-buttons">
-              <button id="minus-${card?.category}-${card?.title}" class="card-btn-minus">
-                <span class="card-minus">-</span>
-              </button>
+const renderCard = (card) =>
+  `<div class="card">
+    <img src="${card?.image}" class="card-image">
+    <span class="card-title">${card?.title}</span>
+    <span class="card-subtitle">${card?.subtitle}</span>
+    
+    <div class="card-buttons">
+      <button id="minus-${card?.category}-${card?.title}" class="card-btn-minus">
+        <span class="card-minus">-</span>
+      </button>
 
-              <button id="add-${card?.category}-${card?.title}" class="card-btn-plus">
-                <span class="card-price">${card?.price} ₽</span>
-                <span class="card-add">+</span>
-              </button>
-            </div>
-          </div>`;
-};
+      <button id="add-${card?.category}-${card?.title}" class="card-btn-plus">
+        <span class="card-price">${card?.price} ₽</span>
+        <span class="card-add">+</span>
+      </button>
+    </div>
+  </div>`;
 
 const renderMenuDesktop = () => {
-  const main = document.getElementById("block_2-main");
+  const main = document.getElementById("menu-main");
   main.innerHTML = "";
-  main.insertAdjacentHTML("afterBegin", `<h1 id="block_2-main-title">${categorySelected}</h1>`);
-  main.insertAdjacentHTML("beforeEnd", `<div id="block_2-main-grid"></div>`);
+  main.insertAdjacentHTML("afterBegin", `<h1 id="menu-main-title">${categorySelected}</h1>`);
+  main.insertAdjacentHTML("beforeEnd", `<div id="menu-main-grid"></div>`);
 
-  const grid = document.getElementById("block_2-main-grid");
+  const grid = document.getElementById("menu-main-grid");
   data[categorySelected].forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
 };
 
 const renderMenuMobile = () => {
-  const main = document.getElementById("block_2-main");
+  const main = document.getElementById("menu-main");
   main.innerHTML = "";
 
   const categories = Object.keys(data);
 
   categories.forEach((cat) => {
-    main.insertAdjacentHTML("beforeEnd", `<h1 id="block_2-main-title">${cat}</h1>`);
-    main.insertAdjacentHTML("beforeEnd", `<div id="block_2-main-grid"></div>`);
+    main.insertAdjacentHTML("beforeEnd", `<h1 id="menu-main-title">${cat}</h1>`);
+    main.insertAdjacentHTML("beforeEnd", `<div id="menu-main-grid"></div>`);
 
-    const grid = document.querySelector("#block_2-main-grid:last-of-type");
+    const grid = document.querySelector("#menu-main-grid:last-of-type");
     data[cat].forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
   });
 };

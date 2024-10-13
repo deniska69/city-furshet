@@ -5,6 +5,6 @@
             <span id="block_1-container-description_first">Вкуснее, чем дома</span>
         </div>
         <span id="block_1-container-description_second">Быстрее, чем у плиты</span>
-        <a id="block_1-container-button" href="#block_2">Посмотреть меню</a>
+        <a id="block_1-container-button" href="#menu">Посмотреть меню</a>
     </div>
 </div>
