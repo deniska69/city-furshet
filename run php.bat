@@ -1,3 +1,3 @@
 cd C:\Dev\web-furshet
-php -S localhost:4000
+php -S 192.168.0.102:4000
 pause
