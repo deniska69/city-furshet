@@ -4,7 +4,7 @@
 @import "./menu-cards.css";
 
 #menu {
-  min-height: 64vh;
+  min-height: 90vh;
   width: 100%;
   display: flex;
   justify-content: center;
