@@ -5,6 +5,13 @@
   row-gap: 10px;
   min-width: 46%;
   max-width: 46%;
+  cursor: pointer;
+}
+
+.card:active,
+.card.touched {
+  transform: scale(97.5%);
+  transition: transform 0.05s ease-in-out;
 }
 
 .card-info {

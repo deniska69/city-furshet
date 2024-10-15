@@ -68,7 +68,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 321px) {
+@media (min-width: 500px) {
   #block_1-container-logo {
     margin-bottom: 3rem;
   }
