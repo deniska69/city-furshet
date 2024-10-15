@@ -1,7 +1,7 @@
 const IS_MOBILE = window.innerWidth < 1280;
 
 const renderCard = (card) =>
-  `<div class="card">
+  `<div id="${card?.id}" class="card noselect">
       <div class="card-info">
         <img src="${card?.image}" class="card-image">
         <span class="card-title">${card?.title}</span>

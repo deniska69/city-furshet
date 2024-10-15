@@ -20,9 +20,13 @@ const processing = (string) => {
     if (index > 0) {
       const row = el.split(";");
 
+      const categoryId = processingString(transliterate(row[0]));
+      const id = categoryId + "_" + processingString(transliterate(row[2]));
+
       const item = {
-        categoryId: processingString(transliterate(row[0])),
+        categoryId,
         categoryTitle: processingString(row[0]),
+        id,
         image: processingString(row[1]) || "city-furshet.ru/images/image_placeholder.jpg",
         title: processingString(row[2]),
         price: processingString(row[3]),
@@ -119,9 +123,11 @@ const cyryllic_symbols = {
 };
 
 export const transliterate = (string) => {
+  if (!string) return string;
+
   return string
     .split("")
-    .map((char) => cyryllic_symbols[char] || char)
+    .map((char) => cyryllic_symbols[char] || "")
     .join("")
     .replaceAll(" ", "");
 };
