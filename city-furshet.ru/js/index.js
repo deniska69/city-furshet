@@ -23,7 +23,7 @@ const handlePressCategory = (e) => {
   selectedCategory = categories.find((el) => el?.title === e?.target?.innerText);
   document.getElementById(selectedCategory?.id).classList.add("active");
 
-  if (!IS_MOBILE) renderMenuItems(categories, data, selectedCategory);
+  if (!IS_MOBILE) renderMenuItems(categories, data, selectedCategory, handlePressCard);
 };
 
 const handlePressCard = (id, action = true) => {
