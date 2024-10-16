@@ -9,13 +9,17 @@ const renderCard = (card) =>
       </div>
       
       <div class="card-buttons">
-        <button id="minus-${card?.category}-${card?.title}" class="card-btn-minus">
-          <span class="card-minus">-</span>
+        <button 
+          id="${card?.id}-minus" 
+          class="card-btn-minus hide">
+          <img src="city-furshet.ru/images/minus.svg" >
         </button>
   
-        <button id="add-${card?.category}-${card?.title}" class="card-btn-plus">
+        <button 
+          id="${card?.id}-plus" 
+          class="card-btn-plus">
           <span class="card-price">${card?.price} ₽</span>
-          <span class="card-add">+</span>
+           <img src="city-furshet.ru/images/plus.svg" >
         </button>
       </div>
     </div>`;
@@ -38,7 +42,7 @@ const renderMenuCategories = (categories, selectedCategory, onPress) => {
   });
 };
 
-const renderMenuItems = (categories, data, selectedCategory) => {
+const renderMenuItems = (categories, data, selectedCategory, onPress) => {
   const listCategories = IS_MOBILE ? categories : [selectedCategory];
 
   const main = document.getElementById("menu-main");
@@ -55,7 +59,25 @@ const renderMenuItems = (categories, data, selectedCategory) => {
     section.insertAdjacentHTML("beforeEnd", `<div id="${idGrid}" class="menu-items"></div>`);
 
     const grid = document.getElementById(idGrid);
-    data[cat?.id]?.items.forEach((card) => grid.insertAdjacentHTML("beforeend", renderCard(card)));
+    data[cat?.id]?.items.forEach((card) => {
+      grid.insertAdjacentHTML("beforeend", renderCard(card));
+
+      const elCard = document.getElementById(card?.id);
+      const btnMinus = document.getElementById(`${card?.id}-minus`);
+      const btnPlus = document.getElementById(`${card?.id}-plus`);
+
+      elCard.addEventListener("click", () => onPress(card?.id, true));
+      btnMinus.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        onPress(card?.id, false);
+      });
+      btnPlus.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        onPress(card?.id, true);
+      });
+    });
   });
 };
 

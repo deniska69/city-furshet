@@ -15,7 +15,7 @@ const start = (res) => {
   selectedCategory = categories[0];
 
   renderMenuCategories(categories, selectedCategory, handlePressCategory);
-  renderMenuItems(categories, data, selectedCategory);
+  renderMenuItems(categories, data, selectedCategory, handlePressCard);
 };
 
 const handlePressCategory = (e) => {
@@ -26,36 +26,12 @@ const handlePressCategory = (e) => {
   if (!IS_MOBILE) renderMenuItems(categories, data, selectedCategory);
 };
 
-let xStart = null,
-  yStart = null,
-  xDiff = null,
-  yDiff = null;
+const handlePressCard = (id, action = true) => {
+  if (!id) return alert("no id card");
 
-const handleTouchStart = (e) => {
-  xStart = null;
-  yStart = null;
-  xDiff = null;
-  yDiff = null;
-
-  if (e.target.closest(".card")) {
-    xStart = e.touches[0]?.clientX;
-    yStart = e.touches[0]?.clientY;
+  if (action) {
+    document.getElementById(`${id}-minus`).classList.remove("hide");
+  } else {
+    document.getElementById(`${id}-minus`).classList.add("hide");
   }
 };
-
-const handleTouchMove = (e) => {
-  if (!xStart || !yStart || !e.target.closest(".card")) return;
-  xDiff = xStart - e.touches[0]?.clientX;
-  yDiff = yStart - e.touches[0]?.clientY;
-};
-
-const handleTouchEnd = (e) => {
-  if (!xDiff && !yDiff && !!e.target.closest(".card")) {
-    const id = e.target.closest(".card")?.id;
-    console.log({ id });
-  }
-};
-
-document.addEventListener("touchstart", handleTouchStart, false);
-document.addEventListener("touchmove", handleTouchMove, false);
-document.addEventListener("touchend", handleTouchEnd, false);
