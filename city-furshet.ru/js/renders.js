@@ -76,19 +76,31 @@ const renderMenuItems = (categories, data, selectedCategory, onPress) => {
       const btnMinus = document.getElementById(`${card?.id}-minus`);
       const btnPlus = document.getElementById(`${card?.id}-plus`);
 
-      elCard.addEventListener("click", () => onPress(card?.id, true));
+      elCard.addEventListener("click", () => onPress(card?.id, "modal"));
+
       btnMinus.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        onPress(card?.id, false);
+        onPress(card, "minus");
       });
+
       btnPlus.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        onPress(card?.id, true);
+        onPress(card, "plus");
       });
     });
   });
 };
 
-export { renderMenuCategories, renderMenuItems };
+const renderBasketButton = (count = null) => {
+  const wrap = document.getElementById(`header${IS_MOBILE ? "-mobile" : ""}-basket-badge-wrap`);
+  const text = document.getElementById(`header${IS_MOBILE ? "-mobile" : ""}-basket-badge-counter`);
+
+  if (!count) return wrap.classList.add("hide");
+
+  wrap.classList.remove("hide");
+  text.innerText = count;
+};
+
+export { renderMenuCategories, renderMenuItems, renderBasketButton };

@@ -26,7 +26,34 @@
 }
 
 #header-basket-wrap {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.3rem;
   margin-right: 4rem;
+}
+
+#header-basket-badge-wrap {
+  border-radius: 100%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7852f;
+  transition: all 0.2s;
+}
+
+#header-basket-badge-wrap.hide {
+  transform: scale(0);
+  visibility: hidden;
+}
+
+#header-basket-badge-counter {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1rem;
+  transition: all 0.2s;
 }
 
 @media (min-width: 1279px) {

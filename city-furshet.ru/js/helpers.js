@@ -21,7 +21,7 @@ const processing = (string) => {
       const row = el.split(";");
 
       const categoryId = processingString(transliterate(row[0]));
-      const id = categoryId + "_" + processingString(transliterate(row[2]));
+      const id = categoryId + "_" + processingString(transliterate(row[2])) + "_" + processingString(row[3]);
 
       const item = {
         categoryId,

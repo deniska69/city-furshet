@@ -37,29 +37,6 @@
   align-items: center;
 }
 
-#header-basket-wrap {
-  display: flex;
-  flex-direction: row;
-  column-gap: 0.3rem;
-}
-
-#header-basket-badge-wrap {
-  border-radius: 100%;
-  width: 1.5rem;
-  height: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f7852f;
-}
-
-#header-basket-badge-counter {
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1rem;
-}
-
 #header-mobile-basket-wrap {
   display: flex;
   flex-direction: row;
@@ -78,6 +55,12 @@
   justify-content: center;
   align-items: center;
   background-color: #f7852f;
+  transition: all 0.2s;
+}
+
+#header-mobile-basket-badge-wrap.hide {
+  transform: scale(0);
+  visibility: hidden;
 }
 
 #header-mobile-basket-badge-counter {

@@ -8,8 +8,8 @@
   cursor: pointer;
 }
 
-.card:active,
-.card.touched {
+.card-info:active,
+.card-info.touched {
   transform: scale(97.5%);
   transition: transform 0.05s ease-in-out;
 }
@@ -18,6 +18,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  height: 100%;
 }
 
 @media (min-width: 500px) {
@@ -54,7 +55,6 @@
 .card-buttons {
   display: flex;
   flex-direction: row;
-  column-gap: 8px;
   align-items: center;
   justify-content: flex-start;
 }
@@ -74,6 +74,7 @@
   justify-content: center;
   column-gap: 8px;
   transition: all 0.2s;
+  margin-right: 8px;
 }
 
 .card-btn-minus:active {
@@ -87,6 +88,12 @@
   height: 0;
   padding: 0;
   margin: 0;
+}
+
+.card-btn-minus:active,
+.card-btn-minus.touched {
+  transform: scale(97.5%);
+  transition: transform 0.05s ease-in-out;
 }
 
 .card-minus {
@@ -113,6 +120,12 @@
 
 .card-btn-plus:active {
   background-color: #577713;
+}
+
+.card-btn-plus:active,
+.card-btn-plus.touched {
+  transform: scale(97.5%);
+  transition: transform 0.05s ease-in-out;
 }
 
 .card-price {

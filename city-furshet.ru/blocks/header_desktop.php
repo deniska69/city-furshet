@@ -5,7 +5,7 @@
     <a href="">Контакты</a>
     <a href="" id="header-basket-wrap">
         <span>Корзина</span>
-        <div id="header-basket-badge-wrap">
+        <div id="header-basket-badge-wrap" class="hide">
             <span id="header-basket-badge-counter">0</span>
         </div>
     </a>

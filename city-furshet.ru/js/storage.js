@@ -1,17 +1,8 @@
 const TEST_KEY = "$nJD<dgn2";
 
-class Storage {
+export default class Storage {
   constructor() {
     this.supported = undefined;
-  }
-  get(key) {
-    if (!this.isSupported) return null;
-    return JSON.parse(localStorage.getItem(key.toString()));
-  }
-
-  set(key, value) {
-    if (!this.isSupported) return null;
-    localStorage.setItem(key.toString(), JSON.stringify(value));
   }
 
   isSupported() {
@@ -28,6 +19,14 @@ class Storage {
 
     return this.supported;
   }
-}
 
-export const storage = new Storage();
+  get(key) {
+    if (!this.isSupported) return null;
+    return JSON.parse(localStorage.getItem(key.toString()));
+  }
+
+  set(key, value) {
+    if (!this.isSupported) return null;
+    localStorage.setItem(key.toString(), JSON.stringify(value));
+  }
+}

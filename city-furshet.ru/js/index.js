@@ -1,5 +1,8 @@
 import { readCSV } from "./helpers.js";
-import { renderMenuCategories, renderMenuItems } from "./renders.js";
+import { renderMenuCategories, renderMenuItems, renderBasketButton } from "./renders.js";
+import Basket from "./basket.js";
+
+const basket = new Basket();
 
 const IS_MOBILE = window.innerWidth < 1280;
 
@@ -14,8 +17,11 @@ const start = (res) => {
   categories = Object.keys(data).map((cat) => ({ id: data[cat]?.id, title: data[cat]?.title }));
   selectedCategory = categories[0];
 
+  basket.init();
+
   renderMenuCategories(categories, selectedCategory, handlePressCategory);
   renderMenuItems(categories, data, selectedCategory, handlePressCard);
+  renderBasketButton(basket.totalCount());
 };
 
 const handlePressCategory = (e) => {
@@ -26,12 +32,27 @@ const handlePressCategory = (e) => {
   if (!IS_MOBILE) renderMenuItems(categories, data, selectedCategory, handlePressCard);
 };
 
-const handlePressCard = (id, action = true) => {
-  if (!id) return alert("no id card");
+const handlePressCard = (item, action = true) => {
+  if (!item) return alert("no id card");
 
-  if (action) {
-    document.getElementById(`${id}-minus`).classList.remove("hide");
-  } else {
-    document.getElementById(`${id}-minus`).classList.add("hide");
+  switch (action) {
+    case "modal":
+      // alert("work in progress.");
+      console.log(basket.items);
+      console.log(basket.totalCount());
+      break;
+    case "plus":
+      document.getElementById(`${item?.id}-minus`).classList.remove("hide");
+      basket.add(item);
+      break;
+    case "minus":
+      basket.remove(item);
+
+      if (basket.count(item) < 1) {
+        document.getElementById(`${item?.id}-minus`).classList.add("hide");
+      }
+      break;
   }
+
+  renderBasketButton(basket.totalCount());
 };
