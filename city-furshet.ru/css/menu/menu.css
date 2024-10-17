@@ -15,6 +15,15 @@
   scroll-margin-top: 10vh;
 }
 
+.menu-section.hide {
+  transform: scale(0);
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
 #menu .container {
   max-width: 1280px;
   gap: 20px;
@@ -33,7 +42,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   align-self: center;
-  row-gap: 20px;
+  /* row-gap: 20px; */
   padding: 10px;
 }
 

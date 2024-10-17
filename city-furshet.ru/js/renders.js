@@ -43,14 +43,24 @@ const renderMenuCategories = (categories, selectedCategory, onPress) => {
 };
 
 const renderMenuItems = (categories, data, selectedCategory, onPress) => {
-  const listCategories = IS_MOBILE ? categories : [selectedCategory];
-
   const main = document.getElementById("menu-main");
-  main.innerHTML = "";
 
-  listCategories.forEach((cat) => {
+  categories.forEach((cat) => {
     const idSection = `menu-main-${cat?.id}`;
-    main.insertAdjacentHTML("beforeEnd", `<div id="${idSection}" class="menu-section"></div>`);
+    const sectionExist = document.getElementById(idSection);
+    const hide = !IS_MOBILE && cat?.id !== selectedCategory?.id ? " hide" : "";
+
+    if (sectionExist) {
+      if (hide && !sectionExist.classList.contains("hide")) {
+        document.getElementById(idSection).classList.add("hide");
+      } else if (!hide && sectionExist.classList.contains("hide")) {
+        document.getElementById(idSection).classList.remove("hide");
+      }
+
+      return;
+    }
+
+    main.insertAdjacentHTML("beforeEnd", `<div id="${idSection}" class="menu-section${hide}"></div>`);
 
     const section = document.querySelector(`#${idSection}:last-of-type`);
     section.insertAdjacentHTML("beforeEnd", `<h1 id="menu-main-title"">${cat?.title}</h1>`);
