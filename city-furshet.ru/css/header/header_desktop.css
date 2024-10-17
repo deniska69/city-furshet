@@ -33,7 +33,9 @@
   #header-desktop {
     display: flex;
   }
+}
 
+@media (min-width: 1281px) {
   #header-basket-wrap {
     margin-right: 16rem;
   }
