@@ -4,7 +4,7 @@
     </a>
 
     <div class="hstack gap-x-4">
-        <a href="" id="header-mobile-basket-wrap">
+        <a id="header-mobile-basket-wrap">
             <img id="header-mobile-basket" src="<?= $DIR_IMAGES ?>/header/icon_basket_64w.png?ver=<?= $CACHE_V ?>" alt="icon_basket_64w">
             <div id="header-mobile-basket-badge-wrap" class="hide">
                 <span id="header-mobile-basket-badge-counter">0</span>

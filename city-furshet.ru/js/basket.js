@@ -6,10 +6,18 @@ export default class Basket extends Storage {
   constructor() {
     super();
     this.items = new Map();
+    this.dialog = document.getElementById("basket-dialog");
+    this.mobileBtn = document.getElementById("header-mobile-basket-wrap");
+    this.desktopBtn = document.getElementById("header-basket-wrap");
+    this.closeBtn = document.getElementById("basket-close");
   }
 
   init() {
     console.log("[Basket] init()");
+
+    this.mobileBtn.addEventListener("click", () => this.open());
+    this.desktopBtn.addEventListener("click", () => this.open());
+    this.closeBtn.addEventListener("click", () => this.close());
   }
 
   add(item) {
@@ -45,5 +53,16 @@ export default class Basket extends Storage {
     let count = 0;
     this.items.forEach((item) => (count = count + item?.count));
     return count;
+  }
+
+  open() {
+    // document.htm
+    document.body.classList.add("no-scroll");
+    this.dialog.showModal();
+  }
+
+  close() {
+    document.body.classList.remove("no-scroll");
+    this.dialog.close();
   }
 }

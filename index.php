@@ -18,6 +18,9 @@
     <!-- Block #2 - Menu -->
     <?php include($DIR_BLOCKS . "/menu.php"); ?>
 
+    <!-- Basket -->
+    <?php include($DIR_BLOCKS . "/basket.php"); ?>
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="<?= $DIR_JS ?>/helpers.js?ver=<?= $CACHE_V ?>" type="module"></script>

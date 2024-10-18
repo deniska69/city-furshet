@@ -3,6 +3,7 @@
 @import "./header/header_mobile.css";
 @import "./header/header_desktop.css";
 @import "./menu/menu.css";
+@import "./basket/basket.css";
 
 body {
   background-color: #f2f2f2;
@@ -14,4 +15,10 @@ body {
 h1 {
   padding: 0;
   margin: 0;
+}
+
+body.no-scroll {
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 17px;
 }
