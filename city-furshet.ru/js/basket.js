@@ -10,11 +10,13 @@ export default class Basket extends Storage {
     this.items = new Map();
     this.mobileBtn = document.getElementById("header-mobile-basket-wrap");
     this.desktopBtn = document.getElementById("header-basket-wrap");
+    this.closeBtn = document.getElementById("basket-close");
   }
 
   init() {
     this.mobileBtn.addEventListener("click", () => this.open());
     this.desktopBtn.addEventListener("click", () => this.open());
+    this.closeBtn.addEventListener("click", () => this.close());
   }
 
   add(item) {
@@ -53,8 +55,11 @@ export default class Basket extends Storage {
   }
 
   open() {
-    $("#basket-modal").modal({ fadeDuration: 100 });
+    $("#basket-modal").modal({ fadeDuration: 100, showClose: false });
+    document.getElementById("basket-modal").style.display = "flex";
   }
 
-  close() {}
+  close() {
+    $.modal.close();
+  }
 }

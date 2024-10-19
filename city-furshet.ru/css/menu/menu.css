@@ -42,7 +42,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   align-self: center;
-  /* row-gap: 20px; */
+  row-gap: 20px;
   padding: 10px;
 }
 
@@ -61,6 +61,7 @@
     width: 100%;
     align-self: flex-start;
     overflow-y: auto;
+    row-gap: 0;
   }
 
   #menu .container {
