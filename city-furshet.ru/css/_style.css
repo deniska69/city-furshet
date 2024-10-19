@@ -1,5 +1,6 @@
 @import "./_framework.css";
 @import "./_base.css";
+@import "./jquery.modal.min.css";
 @import "./header/header_mobile.css";
 @import "./header/header_desktop.css";
 @import "./menu/menu.css";

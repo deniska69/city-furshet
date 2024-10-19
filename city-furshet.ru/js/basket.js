@@ -1,3 +1,5 @@
+// modal info: https://github.com/kylefox/jquery-modal/
+
 import Storage from "./storage.js";
 
 const KEY = "basket";
@@ -6,10 +8,14 @@ export default class Basket extends Storage {
   constructor() {
     super();
     this.items = new Map();
-    this.dialog = document.getElementById("basket-dialog");
+    // this.dialog = document.getElementById("basket-dialog");
     this.mobileBtn = document.getElementById("header-mobile-basket-wrap");
     this.desktopBtn = document.getElementById("header-basket-wrap");
-    this.closeBtn = document.getElementById("basket-close");
+    // this.closeBtn = document.getElementById("basket-close");
+
+    // window.addEventListener("scroll", () => {
+    //   document.documentElement.style.setProperty("--scroll-y", `${window.scrollY}px`);
+    // });
   }
 
   init() {
@@ -17,7 +23,7 @@ export default class Basket extends Storage {
 
     this.mobileBtn.addEventListener("click", () => this.open());
     this.desktopBtn.addEventListener("click", () => this.open());
-    this.closeBtn.addEventListener("click", () => this.close());
+    // this.closeBtn.addEventListener("click", () => this.close());
   }
 
   add(item) {
@@ -57,12 +63,25 @@ export default class Basket extends Storage {
 
   open() {
     // document.htm
-    document.body.classList.add("no-scroll");
-    this.dialog.showModal();
+    // document.body.classList.add("no-scroll");
+    // this.dialog.showModal();
+    // document.getElementById("dialog").classList.add("show");
+    // const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
+    // const body = document.body;
+    // body.style.position = "fixed";
+    // body.style.top = `-${scrollY}`;
+
+    $("#basket-modal").modal({ fadeDuration: 100 });
   }
 
   close() {
-    document.body.classList.remove("no-scroll");
-    this.dialog.close();
+    // document.body.classList.remove("no-scroll");
+    // this.dialog.close();
+    // const body = document.body;
+    // const scrollY = body.style.top;
+    // body.style.position = "";
+    // body.style.top = "";
+    // window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    // document.getElementById("dialog").classList.remove("show");
   }
 }
