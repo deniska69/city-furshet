@@ -1,8 +1,7 @@
 #block_1 {
   min-height: 100vh;
   max-height: 100vh;
-  min-width: 100vw;
-  max-width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   background-color: white;
