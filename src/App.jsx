@@ -13,7 +13,7 @@ function App() {
     $.ajax({
       type: "POST",
       url: window.location.href + "send.php",
-      data: { text: "Test message!" },
+      data: { message: "Test message!" },
       success: function (data) {
         // setResult(data);
         console.log("success:");
