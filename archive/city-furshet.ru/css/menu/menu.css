@@ -1,0 +1,71 @@
+@import "./menu-categories-mobile.css";
+@import "./menu-categories-desktop.css";
+@import "./menu-items-mobile.css";
+@import "./menu-cards.css";
+
+#menu {
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#menu,
+.menu-section {
+  scroll-margin-top: 10vh;
+}
+
+.menu-section.hide {
+  transform: scale(0);
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#menu .container {
+  max-width: 1280px;
+  gap: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px 0px;
+}
+
+#menu-main {
+  background-color: #fff;
+  border-radius: 20px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: center;
+  row-gap: 20px;
+  padding: 10px;
+}
+
+#menu-main-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px 20px;
+  width: 100%;
+}
+
+@media (min-width: 1279px) {
+  #menu-main {
+    width: 100%;
+    align-self: flex-start;
+    overflow-y: auto;
+    row-gap: 0;
+  }
+
+  #menu .container {
+    flex-direction: row;
+    padding: 20px 16px;
+  }
+}
