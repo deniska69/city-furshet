@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 const getWindowDimensions = () => {
   const width = window.innerWidth;
   const height = window.innerHeight;
+  const isMobile = width < 1280;
 
-  return { width, height };
+  return { width, height, isMobile };
 };
 
 export default function useWindowDimensions() {

@@ -8,11 +8,11 @@ import mobileBurger from "assets/header/icon_burger_64w.png";
 import { useWindowDimensions } from "hooks";
 
 const Header = () => {
-  const { width } = useWindowDimensions();
+  const { isMobile } = useWindowDimensions();
 
-  if (width > 1279) return <Desktop />;
+  if (isMobile) return <Mobile />;
 
-  return <Mobile />;
+  return <Desktop />;
 };
 
 export default Header;
