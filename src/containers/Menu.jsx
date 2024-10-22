@@ -1,11 +1,12 @@
 import "./Menu.css";
 
 import { useWindowDimensions } from "hooks";
+import { getPrice } from "services";
 
 const Menu = () => {
   const { isMobile } = useWindowDimensions();
 
-  console.log(import.meta.env.VITE_PRICE_URL);
+  getPrice();
 
   return (
     <div id="menu">

@@ -1,4 +1,5 @@
 import $ from "jquery";
+import axios from "axios";
 
 export const sendTelegram = async (message) => {
   $.ajax({
@@ -11,17 +12,30 @@ export const sendTelegram = async (message) => {
 };
 
 export const getPrice = async () => {
-  const xhrArrayBuffer = new XMLHttpRequest();
-  xhrArrayBuffer.responseType = "arraybuffer";
+  // const xhrArrayBuffer = new XMLHttpRequest();
+  // xhrArrayBuffer.responseType = "arraybuffer";
 
-  let res = {};
+  const url = import.meta.env.VITE_PRICE_URL;
 
-  await $.ajax({
-    url: "city-furshet.ru/Price.csv",
-    method: "GET",
-    xhr: () => xhrArrayBuffer,
-    success: (data) => (res = processingCSV(decodeCSV(data))),
-  });
+  console.log(url);
+
+  const res = await axios
+    .get(url, {
+      crossDomain: true,
+      withCredentials: true,
+      credentials: "include",
+      headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*" },
+    })
+    .then((data) => console.log(data))
+    .catch((e) => console.log(e));
+
+  // await $.ajax({
+  //   url,
+  //   method: "GET",
+  //   mode: "no-cors",
+  //   xhr: () => xhrArrayBuffer,
+  //   success: (data) => (res = processingCSV(decodeCSV(data))),
+  // });
 
   return res;
 };
