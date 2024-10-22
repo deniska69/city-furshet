@@ -1,5 +1,5 @@
 import $ from "jquery";
-import axios from "axios";
+// import axios from "axios";
 
 export const sendTelegram = async (message) => {
   $.ajax({
@@ -12,30 +12,33 @@ export const sendTelegram = async (message) => {
 };
 
 export const getPrice = async () => {
-  // const xhrArrayBuffer = new XMLHttpRequest();
-  // xhrArrayBuffer.responseType = "arraybuffer";
+  const xhrArrayBuffer = new XMLHttpRequest();
+  xhrArrayBuffer.responseType = "arraybuffer";
 
   const url = import.meta.env.VITE_PRICE_URL;
 
-  console.log(url);
+  let res = {};
 
-  const res = await axios
-    .get(url, {
-      crossDomain: true,
-      withCredentials: true,
-      credentials: "include",
-      headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*" },
-    })
-    .then((data) => console.log(data))
-    .catch((e) => console.log(e));
+  // console.log(url);
 
-  // await $.ajax({
-  //   url,
-  //   method: "GET",
-  //   mode: "no-cors",
-  //   xhr: () => xhrArrayBuffer,
-  //   success: (data) => (res = processingCSV(decodeCSV(data))),
-  // });
+  // const res = await axios
+  //   .get(url, {
+  //     crossDomain: true,
+  //     withCredentials: true,
+  //     credentials: "include",
+  //     headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*" },
+  //   })
+  //   .then((data) => console.log(data))
+  //   .catch((e) => console.log(e));
+
+  await $.ajax({
+    url,
+    method: "GET",
+    xhr: () => xhrArrayBuffer,
+    success: (data) => (res = processingCSV(decodeCSV(data))),
+  });
+
+  console.log(res);
 
   return res;
 };
