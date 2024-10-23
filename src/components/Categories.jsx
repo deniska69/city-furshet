@@ -10,7 +10,7 @@ const Categories = (props) => {
 
 export default Categories;
 
-const CategoriesMobile = ({ categories, selectedCategory, onPress = () => {} }) => (
+const CategoriesMobile = ({ categories, selectedCategory, onPressCategory = () => {} }) => (
   <div id="menu-categories-mobile">
     {categories.map((cat) => {
       const active = cat?.id === selectedCategory?.id ? " active" : "";
@@ -21,7 +21,7 @@ const CategoriesMobile = ({ categories, selectedCategory, onPress = () => {} }) 
           id={cat?.id}
           className={`category-button${active}`}
           href={`#menu-main-${cat?.id}`}
-          onClick={() => onPress(cat)}
+          onClick={() => onPressCategory(cat)}
         >
           {cat?.title}
         </a>
@@ -30,13 +30,13 @@ const CategoriesMobile = ({ categories, selectedCategory, onPress = () => {} }) 
   </div>
 );
 
-const CategoriesDesktop = ({ categories, selectedCategory, onPress = () => {} }) => (
+const CategoriesDesktop = ({ categories, selectedCategory, onPressCategory = () => {} }) => (
   <div id="menu-categories-desktop">
     {categories.map((cat) => {
       const active = cat?.id === selectedCategory?.id ? " active" : "";
 
       return (
-        <button key={cat?.id} id={cat?.id} className={`category-button${active}`} onClick={() => onPress(cat)}>
+        <button key={cat?.id} id={cat?.id} className={`category-button${active}`} onClick={() => onPressCategory(cat)}>
           {cat?.title}
         </button>
       );
