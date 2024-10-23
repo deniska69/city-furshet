@@ -1,0 +1,542 @@
+{
+  "Salati": {
+    "id": "Salati",
+    "title": "Салаты",
+    "items": [
+      {
+        "categoryId": "Salati",
+        "categoryTitle": "Салаты",
+        "id": "Salati_Setlegkihsalatov_3500",
+        "image": null,
+        "title": "Сет легких салатов",
+        "price": "3500",
+        "subtitle": "",
+        "description": "Цезарь классический 4шт. Цезарь с аргентинскими креветками 4шт. Греческий 8шт. объем стаканов 170-200мл"
+      },
+      {
+        "categoryId": "Salati",
+        "categoryTitle": "Салаты",
+        "id": "Salati_SalatGranatovii_220",
+        "image": null,
+        "title": "Салат Гранатовый",
+        "price": "220",
+        "subtitle": "",
+        "description": "Минимальное количество 9шт"
+      },
+      {
+        "categoryId": "Salati",
+        "categoryTitle": "Салаты",
+        "id": "Salati_SalatTSezar_220",
+        "image": null,
+        "title": "Салат Цезарь",
+        "price": "220",
+        "subtitle": "",
+        "description": "С Креветкой 240р/шт. С Копченой курицей 220р/шт Обем креманки 180-200мл. Минимальный заказ от 9шт"
+      },
+      {
+        "categoryId": "Salati",
+        "categoryTitle": "Салаты",
+        "id": "Salati_Salatskuritseiiananasami_230",
+        "image": null,
+        "title": "Салат с курицей и ананасами",
+        "price": "230",
+        "subtitle": "",
+        "description": "Минимальное количество 9шт"
+      }
+    ]
+  },
+  "ZHuleni": {
+    "id": "ZHuleni",
+    "title": "Жульены",
+    "items": [
+      {
+        "categoryId": "ZHuleni",
+        "categoryTitle": "Жульены",
+        "id": "ZHuleni_ZHulenskuritseiiananasami_2990",
+        "image": null,
+        "title": "Жульен с курицей и ананасами",
+        "price": "2990",
+        "subtitle": "",
+        "description": "Авторские корзинки выпекаются вручную 16шт"
+      },
+      {
+        "categoryId": "ZHuleni",
+        "categoryTitle": "Жульены",
+        "id": "ZHuleni_SetzhulenovKuritsaBekon_2990",
+        "image": null,
+        "title": "Сет жульенов Курица/Бекон",
+        "price": "2990",
+        "subtitle": "",
+        "description": "Авторские крзинки: курица с грибами 8шт. бекон с томатами 8шт"
+      },
+      {
+        "categoryId": "ZHuleni",
+        "categoryTitle": "Жульены",
+        "id": "ZHuleni_SetzhulenovMorskoi_3700",
+        "image": null,
+        "title": "\"Сет жульенов \"\"Морской\"\"\"",
+        "price": "3700",
+        "subtitle": "",
+        "description": "Авторские корзинки: с мидиями в кисло-сладком соусе 8шт. креветками в сливочном соусе 8шт."
+      },
+      {
+        "categoryId": "ZHuleni",
+        "categoryTitle": "Жульены",
+        "id": "ZHuleni_Assortizhulenov_6990",
+        "image": null,
+        "title": "Ассорти жульенов",
+        "price": "6990",
+        "subtitle": "",
+        "description": "Курица с жареными шампиньонами, бекон с томатом, креветки в сливочном соусе, мидии в кисло-сладком соусе,сладкие корзиночки с крем-чизом и сезонной ягодой. 25шт"
+      },
+      {
+        "categoryId": "ZHuleni",
+        "categoryTitle": "Жульены",
+        "id": "ZHuleni_MiniKish_2990",
+        "image": null,
+        "title": "Мини Киш",
+        "price": "2990",
+        "subtitle": "",
+        "description": "Курица с грибами в сливках, лосось со шпинатом в сливках. 16шт"
+      }
+    ]
+  },
+  "Kanape": {
+    "id": "Kanape",
+    "title": "Канапе",
+    "items": [
+      {
+        "categoryId": "Kanape",
+        "categoryTitle": "Канапе",
+        "id": "Kanape_BoksKanapeTSezar_2400",
+        "image": null,
+        "title": "Бокс Канапе Цезарь",
+        "price": "2400",
+        "subtitle": "",
+        "description": "Канапе Цезарь и канапе моцарелла 24шт"
+      },
+      {
+        "categoryId": "Kanape",
+        "categoryTitle": "Канапе",
+        "id": "Kanape_KlabKanape_2500",
+        "image": null,
+        "title": "Клаб Канапе",
+        "price": "2500",
+        "subtitle": "5-7 персон",
+        "description": "Самая популярная закуска Интернета. Все гениально и просто. Слоеное тесто+свежие и вкусные начинки. Наши начинки: Грудинка с вялеными томатами, сырным соусом и микрозеленью 10шт. Балык с обожженым сыром, огурцом и крем чиз 10шт. Лосось с огурцом и крем чиз 10шт"
+      },
+      {
+        "categoryId": "Kanape",
+        "categoryTitle": "Канапе",
+        "id": "Kanape_Kanapesht_4400",
+        "image": null,
+        "title": "Канапе XL 50 шт",
+        "price": "4400",
+        "subtitle": "",
+        "description": "Салями с сырным шариком, карбонад с сыром и черри, капрезе, чиз болл с сезонным фруктом, сыр бри с ягодами."
+      }
+    ]
+  },
+  "Goryachee": {
+    "id": "Goryachee",
+    "title": "Горячее",
+    "items": [
+      {
+        "categoryId": "Goryachee",
+        "categoryTitle": "Горячее",
+        "id": "Goryachee_Kurinieshashlichki_3350",
+        "image": null,
+        "title": "Куриные шашлычки",
+        "price": "3350",
+        "subtitle": "",
+        "description": "16шт"
+      },
+      {
+        "categoryId": "Goryachee",
+        "categoryTitle": "Горячее",
+        "id": "Goryachee_Krilyabarbekyuteriyaki_2300",
+        "image": null,
+        "title": "Крылья барбекю/терияки",
+        "price": "2300",
+        "subtitle": "",
+        "description": "1,5 кг крыльев+соусы"
+      }
+    ]
+  },
+  "Gastroboksi": {
+    "id": "Gastroboksi",
+    "title": "Гастробоксы",
+    "items": [
+      {
+        "categoryId": "Gastroboksi",
+        "categoryTitle": "Гастробоксы",
+        "id": "Gastroboksi_Bolshoikoporativniihit_6900",
+        "image": null,
+        "title": "Большой копоративный хит",
+        "price": "6900",
+        "subtitle": "10-15 персон",
+        "description": "Жульен с беконом и томатами, жульен с креветками, рулет шпинатный с форелью, рулет лососевый, клаб канапе с шейкой и вялеными томатами, балык со свежим огурчиком."
+      },
+      {
+        "categoryId": "Gastroboksi",
+        "categoryTitle": "Гастробоксы",
+        "id": "Gastroboksi_Boks_6300",
+        "image": null,
+        "title": "Бокс XL",
+        "price": "6300",
+        "subtitle": "10-15 персон",
+        "description": "Жульен с беконом и томатами 6шт. Жульен с креветками 6шт. рулеты с лососем 16шт. Брускетта с лососем 6шт. Брускетта с говядиной 6шт"
+      },
+      {
+        "categoryId": "Gastroboksi",
+        "categoryTitle": "Гастробоксы",
+        "id": "Gastroboksi_BoksMorskoi_5700",
+        "image": null,
+        "title": "Бокс Морской",
+        "price": "5700",
+        "subtitle": "",
+        "description": ""
+      },
+      {
+        "categoryId": "Gastroboksi",
+        "categoryTitle": "Гастробоксы",
+        "id": "Gastroboksi_SetTSezar_4500",
+        "image": null,
+        "title": "\"Сет \"\"Цезарь\"\"\"",
+        "price": "4500",
+        "subtitle": "10 персон",
+        "description": "\"Брускетта \"\"цезарь\"\" с курицей 5шт. Брускетта \"\"цезарь\"\" с креветкой 5шт. Канапе \"\"цезарь\"\" с курицей 12шт. Капрезе 12шт\""
+      },
+      {
+        "categoryId": "Gastroboksi",
+        "categoryTitle": "Гастробоксы",
+        "id": "Gastroboksi_BoksVinnii_5500",
+        "image": null,
+        "title": "\"Бокс \"\"Винный\"\"\"",
+        "price": "5500",
+        "subtitle": "8-9 персон",
+        "description": "Лангустины Панко 16шт, Лососевые рулеты, Сыр бри или камамбер 125гр, чеддер 200гр, Пармезан 100гр, виноград, подаетсся с медом и орешками."
+      },
+      {
+        "categoryId": "Gastroboksi",
+        "categoryTitle": "Гастробоксы",
+        "id": "Gastroboksi__4750",
+        "image": null,
+        "title": "Prosecco",
+        "price": "4750",
+        "subtitle": "",
+        "description": "Брускетта с томатной креветкой тосканой, Брускетта с муссом дор блю, ягодами и орехами. Канапе бри с клубникой. Канапе груша с хамоном, фруктовые шпажки с шоколадом"
+      },
+      {
+        "categoryId": "Gastroboksi",
+        "categoryTitle": "Гастробоксы",
+        "id": "Gastroboksi_Sirnii_4300",
+        "image": null,
+        "title": "\"\"\"Сырный\"\"\"",
+        "price": "4300",
+        "subtitle": "",
+        "description": "Маасдам, Чеддер, Гауда, Мраморный, Бри, виноград, цукаты, орехи, сезоная ягода, мед."
+      },
+      {
+        "categoryId": "Gastroboksi",
+        "categoryTitle": "Гастробоксы",
+        "id": "Gastroboksi_Veselayakompaniya_5300",
+        "image": null,
+        "title": "\"\"\"Веселая компания\"\"\"",
+        "price": "5300",
+        "subtitle": "",
+        "description": "Салями и сыр перлини, Карбонад с сыром, сальчисон, клаб сэндвич с грудинкой, сало на гренке"
+      },
+      {
+        "categoryId": "Gastroboksi",
+        "categoryTitle": "Гастробоксы",
+        "id": "Gastroboksi_Romanticheskiiuzhinnadvoih_3850",
+        "image": null,
+        "title": "Романтический ужин на двоих",
+        "price": "3850",
+        "subtitle": "",
+        "description": "Брускетта с говядиной и вялеными томатами, с лососем, канапе капрезе, ассорти сыров, ассорти фруктов, тарталетки с икрой, сладкие корзинки из тесто фило начинка: маскарпоне и ягода сезонная."
+      }
+    ]
+  },
+  "Brusketti": {
+    "id": "Brusketti",
+    "title": "Брускетты",
+    "items": [
+      {
+        "categoryId": "Brusketti",
+        "categoryTitle": "Брускетты",
+        "id": "Brusketti_CHetirevkusa_3500",
+        "image": null,
+        "title": "Четыре вкуса",
+        "price": "3500",
+        "subtitle": "16 шт.",
+        "description": "С говядиной и вяленными помидорами. С нежным сливочным паштетом из куриной печени/ грибы шампиньоны в соусе. С семгой и огурцом на крем чиз. С карбонадом, черри и салатом."
+      },
+      {
+        "categoryId": "Brusketti",
+        "categoryTitle": "Брускетты",
+        "id": "Brusketti_CHetirevkusa_5280",
+        "image": null,
+        "title": "Четыре вкуса",
+        "price": "5280",
+        "subtitle": "24 шт.",
+        "description": "С говядиной и вяленными помидорами. С нежным сливочным паштетом из куриной печени/ грибы шампиньоны в соусе. С семгой и огурцом на крем чиз. С карбонадом, черри и салатом."
+      },
+      {
+        "categoryId": "Brusketti",
+        "categoryTitle": "Брускетты",
+        "id": "Brusketti_Krostinivkusa_2800",
+        "image": null,
+        "title": "Кростини 2 вкуса",
+        "price": "2800",
+        "subtitle": "20 шт",
+        "description": "С говядиной и вяленными помидорами. С семгой и огурцом на крем чиз."
+      },
+      {
+        "categoryId": "Brusketti",
+        "categoryTitle": "Брускетты",
+        "id": "Brusketti_Tartaletki_",
+        "image": null,
+        "title": "Тарталетки",
+        "price": "",
+        "subtitle": "",
+        "description": ""
+      },
+      {
+        "categoryId": "Brusketti",
+        "categoryTitle": "Брускетты",
+        "id": "Brusketti_PirZakusok_4200",
+        "image": null,
+        "title": "Пир Закусок",
+        "price": "4200",
+        "subtitle": "36 шт.",
+        "description": "С Красной икрой на сливочном сыре 6шт, С сырно-яичным паштетом и зеленью 6шт, С креветкой 6шт, С карбонадом, зеленью и сыром 6шт, С мидиями под сыром 6шт, С семгой и огурцом на крем чиз 6шт."
+      },
+      {
+        "categoryId": "Brusketti",
+        "categoryTitle": "Брускетты",
+        "id": "Brusketti_PirZakusok_3399",
+        "image": null,
+        "title": "Пир Закусок",
+        "price": "3399",
+        "subtitle": "25 шт.",
+        "description": "С Красной икрой на сливочном сыре 6шт, С сырно-яичным паштетом и зеленью 6шт, С креветкой 6шт, С карбонадом, зеленью и сыром 6шт, С мидиями под сыром 6шт, С семгой и огурцом на крем чиз 6шт."
+      },
+      {
+        "categoryId": "Brusketti",
+        "categoryTitle": "Брускетты",
+        "id": "Brusketti_Trivkusa_3600",
+        "image": null,
+        "title": "Три вкуса",
+        "price": "3600",
+        "subtitle": "36 шт.",
+        "description": "С лососем и огурцом 12шт, С тунцом и черри 12шт, С карбонадом и сыром 12шт."
+      }
+    ]
+  },
+  "Profitroli": {
+    "id": "Profitroli",
+    "title": "Профитроли",
+    "items": [
+      {
+        "categoryId": "Profitroli",
+        "categoryTitle": "Профитроли",
+        "id": "Profitroli_Vkusov_3900",
+        "image": null,
+        "title": "\"\"\"6 Вкусов\"\"\"",
+        "price": "3900",
+        "subtitle": "",
+        "description": "С лососем, Икра, печеночный паштет, Сырно-яичный паштет, Крем чиз с сезонной ягодой."
+      }
+    ]
+  },
+  "Zakuski": {
+    "id": "Zakuski",
+    "title": "Закуски",
+    "items": [
+      {
+        "categoryId": "Zakuski",
+        "categoryTitle": "Закуски",
+        "id": "Zakuski_Ruletikiizkarbonada_2400",
+        "image": null,
+        "title": "Рулетики из карбонада",
+        "price": "2400",
+        "subtitle": "30 шт.",
+        "description": "Рулетики из цельных слайсов карбонада с пикантной начинкой из сыра, зелени и чеснока"
+      },
+      {
+        "categoryId": "Zakuski",
+        "categoryTitle": "Закуски",
+        "id": "Zakuski_Lososevieruletiki_2100",
+        "image": null,
+        "title": "Лососевые рулетики",
+        "price": "2100",
+        "subtitle": "20 шт.",
+        "description": "Лососевые рулетики в лаваше с крем чиз, свежим огурцом, ломтиками лосося и зеленью"
+      },
+      {
+        "categoryId": "Zakuski",
+        "categoryTitle": "Закуски",
+        "id": "Zakuski_KanapeKapreze_3600",
+        "image": null,
+        "title": "Канапе Капрезе",
+        "price": "3600",
+        "subtitle": "48 шт.",
+        "description": "Сладкие черри, свежие листья базилика, мини шарик сливочной моцарелы и заправка из соуса бальзамик"
+      },
+      {
+        "categoryId": "Zakuski",
+        "categoryTitle": "Закуски",
+        "id": "Zakuski_SHpinatnoepirozhnoessemgoi_2800",
+        "image": null,
+        "title": "Шпинатное пирожное с семгой",
+        "price": "2800",
+        "subtitle": "16 шт.",
+        "description": "шпинат с ломтиками лосося, нежнейшим сливочным сыром."
+      },
+      {
+        "categoryId": "Zakuski",
+        "categoryTitle": "Закуски",
+        "id": "Zakuski_Blini_1700",
+        "image": null,
+        "title": "Блины",
+        "price": "1700",
+        "subtitle": "15 шт.",
+        "description": "Блинчики с творожным сыром и икрой"
+      },
+      {
+        "categoryId": "Zakuski",
+        "categoryTitle": "Закуски",
+        "id": "Zakuski_Baklazhannieruletiki_2700",
+        "image": null,
+        "title": "Баклажанные рулетики",
+        "price": "2700",
+        "subtitle": "27 шт.",
+        "description": "Начинка: Три вида сыра с орешками и специями"
+      }
+    ]
+  },
+  "Detskoemenyu": {
+    "id": "Detskoemenyu",
+    "title": "Детское меню",
+    "items": [
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_BoksDetskiibezfrityura_3650",
+        "image": null,
+        "title": "Бокс Детский без фритюра",
+        "price": "3650",
+        "subtitle": "",
+        "description": "Сырные или творожные вафли, мини сосиски в тесте, пицца-улитка,мит боллы(куриные), овощная и фруктовая нарезка."
+      },
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_Minikruassaniskremchizomiklubnikoi_170",
+        "image": null,
+        "title": "Мини круассаны с крем чизом и клубникой",
+        "price": "170",
+        "subtitle": "1 шт.",
+        "description": "Заказ от 16 шт"
+      },
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_Sendvichboks_3400",
+        "image": null,
+        "title": "Сэндвич бокс",
+        "price": "3400",
+        "subtitle": "20 шт.",
+        "description": "копченая курица и ветчина с сыром"
+      },
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_BoksKinder_4950",
+        "image": null,
+        "title": "\"Бокс \"\"Киндер Party\"\"\"",
+        "price": "4950",
+        "subtitle": "",
+        "description": "Минибургеры 14 шт, куриные наггется 4шт, картофельные шарики 4шт, овощная и фруктовая нарезка, соусы 4шт."
+      },
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_MiniBurgeri_2750",
+        "image": null,
+        "title": "Мини Бургеры",
+        "price": "2750",
+        "subtitle": "16 шт.",
+        "description": "Мягкая булочка, сочная куриная котлета, помидор, сыр, соус, маринованный огурец, лист салата. (Цветные булочки делаем по запросу)"
+      },
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_MiniBurgeri_1700",
+        "image": null,
+        "title": "Мини Бургеры",
+        "price": "1700",
+        "subtitle": "10 шт.",
+        "description": "Мягкая булочка, сочная куриная котлета, помидор, сыр, соус, маринованный огурец, лист салата. (Цветные булочки делаем по запросу)"
+      },
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_Minivafli_2200",
+        "image": null,
+        "title": "Мини вафли",
+        "price": "2200",
+        "subtitle": "30 шт.",
+        "description": "Вафли с крем чиз и сезонными ягодами."
+      },
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_Individualniedetskienabori_950",
+        "image": null,
+        "title": "Индивидуальные детские наборы",
+        "price": "950",
+        "subtitle": "8 шт.",
+        "description": "Фруктовые стаканчик, сырные шарики, мини бургер, мини пицца."
+      },
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_Detskiiindividualniiboks_1200",
+        "image": null,
+        "title": "Детский индивидуальный бокс",
+        "price": "1200",
+        "subtitle": "8 шт.",
+        "description": "Куриные нагетсы или митболы, сырные шарики, сладкий и фруктовый стаканчик, соус."
+      },
+      {
+        "categoryId": "Detskoemenyu",
+        "categoryTitle": "Детское меню",
+        "id": "Detskoemenyu_KomboKruassani_3400",
+        "image": null,
+        "title": "\"Комбо \"\"Круассаны\"\"\"",
+        "price": "3400",
+        "subtitle": "20 шт.",
+        "description": "Лосось, огурец, помидор, салат, творожный сыр и соус-10шт. Карбонад, сыр, огурец, салат, помидор, соус тар-тар-10шт."
+      }
+    ]
+  },
+  "Furshet": {
+    "id": "Furshet",
+    "title": "Фуршет",
+    "items": [
+      {
+        "categoryId": "Furshet",
+        "categoryTitle": "Фуршет",
+        "id": "Furshet_Viezdnoifurshet_",
+        "image": null,
+        "title": "Выездной фуршет",
+        "price": "",
+        "subtitle": "",
+        "description": "Выездной фуршет под ключ-закуски, оформление, накрытие, обслуживание."
+      }
+    ]
+  }
+}

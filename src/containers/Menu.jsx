@@ -1,35 +1,41 @@
-import "./Menu.css";
-
+import { useEffect, useState } from "react";
 import { useWindowDimensions } from "hooks";
 import { getPrice } from "services";
-// import { usePapaParse } from "react-papaparse";
+import "./Menu.css";
+import { Loader } from "components";
 
 const Menu = () => {
   const { isMobile } = useWindowDimensions();
 
-  getPrice();
+  const [load, setLoad] = useState(true);
+  const [data, setData] = useState(null);
+  const [categories, setCategories] = useState(null);
 
-  // const { readRemoteFile } = usePapaParse();
+  useEffect(() => {
+    getPrice()
+      .then((res) => {
+        setData(res);
+        setCategories(Object.keys(res).map((cat) => ({ id: res[cat]?.id, title: res[cat]?.title })));
+        setTimeout(() => setLoad(false), 2500);
+      })
+      .catch(() => console.error("Ошибка загрузки прайса."));
+  }, []);
 
-  // const url = import.meta.env.VITE_PRICE_URL;
-
-  // console.log(url);
-
-  // console.log("");
-
-  // readRemoteFile(url, {
-  //   complete: (results) => {
-  //     console.log("---------------------------");
-  //     console.log("Results:", results);
-  //     console.log("---------------------------");
-  //   },
-  // });
+  if (load) {
+    return (
+      <div id="menu">
+        <div id="loader-wrap">
+          <Loader />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div id="menu">
-      <div className="menu-container">
-        {isMobile ? <CategoriesMobile /> : <CategoriesDesktop />}
-        <MenuMain />
+      <div id="menu-container">
+        {isMobile ? <CategoriesMobile {...{ categories }} /> : <CategoriesDesktop {...{ categories }} />}
+        {data ? <MenuMain /> : null}
       </div>
     </div>
   );

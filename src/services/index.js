@@ -1,5 +1,5 @@
 import $ from "jquery";
-// import axios from "axios";
+import priceLocal from "./price.json";
 
 export const sendTelegram = async (message) => {
   $.ajax({
@@ -12,24 +12,14 @@ export const sendTelegram = async (message) => {
 };
 
 export const getPrice = async () => {
+  if (import.meta.env.DEV) return Promise.resolve(priceLocal);
+
   const xhrArrayBuffer = new XMLHttpRequest();
   xhrArrayBuffer.responseType = "arraybuffer";
 
   const url = import.meta.env.VITE_PRICE_URL;
 
   let res = {};
-
-  // console.log(url);
-
-  // const res = await axios
-  //   .get(url, {
-  //     crossDomain: true,
-  //     withCredentials: true,
-  //     credentials: "include",
-  //     headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*" },
-  //   })
-  //   .then((data) => console.log(data))
-  //   .catch((e) => console.log(e));
 
   await $.ajax({
     url,
@@ -38,9 +28,7 @@ export const getPrice = async () => {
     success: (data) => (res = processingCSV(decodeCSV(data))),
   });
 
-  console.log(res);
-
-  return res;
+  return Promise.resolve(res);
 };
 
 const decodeCSV = (responseArrayBuffer) => {
