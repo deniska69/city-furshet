@@ -39,5 +39,7 @@
 @media (min-width: 1280px) {
   #menu-container {
     flex-direction: row;
+    padding: 20px;
+    padding-right: 30px;
   }
 }

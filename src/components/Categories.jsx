@@ -30,4 +30,16 @@ const CategoriesMobile = ({ categories, selectedCategory, onPress = () => {} }) 
   </div>
 );
 
-const CategoriesDesktop = () => <div id="menu-categories-desktop"></div>;
+const CategoriesDesktop = ({ categories, selectedCategory, onPress = () => {} }) => (
+  <div id="menu-categories-desktop">
+    {categories.map((cat) => {
+      const active = cat?.id === selectedCategory?.id ? " active" : "";
+
+      return (
+        <button key={cat?.id} id={cat?.id} className={`category-button${active}`} onClick={() => onPress(cat)}>
+          {cat?.title}
+        </button>
+      );
+    })}
+  </div>
+);
