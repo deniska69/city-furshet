@@ -1,3 +1,4 @@
+import Categories from "./Categories";
 import Loader from "./Loader";
 
-export { Loader };
+export { Categories, Loader };

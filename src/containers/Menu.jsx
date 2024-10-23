@@ -1,25 +1,27 @@
 import { useEffect, useState } from "react";
-import { useWindowDimensions } from "hooks";
 import { getPrice } from "services";
 import "./Menu.css";
-import { Loader } from "components";
+import { Categories, Loader } from "components";
 
 const Menu = () => {
-  const { isMobile } = useWindowDimensions();
-
   const [load, setLoad] = useState(true);
   const [data, setData] = useState(null);
   const [categories, setCategories] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     getPrice()
       .then((res) => {
         setData(res);
-        setCategories(Object.keys(res).map((cat) => ({ id: res[cat]?.id, title: res[cat]?.title })));
+        const _categories = Object.keys(res).map((cat) => ({ id: res[cat]?.id, title: res[cat]?.title }));
+        setCategories(_categories);
+        setSelectedCategory(_categories[0]);
         setTimeout(() => setLoad(false), 2500);
       })
       .catch(() => console.error("Ошибка загрузки прайса."));
   }, []);
+
+  const handlePressCategory = (cat) => setSelectedCategory(cat);
 
   if (load) {
     return (
@@ -34,7 +36,9 @@ const Menu = () => {
   return (
     <div id="menu">
       <div id="menu-container">
-        {isMobile ? <CategoriesMobile {...{ categories }} /> : <CategoriesDesktop {...{ categories }} />}
+        {categories && selectedCategory ? (
+          <Categories {...{ categories, selectedCategory, onPress: handlePressCategory }} />
+        ) : null}
         {data ? <MenuMain /> : null}
       </div>
     </div>
@@ -42,9 +46,5 @@ const Menu = () => {
 };
 
 export default Menu;
-
-const CategoriesMobile = () => <div id="menu-categories-mobile"></div>;
-
-const CategoriesDesktop = () => <div id="menu-categories-desktop"></div>;
 
 const MenuMain = () => <div id="menu-main"></div>;
