@@ -1,0 +1,46 @@
+.bg-black40 {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.inset-0 {
+  inset: 0;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 244 245 / var(--tw-bg-opacity));
+}
+
+.h-fit {
+  height: fit-content;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}

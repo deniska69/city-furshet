@@ -1,3 +1,4 @@
+import useOpen from "./useOpen";
 import useWindowDimensions from "./useWindowDimensions";
 
-export { useWindowDimensions };
+export { useOpen, useWindowDimensions };
