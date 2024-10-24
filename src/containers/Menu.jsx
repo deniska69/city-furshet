@@ -6,16 +6,17 @@ import "./Menu.css";
 
 const Menu = ({ store }) => {
   const loading = store.loading;
+  const products = store.products;
   const categories = store.categories;
   const selectedCategory = store.selectedCategory;
 
   const onPressCategory = (cat) => store.onPressCategory(cat);
 
-  // const onPressCard = () => console.log("onPressCard");
+  const onPressCard = () => console.log("onPressCard");
 
-  // const onPressPlus = () => console.log("onPressPlus");
+  const onPressPlus = () => console.log("onPressPlus");
 
-  // const onPressMinus = () => console.log("onPressMinus");
+  const onPressMinus = () => console.log("onPressMinus");
 
   if (loading) return <LoadPlaceholder />;
 
@@ -24,10 +25,10 @@ const Menu = ({ store }) => {
       <div id="menu-container">
         {categories && selectedCategory ? <Categories {...{ categories, selectedCategory, onPressCategory }} /> : null}
 
-        {/* {data ? (
+        {products ? (
           <MenuMain
             {...{
-              data,
+              products,
               categories,
               selectedCategory,
               onPressCard,
@@ -35,7 +36,7 @@ const Menu = ({ store }) => {
               onPressMinus,
             }}
           />
-        ) : null} */}
+        ) : null}
       </div>
     </div>
   );
@@ -43,35 +44,35 @@ const Menu = ({ store }) => {
 
 export default inject("store")(observer(Menu));
 
-// const MenuMain = (props) => {
-//   const { data, categories, selectedCategory, onPressCard, onPressPlus, onPressMinus } = props;
+const MenuMain = (props) => {
+  const { products, categories, selectedCategory, onPressCard, onPressPlus, onPressMinus } = props;
 
-//   const { isMobile } = useWindowDimensions();
+  const { isMobile } = useWindowDimensions();
 
-//   const sections = isMobile ? categories : [selectedCategory];
+  const sections = isMobile ? categories : [selectedCategory];
 
-//   return (
-//     <div id="menu-main">
-//       {sections.map((section) => {
-//         const idSection = `menu-main-${section?.id}`;
-//         const idGrid = `menu-main-grid-${section?.id}`;
-//         const cards = data[section?.id]?.items;
+  return (
+    <div id="menu-main">
+      {sections.map((section) => {
+        const idSection = `menu-main-${section?.id}`;
+        const idGrid = `menu-main-grid-${section?.id}`;
+        const cards = products.get(section?.id);
 
-//         return (
-//           <div key={idSection} id={idSection} className="menu-section">
-//             <h1 id="menu-main-title">{section?.title}</h1>
+        return (
+          <div key={idSection} id={idSection} className="menu-section">
+            <h1 id="menu-main-title">{section?.title}</h1>
 
-//             <div id={idGrid} className="menu-items">
-//               {cards.map((card) => (
-//                 <Card key={card?.id} {...card} {...{ onPressCard, onPressPlus, onPressMinus }} />
-//               ))}
-//             </div>
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// };
+            <div id={idGrid} className="menu-items">
+              {cards.map((card) => (
+                <Card key={card?.id} {...card} {...{ onPressCard, onPressPlus, onPressMinus }} />
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 const LoadPlaceholder = () => (
   <div id="menu">
