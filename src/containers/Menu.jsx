@@ -1,20 +1,23 @@
 import { inject, observer } from "mobx-react";
+import { values } from "mobx";
 import { useWindowDimensions } from "hooks";
 import { Card, Categories, Loader } from "components";
 
 import "./Menu.css";
 
 const Menu = ({ store }) => {
+  const { isMobile } = useWindowDimensions();
+
   const loading = store.loading;
-  const products = store.products;
   const categories = store.categories;
   const selectedCategory = store.selectedCategory;
+  const products = isMobile ? store.products : store.getProductsCategory();
 
   const onPressCategory = (cat) => store.onPressCategory(cat);
 
   const onPressCard = () => console.log("onPressCard");
 
-  const onPressPlus = () => console.log("onPressPlus");
+  const onPressPlus = (...args) => store.onPressPlus(...args);
 
   const onPressMinus = () => console.log("onPressMinus");
 
@@ -56,7 +59,7 @@ const MenuMain = (props) => {
       {sections.map((section) => {
         const idSection = `menu-main-${section?.id}`;
         const idGrid = `menu-main-grid-${section?.id}`;
-        const cards = products.get(section?.id);
+        const cards = isMobile ? values(products.get(section?.id)) : products;
 
         return (
           <div key={idSection} id={idSection} className="menu-section">

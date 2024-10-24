@@ -21,7 +21,15 @@ class ProductsStore {
     getPrice()
       .then(
         action((data) => {
-          Object.keys(data).forEach((cat) => this.products.set(cat, data[cat]?.items));
+          Object.keys(data).forEach((cat) => {
+            if (!this.products.has(cat)) {
+              this.products.set(cat, observable.map({}));
+            }
+
+            data[cat]?.items.forEach((card) => {
+              this.products.get(card?.categoryId).set(card?.id, card);
+            });
+          });
           this.categories = Object.keys(data).map((cat) => ({ id: data[cat]?.id, title: data[cat]?.title }));
           this.selectedCategory = this.categories[0];
           this.loading = false;
@@ -33,7 +41,17 @@ class ProductsStore {
       });
   };
 
+  getProductsCategory = () => values(this.products.get(this.selectedCategory?.id));
+
   onPressCategory = action((cat) => (this.selectedCategory = cat));
+
+  onPressPlus = (categoryId, id) => {
+    const card = this.products.get(categoryId);
+
+    console.log(card);
+  };
+
+  getBasketTotal = () => this.basket?.size || 0;
 }
 
 const store = new ProductsStore();
