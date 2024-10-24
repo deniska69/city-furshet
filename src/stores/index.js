@@ -46,9 +46,20 @@ class ProductsStore {
   onPressCategory = action((cat) => (this.selectedCategory = cat));
 
   onPressPlus = (categoryId, id) => {
-    const card = this.products.get(categoryId);
+    const product = this.products.get(categoryId).get(id);
+    const count = this.basket.get(product?.id)?.count || 0;
+    this.basket.set(product?.id, { ...product, count: count + 1 });
+  };
 
-    console.log(card);
+  onPressMinus = (categoryId, id) => {
+    const product = this.products.get(categoryId).get(id);
+    const count = this.basket.get(product?.id)?.count || 0;
+
+    if (count - 1 < 1) {
+      this.basket.delete(product?.id);
+    } else {
+      this.basket.set(product?.id, { ...product, count: count - 1 });
+    }
   };
 
   getBasketTotal = () => this.basket?.size || 0;

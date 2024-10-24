@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { inject, observer } from "mobx-react";
 import { useWindowDimensions } from "hooks";
 
 import "./HeaderMobile.css";
@@ -8,17 +9,19 @@ import mobileLogo from "assets/header/logo_250w.png";
 import mobileBasket from "assets/header/icon_basket_64w.png";
 import mobileBurger from "assets/header/icon_burger_64w.png";
 
-const Header = () => {
+const Header = ({ store }) => {
   const { isMobile } = useWindowDimensions();
 
-  if (isMobile) return <Mobile />;
+  const basketTotal = store.getBasketTotal();
 
-  return <Desktop />;
+  if (isMobile) return <Mobile basketTotal={basketTotal} />;
+
+  return <Desktop basketTotal={basketTotal} />;
 };
 
-export default Header;
+export default inject("store")(observer(Header));
 
-const Mobile = () => {
+const Mobile = ({ basketTotal }) => {
   return (
     <div id="header-mobile" className="noselect">
       <a href="/" id="header-mobile-logo-wrap">
@@ -28,9 +31,11 @@ const Mobile = () => {
       <div id="header-mobile-container" className="hstack gap-x-4">
         <a id="header-mobile-basket-wrap">
           <img id="header-mobile-basket" src={mobileBasket} alt="icon_basket_64w" />
-          <div id="header-mobile-basket-badge-wrap" className="hide">
-            <span id="header-mobile-basket-badge-counter">0</span>
-          </div>
+          {basketTotal ? (
+            <div id="header-mobile-basket-badge-wrap">
+              <span id="header-mobile-basket-badge-counter">{basketTotal}</span>
+            </div>
+          ) : null}
         </a>
 
         <a href="" id="header-mobile-burger-wrap">
@@ -41,7 +46,7 @@ const Mobile = () => {
   );
 };
 
-const Desktop = () => {
+const Desktop = ({ basketTotal }) => {
   useEffect(() => {
     const headerEl = document.getElementById("header-desktop");
 
@@ -67,9 +72,11 @@ const Desktop = () => {
       <a href="">Контакты</a>
       <a id="header-basket-wrap">
         <span>Корзина</span>
-        <div id="header-basket-badge-wrap" className="hide">
-          <span id="header-basket-badge-counter">0</span>
-        </div>
+        {basketTotal ? (
+          <div id="header-basket-badge-wrap">
+            <span id="header-basket-badge-counter">{basketTotal}</span>
+          </div>
+        ) : null}
       </a>
     </div>
   );
