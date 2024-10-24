@@ -5,7 +5,7 @@ import plusSvg from "assets/card/plus.svg";
 import imagePlaceholder from "assets/image_placeholder.jpg";
 
 const Card = (props) => {
-  const { id, image = null, title, subtitle, price, categoryId } = props;
+  const { id, image = null, title, subtitle, price, categoryId, count } = props;
 
   const onPressCard = () => props?.onPressCard(categoryId, id);
 
@@ -22,9 +22,11 @@ const Card = (props) => {
       </div>
 
       <div className="card-buttons">
-        <button id={`${id}-minus`} className="card-btn-minus hide" onClick={onPressMinus}>
-          <img src={minusSvg} />
-        </button>
+        {count ? (
+          <button id={`${id}-minus`} className="card-btn-minus" onClick={onPressMinus}>
+            <img src={minusSvg} />
+          </button>
+        ) : null}
 
         <button id={`${id}-plus`} className="card-btn-plus" onClick={onPressPlus}>
           <span className="card-price">{price || "0"} ₽</span>

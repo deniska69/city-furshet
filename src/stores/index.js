@@ -46,23 +46,33 @@ class ProductsStore {
   onPressCategory = action((cat) => (this.selectedCategory = cat));
 
   onPressPlus = (categoryId, id) => {
-    const product = this.products.get(categoryId).get(id);
-    const count = this.basket.get(product?.id)?.count || 0;
-    this.basket.set(product?.id, { ...product, count: count + 1 });
+    const product = toJS(this.products.get(categoryId).get(id));
+    const count = (product?.count || 0) + 1;
+    this.products.get(categoryId).set(id, { ...product, count });
+    this.basket.set(product?.id, this.products.get(categoryId).get(id));
   };
 
   onPressMinus = (categoryId, id) => {
-    const product = this.products.get(categoryId).get(id);
-    const count = this.basket.get(product?.id)?.count || 0;
+    const product = toJS(this.products.get(categoryId).get(id));
+    const count = product?.count > 0 ? product?.count - 1 : 0;
+    this.products.get(categoryId).set(id, { ...product, count });
 
-    if (count - 1 < 1) {
+    if (count < 1) {
       this.basket.delete(product?.id);
     } else {
-      this.basket.set(product?.id, { ...product, count: count - 1 });
+      this.basket.set(product?.id, this.products.get(categoryId).get(id));
     }
   };
 
-  getBasketTotal = () => this.basket?.size || 0;
+  getBasketTotal = () => {
+    if (!this.basket?.size) return 0;
+
+    let sum = 0;
+
+    values(this.basket).forEach((el) => (sum += el?.count));
+
+    return sum;
+  };
 }
 
 const store = new ProductsStore();

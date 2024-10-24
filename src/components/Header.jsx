@@ -72,11 +72,10 @@ const Desktop = ({ basketTotal }) => {
       <a href="">Контакты</a>
       <a id="header-basket-wrap">
         <span>Корзина</span>
-        {basketTotal ? (
-          <div id="header-basket-badge-wrap">
-            <span id="header-basket-badge-counter">{basketTotal}</span>
-          </div>
-        ) : null}
+
+        <div id="header-basket-badge-wrap" className={!basketTotal ? "hidden" : ""}>
+          <span id="header-basket-badge-counter">{basketTotal}</span>
+        </div>
       </a>
     </div>
   );

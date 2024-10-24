@@ -19,7 +19,7 @@ const Menu = ({ store }) => {
 
   const onPressPlus = (...args) => store.onPressPlus(...args);
 
-  const onPressMinus = () => console.log("onPressMinus");
+  const onPressMinus = (...args) => store.onPressMinus(...args);
 
   if (loading) return <LoadPlaceholder />;
 
@@ -47,7 +47,7 @@ const Menu = ({ store }) => {
 
 export default inject("store")(observer(Menu));
 
-const MenuMain = (props) => {
+const MenuMain = observer((props) => {
   const { products, categories, selectedCategory, onPressCard, onPressPlus, onPressMinus } = props;
 
   const { isMobile } = useWindowDimensions();
@@ -75,7 +75,7 @@ const MenuMain = (props) => {
       })}
     </div>
   );
-};
+});
 
 const LoadPlaceholder = () => (
   <div id="menu">
