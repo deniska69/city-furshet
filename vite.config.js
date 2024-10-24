@@ -15,6 +15,7 @@ export default defineConfig({
       containers: "/src/containers",
       hooks: "/src/hooks",
       services: "/src/services",
+      stores: "/src/stores",
     },
   },
 });
