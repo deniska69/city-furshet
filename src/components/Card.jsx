@@ -16,7 +16,10 @@ const Card = (props) => {
   return (
     <div id={id} className="card noselect">
       <div className="card-info" onClick={onPressCard}>
-        <img src={image || imagePlaceholder} className="card-image" />
+        <img
+          src={image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image}
+          className="card-image"
+        />
         <span className="card-title">{title}</span>
         <span className="card-subtitle">{subtitle}</span>
       </div>
