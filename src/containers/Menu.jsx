@@ -11,7 +11,7 @@ const Menu = ({ store }) => {
   const loading = store.loading;
   const categories = store.categories;
   const selectedCategory = store.selectedCategory;
-  const products = isMobile ? store.products : store.getProductsCategory();
+  const products = store.products;
 
   const onPressCategory = (cat) => store.onPressCategory(cat);
 
@@ -59,7 +59,7 @@ const MenuMain = observer((props) => {
       {sections.map((section) => {
         const idSection = `menu-main-${section?.id}`;
         const idGrid = `menu-main-grid-${section?.id}`;
-        const cards = isMobile ? values(products.get(section?.id)) : products;
+        const cards = values(products.get(section?.id));
 
         return (
           <div key={idSection} id={idSection} className="menu-section">

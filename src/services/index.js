@@ -1,6 +1,5 @@
 import $ from "jquery";
 import priceLocal from "./price.json";
-import Basket from "./basket.js";
 
 export const sendTelegram = async (message) => {
   $.ajax({
@@ -162,5 +161,3 @@ const transliterate = (string) => {
     .join("")
     .replaceAll(" ", "");
 };
-
-export { Basket };

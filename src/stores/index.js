@@ -41,8 +41,6 @@ class ProductsStore {
       });
   };
 
-  getProductsCategory = () => values(this.products.get(this.selectedCategory?.id));
-
   onPressCategory = action((cat) => (this.selectedCategory = cat));
 
   onPressPlus = (categoryId, id) => {
