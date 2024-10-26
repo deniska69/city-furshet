@@ -13,13 +13,13 @@ const Card = (props) => {
 
   const onPressMinus = () => props?.onPressMinus(categoryId, id);
 
+  const cover =
+    import.meta.env.DEV || image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image;
+
   return (
     <div id={id} className="card noselect">
       <div className="card-info" onClick={onPressCard}>
-        <img
-          src={image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image}
-          className="card-image"
-        />
+        <img src={cover} className="card-image" />
         <span className="card-title">{title}</span>
         <span className="card-subtitle">{subtitle}</span>
       </div>
