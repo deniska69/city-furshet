@@ -19,7 +19,18 @@ const Card = (props) => {
   return (
     <div id={id} className="card noselect">
       <div className="card-info" onClick={onPressCard}>
-        <img src={cover} className="card-image" />
+        <div className="card-image-wrap">
+          <img src={cover} className="card-image" />
+
+          {count > 0 ? (
+            <div className="card-counter-wrap">
+              <div className="card-counter-inner">
+                <span className="card-counter">{count}</span>
+              </div>
+            </div>
+          ) : null}
+        </div>
+
         <span className="card-title">{title}</span>
         <span className="card-subtitle">{subtitle}</span>
       </div>
