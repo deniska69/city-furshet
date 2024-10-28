@@ -1,6 +1,8 @@
 import Card from "./Card";
 import Categories from "./Categories";
-import Header from "./Header";
+import Dialog from "./Dialog";
+import HeaderDesktop from "./HeaderDesktop";
+import HeaderMobile from "./HeaderMobile";
 import Loader from "./Loader";
 
-export { Card, Categories, Header, Loader };
+export { Card, Categories, Dialog, HeaderDesktop, HeaderMobile, Loader };

@@ -1,11 +1,11 @@
 import { Provider } from "mobx-react";
 import { useOpen } from "hooks";
-
 import * as stores from "stores";
-import { Header } from "components";
+
+import Basket from "containers/Basket";
+import Header from "containers/Header.jsx";
 import Home from "containers/Home.jsx";
 import Menu from "containers/Menu.jsx";
-import Basket from "containers/Basket";
 
 const App = () => {
   const { isOpen, onOpen, onClose } = useOpen();

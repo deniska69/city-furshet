@@ -6,8 +6,6 @@ import { Card, Categories, Loader } from "components";
 import "./Menu.css";
 
 const Menu = ({ store }) => {
-  const { isMobile } = useWindowDimensions();
-
   const loading = store.loading;
   const categories = store.categories;
   const selectedCategory = store.selectedCategory;
@@ -24,7 +22,7 @@ const Menu = ({ store }) => {
   if (loading) return <LoadPlaceholder />;
 
   return (
-    <div id="menu">
+    <div id="menu" className="noselect">
       <div id="menu-container">
         {categories && selectedCategory ? <Categories {...{ categories, selectedCategory, onPressCategory }} /> : null}
 
