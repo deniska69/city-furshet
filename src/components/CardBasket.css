@@ -1,0 +1,37 @@
+.card-basket {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px #e0e0e0 solid;
+}
+
+.card-basket:last-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.card-basket-image {
+  width: 100%;
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-basket-inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.card-basket-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+}
+
+.card-basket-buttons {
+  display: flex;
+  flex-direction: row;
+}

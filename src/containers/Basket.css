@@ -1,20 +1,43 @@
 #basket {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  height: 100%;
 }
 
 #basket-header {
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px lightgray solid;
+  padding: 0.5rem;
+  padding-top: 1rem;
+  border-bottom: 1px #e0e0e0 solid;
+}
+
+#basket-header span {
+  font-size: 1.5rem;
+  color: #404040;
+  font-weight: 600;
+}
+
+#basket-header img {
+  font-size: 1.5rem;
+  fill: #404040;
+  font-weight: 600;
+}
+
+@media (min-width: 500px) {
+  #basket-header {
+    padding: 1rem;
+  }
 }
 
 #basket-body {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  padding: 0.5rem;
+  row-gap: 1rem;
 }
 
 #basket-header button {
@@ -25,4 +48,17 @@
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+#basket-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#basket-empty span {
+  font-size: 1.6rem;
+  color: gray;
+  text-align: center;
 }

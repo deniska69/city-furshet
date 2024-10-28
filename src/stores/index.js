@@ -71,6 +71,11 @@ class ProductsStore {
 
     return sum;
   };
+
+  getBasketItems = () => {
+    if (this.basket?.size > 0) return values(this.basket);
+    return null;
+  };
 }
 
 const store = new ProductsStore();
