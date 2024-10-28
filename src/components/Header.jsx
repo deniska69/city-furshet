@@ -9,17 +9,19 @@ import mobileLogo from "assets/header/logo_250w.png";
 import mobileBasket from "assets/header/icon_basket_64w.png";
 import mobileBurger from "assets/header/icon_burger_64w.png";
 
-const Header = ({ store }) => {
+const Header = ({ store, onOpenBasket }) => {
   const { isMobile } = useWindowDimensions();
 
   const basketTotal = store.getBasketTotal();
 
-  return <>{isMobile ? <Mobile basketTotal={basketTotal} /> : <Desktop basketTotal={basketTotal} />}</>;
+  return (
+    <>{isMobile ? <Mobile {...{ basketTotal, onOpenBasket }} /> : <Desktop {...{ basketTotal, onOpenBasket }} />}</>
+  );
 };
 
 export default inject("store")(observer(Header));
 
-const Mobile = ({ basketTotal }) => {
+const Mobile = ({ basketTotal, onOpenBasket }) => {
   return (
     <div id="header-mobile" className="noselect">
       <a href="/" id="header-mobile-logo-wrap">
@@ -27,7 +29,7 @@ const Mobile = ({ basketTotal }) => {
       </a>
 
       <div id="header-mobile-container" className="hstack gap-x-4">
-        <a id="header-mobile-basket-wrap">
+        <a id="header-mobile-basket-wrap" onClick={onOpenBasket}>
           <img id="header-mobile-basket" src={mobileBasket} alt="icon_basket_64w" />
           {basketTotal ? (
             <div id="header-mobile-basket-badge-wrap">
@@ -44,7 +46,7 @@ const Mobile = ({ basketTotal }) => {
   );
 };
 
-const Desktop = ({ basketTotal }) => {
+const Desktop = ({ basketTotal, onOpenBasket }) => {
   useEffect(() => {
     const headerEl = document.getElementById("header-desktop");
 
@@ -69,7 +71,7 @@ const Desktop = ({ basketTotal }) => {
       <a href="">Доставка и оплата</a>
       <a href="">Контакты</a>
 
-      <a id="header-basket-wrap">
+      <a id="header-basket-wrap" onClick={onOpenBasket}>
         <span>Корзина</span>
 
         <div id="header-basket-badge-wrap" className={!basketTotal ? "hidden" : ""}>
