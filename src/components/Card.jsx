@@ -1,7 +1,5 @@
 import "./Card.css";
-
-import minusSvg from "assets/card/minus.svg";
-import plusSvg from "assets/card/plus.svg";
+import { Icon } from "components";
 import imagePlaceholder from "assets/image_placeholder.jpg";
 
 const getCover = (image) => {
@@ -39,13 +37,13 @@ const Card = (props) => {
       <div className="card-buttons">
         {count ? (
           <button id={`${id}-minus`} className="card-btn-minus" onClick={onPressMinus}>
-            <img src={minusSvg} />
+            <Icon name="minus" color="white" />
           </button>
         ) : null}
 
         <button id={`${id}-plus`} className="card-btn-plus" onClick={onPressPlus}>
           <span className="card-price">{price || "0"} ₽</span>
-          <img src={plusSvg} />
+          <Icon name="plus" color="white" />
         </button>
       </div>
     </div>

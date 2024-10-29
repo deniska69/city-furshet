@@ -6,6 +6,10 @@
   border-bottom: 1px #e0e0e0 solid;
 }
 
+.card-basket:first-of-type {
+  margin-top: 0.5rem;
+}
+
 .card-basket:last-of-type {
   padding-bottom: 0;
   border-bottom: none;
@@ -22,7 +26,9 @@
 .card-basket-inner {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   row-gap: 0.5rem;
+  width: 100%;
 }
 
 .card-basket-text {
@@ -34,4 +40,39 @@
 .card-basket-buttons {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.card-basket-counter {
+  font-size: 1.5rem;
+  margin-right: 8px;
+}
+
+.card-basket-inner-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-basket-total-price {
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.card-basket-inner-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-basket-delete-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }

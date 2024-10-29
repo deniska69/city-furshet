@@ -1,7 +1,6 @@
 import { inject, observer } from "mobx-react";
-import { Dialog, CardBasket } from "components";
+import { Dialog, CardBasket, Icon } from "components";
 
-import closeSvg from "assets/header/close.svg";
 import "./Basket.css";
 
 const Basket = ({ store, isOpen, onClose }) => {
@@ -17,7 +16,7 @@ const Basket = ({ store, isOpen, onClose }) => {
         <div id="basket-header">
           <span>Корзина</span>
           <button onClick={onClose}>
-            <img src={closeSvg} />
+            <Icon name="close" color="#404040" />
           </button>
         </div>
         <div id="basket-body">

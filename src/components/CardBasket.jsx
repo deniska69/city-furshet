@@ -1,7 +1,5 @@
 import "./CardBasket.css";
-
-import minusSvg from "assets/card/minus.svg";
-import plusSvg from "assets/card/plus.svg";
+import { Icon } from "components";
 import imagePlaceholder from "assets/image_placeholder.jpg";
 
 const getCover = (image) => {
@@ -9,26 +7,37 @@ const getCover = (image) => {
 };
 
 const CardBasket = (props) => {
-  const { id, image = null, title, subtitle, price, categoryId, count, onPressPlus, onPressMinus } = props;
+  const { id, image = null, title, subtitle, price = 0, categoryId, count = 0, onPressPlus, onPressMinus } = props;
   return (
     <div className="card-basket">
       <img src={getCover(image)} className="card-basket-image" />
 
       <div className="card-basket-inner">
-        <div className="card-basket-text">
-          <span className="card-title">{title}</span>
-          <span className="card-subtitle">{subtitle}</span>
+        <div className="card-basket-inner-header">
+          <div className="card-basket-text">
+            <span className="card-title">{title}</span>
+            <span className="card-subtitle">{subtitle}</span>
+          </div>
+
+          <button className="card-basket-delete-button">
+            <Icon name="close" color="gray" size={16} />
+          </button>
         </div>
 
-        <div className="card-basket-buttons">
-          <button className="card-btn-minus" onClick={onPressMinus}>
-            <img src={minusSvg} />
-          </button>
+        <div className="card-basket-inner-footer">
+          <div className="card-basket-buttons">
+            <button className="card-btn-minus" onClick={onPressMinus}>
+              <Icon name="minus" color="white" />
+            </button>
 
-          <button className="card-btn-plus" onClick={onPressPlus}>
-            <span className="card-price">{price || "0"} ₽</span>
-            <img src={plusSvg} />
-          </button>
+            <span className="card-basket-counter">{count}</span>
+
+            <button className="card-btn-plus" onClick={onPressPlus}>
+              <Icon name="plus" color="white" />
+            </button>
+          </div>
+
+          <span className="card-basket-total-price">{`${count * price} ₽`}</span>
         </div>
       </div>
     </div>
