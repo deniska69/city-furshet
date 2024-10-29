@@ -7,7 +7,25 @@ const getCover = (image) => {
 };
 
 const CardBasket = (props) => {
-  const { id, image = null, title, subtitle, price = 0, categoryId, count = 0, onPressPlus, onPressMinus } = props;
+  const {
+    id,
+    image = null,
+    title,
+    subtitle,
+    price = 0,
+    categoryId,
+    count = 0,
+    onPressPlus,
+    onPressMinus,
+    onPressDelete,
+  } = props;
+
+  const handlePressPlus = () => onPressPlus(categoryId, id);
+
+  const handlePressMinus = () => onPressMinus(categoryId, id);
+
+  const handlePressDelete = () => onPressDelete(id);
+
   return (
     <div className="card-basket">
       <img src={getCover(image)} className="card-basket-image" />
@@ -19,20 +37,20 @@ const CardBasket = (props) => {
             <span className="card-subtitle">{subtitle}</span>
           </div>
 
-          <button className="card-basket-delete-button">
+          <button className="card-basket-delete-button" onClick={handlePressDelete}>
             <Icon name="close" color="gray" size={16} />
           </button>
         </div>
 
         <div className="card-basket-inner-footer">
           <div className="card-basket-buttons">
-            <button className="card-btn-minus" onClick={onPressMinus}>
+            <button className="card-btn-minus" onClick={handlePressMinus}>
               <Icon name="minus" color="white" />
             </button>
 
             <span className="card-basket-counter">{count}</span>
 
-            <button className="card-btn-plus" onClick={onPressPlus}>
+            <button className="card-btn-plus" onClick={handlePressPlus}>
               <Icon name="plus" color="white" />
             </button>
           </div>

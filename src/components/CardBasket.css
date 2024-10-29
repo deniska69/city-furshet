@@ -76,3 +76,12 @@
   cursor: pointer;
   outline: inherit;
 }
+
+.card-basket-delete-button {
+  transition: all 0.2s;
+}
+
+.card-basket-delete-button:active {
+  transform: scale(60%);
+  transition: transform 0.05s ease-in-out;
+}

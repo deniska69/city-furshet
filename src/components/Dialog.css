@@ -26,7 +26,8 @@ body.dialog-open .dialog-root {
   width: 100%;
   flex-direction: column;
   background-color: white;
-  height: calc(100vh - 10px);
+  height: 100%;
+  max-height: calc(100vh - 10px);
   align-self: flex-end;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;

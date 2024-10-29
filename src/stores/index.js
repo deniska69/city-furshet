@@ -62,6 +62,8 @@ class ProductsStore {
     }
   };
 
+  onPressDelete = (id) => this.basket.delete(id);
+
   getBasketTotal = () => {
     if (!this.basket?.size) return 0;
 

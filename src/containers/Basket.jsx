@@ -1,6 +1,5 @@
 import { inject, observer } from "mobx-react";
 import { Dialog, CardBasket, Icon } from "components";
-
 import "./Basket.css";
 
 const Basket = ({ store, isOpen, onClose }) => {
@@ -10,18 +9,22 @@ const Basket = ({ store, isOpen, onClose }) => {
 
   const onPressMinus = (...args) => store.onPressMinus(...args);
 
+  const onPressDelete = (...args) => store.onPressDelete(...args);
+
   return (
     <Dialog {...{ isOpen, onClose }}>
       <div id="basket">
         <div id="basket-header">
           <span>Корзина</span>
-          <button onClick={onClose}>
+          <button className="basket-header-close" onClick={onClose}>
             <Icon name="close" color="#404040" />
           </button>
         </div>
         <div id="basket-body">
           {items ? (
-            items.map((item, index) => <CardBasket key={index} {...item} {...{ onPressPlus, onPressMinus }} />)
+            items.map((item, index) => (
+              <CardBasket key={index} {...item} {...{ onPressPlus, onPressMinus, onPressDelete }} />
+            ))
           ) : (
             <Empty />
           )}
