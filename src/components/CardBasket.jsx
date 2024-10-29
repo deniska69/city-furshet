@@ -24,7 +24,7 @@ const CardBasket = (props) => {
 
   const handlePressMinus = () => onPressMinus(categoryId, id);
 
-  const handlePressDelete = () => onPressDelete(id);
+  const handlePressDelete = () => onPressDelete(categoryId, id);
 
   return (
     <div className="card-basket">

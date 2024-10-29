@@ -62,7 +62,11 @@ class ProductsStore {
     }
   };
 
-  onPressDelete = (id) => this.basket.delete(id);
+  onPressDelete = (categoryId, id) => {
+    const product = toJS(this.products.get(categoryId).get(id));
+    this.products.get(categoryId).set(id, { ...product, count: 0 });
+    this.basket.delete(id);
+  };
 
   getBasketTotal = () => {
     if (!this.basket?.size) return 0;
