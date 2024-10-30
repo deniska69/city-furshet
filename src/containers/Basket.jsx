@@ -21,7 +21,9 @@ const Basket = ({ store, isOpen, onClose }) => {
     const formData = new FormData(event.target);
     const contact = formData.get("contact");
 
-    sendTelegram(contact);
+    sendTelegram(contact)
+      .then((e) => console.log(e))
+      .catch((e) => console.error(e));
   };
 
   return (
