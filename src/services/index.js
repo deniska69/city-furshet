@@ -4,10 +4,12 @@ import priceLocal from "./price.json";
 export const sendTelegram = async (message) => {
   $.ajax({
     type: "POST",
-    url: window.location.href + "send.php",
+    url: window.location.origin + "/send.php",
     data: { message },
-    success: (data) => Promise.resolve(data),
-    error: (e) => Promise.reject(e.toString()),
+    // success: (data) => Promise.resolve(data),
+    // error: (e) => Promise.reject(e.toString()),
+    success: (data) => console.log("then:", data),
+    error: (e) => console.error(e.toString()),
   });
 };
 
