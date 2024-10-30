@@ -1,5 +1,5 @@
 import { makeAutoObservable, action, observable, toJS, values } from "mobx";
-import { getPrice } from "services";
+import { getPrice, sendTelegram } from "services";
 
 class ProductsStore {
   constructor() {
@@ -36,7 +36,7 @@ class ProductsStore {
         })
       )
       .catch((e) => {
-        alert("Ошибка загрузки прайса.\nСм. console.");
+        alert("Ошибка загрузки прайса.%0AСм. console.");
         console.error("Ошибка загрузки прайса.", e);
       });
   };
@@ -91,6 +91,21 @@ class ProductsStore {
   getBasketItems = () => {
     if (this.basket?.size > 0) return values(this.basket);
     return null;
+  };
+
+  onSubmit = (contact) => {
+    const title = "<b>⭐ Новый заказ! ⭐</b>%0A%0A";
+    let items = "";
+
+    this.getBasketItems().forEach((item, index) => {
+      items += `${index + 1}. ${item?.title} (${item?.price} ₽) x ${item?.count} шт. = ${
+        item?.price * item?.count
+      } ₽.%0A`;
+    });
+
+    const footer = `%0AИтого: <b>${this.getBasketTotalPrice()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
+
+    sendTelegram(title + items + footer);
   };
 }
 

@@ -1,6 +1,5 @@
 import { inject, observer } from "mobx-react";
 import { Dialog, CardBasket, Icon } from "components";
-import { sendTelegram } from "services";
 import "./Basket.css";
 
 const Basket = ({ store, isOpen, onClose }) => {
@@ -17,11 +16,8 @@ const Basket = ({ store, isOpen, onClose }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
     const formData = new FormData(event.target);
-    const contact = formData.get("contact");
-
-    sendTelegram(contact);
+    store.onSubmit(formData.get("contact"));
   };
 
   return (

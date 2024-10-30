@@ -1,30 +1,26 @@
 import $ from "jquery";
-import priceLocal from "./price.json";
+import mockePrice from "./mockePrice.json";
 
 export const sendTelegram = async (message) => {
-  $.ajax({
+  await $.ajax({
     type: "POST",
-    url: window.location.origin + "/send.php",
+    url: import.meta.env.VITE_SEND_URL,
     data: { message },
-    // success: (data) => Promise.resolve(data),
-    // error: (e) => Promise.reject(e.toString()),
-    success: (data) => console.log("then:", data),
-    error: (e) => console.error(e.toString()),
+    success: (data) => Promise.resolve(data),
+    error: (e) => Promise.reject(e),
   });
 };
 
 export const getPrice = async () => {
-  if (import.meta.env.DEV) return Promise.resolve(priceLocal);
+  if (import.meta.env.DEV) return Promise.resolve(mockePrice);
 
   const xhrArrayBuffer = new XMLHttpRequest();
   xhrArrayBuffer.responseType = "arraybuffer";
 
-  const url = import.meta.env.VITE_PRICE_URL;
-
   let res = {};
 
   await $.ajax({
-    url,
+    url: import.meta.env.VITE_PRICE_URL,
     method: "GET",
     xhr: () => xhrArrayBuffer,
     success: (data) => (res = processingCSV(decodeCSV(data))),
