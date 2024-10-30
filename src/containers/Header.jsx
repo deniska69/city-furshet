@@ -6,7 +6,7 @@ import { HeaderMobile, HeaderDesktop } from "components";
 const Header = ({ store, onOpenBasket }) => {
   const { isMobile } = useWindowDimensions();
 
-  const basketTotal = store.getBasketTotal();
+  const basketTotal = store.getBasketTotalCount();
 
   if (isMobile) return <HeaderMobile {...{ basketTotal, onOpenBasket }} />;
 

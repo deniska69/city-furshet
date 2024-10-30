@@ -1,10 +1,10 @@
-#basket {
+.basket {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-#basket-header {
+.basket-header {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -14,35 +14,34 @@
   border-bottom: 1px #e0e0e0 solid;
 }
 
-#basket-header span {
+.basket-header span {
   font-size: 1.5rem;
   color: #404040;
   font-weight: 600;
 }
 
-#basket-header img {
+.basket-header img {
   font-size: 1.5rem;
   fill: #404040;
   font-weight: 600;
 }
 
 @media (min-width: 500px) {
-  #basket-header {
+  .basket-header {
     padding: 1rem;
   }
 }
 
-#basket-body {
+.basket-body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-height: calc(100vh - 150px);
   padding: 0.5rem;
   row-gap: 1rem;
   overflow-y: scroll;
 }
 
-#basket-header button {
+.basket-header button {
   background: none;
   color: inherit;
   border: none;
@@ -52,14 +51,14 @@
   outline: inherit;
 }
 
-#basket-empty {
+.basket-empty {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 
-#basket-empty span {
+.basket-empty span {
   font-size: 1.6rem;
   color: gray;
   text-align: center;
@@ -71,5 +70,47 @@
 
 .basket-header-close:active {
   transform: scale(80%);
+  transition: transform 0.05s ease-in-out;
+}
+
+.basket-footer form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  row-gap: 1rem;
+  border-top: 1px #e0e0e0 solid;
+}
+
+.basket-footer-input {
+  background: #ffffff;
+  border-radius: 8px;
+  height: 40px;
+  font-size: 18px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-color: lightgray;
+  border-style: solid;
+  width: 100%;
+}
+
+.basket-footer-submit {
+  background: #8cbe22;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.basket-footer-submit:active {
+  background-color: #577713;
+  transform: scale(98%);
   transition: transform 0.05s ease-in-out;
 }

@@ -68,12 +68,22 @@ class ProductsStore {
     this.basket.delete(id);
   };
 
-  getBasketTotal = () => {
+  getBasketTotalCount = () => {
     if (!this.basket?.size) return 0;
 
     let sum = 0;
 
     values(this.basket).forEach((el) => (sum += el?.count));
+
+    return sum;
+  };
+
+  getBasketTotalPrice = () => {
+    if (!this.basket?.size) return 0;
+
+    let sum = 0;
+
+    values(this.basket).forEach((el) => (sum += (el?.count || 0) * (el?.price || 0)));
 
     return sum;
   };
