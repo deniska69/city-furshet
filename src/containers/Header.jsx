@@ -3,14 +3,17 @@ import { useWindowDimensions } from "hooks";
 
 import { HeaderMobile, HeaderDesktop } from "components";
 
-const Header = ({ store, onOpenBasket }) => {
+const Header = ({ store, modals }) => {
   const { isMobile } = useWindowDimensions();
 
   const basketTotal = store.getBasketTotalCount();
+  const onOpenBasket = modals.onOpenBasket;
+  const onOpenMobileMenu = modals.onOpenMobileMenu;
+  const onOpenMyOrders = modals.onOpenMyOrders;
 
-  if (isMobile) return <HeaderMobile {...{ basketTotal, onOpenBasket }} />;
+  if (isMobile) return <HeaderMobile {...{ basketTotal, onOpenBasket, onOpenMobileMenu, onOpenMyOrders }} />;
 
-  return <HeaderDesktop {...{ basketTotal, onOpenBasket }} />;
+  return <HeaderDesktop {...{ basketTotal, onOpenBasket, onOpenMyOrders }} />;
 };
 
-export default inject("store")(observer(Header));
+export default inject("store", "modals")(observer(Header));

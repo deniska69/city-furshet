@@ -2,7 +2,9 @@ import { inject, observer } from "mobx-react";
 import { Dialog, CardBasket, Icon } from "components";
 import "./Basket.css";
 
-const Basket = ({ store, isOpen, onClose }) => {
+const Basket = ({ store, modals }) => {
+  const isOpen = modals.isOpenBasket;
+  const onClose = modals.onCloseBasket;
   const items = store.getBasketItems();
 
   const basketTotalCount = store.getBasketTotalCount();
@@ -59,7 +61,7 @@ const Basket = ({ store, isOpen, onClose }) => {
   );
 };
 
-export default inject("store")(observer(Basket));
+export default inject("store", "modals")(observer(Basket));
 
 const Empty = () => (
   <div className="basket-empty">
