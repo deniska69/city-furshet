@@ -1,5 +1,6 @@
 body.dialog-open {
   overflow: hidden;
+  padding-right: 15px;
 }
 
 .dialog-root {
