@@ -1,4 +1,4 @@
-import { makeAutoObservable, action, observable, toJS, values } from "mobx";
+import { makeAutoObservable, action, observable, toJS, values, autorun } from "mobx";
 import { getPrice, sendTelegram } from "services";
 
 class ProductsStore {
@@ -15,6 +15,7 @@ class ProductsStore {
     this.loading = true;
 
     this.fetchData();
+    this.readLocalStorage();
   });
 
   fetchData = () => {
@@ -36,7 +37,7 @@ class ProductsStore {
         })
       )
       .catch((e) => {
-        alert("Ошибка загрузки прайса.%0AСм. console.");
+        alert("Ошибка загрузки прайса.\nСм. console.");
         console.error("Ошибка загрузки прайса.", e);
       });
   };
@@ -48,6 +49,8 @@ class ProductsStore {
     const count = (product?.count || 0) + 1;
     this.products.get(categoryId).set(id, { ...product, count });
     this.basket.set(product?.id, this.products.get(categoryId).get(id));
+
+    this.writoToStorage();
   };
 
   onPressMinus = (categoryId, id) => {
@@ -60,12 +63,16 @@ class ProductsStore {
     } else {
       this.basket.set(product?.id, this.products.get(categoryId).get(id));
     }
+
+    this.writoToStorage();
   };
 
   onPressDelete = (categoryId, id) => {
     const product = toJS(this.products.get(categoryId).get(id));
     this.products.get(categoryId).set(id, { ...product, count: 0 });
     this.basket.delete(id);
+
+    this.writoToStorage();
   };
 
   getBasketTotalCount = () => {
@@ -94,18 +101,28 @@ class ProductsStore {
   };
 
   onSubmit = (contact) => {
-    const title = "<b>⭐ Новый заказ! ⭐</b>%0A%0A";
-    let items = "";
+    let text = "<b>⭐ Новый заказ! ⭐</b>%0A%0A";
 
     this.getBasketItems().forEach((item, index) => {
-      items += `${index + 1}. ${item?.title} (${item?.price} ₽) x ${item?.count} шт. = ${
+      text += `${index + 1}. ${item?.title} (${item?.price} ₽) x ${item?.count} шт. = ${
         item?.price * item?.count
       } ₽.%0A`;
     });
 
-    const footer = `%0AИтого: <b>${this.getBasketTotalPrice()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
+    text += `%0AИтого: <b>${this.getBasketTotalPrice()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
 
-    sendTelegram(title + items + footer);
+    sendTelegram(text)
+      .then(() => console.log(1))
+      .catch(() => console.log(2));
+  };
+
+  writoToStorage = () => localStorage.setItem("basket", JSON.stringify(this.basket));
+
+  readLocalStorage = () => {
+    const result = JSON.parse(localStorage.getItem("basket"));
+    if (result?.length > 0) {
+      this.basket = observable.map(result);
+    }
   };
 }
 
