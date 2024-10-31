@@ -15,7 +15,6 @@ export default class ProductsStore {
     this.loading = true;
 
     this.fetchData();
-    this.readLocalStorage();
   });
 
   fetchData = () => {
@@ -31,9 +30,12 @@ export default class ProductsStore {
               this.products.get(card?.categoryId).set(card?.id, card);
             });
           });
+
           this.categories = Object.keys(data).map((cat) => ({ id: data[cat]?.id, title: data[cat]?.title }));
           this.selectedCategory = this.categories[0];
           this.loading = false;
+
+          this.readLocalStorage();
         })
       )
       .catch((e) => {
@@ -122,6 +124,7 @@ export default class ProductsStore {
     const result = JSON.parse(localStorage.getItem("basket"));
     if (result?.length > 0) {
       this.basket = observable.map(result);
+      values(this.basket).forEach((item) => this.products.get(item?.categoryId).set(item?.id, item));
     }
   };
 }
