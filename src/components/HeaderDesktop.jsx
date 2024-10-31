@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import "./HeaderDesktop.css";
 
-const HeaderDesktop = ({ basketTotal, onOpenBasket }) => {
+const HeaderDesktop = ({ basketTotal, onOpenBasket, onOpenOrders }) => {
   useEffect(() => {
     const headerEl = document.getElementById("header-desktop");
 
@@ -30,10 +30,14 @@ const HeaderDesktop = ({ basketTotal, onOpenBasket }) => {
       <a id="header-basket-wrap" onClick={onOpenBasket}>
         <span>Корзина</span>
 
-        <div id="header-basket-badge-wrap" className={!basketTotal ? "hidden" : ""}>
-          <span id="header-basket-badge-counter">{basketTotal}</span>
-        </div>
+        {basketTotal ? (
+          <div id="header-basket-badge-wrap">
+            <span id="header-basket-badge-counter">{basketTotal}</span>
+          </div>
+        ) : null}
       </a>
+
+      <a onClick={onOpenOrders}>Заказы</a>
     </div>
   );
 };

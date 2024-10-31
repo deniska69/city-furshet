@@ -9,11 +9,11 @@ const Header = ({ store, modals }) => {
   const basketTotal = store.getBasketTotalCount();
   const onOpenBasket = modals.onOpenBasket;
   const onOpenMobileMenu = modals.onOpenMobileMenu;
-  const onOpenMyOrders = modals.onOpenMyOrders;
+  const onOpenOrders = modals.onOpenOrders;
 
-  if (isMobile) return <HeaderMobile {...{ basketTotal, onOpenBasket, onOpenMobileMenu, onOpenMyOrders }} />;
+  if (isMobile) return <HeaderMobile {...{ basketTotal, onOpenBasket, onOpenMobileMenu, onOpenOrders }} />;
 
-  return <HeaderDesktop {...{ basketTotal, onOpenBasket, onOpenMyOrders }} />;
+  return <HeaderDesktop {...{ basketTotal, onOpenBasket, onOpenOrders }} />;
 };
 
 export default inject("store", "modals")(observer(Header));

@@ -4,37 +4,38 @@ export default class ModalsStore {
   constructor() {
     this.isOpenBasket = false;
     this.isOpenMobileMenu = false;
-    this.isOpenMyOrders = false;
+    this.isOpenOrders = false;
 
     makeAutoObservable(this);
   }
 
   onAnyClose = action(() => {
-    console.log("onAnyClose");
     this.isOpenBasket = false;
     this.isOpenMobileMenu = false;
-    this.isOpenMyOrders = false;
+    this.isOpenOrders = false;
   });
 
   onOpenBasket = action(() => {
-    console.log("onOpenBasket");
-    this.onAnyClose();
+    this.isOpenMobileMenu = false;
+    this.isOpenOrders = false;
     this.isOpenBasket = true;
   });
 
   onCloseBasket = () => this.onAnyClose();
 
   onOpenMobileMenu = action(() => {
-    this.onAnyClose();
+    this.isOpenBasket = false;
+    this.isOpenOrders = false;
     this.isOpenMobileMenu = true;
   });
 
   onCloseMobileMenu = () => this.onAnyClose();
 
-  onOpenMyOrders = action(() => {
-    this.onAnyClose();
-    this.isOpenMyOrders = true;
+  onOpenOrders = action(() => {
+    this.isOpenBasket = false;
+    this.isOpenMobileMenu = false;
+    this.isOpenOrders = true;
   });
 
-  onCloseMyOrders = () => this.onAnyClose();
+  onCloseOrders = () => this.onAnyClose();
 }

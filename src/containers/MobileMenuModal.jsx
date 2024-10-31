@@ -1,6 +1,13 @@
-import Dialog from "./Dialog";
+import { inject, observer } from "mobx-react";
+import { Dialog } from "components";
+import "./MobileMenuModal.css";
 
-const MobileMenu = ({ isOpen, onClose }) => {
+const MobileMenuModal = ({ modals }) => {
+  const isOpen = modals.isOpenMobileMenu;
+  const onClose = modals.onCloseMobileMenu;
+
+  if (!isOpen) return null;
+
   return (
     <Dialog {...{ isOpen, onClose }}>
       <div className="mobile-menu">
@@ -19,7 +26,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
         <a href="" className="mobile-menu-link">
           Мои заказы
         </a>
-        <a href="" className="mobile-menu-link">
+        <a className="mobile-menu-link" onClick={onClose}>
           Закрыть
         </a>
       </div>
@@ -27,4 +34,4 @@ const MobileMenu = ({ isOpen, onClose }) => {
   );
 };
 
-export default MobileMenu;
+export default inject("modals")(observer(MobileMenuModal));
