@@ -1,5 +1,5 @@
 body.dialog-open {
-  overflow: hidden; /* see "modal-open" in Modal.tsx */
+  overflow: hidden;
 }
 
 .dialog-root {
@@ -53,4 +53,42 @@ body.dialog-open .dialog-root {
     -moz-box-shadow: 0px 12px 17px 0px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 12px 17px 0px rgba(0, 0, 0, 0.3);
   }
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem;
+  padding-top: 1rem;
+  border-bottom: 1px #e0e0e0 solid;
+}
+
+.dialog-header span {
+  font-size: 1.5rem;
+  color: #404040;
+  font-weight: 600;
+}
+
+@media (min-width: 500px) {
+  .dialog-header {
+    padding: 1rem;
+  }
+}
+
+.dialog-header-close {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  transition: all 0.2s;
+}
+
+.dialog-header-close:active {
+  transform: scale(80%);
+  transition: transform 0.05s ease-in-out;
 }

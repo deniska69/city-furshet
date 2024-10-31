@@ -1,5 +1,5 @@
 import { inject, observer } from "mobx-react";
-import { Dialog, CardBasket, Icon } from "components";
+import { Dialog, CardBasket } from "components";
 import "./BasketModal.css";
 
 const BasketModal = ({ store, modals }) => {
@@ -22,18 +22,9 @@ const BasketModal = ({ store, modals }) => {
     store.onSubmit(formData.get("contact"));
   };
 
-  if (!isOpen) return null;
-
   return (
-    <Dialog {...{ isOpen, onClose }}>
+    <Dialog {...{ isOpen, onClose, title: "Корзина" }}>
       <div className="basket">
-        <div className="basket-header">
-          <span>Корзина</span>
-          <button className="basket-header-close" onClick={onClose}>
-            <Icon name="close" color="#404040" />
-          </button>
-        </div>
-
         <div className="basket-body">
           {items ? (
             items.map((item, index) => (

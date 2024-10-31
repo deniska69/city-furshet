@@ -6,15 +6,17 @@ const OrdersModal = ({ modals }) => {
   const isOpen = modals.isOpenOrders;
   const onClose = modals.onCloseOrders;
 
-  if (!isOpen) return null;
-
   return (
-    <Dialog {...{ isOpen, onClose }}>
-      <div className="mobile-menu">
-        <h1>Заказы</h1>
-      </div>
+    <Dialog {...{ isOpen, onClose, title: "Заказы" }}>
+      <Empty />
     </Dialog>
   );
 };
 
 export default inject("modals")(observer(OrdersModal));
+
+const Empty = () => (
+  <div className="orders-empty">
+    <span>Вы ещё ничего не заказали</span>
+  </div>
+);

@@ -1,0 +1,12 @@
+.orders-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.orders-empty span {
+  font-size: 1.6rem;
+  color: gray;
+  text-align: center;
+}

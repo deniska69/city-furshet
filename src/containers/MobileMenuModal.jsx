@@ -6,12 +6,15 @@ const MobileMenuModal = ({ modals }) => {
   const isOpen = modals.isOpenMobileMenu;
   const onClose = modals.onCloseMobileMenu;
 
-  if (!isOpen) return null;
+  const onOpenOrders = () => {
+    onClose();
+    modals.onOpenOrders();
+  };
 
   return (
-    <Dialog {...{ isOpen, onClose }}>
+    <Dialog {...{ isOpen, onClose, title: "City Furshet" }}>
       <div className="mobile-menu">
-        <a href="" className="mobile-menu-link">
+        <a href="#menu" className="mobile-menu-link" onClick={onClose}>
           Меню
         </a>
         <a href="" className="mobile-menu-link">
@@ -23,8 +26,8 @@ const MobileMenuModal = ({ modals }) => {
         <a href="" className="mobile-menu-link">
           Контакты
         </a>
-        <a href="" className="mobile-menu-link">
-          Мои заказы
+        <a className="mobile-menu-link" onClick={onOpenOrders}>
+          Заказы
         </a>
         <a className="mobile-menu-link" onClick={onClose}>
           Закрыть
