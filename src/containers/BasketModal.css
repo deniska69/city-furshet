@@ -15,15 +15,32 @@
 
 .basket-empty {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
-}
-
-.basket-empty span {
   font-size: 1.6rem;
   color: gray;
   text-align: center;
+  row-gap: 1rem;
+  padding: 2rem;
+}
+
+.basket-empty a {
+  color: gray;
+  text-decoration-color: #8cbe22;
+}
+
+.basket-success {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.4rem;
 }
 
 .basket-footer form {

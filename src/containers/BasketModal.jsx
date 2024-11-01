@@ -1,14 +1,14 @@
 import { inject, observer } from "mobx-react";
-import { Dialog, CardBasket } from "components";
+import { Dialog, CardBasket, Loader } from "components";
 import "./BasketModal.css";
 
 const BasketModal = ({ store, modals }) => {
   const isOpen = modals.isOpenBasket;
   const onClose = modals.onCloseBasket;
   const items = store.getBasketItems();
-
   const basketTotalCount = store.getBasketTotalCount();
   const basketTotalPrice = store.getBasketTotalPrice();
+  const isSuccessOrder = store.isSuccessOrder;
 
   const onPressPlus = (...args) => store.onPressPlus(...args);
 
@@ -25,17 +25,19 @@ const BasketModal = ({ store, modals }) => {
   return (
     <Dialog {...{ isOpen, onClose, title: "Корзина" }}>
       <div className="basket">
-        <div className="basket-body">
-          {items ? (
-            items.map((item, index) => (
-              <CardBasket key={index} {...item} {...{ onPressPlus, onPressMinus, onPressDelete }} />
-            ))
-          ) : (
-            <Empty />
-          )}
-        </div>
+        {isSuccessOrder ? null : (
+          <div className="basket-body">
+            {items ? (
+              items.map((item, index) => (
+                <CardBasket key={index} {...item} {...{ onPressPlus, onPressMinus, onPressDelete }} />
+              ))
+            ) : (
+              <Empty onClose={onClose} />
+            )}
+          </div>
+        )}
 
-        {basketTotalCount ? (
+        {isSuccessOrder ? null : basketTotalCount ? (
           <div className="basket-footer">
             <form onSubmit={onSubmit}>
               <input
@@ -49,6 +51,8 @@ const BasketModal = ({ store, modals }) => {
             </form>
           </div>
         ) : null}
+
+        {isSuccessOrder ? <Success /> : null}
       </div>
     </Dialog>
   );
@@ -56,8 +60,22 @@ const BasketModal = ({ store, modals }) => {
 
 export default inject("store", "modals")(observer(BasketModal));
 
-const Empty = () => (
+const Empty = ({ onClose }) => (
   <div className="basket-empty">
-    <span>Вы ещё ничего не выбрали</span>
+    <span>Вы ещё ничего не выбрали.</span>
+    <a href="#menu" onClick={onClose}>
+      Посмотрите, сколько всего вкусно у нас в меню
+    </a>
+  </div>
+);
+
+const Success = () => (
+  <div className="basket-success">
+    <Loader />
+    <span>
+      Отлично!
+      <br />
+      Мы уже получили ваш заказ и скоро с Вами свяжемся!
+    </span>
   </div>
 );

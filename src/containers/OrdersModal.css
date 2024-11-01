@@ -1,12 +1,17 @@
 .orders-empty {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
-}
-
-.orders-empty span {
   font-size: 1.6rem;
   color: gray;
   text-align: center;
+  row-gap: 1rem;
+  padding: 2rem;
+}
+
+.orders-empty a {
+  color: gray;
+  text-decoration-color: #8cbe22;
 }
