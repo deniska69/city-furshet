@@ -1,5 +1,7 @@
 import { makeAutoObservable, action } from "mobx";
 
+import { store } from "./";
+
 export default class ModalsStore {
   constructor() {
     this.isOpenBasket = false;
@@ -19,6 +21,7 @@ export default class ModalsStore {
     this.isOpenMobileMenu = false;
     this.isOpenOrders = false;
     this.isOpenBasket = true;
+    store.isSuccessOrder = false;
   });
 
   onCloseBasket = () => this.onAnyClose();

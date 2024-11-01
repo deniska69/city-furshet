@@ -11,8 +11,10 @@ export default class ProductsStore {
     this.categories = observable.array([]);
     this.products = observable.map({});
     this.basket = observable.map({});
+    this.orders = observable.array([]);
     this.selectedCategory = null;
     this.loading = true;
+    this.isSuccessOrder = true;
 
     this.fetchData();
   });
@@ -35,7 +37,8 @@ export default class ProductsStore {
           this.selectedCategory = this.categories[0];
           this.loading = false;
 
-          this.readLocalStorage();
+          this.readBasketFromStorage();
+          this.readOrdersFromStorage();
         })
       )
       .catch((e) => {
@@ -52,7 +55,7 @@ export default class ProductsStore {
     this.products.get(categoryId).set(id, { ...product, count });
     this.basket.set(product?.id, this.products.get(categoryId).get(id));
 
-    this.writoToStorage();
+    this.writoBasketToStorage();
   };
 
   onPressMinus = (categoryId, id) => {
@@ -66,7 +69,7 @@ export default class ProductsStore {
       this.basket.set(product?.id, this.products.get(categoryId).get(id));
     }
 
-    this.writoToStorage();
+    this.writoBasketToStorage();
   };
 
   onPressDelete = (categoryId, id) => {
@@ -74,7 +77,7 @@ export default class ProductsStore {
     this.products.get(categoryId).set(id, { ...product, count: 0 });
     this.basket.delete(id);
 
-    this.writoToStorage();
+    this.writoBasketToStorage();
   };
 
   getBasketTotalCount = () => {
@@ -114,17 +117,36 @@ export default class ProductsStore {
     text += `%0AИтого: <b>${this.getBasketTotalPrice()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
 
     sendTelegram(text)
-      .then(() => console.log(1))
-      .catch(() => console.log(2));
+      .then(() => this.saverOrdersToStorage())
+      .catch(() => alert("Ошибка отправки заказа #1."));
   };
 
-  writoToStorage = () => localStorage.setItem("basket", JSON.stringify(this.basket));
+  writoBasketToStorage = () => localStorage.setItem("basket", JSON.stringify(this.basket));
 
-  readLocalStorage = () => {
+  readBasketFromStorage = () => {
     const result = JSON.parse(localStorage.getItem("basket"));
+
     if (result?.length > 0) {
       this.basket = observable.map(result);
       values(this.basket).forEach((item) => this.products.get(item?.categoryId).set(item?.id, item));
     }
   };
+
+  saverOrdersToStorage = action(() => {
+    this.orders.push({
+      date: new Date(),
+      items: values(this.basket),
+      total: this.getBasketTotalPrice(),
+    });
+    this.basket = observable.map({});
+    this.writoBasketToStorage();
+    localStorage.setItem("orders", JSON.stringify(this.orders));
+    this.isSuccessOrder = true;
+  });
+
+  readOrdersFromStorage = action(() => {
+    const result = JSON.parse(localStorage.getItem("orders"));
+
+    if (result?.length > 0) this.orders = observable.array(result);
+  });
 }
