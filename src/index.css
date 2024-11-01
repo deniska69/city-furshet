@@ -39,3 +39,14 @@ h1 {
 .hidden {
   visibility: hidden;
 }
+
+.hidescroll {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hidescroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}

@@ -26,7 +26,7 @@ const BasketModal = ({ store, modals }) => {
     <Dialog {...{ isOpen, onClose, title: "Корзина" }}>
       <div className="basket">
         {isSuccessOrder ? null : (
-          <div className="basket-body">
+          <div className="basket-body  hidescroll">
             {items ? (
               items.map((item, index) => (
                 <CardBasket key={index} {...item} {...{ onPressPlus, onPressMinus, onPressDelete }} />
