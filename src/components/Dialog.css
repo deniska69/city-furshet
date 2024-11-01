@@ -37,6 +37,7 @@ body.dialog-open .dialog-root {
 .dialog-body {
   height: 100%;
   max-height: calc(100vh - 72px);
+  overflow: hidden;
 }
 
 @media (min-width: 1280px) {
@@ -70,8 +71,7 @@ body.dialog-open .dialog-root {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0.5rem;
-  padding-top: 1rem;
+  padding: 1rem 1rem 0.5rem 1rem;
   border-bottom: 1px #e0e0e0 solid;
 }
 

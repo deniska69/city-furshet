@@ -1,0 +1,30 @@
+.card-order {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+}
+
+.card-order-image {
+  width: 100%;
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-order-inner-header {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+}
+
+.card-order-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.6rem;
+}
+
+.card-order-inner-footer {
+  font-weight: 500;
+}

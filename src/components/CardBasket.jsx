@@ -15,9 +15,9 @@ const CardBasket = (props) => {
     price = 0,
     categoryId,
     count = 0,
-    onPressPlus,
-    onPressMinus,
-    onPressDelete,
+    onPressPlus = null,
+    onPressMinus = null,
+    onPressDelete = null,
   } = props;
 
   const handlePressPlus = () => onPressPlus(categoryId, id);
