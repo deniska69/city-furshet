@@ -7,7 +7,7 @@ const OrdersModal = ({ store, modals }) => {
   const onClose = modals.onCloseOrders;
   const orders = store.orders;
 
-  console.log(orders);
+  console.log(orders?.length);
 
   return (
     <Dialog {...{ isOpen, onClose, title: "Заказы" }}>
@@ -22,7 +22,7 @@ const Empty = ({ onClose }) => (
   <div className="orders-empty">
     <span>Вы ещё ничего не заказали.</span>
     <a href="#menu" onClick={onClose}>
-      Посмотрите, сколько всего вкусно у нас в меню
+      Посмотрите, сколько всего вкусного у нас в меню
     </a>
   </div>
 );

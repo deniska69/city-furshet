@@ -138,8 +138,9 @@ export default class ProductsStore {
       items: values(this.basket),
       total: this.getBasketTotalPrice(),
     });
-    this.basket = observable.map({});
-    this.writoBasketToStorage();
+
+    values(this.basket).forEach((item) => this.onPressDelete(item?.categoryId, item?.id));
+
     localStorage.setItem("orders", JSON.stringify(this.orders));
     this.isSuccessOrder = true;
   });
