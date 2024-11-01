@@ -67,7 +67,7 @@
 }
 
 @media (min-width: 1281px) {
-  #header-basket-wrap {
+  #header-desktop a:last-of-type {
     margin-right: 16rem;
   }
 }
