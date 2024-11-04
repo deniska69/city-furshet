@@ -10,9 +10,9 @@ const Header = ({ store }) => {
 
   const basketTotal = store.getBasketTotalCount();
 
-  const onOpenBasket = () => navigate("basket");
+  const onOpenBasket = () => navigate("/basket");
 
-  const onOpenMobileMenu = () => navigate("mobile-menu");
+  const onOpenMobileMenu = () => navigate("/mobile-menu");
 
   const onOpenOrders = () => navigate("/orders");
 

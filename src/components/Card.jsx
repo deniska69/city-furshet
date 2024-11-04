@@ -36,12 +36,12 @@ const Card = (props) => {
 
       <div className="card-buttons">
         {count ? (
-          <button id={`${id}-minus`} className="card-btn-minus" onClick={onPressMinus}>
+          <button className="card-btn-minus" onClick={onPressMinus}>
             <Icon name="minus" color="white" />
           </button>
         ) : null}
 
-        <button id={`${id}-plus`} className="card-btn-plus" onClick={onPressPlus}>
+        <button className="card-btn-plus" onClick={onPressPlus}>
           <span className="card-price">{price || "0"} ₽</span>
           <Icon name="plus" color="white" />
         </button>

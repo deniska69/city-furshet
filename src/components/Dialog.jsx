@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Icon } from "components";
 import "./Dialog.css";
 
-const Dialog = ({ title = "", onClose = null, children }) => {
+const Dialog = ({ title = "", onClose = null, size = "md", className = null, children }) => {
   const refDialog = useRef(null);
   const navigate = useNavigate();
 
@@ -21,7 +21,10 @@ const Dialog = ({ title = "", onClose = null, children }) => {
 
   return (
     <dialog ref={refDialog} className="dialog-root noselect" onClick={onClose}>
-      <div className="dialog-content" onClick={(e) => e.stopPropagation()}>
+      <div
+        className={`dialog-content dialog-size-${size} ${className ? className : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="dialog-header">
           <span>{title}</span>
 

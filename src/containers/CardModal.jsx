@@ -1,7 +1,12 @@
 import { inject, observer } from "mobx-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Dialog } from "components";
+import { Dialog, Icon } from "components";
 import "./CardModal.css";
+import imagePlaceholder from "assets/image_placeholder.jpg";
+
+const getCover = (image) => {
+  return import.meta.env.DEV || image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image;
+};
 
 const CardModal = ({ id, categoryId, store }) => {
   const navigate = useNavigate();
@@ -11,11 +16,46 @@ const CardModal = ({ id, categoryId, store }) => {
 
   const onClose = () => navigate(location?.pathname);
 
-  console.log(card);
+  const onPressPlus = () => store.onPressPlus(categoryId, id);
+
+  const onPressMinus = () => store.onPressMinus(categoryId, id);
+
+  const onPressCard = () => navigate("/basket");
 
   return (
-    <Dialog title={card?.title} onClose={onClose}>
-      <div className="card"></div>
+    <Dialog title={card?.title} onClose={onClose} size="lg" className="min-content">
+      <div className="card-view">
+        <img src={getCover(card?.image)} className="card-view-image" />
+
+        <div className="card-view-footer">
+          <div className="card-view-text">
+            <span className="card-title">{card?.title}</span>
+            <span className="card-subtitle">{card?.subtitle}</span>
+            <span className="card-description">{card?.description}</span>
+          </div>
+
+          <div className="card-view-buttons">
+            <div className="card-view-buttons-first">
+              <button className="card-btn-minus" onClick={onPressMinus}>
+                <Icon name="minus" color="white" />
+              </button>
+
+              <span className="card-basket-counter">{card?.count || "0"}</span>
+
+              <button className="card-btn-plus" onClick={onPressPlus}>
+                <span className="card-price">{card?.price || "0"} ₽</span>
+                <Icon name="plus" color="white" />
+              </button>
+            </div>
+
+            {card?.count ? (
+              <button className="card-btn-basket" onClick={onPressCard}>
+                <Icon name="basket" color="white" />
+              </button>
+            ) : null}
+          </div>
+        </div>
+      </div>
     </Dialog>
   );
 };

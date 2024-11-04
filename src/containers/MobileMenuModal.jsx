@@ -7,7 +7,7 @@ const MobileMenuModal = () => {
 
   const onClose = () => navigate("/");
 
-  const onOpenOrders = () => navigate("orders");
+  const onOpenOrders = () => navigate("/orders");
 
   return (
     <Dialog title="City Furshet">

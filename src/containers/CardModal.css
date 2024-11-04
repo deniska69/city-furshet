@@ -1,0 +1,108 @@
+.card-view {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  row-gap: 1.5rem;
+  /* width: 100%; */
+}
+
+.card-view-image {
+  width: 100%;
+  max-width: calc(100vw - 1rem);
+  max-height: calc(80vw);
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-view-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.card-view-buttons {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  column-gap: 0.5rem;
+}
+
+.card-view-buttons-first {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  column-gap: 0.5rem;
+}
+
+.card-view-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card-btn-basket {
+  height: 32px;
+  border-radius: 40px;
+  background-color: #8cbe22;
+  text-decoration: none;
+  padding: 7px 12px;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 8px;
+  transition: all 0.5s;
+}
+
+.card-btn-basket:active {
+  background-color: #577713;
+}
+
+.card-btn-basket:active {
+  transform: scale(97.5%);
+  transition: transform 0.05s ease-in-out;
+}
+
+@media (min-width: 500px) {
+  .card-view {
+    flex-direction: row;
+    align-items: flex-start;
+    column-gap: 1.5rem;
+  }
+
+  .card-view-image {
+    width: 100%;
+    min-width: 400px;
+    max-width: 400px;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .card-view-text {
+    row-gap: 1rem;
+  }
+
+  .card-view .card-title {
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+
+  .card-view .card-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .card-view .card-description {
+    font-size: 1.2rem;
+  }
+
+  .card-view-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 2rem;
+  }
+}
