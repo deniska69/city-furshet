@@ -150,4 +150,6 @@ export default class ProductsStore {
 
     if (result?.length > 0) this.orders = observable.array(result);
   });
+
+  getProducts = (categoryId, id) => toJS(this.products.get(categoryId).get(id));
 }

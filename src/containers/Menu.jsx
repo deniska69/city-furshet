@@ -1,11 +1,14 @@
 import { inject, observer } from "mobx-react";
 import { values } from "mobx";
+import { useNavigate } from "react-router-dom";
 import { useWindowDimensions } from "hooks";
 import { Card, Categories, Loader } from "components";
 
 import "./Menu.css";
 
 const Menu = ({ store }) => {
+  const navigate = useNavigate();
+
   const loading = store.loading;
   const categories = store.categories;
   const selectedCategory = store.selectedCategory;
@@ -13,7 +16,7 @@ const Menu = ({ store }) => {
 
   const onPressCategory = (cat) => store.onPressCategory(cat);
 
-  const onPressCard = () => console.log("onPressCard");
+  const onPressCard = (categoryId, id) => navigate(`#card-${categoryId}-${id}`);
 
   const onPressPlus = (...args) => store.onPressPlus(...args);
 

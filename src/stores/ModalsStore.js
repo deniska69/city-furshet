@@ -7,6 +7,7 @@ export default class ModalsStore {
     this.isOpenBasket = false;
     this.isOpenMobileMenu = false;
     this.isOpenOrders = false;
+    this.isOpenCard = false;
 
     makeAutoObservable(this);
   }
@@ -15,12 +16,16 @@ export default class ModalsStore {
     this.isOpenBasket = false;
     this.isOpenMobileMenu = false;
     this.isOpenOrders = false;
+    this.isOpenCard = false;
   });
 
   onOpenBasket = action(() => {
     this.isOpenMobileMenu = false;
     this.isOpenOrders = false;
+    this.isOpenCard = false;
+
     this.isOpenBasket = true;
+
     store.isSuccessOrder = false;
   });
 
@@ -29,6 +34,8 @@ export default class ModalsStore {
   onOpenMobileMenu = action(() => {
     this.isOpenBasket = false;
     this.isOpenOrders = false;
+    this.isOpenCard = false;
+
     this.isOpenMobileMenu = true;
   });
 
@@ -37,8 +44,20 @@ export default class ModalsStore {
   onOpenOrders = action(() => {
     this.isOpenBasket = false;
     this.isOpenMobileMenu = false;
+    this.isOpenCard = false;
+
     this.isOpenOrders = true;
   });
 
   onCloseOrders = () => this.onAnyClose();
+
+  onOpenCard = action(() => {
+    this.isOpenBasket = false;
+    this.isOpenMobileMenu = false;
+    this.isOpenOrders = false;
+
+    this.isOpenCard = true;
+  });
+
+  onCloseCard = () => this.onAnyClose();
 }
