@@ -1,14 +1,19 @@
 import { inject, observer } from "mobx-react";
+import { useNavigate } from "react-router-dom";
 import { Dialog, CardOrder } from "components";
 import "./OrdersModal.css";
 
-const OrdersModal = ({ store, modals }) => {
-  const isOpen = modals.isOpenOrders;
-  const onClose = modals.onCloseOrders;
+const OrdersModal = ({ store }) => {
+  const navigate = useNavigate();
+
   const orders = store.orders;
 
+  const onClose = () => navigate("/");
+
+  const onPress = (categoryId, id) => navigate(`?category_id=${categoryId}&card_id=${id}`);
+
   return (
-    <Dialog {...{ isOpen, onClose, title: "Заказы" }}>
+    <Dialog title="Заказы">
       {orders?.length ? (
         <div className="orders-list hidescroll">
           {orders.map((order, index) => (
@@ -17,7 +22,7 @@ const OrdersModal = ({ store, modals }) => {
 
               <div className="order-items">
                 {order?.items.map((card, index) => (
-                  <CardOrder key={index} {...card} />
+                  <CardOrder key={index} {...card} onPress={onPress} />
                 ))}
               </div>
 
@@ -32,7 +37,7 @@ const OrdersModal = ({ store, modals }) => {
   );
 };
 
-export default inject("store", "modals")(observer(OrdersModal));
+export default inject("store")(observer(OrdersModal));
 
 const Empty = ({ onClose }) => (
   <div className="orders-empty">

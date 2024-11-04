@@ -6,6 +6,21 @@
   border-bottom: 1px #e0e0e0 solid;
 }
 
+.card-basket:active {
+  transform: scale(98%);
+  transition: transform 0.05s ease-in-out;
+}
+
+.card-basket:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+
+.card-basket:hover .card-title {
+  text-decoration: underline;
+}
+
 .card-basket:first-of-type {
   margin-top: 0.5rem;
 }

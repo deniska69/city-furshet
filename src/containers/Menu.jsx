@@ -16,7 +16,7 @@ const Menu = ({ store }) => {
 
   const onPressCategory = (cat) => store.onPressCategory(cat);
 
-  const onPressCard = (categoryId, id) => navigate(`#card-${categoryId}-${id}`);
+  const onPressCard = (categoryId, id) => navigate(`?category_id=${categoryId}&card_id=${id}`);
 
   const onPressPlus = (...args) => store.onPressPlus(...args);
 

@@ -4,6 +4,21 @@
   column-gap: 0.5rem;
 }
 
+.card-order:active {
+  transform: scale(98%);
+  transition: transform 0.05s ease-in-out;
+}
+
+.card-order:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+
+.card-order:hover .card-title {
+  text-decoration: underline;
+}
+
 .card-order-image {
   width: 100%;
   max-width: 50px;

@@ -1,18 +1,16 @@
-import { inject, observer } from "mobx-react";
+import { useNavigate } from "react-router-dom";
 import { Dialog } from "components";
 import "./MobileMenuModal.css";
 
-const MobileMenuModal = ({ modals }) => {
-  const isOpen = modals.isOpenMobileMenu;
-  const onClose = modals.onCloseMobileMenu;
+const MobileMenuModal = () => {
+  const navigate = useNavigate();
 
-  const onOpenOrders = () => {
-    onClose();
-    modals.onOpenOrders();
-  };
+  const onClose = () => navigate("/");
+
+  const onOpenOrders = () => navigate("orders");
 
   return (
-    <Dialog {...{ isOpen, onClose, title: "City Furshet" }}>
+    <Dialog title="City Furshet">
       <div className="mobile-menu">
         <a href="#menu" className="mobile-menu-link" onClick={onClose}>
           Меню
@@ -37,4 +35,4 @@ const MobileMenuModal = ({ modals }) => {
   );
 };
 
-export default inject("modals")(observer(MobileMenuModal));
+export default MobileMenuModal;

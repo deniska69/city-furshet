@@ -1,14 +1,19 @@
 import { inject, observer } from "mobx-react";
+import { useNavigate } from "react-router-dom";
 import { Dialog, CardBasket, Loader } from "components";
 import "./BasketModal.css";
 
-const BasketModal = ({ store, modals }) => {
-  const isOpen = modals.isOpenBasket;
-  const onClose = modals.onCloseBasket;
+const BasketModal = ({ store }) => {
+  const navigate = useNavigate();
+
+  const onClose = () => navigate("/");
+
   const items = store.getBasketItems();
   const basketTotalCount = store.getBasketTotalCount();
   const basketTotalPrice = store.getBasketTotalPrice();
   const isSuccessOrder = store.isSuccessOrder;
+
+  const onPressCard = (categoryId, id) => navigate(`?category_id=${categoryId}&card_id=${id}`);
 
   const onPressPlus = (...args) => store.onPressPlus(...args);
 
@@ -23,13 +28,13 @@ const BasketModal = ({ store, modals }) => {
   };
 
   return (
-    <Dialog {...{ isOpen, onClose, title: "Корзина" }}>
+    <Dialog title="Корзина">
       <div className="basket">
         {isSuccessOrder ? null : (
           <div className="basket-body  hidescroll">
             {items ? (
               items.map((item, index) => (
-                <CardBasket key={index} {...item} {...{ onPressPlus, onPressMinus, onPressDelete }} />
+                <CardBasket key={index} {...item} {...{ onPressCard, onPressPlus, onPressMinus, onPressDelete }} />
               ))
             ) : (
               <Empty onClose={onClose} />
@@ -58,7 +63,7 @@ const BasketModal = ({ store, modals }) => {
   );
 };
 
-export default inject("store", "modals")(observer(BasketModal));
+export default inject("store")(observer(BasketModal));
 
 const Empty = ({ onClose }) => (
   <div className="basket-empty">

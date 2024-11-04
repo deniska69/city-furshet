@@ -15,19 +15,31 @@ const CardBasket = (props) => {
     price = 0,
     categoryId,
     count = 0,
-    onPressPlus = null,
-    onPressMinus = null,
-    onPressDelete = null,
+    onPressCard,
+    onPressPlus,
+    onPressMinus,
+    onPressDelete,
   } = props;
 
-  const handlePressPlus = () => onPressPlus(categoryId, id);
+  const handlePressCard = () => onPressCard(categoryId, id);
 
-  const handlePressMinus = () => onPressMinus(categoryId, id);
+  const handlePressPlus = (e) => {
+    e.stopPropagation();
+    onPressPlus(categoryId, id);
+  };
 
-  const handlePressDelete = () => onPressDelete(categoryId, id);
+  const handlePressMinus = (e) => {
+    e.stopPropagation();
+    onPressMinus(categoryId, id);
+  };
+
+  const handlePressDelete = (e) => {
+    e.stopPropagation();
+    onPressDelete(categoryId, id);
+  };
 
   return (
-    <div className="card-basket">
+    <div className="card-basket" onClick={handlePressCard}>
       <img src={getCover(image)} className="card-basket-image" />
 
       <div className="card-basket-inner">

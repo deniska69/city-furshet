@@ -1,36 +1,23 @@
-import { useEffect } from "react";
 import { inject, observer } from "mobx-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Dialog } from "components";
 import "./CardModal.css";
 
-const CardModal = ({ store, modals }) => {
-  const isOpen = modals.isOpenCard;
-  const onClose = modals.onCloseCard;
-  const onOpen = modals.onOpenCard;
+const CardModal = ({ id, categoryId, store }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const hash = window?.location?.hash;
+  const card = store.getProducts(categoryId, id);
 
-  // useEffect(() => {
-  //   window.addEventListener("hashchange", function () {
-  //     console.log("Ура, хэш изменился!:", location.hash);
-  //   });
-  // }, []);
+  const onClose = () => navigate(location?.pathname);
 
-  useEffect(() => {
-    console.log("Ура, хэш изменился!:", location.hash);
-  }, [location.hash]);
+  console.log(card);
 
   return (
-    <Dialog {...{ isOpen, onClose }}>
-      <Empty />
+    <Dialog title={card?.title} onClose={onClose}>
+      <div className="card"></div>
     </Dialog>
   );
 };
 
-export default inject("store", "modals")(observer(CardModal));
-
-const Empty = () => (
-  <div className="orders-empty">
-    <span>Неверные параметры товара.</span>
-  </div>
-);
+export default inject("store")(observer(CardModal));

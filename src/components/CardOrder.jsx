@@ -6,10 +6,12 @@ const getCover = (image) => {
 };
 
 const CardOrder = (props) => {
-  const { image = null, title, subtitle, price = 0, count = 0 } = props;
+  const { id, categoryId, image = null, title, subtitle, price = 0, count = 0 } = props;
+
+  const onPress = () => props?.onPress(categoryId, id);
 
   return (
-    <div className="card-order">
+    <div className="card-order" onClick={onPress}>
       <img src={getCover(image)} className="card-order-image" />
 
       <div className="card-order-inner">

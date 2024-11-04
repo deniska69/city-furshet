@@ -1,42 +1,51 @@
 import { Provider } from "mobx-react";
-import { useLocation, BrowserRouter, Routes, Route } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Outlet, useSearchParams } from "react-router-dom";
 import * as stores from "stores";
 
-import BasketModal from "./containers/BasketModal";
-import CardModal from "./containers/CardModal";
-import Header from "containers/Header.jsx";
-import Home from "containers/Home.jsx";
-import Menu from "containers/Menu.jsx";
-import MobileMenuModal from "./containers/MobileMenuModal";
-import OrdersModal from "./containers/OrdersModal";
-import { useEffect } from "react";
+import CardModal from "containers/CardModal";
+import BasketModal from "containers/BasketModal";
+import Header from "containers/Header";
+import Home from "containers/Home";
+import Menu from "containers/Menu";
+import MobileMenuModal from "containers/MobileMenuModal";
+import OrdersModal from "containers/OrdersModal";
 
 const Root = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
+  const [searchParams] = useSearchParams();
+  const categoryId = searchParams.get("category_id") || null;
+  const id = searchParams.get("card_id") || null;
 
   return (
     <Provider {...stores}>
       <Header />
       <Home />
       <Menu />
-      <BasketModal />
-      <CardModal />
-      <MobileMenuModal />
-      <OrdersModal />
+      {categoryId && id ? <CardModal {...{ categoryId, id }} /> : <Outlet />}
     </Provider>
   );
 };
 
-const App = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Root />} />
-    </Routes>
-  </BrowserRouter>
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Root,
+    children: [
+      {
+        path: "basket",
+        Component: BasketModal,
+      },
+      {
+        path: "orders",
+        Component: OrdersModal,
+      },
+      {
+        path: "mobile-menu",
+        Component: MobileMenuModal,
+      },
+    ],
+  },
+]);
+
+const App = () => <RouterProvider router={router} />;
 
 export default App;
