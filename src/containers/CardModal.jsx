@@ -44,9 +44,8 @@ const CardModal = ({ id, categoryId, store }) => {
 
         <div className="card-view-footer">
           <div className="card-view-text">
-            <span className="card-title">{card?.title}</span>
-            <span className="card-subtitle">{card?.subtitle}</span>
             <span className="card-description">{card?.description}</span>
+            <span className="card-subtitle">{card?.subtitle}</span>
           </div>
 
           <div className="card-view-buttons">
