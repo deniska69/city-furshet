@@ -12,10 +12,9 @@ const CardModal = ({ id, categoryId, store }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log({ categoryId, id });
-  console.log(store?.products);
+  console.log({ categoryId, id, size: store?.products?.size });
 
-  if (!store) return <Loader />;
+  if (!store?.products?.size) return <Loader />;
 
   const card = store.getProducts(categoryId, id);
 
