@@ -39,6 +39,8 @@ class ProductsStore {
 
           this.readBasketFromStorage();
           this.readOrdersFromStorage();
+
+          this.categories.forEach((category) => this.recalcCategoryCounters(category?.id));
         })
       )
       .catch((e) => {
@@ -55,6 +57,12 @@ class ProductsStore {
     this.products.get(categoryId).set(id, { ...product, count });
     this.basket.set(product?.id, this.products.get(categoryId).get(id));
 
+    this.categories = observable.array(
+      toJS(this.categories).map((el) => (el?.id === categoryId ? { ...el, count } : el))
+    );
+
+    this.recalcCategoryCounters(categoryId);
+
     this.writoBasketToStorage();
   };
 
@@ -69,6 +77,8 @@ class ProductsStore {
       this.basket.set(product?.id, this.products.get(categoryId).get(id));
     }
 
+    this.recalcCategoryCounters(categoryId);
+
     this.writoBasketToStorage();
   };
 
@@ -76,6 +86,8 @@ class ProductsStore {
     const product = toJS(this.products.get(categoryId).get(id));
     this.products.get(categoryId).set(id, { ...product, count: 0 });
     this.basket.delete(id);
+
+    this.recalcCategoryCounters(categoryId);
 
     this.writoBasketToStorage();
   };
@@ -156,6 +168,16 @@ class ProductsStore {
   getProducts = (categoryId, id) => {
     if (!this.products?.size && !!this.products?.size) return [];
     return toJS(this.products.get(categoryId).get(id));
+  };
+
+  recalcCategoryCounters = (categoryId) => {
+    let total = 0;
+
+    values(this.products.get(categoryId)).forEach((el) => (total += el?.count || 0));
+
+    this.categories = observable.array(
+      toJS(this.categories).map((el) => (el?.id === categoryId ? { ...el, count: total } : el))
+    );
   };
 }
 

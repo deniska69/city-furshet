@@ -7,7 +7,7 @@
     display: flex;
     background-color: #fff;
     flex-direction: column;
-    gap: 8px;
+    row-gap: 0.5rem;
     border-radius: 20px;
     min-width: 200px;
     max-width: 200px;
@@ -16,17 +16,23 @@
 
   .category-button {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 40px;
     text-decoration: none;
     color: #4b4b4b;
     font-size: 1rem;
     font-weight: 500;
-    padding: 10px 20px;
+    padding: 0px 20px;
+    height: 40px;
     text-align: start;
     box-sizing: border-box;
     border: none;
     cursor: pointer;
     transition: 0.3s;
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .category-button:hover {

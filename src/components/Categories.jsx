@@ -24,6 +24,12 @@ const CategoriesMobile = ({ categories, selectedCategory, onPressCategory = () =
           onClick={() => onPressCategory(cat)}
         >
           {cat?.title}
+
+          {cat?.count ? (
+            <div id="header-basket-badge-wrap">
+              <span id="header-basket-badge-counter">{cat?.count}</span>
+            </div>
+          ) : null}
         </a>
       );
     })}
@@ -38,6 +44,12 @@ const CategoriesDesktop = ({ categories, selectedCategory, onPressCategory = () 
       return (
         <button key={cat?.id} id={cat?.id} className={`category-button${active}`} onClick={() => onPressCategory(cat)}>
           {cat?.title}
+
+          {cat?.count ? (
+            <div id="header-basket-badge-wrap">
+              <span id="header-basket-badge-counter">{cat?.count}</span>
+            </div>
+          ) : null}
         </button>
       );
     })}
