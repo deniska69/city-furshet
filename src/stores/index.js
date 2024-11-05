@@ -109,12 +109,14 @@ class ProductsStore {
     let text = "<b>⭐ Новый заказ! ⭐</b>%0A%0A";
 
     this.getBasketItems().forEach((item, index) => {
-      text += `${index + 1}. ${item?.title} (${item?.price} ₽) x ${item?.count} шт. = ${
-        item?.price * item?.count
-      } ₽.%0A`;
+      text += `<a href="${import.meta.env.VITE_URL}?category_id=${item?.categoryId}%26amp;card_id=${item?.id}">${
+        index + 1
+      }. ${item?.title}${item?.subtitle ? " (" + item?.subtitle + ")" : ""}</a>%0A`;
+
+      text += `<i>${item?.price} ₽ x ${item?.count} шт. = ${item?.price * item?.count} ₽.</i>%0A%0A`;
     });
 
-    text += `%0AИтого: <b>${this.getBasketTotalPrice()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
+    text += `Итого: <b>${this.getBasketTotalPrice()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
 
     sendTelegram(text)
       .then(() => this.saverOrdersToStorage())

@@ -1,6 +1,6 @@
 import { inject, observer } from "mobx-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Dialog, Icon } from "components";
+import { Dialog, Icon, Loader } from "components";
 import "./CardModal.css";
 import imagePlaceholder from "assets/image_placeholder.jpg";
 
@@ -11,6 +11,10 @@ const getCover = (image) => {
 const CardModal = ({ id, categoryId, store }) => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  console.log({ categoryId, id });
+
+  if (!store) return <Loader />;
 
   const card = store.getProducts(categoryId, id);
 
