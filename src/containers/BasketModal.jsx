@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { inject, observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
 import { Dialog, CardBasket, Loader } from "components";
@@ -5,6 +6,10 @@ import "./BasketModal.css";
 
 const BasketModal = ({ store }) => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    store.isSuccessOrder = false;
+  }, [store]);
 
   const onClose = () => navigate("/");
 
