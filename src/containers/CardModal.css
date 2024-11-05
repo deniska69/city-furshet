@@ -104,3 +104,20 @@
     row-gap: 2rem;
   }
 }
+
+.card-view-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.6rem;
+  color: gray;
+  text-align: center;
+  row-gap: 1rem;
+}
+
+.card-view-empty a {
+  color: gray;
+  text-decoration-color: #8cbe22;
+}

@@ -16,6 +16,8 @@ const CardModal = ({ id, categoryId, store }) => {
 
   const card = store.getProducts(categoryId, id);
 
+  console.log(card);
+
   const onClose = () => navigate(location?.pathname);
 
   const onPressPlus = () => store.onPressPlus(categoryId, id);
@@ -23,6 +25,17 @@ const CardModal = ({ id, categoryId, store }) => {
   const onPressMinus = () => store.onPressMinus(categoryId, id);
 
   const onPressCard = () => navigate("/basket");
+
+  if (!card) {
+    return (
+      <Dialog onClose={onClose}>
+        <div className="card-view-empty">
+          <Icon color="gray" />
+          <span>Ошибка параметров товара.</span>
+        </div>
+      </Dialog>
+    );
+  }
 
   return (
     <Dialog title={card?.title} onClose={onClose} size="lg" className="min-content">
