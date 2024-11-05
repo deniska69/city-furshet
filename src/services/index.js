@@ -1,11 +1,11 @@
 import $ from "jquery";
 import mockePrice from "./mockePrice.json";
 
-export const sendTelegram = async (message) => {
+export const sendOrder = async (dataSend) => {
   await $.ajax({
     type: "POST",
     url: import.meta.env.VITE_SEND_URL,
-    data: { message },
+    data: dataSend,
     success: (data) => Promise.resolve(data),
     error: (e) => Promise.reject(e),
   });

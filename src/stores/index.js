@@ -1,5 +1,5 @@
 import { makeAutoObservable, action, observable, toJS, values } from "mobx";
-import { getPrice, sendTelegram } from "services";
+import { getPrice, sendOrder } from "services";
 
 class ProductsStore {
   constructor() {
@@ -118,19 +118,35 @@ class ProductsStore {
   };
 
   onSubmit = (contact) => {
-    let text = "<b>⭐ Новый заказ! ⭐</b>%0A%0A";
+    let telegram = "<b>⭐ Новый заказ! ⭐</b>%0A%0A";
 
     this.getBasketItems().forEach((item, index) => {
-      text += `<a href="${import.meta.env.VITE_URL}?category_id=${item?.categoryId}%26amp;card_id=${item?.id}">${
+      telegram += `<a href="${import.meta.env.VITE_URL}?category_id=${item?.categoryId}%26amp;card_id=${item?.id}">${
         index + 1
       }. ${item?.title}${item?.subtitle ? " (" + item?.subtitle + ")" : ""}</a>%0A`;
 
-      text += `<i>${item?.price} ₽ x ${item?.count} шт. = ${item?.price * item?.count} ₽.</i>%0A%0A`;
+      telegram += `<i>${item?.price} ₽ x ${item?.count} шт. = ${item?.price * item?.count} ₽.</i>%0A%0A`;
     });
 
-    text += `Итого: <b>${this.getBasketTotalPrice()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
+    telegram += `Итого: <b>${this.getBasketTotalPrice()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
 
-    sendTelegram(text)
+    // --------------------------------------
+
+    let email = "";
+
+    this.getBasketItems().forEach((item, index) => {
+      email += `<a href="${import.meta.env.VITE_URL}?category_id=${item?.categoryId}&card_id=${item?.id}">${
+        index + 1
+      }. ${item?.title}${item?.subtitle ? " (" + item?.subtitle + ")" : ""}</a><br>`;
+
+      email += `<i>${item?.price} ₽ x ${item?.count} шт. = ${item?.price * item?.count} ₽.</i><br><br>`;
+    });
+
+    email += `<span>Итого: <b>${this.getBasketTotalPrice()}</b> ₽.</span><br><br>Контакт: <code>${contact}</code>`;
+
+    // --------------------------------------
+
+    sendOrder({ telegram, email })
       .then(() => this.saverOrdersToStorage())
       .catch(() => alert("Ошибка отправки заказа #1."));
   };
