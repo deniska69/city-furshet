@@ -153,7 +153,10 @@ class ProductsStore {
     if (result?.length > 0) this.orders = observable.array(result);
   });
 
-  getProducts = (categoryId, id) => toJS(this.products.get(categoryId).get(id));
+  getProducts = (categoryId, id) => {
+    if (!this.products?.size && !!this.products?.size) return [];
+    return toJS(this.products.get(categoryId).get(id));
+  };
 }
 
 const store = new ProductsStore();

@@ -13,6 +13,7 @@ const CardModal = ({ id, categoryId, store }) => {
   const location = useLocation();
 
   console.log({ categoryId, id });
+  console.log(store?.products);
 
   if (!store) return <Loader />;
 
