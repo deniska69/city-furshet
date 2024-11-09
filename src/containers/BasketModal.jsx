@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { inject, observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
-import { Dialog, CardBasket, Loader } from "components";
+import Dialog from "../components/Dialog.jsx";
+import CardBasket from "../components/CardBasket.jsx";
+import Loader from "../components/Loader.jsx";
 import "./BasketModal.css";
 
 const BasketModal = ({ store }) => {

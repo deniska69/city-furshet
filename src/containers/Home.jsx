@@ -1,6 +1,5 @@
 import "./Home.css";
-
-import logo from "assets/home/logo-color-500w.png";
+import logo from "../assets/home/logo-color-500w.png";
 
 const Home = () => {
   return (

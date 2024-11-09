@@ -1,5 +1,5 @@
 import "./CardOrder.css";
-import imagePlaceholder from "assets/image_placeholder.jpg";
+import imagePlaceholder from "../assets/image_placeholder.jpg";
 
 const getCover = (image) => {
   return import.meta.env.DEV || image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image;

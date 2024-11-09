@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Icon } from "components";
+import Icon from "./Icon.jsx";
 import "./Dialog.css";
 
 const Dialog = ({ title = "", onClose = null, size = "md", className = null, children }) => {

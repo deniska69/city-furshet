@@ -1,4 +1,4 @@
-import { useWindowDimensions } from "hooks";
+import useWindowDimensions from "../hooks/useWindowDimensions.js";
 import "./CategoriesDesktop.css";
 import "./CategoriesMobile.css";
 

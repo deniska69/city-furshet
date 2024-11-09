@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-
 import "./HeaderDesktop.css";
 
 const HeaderDesktop = ({ basketTotal, onOpenBasket, onOpenOrders }) => {

@@ -1,5 +1,5 @@
 import { makeAutoObservable, action, observable, toJS, values } from "mobx";
-import { getPrice, sendOrder } from "services";
+import { getPrice, sendOrder } from "../services/index.js";
 
 class ProductsStore {
   constructor() {

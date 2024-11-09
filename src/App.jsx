@@ -1,14 +1,14 @@
 import { Provider } from "mobx-react";
 import { RouterProvider, createBrowserRouter, Outlet, useSearchParams } from "react-router-dom";
-import * as stores from "stores";
+import * as stores from "./stores";
 
-import CardModal from "containers/CardModal";
-import BasketModal from "containers/BasketModal";
-import Header from "containers/Header";
-import Home from "containers/Home";
-import Menu from "containers/Menu";
-import MobileMenuModal from "containers/MobileMenuModal";
-import OrdersModal from "containers/OrdersModal";
+import CardModal from "./containers/CardModal.jsx";
+import BasketModal from "./containers/BasketModal.jsx";
+import Header from "./containers/Header.jsx";
+import Home from "./containers/Home.jsx";
+import Menu from "./containers/Menu.jsx";
+import MobileMenuModal from "./containers/MobileMenuModal.jsx";
+import OrdersModal from "./containers/OrdersModal.jsx";
 
 const Root = () => {
   const [searchParams] = useSearchParams();

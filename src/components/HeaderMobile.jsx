@@ -1,8 +1,7 @@
 import "./HeaderMobile.css";
-
-import mobileLogo from "assets/header/logo_250w.png";
-import mobileBasket from "assets/header/icon_basket_64w.png";
-import mobileBurger from "assets/header/icon_burger_64w.png";
+import mobileLogo from "../assets/header/logo_250w.png";
+import mobileBasket from "../assets/header/icon_basket_64w.png";
+import mobileBurger from "../assets/header/icon_burger_64w.png";
 
 const HeaderMobile = ({ basketTotal, onOpenBasket, onOpenMobileMenu }) => (
   <div id="header-mobile" className="noselect">
