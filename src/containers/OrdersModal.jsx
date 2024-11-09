@@ -1,6 +1,7 @@
 import { inject, observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
-import { Dialog, CardOrder } from "components";
+import Dialog from "../components/Dialog.jsx";
+import CardOrder from "../components/CardOrder.jsx";
 import "./OrdersModal.css";
 
 const OrdersModal = ({ store }) => {

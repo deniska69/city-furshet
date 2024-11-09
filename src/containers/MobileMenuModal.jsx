@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Dialog } from "components";
+import Dialog from "../components/Dialog.jsx";
 import "./MobileMenuModal.css";
 
 const MobileMenuModal = () => {

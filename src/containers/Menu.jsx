@@ -1,8 +1,10 @@
 import { inject, observer } from "mobx-react";
 import { values } from "mobx";
 import { useNavigate } from "react-router-dom";
-import { useWindowDimensions } from "hooks";
-import { Card, Categories, Loader } from "components";
+import useWindowDimensions from "../hooks/useWindowDimensions.js";
+import Card from "../components/Card.jsx";
+import Categories from "../components/Categories.jsx";
+import Loader from "../components/Loader.jsx";
 
 import "./Menu.css";
 

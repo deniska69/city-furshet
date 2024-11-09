@@ -1,8 +1,8 @@
 import { inject, observer } from "mobx-react";
 import { useNavigate } from "react-router-dom";
-import { useWindowDimensions } from "hooks";
-
-import { HeaderMobile, HeaderDesktop } from "components";
+import useWindowDimensions from "../hooks/useWindowDimensions.js";
+import HeaderMobile from "../components/HeaderMobile.jsx";
+import HeaderDesktop from "../components/HeaderDesktop.jsx";
 
 const Header = ({ store }) => {
   // const navigate = useNavigate();

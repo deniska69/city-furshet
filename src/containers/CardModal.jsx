@@ -1,8 +1,10 @@
 import { inject, observer } from "mobx-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Dialog, Icon, Loader } from "components";
+import Dialog from "../components/Dialog.jsx";
+import Icon from "../components/Icon.jsx";
+import Loader from "../components/Loader.jsx";
 import "./CardModal.css";
-import imagePlaceholder from "assets/image_placeholder.jpg";
+import imagePlaceholder from "../assets/image_placeholder.jpg";
 
 const getCover = (image) => {
   return import.meta.env.DEV || image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image;

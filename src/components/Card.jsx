@@ -1,6 +1,6 @@
 import "./Card.css";
-import { Icon } from "components";
-import imagePlaceholder from "assets/image_placeholder.jpg";
+import Icon from "./Icon.jsx";
+import imagePlaceholder from "../assets/image_placeholder.jpg";
 
 const getCover = (image) => {
   return import.meta.env.DEV || image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image;
