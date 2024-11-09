@@ -5,7 +5,7 @@ import "./Dialog.css";
 
 const Dialog = ({ title = "", onClose = null, size = "md", className = null, children }) => {
   const refDialog = useRef(null);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     if (refDialog?.current) refDialog?.current?.showModal();
@@ -17,7 +17,10 @@ const Dialog = ({ title = "", onClose = null, size = "md", className = null, chi
     };
   }, []);
 
-  const handleClose = () => (onClose ? onClose() : navigate("/"));
+  const handleClose = () => {
+    if (onClose) return onClose();
+    // navigate("/");
+  };
 
   return (
     <dialog ref={refDialog} className="dialog-root noselect" onClick={onClose}>

@@ -7,7 +7,7 @@ import { Card, Categories, Loader } from "components";
 import "./Menu.css";
 
 const Menu = ({ store }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const loading = store.loading;
   const categories = store.categories;
@@ -16,7 +16,9 @@ const Menu = ({ store }) => {
 
   const onPressCategory = (cat) => store.onPressCategory(cat);
 
-  const onPressCard = (categoryId, id) => navigate(`?category_id=${categoryId}&card_id=${id}`);
+  const onPressCard = (categoryId, id) => {
+    // navigate(`?category_id=${categoryId}&card_id=${id}`);
+  };
 
   const onPressPlus = (...args) => store.onPressPlus(...args);
 

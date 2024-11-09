@@ -46,6 +46,21 @@ const router = createBrowserRouter([
   },
 ]);
 
-const App = () => <RouterProvider router={router} />;
+// const App = () => <RouterProvider router={router} />;
+
+const App = () => {
+  // const [searchParams] = useSearchParams();
+  // const categoryId = searchParams.get("category_id") || null;
+  // const id = searchParams.get("card_id") || null;
+
+  return (
+    <Provider {...stores}>
+      <Header />
+      <Home />
+      <Menu />
+      {/* {categoryId && id ? <CardModal {...{ categoryId, id }} /> : <Outlet />} */}
+    </Provider>
+  );
+};
 
 export default App;
