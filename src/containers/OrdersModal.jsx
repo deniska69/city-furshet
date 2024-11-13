@@ -4,16 +4,14 @@ import { Dialog, CardOrder } from "components";
 import "./OrdersModal.css";
 
 const OrdersModal = ({ store }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const orders = store.orders;
 
-  const onClose = () => {
-    // navigate("/")
-  };
+  const onClose = () => navigate("/");
 
   const onPress = (categoryId, id) => {
-    // navigate(`?category_id=${categoryId}&card_id=${id}`)
+    navigate(`?category_id=${categoryId}&card_id=${id}`);
   };
 
   return (

@@ -5,15 +5,13 @@ import { Dialog, CardBasket, Loader } from "components";
 import "./BasketModal.css";
 
 const BasketModal = ({ store }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     store.isSuccessOrder = false;
   }, [store]);
 
-  const onClose = () => {
-    // navigate("/")
-  };
+  const onClose = () => navigate("/");
 
   const items = store.getBasketItems();
   const basketTotalCount = store.getBasketTotalCount();
@@ -21,7 +19,7 @@ const BasketModal = ({ store }) => {
   const isSuccessOrder = store.isSuccessOrder;
 
   const onPressCard = (categoryId, id) => {
-    // navigate(`?category_id=${categoryId}&card_id=${id}`)
+    navigate(`?category_id=${categoryId}&card_id=${id}`);
   };
 
   const onPressPlus = (...args) => store.onPressPlus(...args);

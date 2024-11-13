@@ -3,15 +3,11 @@ import { Dialog } from "components";
 import "./MobileMenuModal.css";
 
 const MobileMenuModal = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const onClose = () => {
-    // navigate("/")
-  };
+  const onClose = () => navigate("/");
 
-  const onOpenOrders = () => {
-    // navigate("/orders");
-  };
+  const onOpenOrders = () => navigate("/orders");
 
   return (
     <Dialog title="City Furshet">

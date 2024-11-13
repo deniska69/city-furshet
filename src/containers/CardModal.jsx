@@ -9,8 +9,8 @@ const getCover = (image) => {
 };
 
 const CardModal = ({ id, categoryId, store }) => {
-  // const navigate = useNavigate();
-  // const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   if (!store?.products?.size) return <Loader />;
 
@@ -18,17 +18,13 @@ const CardModal = ({ id, categoryId, store }) => {
 
   console.log(card);
 
-  const onClose = () => {
-    // navigate(location?.pathname)
-  };
+  const onClose = () => navigate(location?.pathname);
 
   const onPressPlus = () => store.onPressPlus(categoryId, id);
 
   const onPressMinus = () => store.onPressMinus(categoryId, id);
 
-  const onPressCard = () => {
-    // navigate("/basket")
-  };
+  const onPressCard = () => navigate("/basket");
 
   if (!card) {
     return (
