@@ -2,11 +2,7 @@ import { inject, observer } from "mobx-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Dialog, Icon, Loader } from "components";
 import "./CardModal.css";
-import imagePlaceholder from "assets/image_placeholder.jpg";
-
-const getCover = (image) => {
-  return import.meta.env.DEV || image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image;
-};
+import { getCover } from "helpers";
 
 const CardModal = ({ id, categoryId, store }) => {
   const navigate = useNavigate();
@@ -15,8 +11,6 @@ const CardModal = ({ id, categoryId, store }) => {
   if (!store?.products?.size) return <Loader />;
 
   const card = store.getProducts(categoryId, id);
-
-  console.log(card);
 
   const onClose = () => navigate(location?.pathname);
 
@@ -40,7 +34,7 @@ const CardModal = ({ id, categoryId, store }) => {
   return (
     <Dialog title={card?.title} onClose={onClose} size="lg" className="min-content">
       <div className="card-view">
-        <img src={getCover(card?.image)} className="card-view-image" />
+        <img src={getCover(card?.categoryTitle, card?.image)} className="card-view-image" />
 
         <div className="card-view-footer">
           <div className="card-view-text">

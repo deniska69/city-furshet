@@ -1,18 +1,14 @@
 import "./CardOrder.css";
-import imagePlaceholder from "assets/image_placeholder.jpg";
-
-const getCover = (image) => {
-  return import.meta.env.DEV || image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image;
-};
+import { getCover } from "helpers";
 
 const CardOrder = (props) => {
-  const { id, categoryId, image = null, title, subtitle, price = 0, count = 0 } = props;
+  const { id, categoryId, image = null, title, subtitle, price = 0, count = 0, categoryTitle } = props;
 
   const onPress = () => props?.onPress(categoryId, id);
 
   return (
     <div className="card-order" onClick={onPress}>
-      <img src={getCover(image)} className="card-order-image" />
+      <img src={getCover(categoryTitle, image)} className="card-order-image" />
 
       <div className="card-order-inner">
         <div className="card-order-inner-header">

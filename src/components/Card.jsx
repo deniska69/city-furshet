@@ -1,13 +1,9 @@
 import "./Card.css";
 import { Icon } from "components";
-import imagePlaceholder from "assets/image_placeholder.jpg";
-
-const getCover = (image) => {
-  return import.meta.env.DEV || image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image;
-};
+import { getCover } from "helpers";
 
 const Card = (props) => {
-  const { id, image = null, title, subtitle, price, categoryId, count } = props;
+  const { id, image = null, title, subtitle, price, categoryId, categoryTitle, count } = props;
 
   const onPressCard = () => props?.onPressCard(categoryId, id);
 
@@ -19,7 +15,7 @@ const Card = (props) => {
     <div id={id} className="card noselect">
       <div className="card-info" onClick={onPressCard}>
         <div className="card-image-wrap">
-          <img src={getCover(image)} className="card-image" />
+          <img src={getCover(categoryTitle, image)} className="card-image" />
 
           {count > 0 ? (
             <div className="card-counter-wrap">

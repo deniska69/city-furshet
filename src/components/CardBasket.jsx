@@ -1,10 +1,6 @@
 import "./CardBasket.css";
 import { Icon } from "components";
-import imagePlaceholder from "assets/image_placeholder.jpg";
-
-const getCover = (image) => {
-  return import.meta.env.DEV || image === "city-furshet.ru/images/image_placeholder.jpg" ? imagePlaceholder : image;
-};
+import { getCover } from "helpers";
 
 const CardBasket = (props) => {
   const {
@@ -14,6 +10,7 @@ const CardBasket = (props) => {
     subtitle,
     price = 0,
     categoryId,
+    categoryTitle,
     count = 0,
     onPressCard,
     onPressPlus,
@@ -40,7 +37,7 @@ const CardBasket = (props) => {
 
   return (
     <div className="card-basket" onClick={handlePressCard}>
-      <img src={getCover(image)} className="card-basket-image" />
+      <img src={getCover(categoryTitle, image)} className="card-basket-image" />
 
       <div className="card-basket-inner">
         <div className="card-basket-inner-header">
