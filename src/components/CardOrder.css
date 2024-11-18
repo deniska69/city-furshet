@@ -22,6 +22,7 @@
 .card-order-image {
   width: 100%;
   max-width: 50px;
+  min-height: 50px;
   max-height: 50px;
   object-fit: cover;
   border-radius: 8px;

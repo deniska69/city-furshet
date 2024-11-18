@@ -1,5 +1,4 @@
 import $ from "jquery";
-import mockePrice from "./mockePrice.json";
 
 export const sendOrder = async (dataSend) => {
   await $.ajax({
@@ -12,7 +11,7 @@ export const sendOrder = async (dataSend) => {
 };
 
 export const getPrice = async () => {
-  if (import.meta.env.DEV) return Promise.resolve(mockePrice);
+  const url = import.meta.env.DEV ? import.meta.env.VITE_PRICE_URL_DEV : import.meta.env.VITE_PRICE_URL;
 
   const xhrArrayBuffer = new XMLHttpRequest();
   xhrArrayBuffer.responseType = "arraybuffer";
@@ -20,7 +19,7 @@ export const getPrice = async () => {
   let res = {};
 
   await $.ajax({
-    url: import.meta.env.VITE_PRICE_URL,
+    url,
     method: "GET",
     xhr: () => xhrArrayBuffer,
     success: (data) => (res = processingCSV(decodeCSV(data))),
@@ -51,7 +50,7 @@ const processingCSV = (string) => {
         categoryId,
         categoryTitle: processingString(row[0]),
         id,
-        image: processingString(row[1]) || "city-furshet.ru/images/image_placeholder.jpg",
+        image: processingString(row[1]),
         title: processingString(row[2]),
         price: processingString(row[3]),
         subtitle: processingString(row[4]),
