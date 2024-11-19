@@ -3,7 +3,7 @@ import { Icon } from "components";
 import { getCover } from "helpers";
 
 const Card = (props) => {
-  const { id, image = null, title, subtitle, price, categoryId, categoryTitle, count } = props;
+  const { id, image = null, title, titleDescription, price, categoryId, categoryTitle, count } = props;
 
   const onPressCard = () => props?.onPressCard(categoryId, id);
 
@@ -27,7 +27,7 @@ const Card = (props) => {
         </div>
 
         <span className="card-title">{title}</span>
-        <span className="card-subtitle">{subtitle}</span>
+        <span className="card-subtitle">{titleDescription}</span>
       </div>
 
       <div className="card-buttons">

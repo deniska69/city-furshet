@@ -63,10 +63,14 @@ const MenuMain = observer((props) => {
         const idSection = `menu-main-${section?.id}`;
         const idGrid = `menu-main-grid-${section?.id}`;
         const cards = values(products.get(section?.id));
+        const title = section?.title === "Новогоднее меню" ? "🎄 Новогоднее меню 🎄" : section?.title;
 
         return (
           <div key={idSection} id={idSection} className="menu-section">
-            <h1 id="menu-main-title">{section?.title}</h1>
+            <div className="menu-main-header">
+              <h1 id="menu-main-title">{title}</h1>
+              {section?.description ? <span>{section?.description}</span> : null}
+            </div>
 
             <div id={idGrid} className="menu-items">
               {cards.map((card) => (

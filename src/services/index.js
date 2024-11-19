@@ -39,22 +39,54 @@ const processingCSV = (string) => {
   let data = {};
   let temp = [];
 
+  let model = {
+    category: null,
+    category_description: null,
+    image: null,
+    title: null,
+    title_description: null,
+    price: null,
+    description: null,
+    description_second: null,
+  };
+
+  arr[0].split(";").forEach((item, index) => (model[item.trim()] = index));
+
+  console.log("");
+  console.log("CSV Model:");
+  console.log(model);
+
   arr.forEach((el, index) => {
     if (index > 0) {
       const row = el.split(";");
 
-      const categoryId = processingString(transliterate(row[0]));
-      const id = categoryId + "_" + processingString(transliterate(row[2])) + "_" + processingString(row[3]);
+      const categoryTitle = processingString(row[model["category"]]);
+      const categoryDescription = processingString(row[model["category_description"]]);
+      const categoryId = transliterate(categoryTitle);
+
+      const title = processingString(row[model["title"]]);
+      const titleDescription = processingString(row[model["title_description"]]);
+
+      const price = processingString(row[model["price"]]);
+
+      const id = `${categoryId}_${transliterate(title)}_${price}`;
+
+      const description = processingString(row[model["description"]]);
+      const descriptionSecond = processingString(row[model["description_second"]]);
+
+      const image = processingString(row[model["image"]]);
 
       const item = {
         categoryId,
-        categoryTitle: processingString(row[0]),
+        categoryTitle,
+        categoryDescription,
         id,
-        image: processingString(row[1]),
-        title: processingString(row[2]),
-        price: processingString(row[3]),
-        subtitle: processingString(row[4]),
-        description: processingString(row[5]),
+        image,
+        title,
+        titleDescription,
+        price,
+        description,
+        descriptionSecond,
       };
 
       if (item?.title && item?.categoryTitle) temp.push(item);
@@ -68,10 +100,15 @@ const processingCSV = (string) => {
       data[categoryId] = {
         id: categoryId,
         title: item?.categoryTitle,
+        description: item?.categoryDescription,
         items: temp.filter((el) => el?.categoryId === categoryId),
       };
     }
   });
+
+  console.log("");
+  console.log("Processed data.:");
+  console.log(data);
 
   return data;
 };

@@ -33,7 +33,11 @@ class ProductsStore {
             });
           });
 
-          this.categories = Object.keys(data).map((cat) => ({ id: data[cat]?.id, title: data[cat]?.title }));
+          this.categories = Object.keys(data).map((cat) => ({
+            id: data[cat]?.id,
+            title: data[cat]?.title,
+            description: data[cat]?.description,
+          }));
           this.selectedCategory = this.categories[0];
           this.loading = false;
 

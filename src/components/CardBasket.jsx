@@ -7,7 +7,7 @@ const CardBasket = (props) => {
     id,
     image = null,
     title,
-    subtitle,
+    titleDescription,
     price = 0,
     categoryId,
     categoryTitle,
@@ -43,7 +43,7 @@ const CardBasket = (props) => {
         <div className="card-basket-inner-header">
           <div className="card-basket-text">
             <span className="card-title">{title}</span>
-            <span className="card-subtitle">{subtitle}</span>
+            <span className="card-subtitle">{titleDescription}</span>
           </div>
 
           <button className="card-basket-delete-button" onClick={handlePressDelete}>

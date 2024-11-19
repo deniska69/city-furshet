@@ -39,7 +39,7 @@ const CardModal = ({ id, categoryId, store }) => {
         <div className="card-view-footer">
           <div className="card-view-text">
             <span className="card-description">{card?.description}</span>
-            <span className="card-subtitle">{card?.subtitle}</span>
+            {card?.titleDescription ? <span className="card-subtitle">{card?.titleDescription}</span> : null}
           </div>
 
           <div className="card-view-buttons">
@@ -62,6 +62,8 @@ const CardModal = ({ id, categoryId, store }) => {
               </button>
             ) : null}
           </div>
+
+          {card?.descriptionSecond ? <span className="card-subtitle">{card?.descriptionSecond}</span> : null}
         </div>
       </div>
     </Dialog>
