@@ -9,19 +9,20 @@ const MobileMenuModal = () => {
 
   const onOpenOrders = () => navigate("/orders");
 
+  const onOpenDelivery = () => navigate("/delivery");
+
+  const onOpenContacts = () => navigate("/contacts");
+
   return (
     <Dialog title="City Furshet">
       <div className="mobile-menu">
         <a href="#menu" className="mobile-menu-link" onClick={onClose}>
           Меню
         </a>
-        <a href="" className="mobile-menu-link">
-          Акции
-        </a>
-        <a href="" className="mobile-menu-link">
+        <a className="mobile-menu-link" onClick={onOpenDelivery}>
           Доставка и оплата
         </a>
-        <a href="" className="mobile-menu-link">
+        <a className="mobile-menu-link" onClick={onOpenContacts}>
           Контакты
         </a>
         <a className="mobile-menu-link" onClick={onOpenOrders}>

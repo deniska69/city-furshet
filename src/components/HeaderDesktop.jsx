@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import "./HeaderDesktop.css";
 
-const HeaderDesktop = ({ basketTotal, onOpenBasket, onOpenOrders }) => {
+const HeaderDesktop = ({ basketTotal, onOpenBasket, onOpenOrders, onOpenDelivery, onOpenContacts }) => {
   useEffect(() => {
     const headerEl = document.getElementById("header-desktop");
 
@@ -23,10 +23,8 @@ const HeaderDesktop = ({ basketTotal, onOpenBasket, onOpenOrders }) => {
   return (
     <div id="header-desktop" className="noselect">
       <a href="#menu">Меню</a>
-      <a href="">Акции</a>
-      <a href="">Доставка и оплата</a>
-      <a href="">Контакты</a>
-
+      <a onClick={onOpenDelivery}>Доставка и оплата</a>
+      <a onClick={onOpenContacts}>Контакты</a>
       <a id="header-basket-wrap" onClick={onOpenBasket}>
         <span>Корзина</span>
 

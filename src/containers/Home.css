@@ -23,7 +23,7 @@
 
 #home-container-logo {
   max-width: 80vw;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
 }
 
 #home-container-description_first-wrap {
@@ -67,9 +67,18 @@
   cursor: pointer;
 }
 
+.home-text {
+  text-align: center;
+  margin: 2rem;
+  color: #f7852f;
+  /* color: #86b421; */
+  font-weight: 00;
+  font-size: 1.4rem;
+}
+
 @media (min-width: 500px) {
   #home-container-logo {
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
   }
 
   #home-container-description_first {
@@ -106,7 +115,7 @@
 
   #home-container-logo {
     max-width: 500px;
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
   }
 
   #home-container-description_first-wrap {

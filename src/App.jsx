@@ -2,8 +2,10 @@ import { Provider } from "mobx-react";
 import { RouterProvider, createBrowserRouter, Outlet, useSearchParams } from "react-router-dom";
 import * as stores from "stores";
 
-import CardModal from "containers/CardModal";
 import BasketModal from "containers/BasketModal";
+import CardModal from "containers/CardModal";
+import ContactsModal from "containers/ContactsModal";
+import DeliveryPaymentModal from "containers/DeliveryPaymentModal";
 import Header from "containers/Header";
 import Home from "containers/Home";
 import Menu from "containers/Menu";
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: "mobile-menu",
         Component: MobileMenuModal,
+      },
+      {
+        path: "delivery",
+        Component: DeliveryPaymentModal,
+      },
+      {
+        path: "contacts",
+        Component: ContactsModal,
       },
     ],
   },

@@ -6,11 +6,12 @@ const Home = () => {
   return (
     <div id="home" className="noselect">
       <div id="home-container">
+        <span className="home-text">Готовые боксы с закусками на любое мероприятие от нашей фуршетной мастерской</span>
+
         <img id="home-container-logo" src={logo} alt="logo_color_500w" />
-        <div id="home-container-description_first-wrap">
-          <span id="home-container-description_first">Вкуснее, чем дома</span>
-        </div>
-        <span id="home-container-description_second">Быстрее, чем у плиты</span>
+
+        <span className="home-text">Фуршет, Кофе-брейк , гастробоксы, выездное накрытие</span>
+
         <a id="home-container-button" href="#menu">
           Посмотреть меню
         </a>

@@ -16,9 +16,13 @@ const Header = ({ store }) => {
 
   const onOpenOrders = () => navigate("/orders");
 
-  if (isMobile) return <HeaderMobile {...{ basketTotal, onOpenBasket, onOpenMobileMenu, onOpenOrders }} />;
+  const onOpenDelivery = () => navigate("/delivery");
 
-  return <HeaderDesktop {...{ basketTotal, onOpenBasket, onOpenOrders }} />;
+  const onOpenContacts = () => navigate("/contacts");
+
+  if (isMobile) return <HeaderMobile {...{ basketTotal, onOpenBasket, onOpenMobileMenu }} />;
+
+  return <HeaderDesktop {...{ basketTotal, onOpenBasket, onOpenOrders, onOpenDelivery, onOpenContacts }} />;
 };
 
 export default inject("store")(observer(Header));
