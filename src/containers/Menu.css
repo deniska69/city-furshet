@@ -62,6 +62,11 @@
   scroll-margin-top: 10vh;
 }
 
+.menu-main-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 @media (min-width: 1280px) {
   #menu-container {
     flex-direction: row;
@@ -72,5 +77,10 @@
   #menu-main {
     align-self: flex-start;
     padding: 1rem;
+  }
+
+  .menu-main-title {
+    font-size: 2rem;
+    font-weight: 700;
   }
 }

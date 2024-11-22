@@ -68,7 +68,7 @@ const MenuMain = observer((props) => {
         return (
           <div key={idSection} id={idSection} className="menu-section">
             <div className="menu-main-header">
-              <h1 id="menu-main-title">{title}</h1>
+              <span className="menu-main-title">{title}</span>
               {section?.description ? <span>{section?.description}</span> : null}
             </div>
 
