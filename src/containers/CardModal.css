@@ -3,14 +3,21 @@
   flex-direction: column;
   padding: 1rem;
   row-gap: 1.5rem;
+  height: 100%;
+  max-height: calc(100vh - 110px);
+  overflow: scroll;
 }
 
 .card-view-image {
   width: 100%;
   max-width: calc(100vw - 1rem);
-  max-height: calc(80vw);
+  max-height: calc(60vw);
   object-fit: cover;
   border-radius: 8px;
+
+  @media (min-height: 700px) {
+    max-height: calc(80vw);
+  }
 }
 
 .card-view-text {

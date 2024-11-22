@@ -71,10 +71,13 @@
   text-align: center;
   margin: 2rem;
   color: #f7852f;
-  /* color: #86b421; */
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   max-width: 600px;
+
+  @media (min-height: 700px) {
+    font-size: 1.4rem;
+  }
 }
 
 @media (min-width: 500px) {

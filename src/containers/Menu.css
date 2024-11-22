@@ -63,8 +63,12 @@
 }
 
 .menu-main-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
+
+  @media (min-width: 500px) {
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 1280px) {
