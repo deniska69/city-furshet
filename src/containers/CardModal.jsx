@@ -33,7 +33,7 @@ const CardModal = ({ id, categoryId, store }) => {
 
   return (
     <Dialog title={card?.title} onClose={onClose} size="lg" className="min-content">
-      <div className="card-view">
+      <div className="card-view hidescroll">
         <img src={getCover(card?.categoryTitle, card?.image)} className="card-view-image" />
 
         <div className="card-view-footer">
