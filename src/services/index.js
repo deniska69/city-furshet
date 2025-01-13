@@ -7,7 +7,6 @@ export const sendOrder = async (dataSend) => {
     data: dataSend,
     success: (data) => Promise.resolve(data),
     error: (e) => Promise.reject(e),
-    cache: false,
   });
 };
 
@@ -20,10 +19,11 @@ export const getPrice = async () => {
   let res = {};
 
   await $.ajax({
-    url,
+    url: `${url}?_=${new Date().getUTCSeconds()}`,
     method: "GET",
     xhr: () => xhrArrayBuffer,
     success: (data) => (res = processingCSV(decodeCSV(data))),
+    cache: false,
   });
 
   return Promise.resolve(res);
