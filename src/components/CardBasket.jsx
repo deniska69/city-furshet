@@ -1,6 +1,6 @@
 import "./CardBasket.css";
 import { Icon } from "components";
-import { getCover } from "helpers";
+import { getCover, getImageError } from "helpers";
 
 const CardBasket = (props) => {
   const {
@@ -37,7 +37,7 @@ const CardBasket = (props) => {
 
   return (
     <div className="card-basket" onClick={handlePressCard}>
-      <img src={getCover(categoryTitle, image)} className="card-basket-image" />
+      <img src={getCover(categoryTitle, image)} className="card-basket-image" onError={getImageError} />
 
       <div className="card-basket-inner">
         <div className="card-basket-inner-header">

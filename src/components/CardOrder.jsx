@@ -1,5 +1,5 @@
 import "./CardOrder.css";
-import { getCover } from "helpers";
+import { getCover, getImageError } from "helpers";
 
 const CardOrder = (props) => {
   const { id, categoryId, image = null, title, subtitle, price = 0, count = 0, categoryTitle } = props;
@@ -8,7 +8,7 @@ const CardOrder = (props) => {
 
   return (
     <div className="card-order" onClick={onPress}>
-      <img src={getCover(categoryTitle, image)} className="card-order-image" />
+      <img src={getCover(categoryTitle, image)} className="card-order-image" onError={getImageError} />
 
       <div className="card-order-inner">
         <div className="card-order-inner-header">

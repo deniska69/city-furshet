@@ -1,6 +1,6 @@
 import "./Card.css";
 import { Icon } from "components";
-import { getCover } from "helpers";
+import { getCover, getImageError } from "helpers";
 
 const Card = (props) => {
   const { id, image = null, title, titleDescription, price, categoryId, categoryTitle, count } = props;
@@ -15,7 +15,7 @@ const Card = (props) => {
     <div id={id} className="card noselect">
       <div className="card-info" onClick={onPressCard}>
         <div className="card-image-wrap">
-          <img src={getCover(categoryTitle, image)} className="card-image" />
+          <img src={getCover(categoryTitle, image)} className="card-image" onError={getImageError} />
 
           {count > 0 ? (
             <div className="card-counter-wrap">

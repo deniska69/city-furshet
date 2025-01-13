@@ -2,7 +2,7 @@ import { inject, observer } from "mobx-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Dialog, Icon, Loader } from "components";
 import "./CardModal.css";
-import { getCover } from "helpers";
+import { getCover, getImageError } from "helpers";
 
 const CardModal = ({ id, categoryId, store }) => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const CardModal = ({ id, categoryId, store }) => {
   return (
     <Dialog title={card?.title} onClose={onClose} size="lg" className="min-content">
       <div className="card-view hidescroll">
-        <img src={getCover(card?.categoryTitle, card?.image)} className="card-view-image" />
+        <img src={getCover(card?.categoryTitle, card?.image)} className="card-view-image" onError={getImageError} />
 
         <div className="card-view-footer">
           <div className="card-view-text">

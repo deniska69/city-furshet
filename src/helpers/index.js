@@ -8,4 +8,6 @@ const getCover = (categoryTitle, image) => {
   return imagePlaceholder;
 };
 
-export { getCover };
+const getImageError = (e) => (e.currentTarget.src = imagePlaceholder);
+
+export { getCover, getImageError };
