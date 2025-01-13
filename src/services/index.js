@@ -7,6 +7,7 @@ export const sendOrder = async (dataSend) => {
     data: dataSend,
     success: (data) => Promise.resolve(data),
     error: (e) => Promise.reject(e),
+    cache: false,
   });
 };
 
