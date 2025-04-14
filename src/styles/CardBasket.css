@@ -1,109 +1,109 @@
 .card-basket {
-  display: flex;
-  flex-direction: row;
-  column-gap: 0.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px #e0e0e0 solid;
+	display: flex;
+	flex-direction: row;
+	column-gap: 0.5rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px #e0e0e0 solid;
 }
 
 .card-basket:active {
-  transform: scale(98%);
-  transition: transform 0.05s ease-in-out;
+	transform: scale(98%);
+	transition: transform 0.05s ease-in-out;
 }
 
 .card-basket:hover {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-radius: 4px;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.03);
+	border-radius: 4px;
 }
 
 .card-basket:hover .card-title {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .card-basket:first-of-type {
-  margin-top: 0.5rem;
+	margin-top: 0.5rem;
 }
 
 .card-basket:last-of-type {
-  padding-bottom: 0;
-  border-bottom: none;
+	padding-bottom: 0;
+	border-bottom: none;
 }
 
 .card-basket-image {
-  width: 100%;
-  max-width: 80px;
-  min-height: 80px;
-  max-height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
+	width: 100%;
+	max-width: 80px;
+	min-height: 80px;
+	max-height: 80px;
+	object-fit: cover;
+	border-radius: 8px;
 }
 
 .card-basket-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  row-gap: 0.5rem;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	row-gap: 0.5rem;
+	width: 100%;
 }
 
 .card-basket-text {
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.3rem;
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.3rem;
 }
 
 .card-basket-buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .card-basket-counter {
-  font-size: 1.5rem;
-  margin-right: 8px;
+	font-size: 1.5rem;
+	margin-right: 8px;
 }
 
 .card-basket-inner-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .card-basket-total-price {
-  font-size: 1.2rem;
-  color: gray;
+	font-size: 1.2rem;
+	color: gray;
 }
 
 .card-basket-inner-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 
 .card-basket-delete-button {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  background-color: white;
-  padding: 8px 8px;
-  border-radius: 9999px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	background-color: white;
+	padding: 8px 8px;
+	border-radius: 9999px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .card-basket-delete-button {
-  transition: all 0.2s;
+	transition: all 0.2s;
 }
 
 .card-basket-delete-button:active {
-  transform: scale(60%);
-  transition: transform 0.05s ease-in-out;
+	transform: scale(60%);
+	transition: transform 0.05s ease-in-out;
 }

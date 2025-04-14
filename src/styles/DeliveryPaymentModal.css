@@ -1,6 +1,6 @@
 #delivery-text-wrap {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+	padding: 1rem;
 }

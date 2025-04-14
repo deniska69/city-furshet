@@ -1,46 +1,46 @@
 .card-order {
-  display: flex;
-  flex-direction: row;
-  column-gap: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	column-gap: 0.5rem;
 }
 
 .card-order:active {
-  transform: scale(98%);
-  transition: transform 0.05s ease-in-out;
+	transform: scale(98%);
+	transition: transform 0.05s ease-in-out;
 }
 
 .card-order:hover {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-radius: 4px;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.03);
+	border-radius: 4px;
 }
 
 .card-order:hover .card-title {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .card-order-image {
-  width: 100%;
-  max-width: 50px;
-  min-height: 50px;
-  max-height: 50px;
-  object-fit: cover;
-  border-radius: 8px;
+	width: 100%;
+	max-width: 50px;
+	min-height: 50px;
+	max-height: 50px;
+	object-fit: cover;
+	border-radius: 8px;
 }
 
 .card-order-inner-header {
-  display: flex;
-  flex-direction: row;
-  column-gap: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	column-gap: 0.5rem;
 }
 
 .card-order-inner {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.6rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.6rem;
 }
 
 .card-order-inner-footer {
-  font-weight: 500;
+	font-weight: 500;
 }

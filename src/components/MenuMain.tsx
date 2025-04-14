@@ -39,7 +39,7 @@ export const MenuMain = (props: IMenuMain) => {
 									count=""
 									{...card}
 									key={card.product_id}
-									categoryId={idSection}
+									categoryId={item.category_id}
 									{...{ onPressCard, onPressAdd, onPressRemove }}
 								/>
 							))}
