@@ -16,7 +16,6 @@
 		"name": "Denis Gostev",
 		"email": "gostev.dy@yandex.ru"
 	},
-	"license": "MIT",
 	"dependencies": {
 		"jquery": "^3.7.1",
 		"mobx": "^6.13.7",
