@@ -1,32 +1,48 @@
 {
-  "name": "web-furshet",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build && node ./build.js",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "jquery": "^3.7.1",
-    "mobx": "^6.13.5",
-    "mobx-react": "^9.1.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.27.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.11.1",
-    "@types/react": "^18.3.10",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.2",
-    "eslint": "^9.11.1",
-    "eslint-plugin-react": "^7.37.0",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "^0.4.12",
-    "globals": "^15.9.0",
-    "vite": "^5.4.8"
-  }
+	"name": "city-furshet",
+	"private": true,
+	"version": "2.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build && node ./build.js",
+		"build:test": "tsc -b && vite build && node ./build.js && rm -rf dist",
+		"lint": "eslint .",
+		"preview": "vite preview"
+	},
+	"description": "Webapp for buffet catering: Vite + React",
+	"repository": "https://github.com/deniska69/city-furshet.git",
+	"author": {
+		"name": "Denis Gostev",
+		"email": "gostev.dy@yandex.ru"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"jquery": "^3.7.1",
+		"mobx": "^6.13.7",
+		"mobx-react": "^9.2.0",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-router-dom": "^7.5.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.24.0",
+		"@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+		"@parabit/prettier": "^0.0.5",
+		"@types/jquery": "^3.5.32",
+		"@types/node": "^22.14.1",
+		"@types/react": "^19.1.1",
+		"@types/react-dom": "^19.1.2",
+		"@vitejs/plugin-react": "^4.3.4",
+		"eslint": "^9.24.0",
+		"eslint-plugin-react": "^7.37.5",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"eslint-plugin-react-refresh": "^0.4.19",
+		"globals": "^16.0.0",
+		"prettier": "^3.5.3",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.29.1",
+		"vite": "^6.2.6",
+		"vite-tsconfig-paths": "^5.1.4"
+	}
 }
