@@ -1,14 +1,3 @@
-type TypePriceModel = {
-	category?: string;
-	category_description?: string;
-	image?: string;
-	title?: string;
-	title_description?: string;
-	price?: string;
-	description?: string;
-	description_second?: string;
-};
-
 type TypePriceCategory = {
 	category_id: string;
 	category_hide: boolean;
@@ -27,3 +16,5 @@ type TypePriceProduct = {
 	product_cover: string;
 	product_gallery: string;
 };
+
+type TypePriceRow = TypePriceCategory & TypePriceProduct;

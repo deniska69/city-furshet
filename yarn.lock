@@ -2550,6 +2550,11 @@ typescript@^5.8.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.3.tgz#92f8a3e5e3cf497356f4178c34cd65a7f5e8440e"
   integrity sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==
 
+udsv@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/udsv/-/udsv-0.7.2.tgz#d8ec49aa866af40ba52214c5b565ea67991a74d2"
+  integrity sha512-It3T8Ho4fF/yVOmce6Ddl0e62i1Cpf5vD+NmMHYNjrimTSR7gPaT3yJ8Jsn/wXuEF9w8ZAV6IkXX8jSH+zkeCg==
+
 unbox-primitive@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/unbox-primitive/-/unbox-primitive-1.1.0.tgz#8d9d2c9edeea8460c7f35033a88867944934d1e2"
