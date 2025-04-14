@@ -34,6 +34,7 @@
 			"@modules/*": ["src/modules/*"],
 			"@services": ["src/services"],
 			"@stores": ["src/stores"],
+			"@styles/*": ["src/styles/*"],
 			"@types": ["src/types"]
 		}
 	},

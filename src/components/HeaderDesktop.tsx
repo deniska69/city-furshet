@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import './HeaderDesktop.css';
+import '@styles/HeaderDesktop.css';
 
 interface IHeaderDesktop {
 	basketTotal?: string | number;

@@ -2,7 +2,6 @@
 // import CardModal from 'containers/CardModal';
 // import ContactsModal from 'containers/ContactsModal';
 // import DeliveryPaymentModal from 'containers/DeliveryPaymentModal';
-// import Home from 'containers/Home';
 // import Menu from 'containers/Menu';
 // import MobileMenuModal from 'containers/MobileMenuModal';
 // import OrdersModal from 'containers/OrdersModal';
@@ -10,7 +9,8 @@ import { Fragment, useEffect } from 'react';
 import { Provider } from 'mobx-react';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 
-import { Header } from '@containers';
+import { Home } from '@components';
+import { Header, Menu } from '@containers';
 import * as stores from '@stores';
 
 const Layout = () => {
@@ -25,14 +25,14 @@ const Layout = () => {
 	return (
 		<Fragment>
 			<Header />
+			<Home />
+			<Menu />
 			<Outlet />
 		</Fragment>
 	);
 
 	// return (
 	// 	<Provider {...stores}>
-	// 		{/* <Header /> */}
-	// 		{/* <Home /> */}
 	// 		{/* <Menu /> */}
 	// 		{/* {categoryId && id ? <CardModal {...{ categoryId, id }} /> : <Outlet />} */}
 	// 		<Outlet />

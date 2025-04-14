@@ -1,9 +1,9 @@
 import { SyntheticEvent } from 'react';
 import imagePlaceholder from 'assets/image_placeholder.jpg';
 
-const getCover = (categoryTitle?: string, image?: string) => {
-	if (categoryTitle && image) {
-		return `images/${categoryTitle}/${image}`;
+const getCover = (categoryId?: string, productId?: string, imageId?: string) => {
+	if (categoryId && productId && imageId) {
+		return `images/${categoryId}/${productId}/${imageId}.jpg`;
 	}
 
 	return imagePlaceholder;

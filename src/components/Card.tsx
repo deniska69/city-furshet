@@ -1,38 +1,43 @@
-import './Card.css';
-
 import { getCover, getImageError } from '@helpers';
 
 import Icon from './Icon';
 
-interface ICard {
-	id: string;
-	image?: string;
-	title: string;
-	titleDescription: string;
-	price: string;
+import '@styles/Card.css';
+
+interface ICard extends TypePriceProduct {
 	categoryId: string;
-	categoryTitle: string;
 	count: string;
 	onPressCard: (categoryId: string, id: string) => void;
-	onPressPlus: (categoryId: string, id: string) => void;
-	onPressMinus: (categoryId: string, id: string) => void;
+	onPressAdd: (categoryId: string, id: string) => void;
+	onPressRemove: (categoryId: string, id: string) => void;
 }
 
 export const Card = (props: ICard) => {
-	const { id, image, title, titleDescription, price, categoryId, categoryTitle, count } = props;
+	const {
+		categoryId,
+		count,
+		product_id,
+		product_title,
+		product_note,
+		product_price,
+		product_cover,
+		onPressCard,
+		onPressAdd,
+		onPressRemove,
+	} = props;
 
-	const onPressCard = () => props.onPressCard(categoryId, id);
+	const handlePressCard = () => onPressCard(categoryId, product_id);
 
-	const onPressPlus = () => props.onPressPlus(categoryId, id);
+	const handlePressAdd = () => onPressAdd(categoryId, product_id);
 
-	const onPressMinus = () => props.onPressMinus(categoryId, id);
+	const handlePressRemove = () => onPressRemove(categoryId, product_id);
 
 	return (
-		<div id={id} className="card noselect">
-			<div className="card-info" onClick={onPressCard}>
+		<div id={product_id} className="card noselect">
+			<div className="card-info" onClick={handlePressCard}>
 				<div className="card-image-wrap">
 					<img
-						src={getCover(categoryTitle, image)}
+						src={getCover(categoryId, product_id, product_cover)}
 						className="card-image"
 						onError={getImageError}
 					/>
@@ -46,19 +51,19 @@ export const Card = (props: ICard) => {
 					) : null}
 				</div>
 
-				<span className="card-title">{title}</span>
-				<span className="card-subtitle">{titleDescription}</span>
+				<span className="card-title">{product_title}</span>
+				<span className="card-subtitle">{product_note}</span>
 			</div>
 
 			<div className="card-buttons">
 				{count ? (
-					<button className="card-btn-minus" onClick={onPressMinus}>
+					<button className="card-btn-minus" onClick={handlePressAdd}>
 						<Icon name="minus" color="white" />
 					</button>
 				) : null}
 
-				<button className="card-btn-plus" onClick={onPressPlus}>
-					<span className="card-price">{price || '0'} ₽</span>
+				<button className="card-btn-plus" onClick={handlePressRemove}>
+					<span className="card-price">{product_price || '0'} ₽</span>
 					<Icon name="plus" color="white" />
 				</button>
 			</div>

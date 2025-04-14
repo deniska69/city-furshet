@@ -5,9 +5,10 @@ class BasketStore {
 
 	add = (categoryId: string, productId: string) => {};
 
+	remove = (categoryId: string, productId: string) => {};
+
 	getTotal = () => {
-		return 0;
-		// if (!this.items?.size) return 0;
+		if (!this.items?.size) return 0;
 
 		// let sum = 0;
 

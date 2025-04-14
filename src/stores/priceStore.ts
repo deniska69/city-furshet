@@ -1,22 +1,28 @@
-import { action, makeAutoObservable, runInAction } from 'mobx';
+import { action, makeAutoObservable, runInAction, toJS, values } from 'mobx';
 
 import { getPrice } from '@services';
 
 class PriceStore {
-	categories: Map<string, TypePriceCategory> | undefined;
-	products: Map<string, TypePriceProduct> | undefined;
+	private categories: Map<string, TypePriceCategory> | undefined;
+	private products: Map<string, TypePriceProduct[]> | undefined;
 	isPrice: boolean = false;
+	loading: boolean = false;
 
-	private addCategory = action((values: TypePriceCategory) => {
+	private addCategory = action((category: TypePriceCategory) => {
 		if (!this.categories) this.categories = new Map();
-		if (this.categories.has(values.category_id)) return;
-		this.categories.set(values.category_id, values);
+		if (this.categories.has(category.category_id)) return;
+		this.categories.set(category.category_id, category);
 	});
 
-	private addProduct = action((values: TypePriceProduct) => {
+	private addProduct = action((categoryId: string, product: TypePriceProduct) => {
 		if (!this.products) this.products = new Map();
-		if (this.products.has(values.product_id)) return;
-		this.products.set(values.product_id, values);
+
+		if (!this.products.has(categoryId)) {
+			this.products.set(categoryId, [product]);
+		} else {
+			const items = toJS(this.products.get(categoryId));
+			this.products.set(categoryId, [...(items || []), product]);
+		}
 	});
 
 	getPrice = () => {
@@ -44,7 +50,7 @@ class PriceStore {
 						product_gallery,
 					} = row;
 
-					this.addProduct({
+					this.addProduct(category_id, {
 						product_id,
 						product_hide,
 						product_title,
@@ -63,6 +69,27 @@ class PriceStore {
 				alert('Ошибка загрузки прайса.\nСм. console.');
 				console.error('Ошибка загрузки прайса.', e);
 			});
+	};
+
+	getCategories = () => {
+		if (!this.categories) return undefined;
+		return values(this.categories) as unknown as TypePriceCategory[];
+	};
+
+	getCategory = (categoryId: string) => {
+		if (!this.categories || !this.categories.has(categoryId)) return undefined;
+		return this.categories.get(categoryId) as unknown as TypePriceCategory;
+	};
+
+	getProducts = (categoryId: string) => {
+		if (!this.products || !this.products.has(categoryId)) return undefined;
+		return this.products.get(categoryId);
+	};
+
+	getProduct = (categoryId: string, productId: string) => {
+		const items = this.getProducts(categoryId);
+		if (!items) return undefined;
+		return items.filter((el) => el.product_id === productId)[0];
 	};
 }
 

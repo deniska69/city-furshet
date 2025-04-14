@@ -1,6 +1,6 @@
-import './Home.css';
+import logo from '@assets/home/logo-color-500w.png';
 
-import logo from 'assets/home/logo-color-500w.png';
+import '@styles/Home.css';
 
 export const Home = () => (
 	<div id="home" className="noselect">
