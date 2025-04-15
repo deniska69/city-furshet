@@ -5,7 +5,7 @@ interface IIcon {
 	strokeWidth?: string | number;
 }
 
-const Icon = ({ name, color = 'black', ...rest }: IIcon) => {
+export const Icon = ({ name, color = 'black', ...rest }: IIcon) => {
 	switch (name) {
 		case 'close':
 			return <Close color={color} {...rest} />;
@@ -19,8 +19,6 @@ const Icon = ({ name, color = 'black', ...rest }: IIcon) => {
 			return <Error color={color} {...rest} />;
 	}
 };
-
-export default Icon;
 
 const Close = ({ color, size = 32 }: IIcon) => (
 	<svg height={`${size}px`} viewBox="0 0 512 512" width={`${size}px`} fill={color}>

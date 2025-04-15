@@ -31,6 +31,7 @@
 			"@containers": ["src/containers"],
 			"@helpers": ["src/helpers"],
 			"@hooks": ["src/hooks"],
+			"@modals": ["src/modals"],
 			"@modules/*": ["src/modules/*"],
 			"@services": ["src/services"],
 			"@stores": ["src/stores"],

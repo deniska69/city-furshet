@@ -1,22 +1,22 @@
 // import BasketModal from 'containers/BasketModal';
-// import CardModal from 'containers/CardModal';
 // import ContactsModal from 'containers/ContactsModal';
 // import DeliveryPaymentModal from 'containers/DeliveryPaymentModal';
 // import Menu from 'containers/Menu';
 // import MobileMenuModal from 'containers/MobileMenuModal';
 // import OrdersModal from 'containers/OrdersModal';
 import { Fragment, useEffect } from 'react';
+import { CardModal } from '@modals';
 import { Provider } from 'mobx-react';
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider, useSearchParams } from 'react-router-dom';
 
-import { Home } from '@components';
+import { ContactsModal, Home } from '@components';
 import { Header, Menu } from '@containers';
 import * as stores from '@stores';
 
 const Layout = () => {
-	// const [searchParams] = useSearchParams();
-	// const categoryId = searchParams.get('category_id') || null;
-	// const id = searchParams.get('card_id') || null;
+	const [searchParams] = useSearchParams();
+	const categoryId = searchParams.get('category_id') || null;
+	const productId = searchParams.get('card_id') || null;
 
 	useEffect(() => {
 		stores.priceStore.getPrice();
@@ -27,17 +27,9 @@ const Layout = () => {
 			<Header />
 			<Home />
 			<Menu />
-			<Outlet />
+			{categoryId && productId ? <CardModal {...{ categoryId, productId }} /> : <Outlet />}
 		</Fragment>
 	);
-
-	// return (
-	// 	<Provider {...stores}>
-	// 		{/* <Menu /> */}
-	// 		{/* {categoryId && id ? <CardModal {...{ categoryId, id }} /> : <Outlet />} */}
-	// 		<Outlet />
-	// 	</Provider>
-	// );
 };
 
 const router = createBrowserRouter([
@@ -61,10 +53,10 @@ const router = createBrowserRouter([
 			// 	path: 'delivery',
 			// 	Component: DeliveryPaymentModal,
 			// },
-			// {
-			// 	path: 'contacts',
-			// 	Component: ContactsModal,
-			// },
+			{
+				path: 'contacts',
+				Component: ContactsModal,
+			},
 		],
 	},
 ]);

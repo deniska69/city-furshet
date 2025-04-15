@@ -2,36 +2,29 @@ import { observer } from 'mobx-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Dialog, Icon, Loader } from '@components';
-
-import './CardModal.css';
-
 import { getCover, getImageError } from '@helpers';
-import { priceStore } from '@stores';
+import { basketStore, priceStore } from '@stores';
+
+import '@styles/CardModal.css';
 
 interface IComponent {
-	id: string;
 	categoryId: string;
+	productId: string;
 }
 
-const Component = ({ id, categoryId }: IComponent) => {
+const Component = ({ productId, categoryId }: IComponent) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	if (!priceStore?.products?.size) return <Loader />;
+	if (!priceStore.getProducts(categoryId)) return <Loader />;
 
-	const card = store.getProducts(categoryId, id);
+	const item = priceStore.getProduct(categoryId, productId);
 
-	const onClose = () => navigate(location?.pathname);
+	const handleClose = () => navigate(location.pathname);
 
-	const onPressPlus = () => store.onPressPlus(categoryId, id);
-
-	const onPressMinus = () => store.onPressMinus(categoryId, id);
-
-	const onPressCard = () => navigate('/basket');
-
-	if (!card) {
+	if (!item) {
 		return (
-			<Dialog onClose={onClose}>
+			<Dialog onClose={handleClose}>
 				<div className="card-view-empty">
 					<Icon color="gray" />
 					<span>Ошибка параметров товара.</span>
@@ -40,46 +33,60 @@ const Component = ({ id, categoryId }: IComponent) => {
 		);
 	}
 
+	const {
+		product_id,
+		product_title,
+		product_cover,
+		product_description,
+		product_note,
+		product_price,
+		product_note_additional,
+	} = item;
+
+	const handlePressAdd = () => basketStore.add(categoryId, productId);
+
+	const handlePressRemove = () => basketStore.remove(categoryId, productId);
+
+	// const handlePressBasket = () => navigate('/basket');
+
 	return (
-		<Dialog title={card?.title} onClose={onClose} size="lg" className="min-content">
+		<Dialog title={product_title} onClose={handleClose} size="lg" className="min-content">
 			<div className="card-view hidescroll">
 				<img
-					src={getCover(card?.categoryTitle, card?.image)}
-					className="card-view-image"
 					onError={getImageError}
+					className="card-view-image"
+					src={getCover(categoryId, product_id, product_cover)}
 				/>
 
 				<div className="card-view-footer">
 					<div className="card-view-text">
-						<span className="card-description">{card?.description}</span>
-						{card?.titleDescription ? (
-							<span className="card-subtitle">{card?.titleDescription}</span>
-						) : null}
+						<span className="card-description">{product_description}</span>
+						{product_note ? <span className="card-subtitle">{product_note}</span> : null}
 					</div>
 
 					<div className="card-view-buttons">
 						<div className="card-view-buttons-first">
-							<button className="card-btn-minus" onClick={onPressMinus}>
+							<button className="card-btn-minus" onClick={handlePressAdd}>
 								<Icon name="minus" color="white" />
 							</button>
 
-							<span className="card-basket-counter">{card?.count || '0'}</span>
+							{/* <span className="card-basket-counter">{card?.count || '0'}</span> */}
 
-							<button className="card-btn-plus" onClick={onPressPlus}>
-								<span className="card-price">{card?.price || '0'} ₽</span>
+							<button className="card-btn-plus" onClick={handlePressRemove}>
+								<span className="card-price">{product_price || '0'} ₽</span>
 								<Icon name="plus" color="white" />
 							</button>
 						</div>
 
-						{card?.count ? (
-							<button className="card-btn-basket" onClick={onPressCard}>
+						{/* {card?.count ? (
+							<button className="card-btn-basket" onClick={handlePressBasket}>
 								<Icon name="basket" color="white" />
 							</button>
-						) : null}
+						) : null} */}
 					</div>
 
-					{card?.descriptionSecond ? (
-						<span className="card-subtitle">{card?.descriptionSecond}</span>
+					{product_note_additional ? (
+						<span className="card-subtitle">{product_note_additional}</span>
 					) : null}
 				</div>
 			</div>
