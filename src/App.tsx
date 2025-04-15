@@ -1,15 +1,11 @@
 // import BasketModal from 'containers/BasketModal';
-// import ContactsModal from 'containers/ContactsModal';
-// import DeliveryPaymentModal from 'containers/DeliveryPaymentModal';
-// import Menu from 'containers/Menu';
-// import MobileMenuModal from 'containers/MobileMenuModal';
 // import OrdersModal from 'containers/OrdersModal';
 import { Fragment, useEffect } from 'react';
 import { CardModal } from '@modals';
 import { Provider } from 'mobx-react';
 import { createBrowserRouter, Outlet, RouterProvider, useSearchParams } from 'react-router-dom';
 
-import { ContactsModal, Home } from '@components';
+import { ContactsModal, DeliveryPaymentModal, Home, MobileMenuModal } from '@components';
 import { Header, Menu } from '@containers';
 import * as stores from '@stores';
 
@@ -45,14 +41,14 @@ const router = createBrowserRouter([
 			// 	path: 'orders',
 			// 	Component: OrdersModal,
 			// },
-			// {
-			// 	path: 'mobile-menu',
-			// 	Component: MobileMenuModal,
-			// },
-			// {
-			// 	path: 'delivery',
-			// 	Component: DeliveryPaymentModal,
-			// },
+			{
+				path: 'mobile-menu',
+				Component: MobileMenuModal,
+			},
+			{
+				path: 'delivery',
+				Component: DeliveryPaymentModal,
+			},
 			{
 				path: 'contacts',
 				Component: ContactsModal,
