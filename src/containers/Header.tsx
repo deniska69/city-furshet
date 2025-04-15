@@ -9,7 +9,7 @@ const Component = () => {
 	const navigate = useNavigate();
 	const { isMobile } = useWindowDimensions();
 
-	const basketTotal = basketStore.getTotal();
+	const basketTotal = basketStore.getCountTotal();
 
 	const onOpenBasket = () => navigate('/basket');
 

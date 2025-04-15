@@ -6,10 +6,10 @@ import { Icon } from './Icon';
 
 interface ICard extends TypePriceProduct {
 	categoryId: string;
-	count: string;
-	onPressCard: (categoryId: string, id: string) => void;
-	onPressAdd: (categoryId: string, id: string) => void;
-	onPressRemove: (categoryId: string, id: string) => void;
+	count: number;
+	onPressCard: (categoryId: string, productId: string) => void;
+	onPressAdd: (categoryId: string, productId: string) => void;
+	onPressRemove: (productId: string) => void;
 }
 
 export const Card = (props: ICard) => {
@@ -30,7 +30,7 @@ export const Card = (props: ICard) => {
 
 	const handlePressAdd = () => onPressAdd(categoryId, product_id);
 
-	const handlePressRemove = () => onPressRemove(categoryId, product_id);
+	const handlePressRemove = () => onPressRemove(product_id);
 
 	return (
 		<div id={product_id} className="card noselect">
@@ -57,12 +57,12 @@ export const Card = (props: ICard) => {
 
 			<div className="card-buttons">
 				{count ? (
-					<button className="card-btn-minus" onClick={handlePressAdd}>
+					<button className="card-btn-minus" onClick={handlePressRemove}>
 						<Icon name="minus" color="white" />
 					</button>
 				) : null}
 
-				<button className="card-btn-plus" onClick={handlePressRemove}>
+				<button className="card-btn-plus" onClick={handlePressAdd}>
 					<span className="card-price">{product_price || '0'} ₽</span>
 					<Icon name="plus" color="white" />
 				</button>

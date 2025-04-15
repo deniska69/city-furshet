@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
-import { useNavigate } from 'react-router-dom';
 
-import { Categories, Loader, MenuMain } from '@components';
-import { basketStore, priceStore } from '@stores';
+import { Categories, Loader } from '@components';
+import { priceStore } from '@stores';
 
 import '@styles/Menu.css';
 
-const Component = () => {
-	const navigate = useNavigate();
+import { MenuSections } from './MenuSections';
 
+const Component = () => {
 	const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
 
 	const loading = priceStore.loading;
@@ -23,20 +22,6 @@ const Component = () => {
 
 	const handlePressCategory = (categoryId: string) => setSelectedId(categoryId);
 
-	const handlePressCard = (categoryId: string, productId: string) => {
-		navigate(`?category_id=${categoryId}&card_id=${productId}`);
-	};
-
-	const handlePressAddToBasket = (categoryId: string, productId: string) => {
-		basketStore.add(categoryId, productId);
-	};
-
-	const handlePressRemoveFromBasket = (categoryId: string, productId: string) => {
-		basketStore.remove(categoryId, productId);
-	};
-
-	const handleGetProducts = (categoryId: string) => priceStore.getProducts(categoryId);
-
 	if (loading || !categories || !selectedId) return <LoadPlaceholder />;
 
 	const selectedCategory = priceStore.getCategory(selectedId);
@@ -47,17 +32,7 @@ const Component = () => {
 		<div id="menu" className="noselect">
 			<div id="menu-container">
 				<Categories {...{ categories, selectedId, onPressCategory: handlePressCategory }} />
-
-				<MenuMain
-					{...{
-						categories,
-						selectedCategory,
-						getProducts: handleGetProducts,
-						onPressCard: handlePressCard,
-						onPressAdd: handlePressAddToBasket,
-						onPressRemove: handlePressRemoveFromBasket,
-					}}
-				/>
+				<MenuSections selectedCategory={selectedCategory} />
 			</div>
 		</div>
 	);

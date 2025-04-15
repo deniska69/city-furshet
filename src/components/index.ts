@@ -8,5 +8,4 @@ export * from './HeaderMobile';
 export * from './Home';
 export * from './Icon';
 export * from './Loader';
-export * from './MenuMain';
 export * from './MobileMenuModal';

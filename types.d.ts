@@ -18,3 +18,11 @@ type TypePriceProduct = {
 };
 
 type TypePriceRow = TypePriceCategory & TypePriceProduct;
+
+type TypeBasketItem = {
+	categoryId: string;
+	productId: string;
+	count: number;
+};
+
+type TypeBasket = Map<string, TypeBasketItem>;

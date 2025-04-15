@@ -45,7 +45,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 	const handlePressAdd = () => basketStore.add(categoryId, productId);
 
-	const handlePressRemove = () => basketStore.remove(categoryId, productId);
+	const handlePressRemove = () => basketStore.remove(productId);
 
 	// const handlePressBasket = () => navigate('/basket');
 
