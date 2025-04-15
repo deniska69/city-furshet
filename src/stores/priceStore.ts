@@ -9,12 +9,14 @@ class PriceStore {
 	loading: boolean = false;
 
 	private addCategory = action((category: TypePriceCategory) => {
+		if (category.category_hide) return;
 		if (!this.categories) this.categories = new Map();
 		if (this.categories.has(category.category_id)) return;
 		this.categories.set(category.category_id, category);
 	});
 
 	private addProduct = action((categoryId: string, product: TypePriceProduct) => {
+		if (product.product_hide) return;
 		if (!this.products) this.products = new Map();
 
 		if (!this.products.has(categoryId)) {
@@ -61,8 +63,22 @@ class PriceStore {
 						product_cover,
 						product_gallery,
 					});
+				});
 
-					runInAction(() => (this.isPrice = true));
+				runInAction(() => {
+					this.isPrice = true;
+					console.log(
+						'%s %c[Price] Categories',
+						'\ud83d\ude80',
+						'color: lime; font-weight: bold;',
+					);
+					console.log(JSON.parse(JSON.stringify(values(this.categories))));
+					console.log(
+						'%s %c[Price] Products',
+						'\ud83d\ude80',
+						'color: orange; font-weight: bold;',
+					);
+					console.log(JSON.parse(JSON.stringify(values(this.products))));
 				});
 			})
 			.catch((e: unknown) => {

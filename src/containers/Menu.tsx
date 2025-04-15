@@ -35,12 +35,13 @@ const Component = () => {
 		basketStore.remove(categoryId, productId);
 	};
 
+	const handleGetProducts = (categoryId: string) => priceStore.getProducts(categoryId);
+
 	if (loading || !categories || !selectedId) return <LoadPlaceholder />;
 
-	const products = priceStore.getProducts(selectedId);
 	const selectedCategory = priceStore.getCategory(selectedId);
 
-	if (!products || !selectedCategory) return <LoadPlaceholder />;
+	if (!selectedCategory) return <LoadPlaceholder />;
 
 	return (
 		<div id="menu" className="noselect">
@@ -49,9 +50,9 @@ const Component = () => {
 
 				<MenuMain
 					{...{
-						products,
 						categories,
 						selectedCategory,
+						getProducts: handleGetProducts,
 						onPressCard: handlePressCard,
 						onPressAdd: handlePressAddToBasket,
 						onPressRemove: handlePressRemoveFromBasket,
