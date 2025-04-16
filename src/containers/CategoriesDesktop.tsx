@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 
-import { priceStore } from '@stores';
+import { basketStore, priceStore } from '@stores';
 
 interface ICategoriesDesktop {
 	selectedId: string;
@@ -16,6 +16,7 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesDesktop) =
 		<div id="menu-categories-desktop">
 			{categories.map((item) => {
 				const active = item.category_id === selectedId ? ' active' : '';
+				const count = basketStore.getCountCategory(item.category_id);
 
 				return (
 					<button
@@ -26,11 +27,11 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesDesktop) =
 					>
 						{item.category_title}
 
-						{/* {item?.count ? (
+						{count ? (
 							<div id="header-basket-badge-wrap">
-								<span id="header-basket-badge-counter">{item?.count}</span>
+								<span id="header-basket-badge-counter">{count}</span>
 							</div>
-						) : null} */}
+						) : null}
 					</button>
 				);
 			})}

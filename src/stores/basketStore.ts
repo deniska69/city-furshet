@@ -1,35 +1,41 @@
-import { makeAutoObservable, toJS, values } from 'mobx';
+import { makeAutoObservable, toJS } from 'mobx';
 
 class BasketStore {
 	items: TypeBasket | undefined;
 
 	add = (categoryId: string, productId: string) => {
 		if (!this.items) this.items = new Map();
-		if (!this.items.has(productId)) {
-			this.items.set(productId, { categoryId, productId, count: 1 });
+		if (!this.items.has(categoryId)) {
+			this.items.set(categoryId, { [productId]: 1 });
 		} else {
-			const item = toJS(this.items.get(productId)) as TypeBasketItem;
-			this.items.set(productId, { ...item, count: item.count + 1 });
+			const items = toJS(this.items.get(categoryId));
+			const count = items && items[productId] ? items[productId] : 0;
+			this.items.set(categoryId, { ...items, [productId]: count + 1 });
 		}
 	};
 
-	remove = (productId: string) => {
-		if (!this.items) this.items = new Map();
-		if (!this.items.has(productId)) return;
-		const item = toJS(this.items.get(productId)) as TypeBasketItem;
-		const count = item.count > 1 ? item.count - 1 : 0;
-		this.items.set(productId, { ...item, count });
+	remove = (categoryId: string, productId: string) => {
+		if (!this.items) return;
+		if (!this.items.has(categoryId)) return;
+		const items = toJS(this.items.get(categoryId));
+		const count = items && items[productId] ? items[productId] : 0;
+		this.items.set(categoryId, { ...items, [productId]: count > 0 ? count - 1 : 0 });
 	};
 
-	getCountProduct = (productId: string) => {
-		if (!this.items || !this.items.has(productId)) return 0;
-		return this.items.get(productId)?.count || 0;
+	getCountProduct = (categoryId: string, productId: string) => {
+		if (!this.items || !this.items.has(categoryId)) return 0;
+		const items = toJS(this.items.get(categoryId));
+		return items && items[productId] ? items[productId] : 0;
 	};
 
 	getCountCategory = (categoryId: string) => {
-		if (!this.items) return 0;
-		const items = toJS(values(this.items));
-		console.log(items);
+		if (!this.items || !this.items.has(categoryId)) return 0;
+		const items = toJS(this.items.get(categoryId));
+		let count = 0;
+		for (const key in items) {
+			count += items[key];
+		}
+		return count;
 	};
 
 	getCountTotal = () => {

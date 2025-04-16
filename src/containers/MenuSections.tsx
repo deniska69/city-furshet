@@ -1,34 +1,21 @@
 import { observer } from 'mobx-react';
-import { useNavigate } from 'react-router-dom';
 
-import { Card } from '@components';
 import { useWindowDimensions } from '@hooks';
-import { basketStore, priceStore } from '@stores';
+import { priceStore } from '@stores';
+
+import { Card } from './Card';
 
 interface IMenuMain {
 	selectedCategory: TypePriceCategory;
 }
 
 const Component = ({ selectedCategory }: IMenuMain) => {
-	const navigate = useNavigate();
 	const { isMobile } = useWindowDimensions();
 
 	const categories = priceStore.getCategories();
 	const sections = isMobile ? categories : [selectedCategory];
 
-	const handlePressCard = (categoryId: string, productId: string) => {
-		navigate(`?category_id=${categoryId}&card_id=${productId}`);
-	};
-
-	const handlePressAddToBasket = (categoryId: string, productId: string) => {
-		basketStore.add(categoryId, productId);
-	};
-
-	const handlePressRemoveFromBasket = (productId: string) => basketStore.remove(productId);
-
 	const handleGetProducts = (categoryId: string) => priceStore.getProducts(categoryId);
-
-	const handleGetCountProduct = (productId: string) => basketStore.getCountProduct(productId);
 
 	if (!sections) return null;
 
@@ -51,13 +38,9 @@ const Component = ({ selectedCategory }: IMenuMain) => {
 							{cards &&
 								cards.map((card) => (
 									<Card
-										{...card}
 										key={card.product_id}
+										productId={card.product_id}
 										categoryId={item.category_id}
-										count={handleGetCountProduct(card.product_id)}
-										onPressCard={handlePressCard}
-										onPressAdd={handlePressAddToBasket}
-										onPressRemove={handlePressRemoveFromBasket}
 									/>
 								))}
 						</div>
