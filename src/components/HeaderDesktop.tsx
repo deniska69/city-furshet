@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
 
-import '@styles/HeaderDesktop.css';
-
 interface IHeaderDesktop {
 	basketTotal?: string | number;
 	onOpenDelivery: () => void;

@@ -1,56 +1,74 @@
+@import './styles/BasketModal.css';
+@import './styles/Card.css';
+@import './styles/CardBasket.css';
+@import './styles/CardModal.css';
+@import './styles/CardOrder.css';
+@import './styles/CategoriesDesktop.css';
+@import './styles/CategoriesMobile.css';
+@import './styles/ContactsModal.css';
+@import './styles/DeliveryPaymentModal.css';
+@import './styles/Dialog.css';
+@import './styles/HeaderDesktop.css';
+@import './styles/HeaderMobile.css';
+@import './styles/Home.css';
+@import './styles/Loader.css';
+@import './styles/Menu.css';
+@import './styles/MobileMenuModal.css';
+@import './styles/OrdersModal.css';
+
 html,
 body {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
 }
 
 body,
 button,
 input {
-  background-color: #f2f2f2;
-  font-family: "Montserrat", sans-serif;
-  padding: 0;
-  margin: 0;
+	background-color: #f2f2f2;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0;
+	margin: 0;
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 * {
-  -webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent;
 }
 
 h1 {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .hidden {
-  visibility: hidden;
+	visibility: hidden;
 }
 
 .hidescroll {
-  overflow: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+	overflow: auto;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 .hidescroll::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+	width: 0;
+	height: 0;
 }
 
 .dev {
-  border: 1px solid red;
+	border: 1px solid red;
 }

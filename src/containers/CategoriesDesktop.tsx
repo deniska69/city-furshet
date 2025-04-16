@@ -1,13 +1,16 @@
-import '@styles/CategoriesDesktop.css';
+import { observer } from 'mobx-react';
+
+import { priceStore } from '@stores';
 
 interface ICategoriesDesktop {
-	categories: TypePriceCategory[];
 	selectedId: string;
 	onPressCategory: (categoryId: string) => void;
 }
 
-export const CategoriesDesktop = (props: ICategoriesDesktop) => {
-	const { categories, selectedId, onPressCategory } = props;
+export const Component = ({ selectedId, onPressCategory }: ICategoriesDesktop) => {
+	const categories = priceStore.getCategories();
+
+	if (!categories) return null;
 
 	return (
 		<div id="menu-categories-desktop">
@@ -34,3 +37,5 @@ export const CategoriesDesktop = (props: ICategoriesDesktop) => {
 		</div>
 	);
 };
+
+export const CategoriesDesktop = observer(Component);

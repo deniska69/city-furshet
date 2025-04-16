@@ -1,5 +1,4 @@
 export * from './Card';
-export * from './Categories';
 export * from './ContactsModal';
 export * from './DeliveryPaymentModal';
 export * from './Dialog';

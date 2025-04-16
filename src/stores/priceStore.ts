@@ -68,13 +68,13 @@ class PriceStore {
 				runInAction(() => {
 					this.isPrice = true;
 					console.log(
-						'%s %c[Price] Categories',
+						'%s %c[Price] Categories:',
 						'\ud83d\ude80',
 						'color: lime; font-weight: bold;',
 					);
 					console.log(JSON.parse(JSON.stringify(values(this.categories))));
 					console.log(
-						'%s %c[Price] Products',
+						'%s %c[Price] Products:',
 						'\ud83d\ude80',
 						'color: orange; font-weight: bold;',
 					);

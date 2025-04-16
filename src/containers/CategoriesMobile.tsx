@@ -1,13 +1,16 @@
-import '@styles/CategoriesMobile.css';
+import { observer } from 'mobx-react';
+
+import { priceStore } from '@stores';
 
 interface ICategoriesMobile {
-	categories: TypePriceCategory[];
 	selectedId: string;
 	onPressCategory: (categoryId: string) => void;
 }
 
-export const CategoriesMobile = (props: ICategoriesMobile) => {
-	const { categories, selectedId, onPressCategory } = props;
+export const Component = ({ selectedId, onPressCategory }: ICategoriesMobile) => {
+	const categories = priceStore.getCategories();
+
+	if (!categories) return null;
 
 	return (
 		<div id="menu-categories-mobile">
@@ -35,3 +38,5 @@ export const CategoriesMobile = (props: ICategoriesMobile) => {
 		</div>
 	);
 };
+
+export const CategoriesMobile = observer(Component);

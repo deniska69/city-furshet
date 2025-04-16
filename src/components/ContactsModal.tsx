@@ -1,7 +1,5 @@
 import { Dialog } from './Dialog';
 
-import '@styles/ContactsModal.css';
-
 export const ContactsModal = () => (
 	<Dialog title="Контакты">
 		<div id="contacts-text-wrap">

@@ -1,8 +1,6 @@
 import { ReactNode, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import '@styles/Dialog.css';
-
 import { Icon } from './Icon';
 
 interface IDialog {

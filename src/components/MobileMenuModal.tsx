@@ -2,8 +2,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { Dialog } from './Dialog';
 
-import '@styles/MobileMenuModal.css';
-
 export const MobileMenuModal = () => {
 	const navigate = useNavigate();
 

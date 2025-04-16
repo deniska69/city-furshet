@@ -1,7 +1,5 @@
 import { Dialog } from './Dialog';
 
-import '@styles/DeliveryPaymentModal.css';
-
 export const DeliveryPaymentModal = () => (
 	<Dialog title="Доставка и оплата">
 		<div id="delivery-text-wrap">

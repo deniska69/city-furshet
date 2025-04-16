@@ -1,7 +1,5 @@
 import { getCover, getImageError } from '@helpers';
 
-import '@styles/Card.css';
-
 import { Icon } from './Icon';
 
 interface ICard extends TypePriceProduct {

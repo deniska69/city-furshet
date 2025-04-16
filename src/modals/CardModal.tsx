@@ -3,12 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Dialog, Icon, Loader } from '@components';
 import { getCover, getImageError } from '@helpers';
-import { basketStore, priceStore } from '@stores';
-
-import '@styles/CardModal.css';
-import '@styles/CardBasket.css';
-
 import { useEscape } from '@hooks';
+import { basketStore, priceStore } from '@stores';
 
 interface IComponent {
 	categoryId: string;

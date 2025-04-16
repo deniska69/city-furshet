@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
 
-import { Categories, Loader } from '@components';
+import { Loader } from '@components';
+import { useWindowDimensions } from '@hooks';
 import { priceStore } from '@stores';
 
-import '@styles/Menu.css';
-
+import { CategoriesDesktop } from './CategoriesDesktop';
+import { CategoriesMobile } from './CategoriesMobile';
 import { MenuSections } from './MenuSections';
 
 const Component = () => {
+	const { isMobile } = useWindowDimensions();
+
 	const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
 
 	const loading = priceStore.loading;
@@ -31,7 +34,11 @@ const Component = () => {
 	return (
 		<div id="menu" className="noselect">
 			<div id="menu-container">
-				<Categories {...{ categories, selectedId, onPressCategory: handlePressCategory }} />
+				{isMobile ? (
+					<CategoriesMobile selectedId={selectedId} onPressCategory={handlePressCategory} />
+				) : (
+					<CategoriesDesktop selectedId={selectedId} onPressCategory={handlePressCategory} />
+				)}
 				<MenuSections selectedCategory={selectedCategory} />
 			</div>
 		</div>
