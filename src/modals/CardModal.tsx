@@ -8,6 +8,8 @@ import { basketStore, priceStore } from '@stores';
 import '@styles/CardModal.css';
 import '@styles/CardBasket.css';
 
+import { useEscape } from '@hooks';
+
 interface IComponent {
 	categoryId: string;
 	productId: string;
@@ -17,11 +19,13 @@ const Component = ({ productId, categoryId }: IComponent) => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
+	const handleClose = () => navigate(location.pathname);
+
+	useEscape(handleClose);
+
 	if (!priceStore.getProducts(categoryId)) return <Loader />;
 
 	const item = priceStore.getProduct(categoryId, productId);
-
-	const handleClose = () => navigate(location.pathname);
 
 	if (!item) {
 		return (
