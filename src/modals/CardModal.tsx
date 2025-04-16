@@ -6,6 +6,7 @@ import { getCover, getImageError } from '@helpers';
 import { basketStore, priceStore } from '@stores';
 
 import '@styles/CardModal.css';
+import '@styles/CardBasket.css';
 
 interface IComponent {
 	categoryId: string;
@@ -47,7 +48,9 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 	const handlePressRemove = () => basketStore.remove(productId);
 
-	// const handlePressBasket = () => navigate('/basket');
+	const count = () => basketStore.getCountProduct(productId);
+
+	const handlePressBasket = () => navigate('/basket');
 
 	return (
 		<Dialog title={product_title} onClose={handleClose} size="lg" className="min-content">
@@ -66,23 +69,23 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 					<div className="card-view-buttons">
 						<div className="card-view-buttons-first">
-							<button className="card-btn-minus" onClick={handlePressAdd}>
+							<button className="card-btn-minus" onClick={handlePressRemove}>
 								<Icon name="minus" color="white" />
 							</button>
 
-							{/* <span className="card-basket-counter">{card?.count || '0'}</span> */}
+							<span className="card-basket-counter">{count() || '0'}</span>
 
-							<button className="card-btn-plus" onClick={handlePressRemove}>
+							<button className="card-btn-plus" onClick={handlePressAdd}>
 								<span className="card-price">{product_price || '0'} ₽</span>
 								<Icon name="plus" color="white" />
 							</button>
 						</div>
 
-						{/* {card?.count ? (
+						{count() ? (
 							<button className="card-btn-basket" onClick={handlePressBasket}>
 								<Icon name="basket" color="white" />
 							</button>
-						) : null} */}
+						) : null}
 					</div>
 
 					{product_note_additional ? (
