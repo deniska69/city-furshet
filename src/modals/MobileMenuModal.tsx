@@ -1,11 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Dialog } from './Dialog';
+import { Dialog } from '@components';
+import { useEscape } from '@hooks';
 
 export const MobileMenuModal = () => {
 	const navigate = useNavigate();
 
 	const handleClose = () => navigate('/');
+
+	useEscape(handleClose);
 
 	const handleOpenOrders = () => navigate('/orders');
 
@@ -14,7 +17,7 @@ export const MobileMenuModal = () => {
 	const handleOpenContacts = () => navigate('/contacts');
 
 	return (
-		<Dialog title="City Furshet">
+		<Dialog title="City Furshet" onClose={handleClose}>
 			<div className="mobile-menu">
 				<a href="#menu" className="mobile-menu-link" onClick={handleClose}>
 					Меню

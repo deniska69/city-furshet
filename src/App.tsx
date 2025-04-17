@@ -1,11 +1,11 @@
 // import BasketModal from 'containers/BasketModal';
 // import OrdersModal from 'containers/OrdersModal';
 import { Fragment, useEffect } from 'react';
-import { CardModal } from '@modals';
+import { CardModal, ContactsModal, DeliveryPaymentModal, MobileMenuModal } from '@modals';
 import { Provider } from 'mobx-react';
 import { createBrowserRouter, Outlet, RouterProvider, useSearchParams } from 'react-router-dom';
 
-import { ContactsModal, DeliveryPaymentModal, Home, MobileMenuModal } from '@components';
+import { Home } from '@components';
 import { Header, Menu } from '@containers';
 import * as stores from '@stores';
 
