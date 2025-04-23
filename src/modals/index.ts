@@ -1,3 +1,4 @@
+export * from './BasketModal';
 export * from './CardModal';
 export * from './ContactsModal';
 export * from './DeliveryPaymentModal';

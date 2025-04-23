@@ -1,7 +1,11 @@
-// import BasketModal from 'containers/BasketModal';
-// import OrdersModal from 'containers/OrdersModal';
 import { Fragment, useEffect } from 'react';
-import { CardModal, ContactsModal, DeliveryPaymentModal, MobileMenuModal } from '@modals';
+import {
+	BasketModal,
+	CardModal,
+	ContactsModal,
+	DeliveryPaymentModal,
+	MobileMenuModal,
+} from '@modals';
 import { Provider } from 'mobx-react';
 import { createBrowserRouter, Outlet, RouterProvider, useSearchParams } from 'react-router-dom';
 
@@ -33,10 +37,10 @@ const router = createBrowserRouter([
 		path: '/',
 		Component: Layout,
 		children: [
-			// {
-			// 	path: 'basket',
-			// 	Component: BasketModal,
-			// },
+			{
+				path: 'basket',
+				Component: BasketModal,
+			},
 			// {
 			// 	path: 'orders',
 			// 	Component: OrdersModal,

@@ -22,3 +22,7 @@ type TypePriceRow = TypePriceCategory & TypePriceProduct;
 type TypeBasketItem = Record<string, number>;
 
 type TypeBasket = Map<string, TypeBasketItem>;
+
+type TypeBasketGetItem = { categoryId: string; productId: string; count: number };
+
+type TypeBasketGetItems = TypeBasketGetItem[] | undefined;
