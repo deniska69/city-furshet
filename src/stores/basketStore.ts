@@ -123,7 +123,41 @@ class BasketStore {
 		return sum;
 	};
 
-	submit = (contact: string) => {};
+	submit = (contact: string) => {
+		const messageForTelegram = this.getMessageForTelegram(contact);
+	};
+
+	private getMessageForTelegram = (contact: string) => {
+		const items = this.getItems();
+
+		if (!items) return console.error('basketStore subimt() - items:', items);
+
+		let message = '<b>⭐ Новый заказ! ⭐</b>%0A%0A';
+
+		items.forEach((item, index) => {
+			const href = import.meta.env.VITE_URL;
+			const count = item.count;
+			const categoryId = item.categoryId;
+			const productId = item.productId;
+			const product = priceStore.getProduct(categoryId, productId);
+
+			if (!product) return alert('Ошибка #1: не найден продукт id: ' + productId);
+
+			const title = product.product_title;
+			const note = product.product_note;
+			const price = product.product_price;
+
+			message += `<a href="${href}?category_id=${categoryId}%26amp;card_id=${productId}">${
+				index + 1
+			}. ${title}${note ? ' (' + note + ')' : ''}</a>%0A`;
+
+			message += `<i>${price} ₽ x ${count} шт. = ${parseInt(price) * count} ₽.</i>%0A%0A`;
+		});
+
+		message += `Итого: <b>${this.getPriceTotal()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
+
+		return message;
+	};
 }
 
 export const basketStore = makeAutoObservable(new BasketStore());

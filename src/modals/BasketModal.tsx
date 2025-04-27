@@ -52,6 +52,7 @@ const Component = () => {
 								required={true}
 								className="basket-footer-input"
 								placeholder="Телефон или эл.почта"
+								value="dev"
 							/>
 							<input
 								type="submit"
