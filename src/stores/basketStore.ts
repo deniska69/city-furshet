@@ -1,5 +1,8 @@
-import { keys, makeAutoObservable, toJS, values } from 'mobx';
+import { keys, makeAutoObservable, runInAction, toJS, values } from 'mobx';
 
+import { sendOrder } from '@services';
+
+import { ordersStore } from './ordersStore';
 import { priceStore } from './priceStore';
 
 class BasketStore {
@@ -123,14 +126,13 @@ class BasketStore {
 		return sum;
 	};
 
-	submit = (contact: string) => {
-		const messageForTelegram = this.getMessageForTelegram(contact);
-	};
-
 	private getMessageForTelegram = (contact: string) => {
 		const items = this.getItems();
 
-		if (!items) return console.error('basketStore subimt() - items:', items);
+		if (!items) {
+			console.error('getMessageForTelegram() - items:', items);
+			return '';
+		}
 
 		let message = '<b>⭐ Новый заказ! ⭐</b>%0A%0A';
 
@@ -141,7 +143,7 @@ class BasketStore {
 			const productId = item.productId;
 			const product = priceStore.getProduct(categoryId, productId);
 
-			if (!product) return alert('Ошибка #1: не найден продукт id: ' + productId);
+			if (!product) return alert('getMessageForTelegram(): не найден продукт id: ' + productId);
 
 			const title = product.product_title;
 			const note = product.product_note;
@@ -157,6 +159,57 @@ class BasketStore {
 		message += `Итого: <b>${this.getPriceTotal()}</b> ₽.%0A%0AКонтакт: <code>${contact}</code>`;
 
 		return message;
+	};
+
+	private getMessageForEmail = (contact: string) => {
+		const items = this.getItems();
+
+		if (!items) {
+			console.error('getMessageForEmail() - items:', items);
+			return '';
+		}
+
+		let message = '';
+
+		items.forEach((item, index) => {
+			const count = item.count;
+			const categoryId = item.categoryId;
+			const productId = item.productId;
+			const product = priceStore.getProduct(categoryId, productId);
+
+			if (!product) return alert('getMessageForEmail(): не найден продукт id: ' + productId);
+
+			const href = import.meta.env.VITE_URL;
+			const title = product.product_title;
+			const note = product.product_note;
+			const price = product.product_price;
+
+			message += `<a href="${href}?category_id=${categoryId}&card_id=${productId}">${
+				index + 1
+			}. ${title}${note ? ' (' + note + ')' : ''}</a><br>`;
+
+			message += `<i>${price} ₽ x ${count} шт. = ${parseInt(price) * count} ₽.</i><br><br>`;
+		});
+
+		message += `<span>Итого: <b>${this.getPriceTotal()}</b> ₽.</span><br><br>Контакт: <code>${contact}</code>`;
+
+		return message;
+	};
+
+	submit = (contact: string) => {
+		const telegram = this.getMessageForTelegram(contact);
+		const email = this.getMessageForEmail(contact);
+
+		sendOrder({ telegram, email })
+			.then(() => {
+				if (!this.items) return;
+				ordersStore.add(this.items);
+
+				runInAction(() => {
+					this.items = new Map();
+				});
+			})
+			.catch(() => alert('Ошибка отправки заказа #1.'));
 	};
 }
 

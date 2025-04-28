@@ -1,7 +1,12 @@
 import $ from 'jquery';
 import { inferSchema, initParser } from 'udsv';
 
-export const sendOrder = async (dataSend: string) => {
+type TypeSendOrder = {
+	telegram: string;
+	email: string;
+};
+
+export const sendOrder = async (dataSend: TypeSendOrder) => {
 	await $.ajax({
 		type: 'POST',
 		url: import.meta.env.VITE_SEND_URL,
