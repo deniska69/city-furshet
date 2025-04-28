@@ -7,9 +7,13 @@ type TypeSendOrder = {
 };
 
 export const sendOrder = async (dataSend: TypeSendOrder) => {
+	const isDev = import.meta.env.DEV;
+	const urlProd = import.meta.env.VITE_SEND_URL;
+	const urlDev = import.meta.env.VITE_SEND_URL_DEV;
+
 	await $.ajax({
 		type: 'POST',
-		url: import.meta.env.VITE_SEND_URL,
+		url: isDev ? urlDev : urlProd,
 		data: dataSend,
 		success: (data) => Promise.resolve(data),
 		error: (e) => Promise.reject(e),
