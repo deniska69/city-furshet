@@ -26,3 +26,11 @@ type TypeBasket = Map<string, TypeBasketItem>;
 type TypeBasketGetItem = { categoryId: string; productId: string; count: number };
 
 type TypeBasketGetItems = TypeBasketGetItem[] | undefined;
+
+type TypeOrderItem = TypePriceCategory & TypePriceProduct & { count: number };
+
+type TypeOrder = {
+	date: string;
+	items: TypeOrderItem[];
+	total: number;
+};
