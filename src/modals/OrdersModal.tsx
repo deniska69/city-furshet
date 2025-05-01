@@ -1,10 +1,10 @@
 import { observer } from 'mobx-react';
 import { useNavigate } from 'react-router-dom';
+import { ordersStore } from 'src/stores/ordersStore';
 
 import { Dialog, OrdersEmpty } from '@components';
 import { CardOrder } from '@containers';
 import { useEscape } from '@hooks';
-import { priceStore } from '@stores';
 
 const Component = () => {
 	const navigate = useNavigate();
@@ -13,33 +13,36 @@ const Component = () => {
 
 	useEscape(handleClose);
 
-	// const items = priceStore.getOrders();
+	const items = ordersStore.getItems();
 
-	// return (
-	// 	<Dialog title="Заказы" onClose={handleClose}>
-	// 		{items ? (
-	// 			<div className="orders-list hidescroll">
-	// 				{items.map((order, index) => (
-	// 					<div key={index} className="order">
-	// 						<span className="order-date">
-	// 							{new Date(order?.date).toLocaleDateString()}
-	// 						</span>
+	return (
+		<Dialog title="Заказы" onClose={handleClose}>
+			{items ? (
+				<div className="orders-list hidescroll">
+					{items.map((order, index) => (
+						<div key={index} className="order">
+							<span className="order-date">{new Date(order.date).toLocaleDateString()}</span>
 
-	// 						<div className="order-items">
-	// 							{order?.items.map((card, index) => (
-	// 								<CardOrder key={index} {...card} onPress={onPress} />
-	// 							))}
-	// 						</div>
+							<div className="order-items">
+								{order?.items.map((card, index) => (
+									<CardOrder
+										key={index}
+										count={card.count}
+										productId={card.product_id}
+										categoryId={card.category_id}
+									/>
+								))}
+							</div>
 
-	// 						<span className="order-footer">{`Итого: ${order?.total} ₽`}</span>
-	// 					</div>
-	// 				))}
-	// 			</div>
-	// 		) : (
-	// 			<OrdersEmpty onClose={onClose} />
-	// 		)}
-	// 	</Dialog>
-	// );
+							<span className="order-footer">{`Итого: ${order.total} ₽`}</span>
+						</div>
+					))}
+				</div>
+			) : (
+				<OrdersEmpty onClose={handleClose} />
+			)}
+		</Dialog>
+	);
 
 	return null;
 };

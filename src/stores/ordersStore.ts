@@ -28,6 +28,8 @@ class OrdersStore {
 		this.setOrderToStore({ date, items, total });
 	};
 
+	getItems = () => this.getOrdersFromStore().reverse();
+
 	private getOrdersFromStore = (): TypeOrder[] => {
 		const store = localStorage.getItem(key);
 		return store ? JSON.parse(store) : [];

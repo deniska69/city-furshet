@@ -5,6 +5,7 @@ import {
 	ContactsModal,
 	DeliveryPaymentModal,
 	MobileMenuModal,
+	OrdersModal,
 } from '@modals';
 import { Provider } from 'mobx-react';
 import { createBrowserRouter, Outlet, RouterProvider, useSearchParams } from 'react-router-dom';
@@ -41,10 +42,10 @@ const router = createBrowserRouter([
 				path: 'basket',
 				Component: BasketModal,
 			},
-			// {
-			// 	path: 'orders',
-			// 	Component: OrdersModal,
-			// },
+			{
+				path: 'orders',
+				Component: OrdersModal,
+			},
 			{
 				path: 'mobile-menu',
 				Component: MobileMenuModal,
