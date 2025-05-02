@@ -7,8 +7,6 @@ type TypeSendOrder = {
 };
 
 export const sendOrder = async (dataSend: TypeSendOrder) => {
-	return Promise.resolve();
-
 	const isDev = import.meta.env.DEV;
 	const urlProd = import.meta.env.VITE_SEND_URL;
 	const urlDev = import.meta.env.VITE_SEND_URL_DEV;
