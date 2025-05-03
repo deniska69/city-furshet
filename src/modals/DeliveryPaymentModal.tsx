@@ -11,7 +11,7 @@ export const DeliveryPaymentModal = () => {
 	useEscape(handleClose);
 
 	return (
-		<Dialog title="Доставка и оплата" onClose={handleClose}>
+		<Dialog title="Доставка и оплата" onClose={handleClose} className="min-content">
 			<div id="delivery-text-wrap">
 				<span>Минимальная сумма заказа 3000₽</span>
 				<span>Приём заказа минимум за 2 дня до Мероприятия</span>

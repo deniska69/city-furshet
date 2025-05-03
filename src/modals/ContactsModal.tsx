@@ -11,7 +11,7 @@ export const ContactsModal = () => {
 	useEscape(handleClose);
 
 	return (
-		<Dialog title="Контакты" onClose={handleClose}>
+		<Dialog title="Контакты" onClose={handleClose} className="min-content">
 			<div id="contacts-text-wrap">
 				<span className="contacts-text-title">City Furshet</span>
 				<span className="contacts-text-title">Новокузнецк, проезд Курбатова, 1</span>

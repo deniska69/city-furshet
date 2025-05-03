@@ -3,6 +3,7 @@
 	flex-direction: column;
 	row-gap: 2rem;
 	padding: 1rem;
+	padding-bottom: 2rem;
 }
 
 .contacts-group {

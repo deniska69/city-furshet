@@ -31,40 +31,42 @@ const Component = () => {
 	};
 
 	return (
-		<Dialog title="Корзина" onClose={handleClose}>
-			<div className="basket">
-				{isSuccessOrder ? null : (
-					<div className="basket-body  hidescroll">
-						{items ? (
-							items.map((item, index) => <CardBasket key={index} {...item} />)
-						) : (
-							<BasketEmpty onClose={handleClose} />
-						)}
-					</div>
-				)}
+		<Dialog title="Корзина" onClose={handleClose} className="min-content">
+			{items ? (
+				<div className="basket">
+					{isSuccessOrder ? null : (
+						<div className="basket-body hidescroll">
+							{items.map((item, index) => (
+								<CardBasket key={index} {...item} />
+							))}
+						</div>
+					)}
 
-				{isSuccessOrder ? null : basketTotalCount ? (
-					<div className="basket-footer">
-						<form onSubmit={handleSubmit}>
-							<input
-								type="text"
-								name="contact"
-								required={true}
-								className="basket-footer-input"
-								placeholder="Телефон или эл.почта"
-								value="dev"
-							/>
-							<input
-								type="submit"
-								className="basket-footer-submit"
-								value={`Заказать ${basketTotalPrice} ₽`}
-							/>
-						</form>
-					</div>
-				) : null}
+					{isSuccessOrder ? null : basketTotalCount ? (
+						<div className="basket-footer">
+							<form onSubmit={handleSubmit}>
+								<input
+									type="text"
+									name="contact"
+									required={true}
+									className="basket-footer-input"
+									placeholder="Телефон или эл.почта"
+									value="dev"
+								/>
+								<input
+									type="submit"
+									className="basket-footer-submit"
+									value={`Заказать ${basketTotalPrice} ₽`}
+								/>
+							</form>
+						</div>
+					) : null}
 
-				{isSuccessOrder ? <BasketSuccess /> : null}
-			</div>
+					{isSuccessOrder ? <BasketSuccess /> : null}
+				</div>
+			) : (
+				<BasketEmpty onClose={handleClose} />
+			)}
 		</Dialog>
 	);
 };

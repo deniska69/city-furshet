@@ -16,8 +16,8 @@ const Component = () => {
 	const items = ordersStore.getItems();
 
 	return (
-		<Dialog title="Заказы" onClose={handleClose}>
-			{items ? (
+		<Dialog title="Заказы" onClose={handleClose} className="min-content">
+			{items && items.length ? (
 				<div className="orders-list hidescroll">
 					{items.map((order, index) => (
 						<div key={index} className="order">
