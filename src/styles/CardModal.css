@@ -45,6 +45,20 @@
 	}
 }
 
+.swiper-slide > .card-view-image {
+	border-radius: 0px;
+}
+
+.swiper-slide:first-child > .card-view-image {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.swiper-slide:last-child > .card-view-image {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
 .card-view-text {
 	display: flex;
 	flex-direction: column;
@@ -104,9 +118,6 @@
 		flex-direction: row;
 		align-items: flex-start;
 		column-gap: 1.5rem;
-	}
-
-	.card-gallery-wrap {
 	}
 
 	.card-view-image {
