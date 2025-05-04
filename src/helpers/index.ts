@@ -1,7 +1,7 @@
 import { SyntheticEvent } from 'react';
 import imagePlaceholder from 'assets/image_placeholder.jpg';
 
-const getCover = (categoryId?: string, productId?: string, imageId?: string) => {
+export const getCover = (categoryId?: string, productId?: string, imageId?: string) => {
 	if (categoryId && productId && imageId) {
 		const s = import.meta.env.DEV ? 'https://city-furshet.ru/images' : 'images';
 		return `${s}/${categoryId}/${productId}/${imageId}.jpg`;
@@ -10,8 +10,12 @@ const getCover = (categoryId?: string, productId?: string, imageId?: string) => 
 	return imagePlaceholder;
 };
 
-const getImageError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+export const getImageError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
 	return (e.currentTarget.src = imagePlaceholder);
 };
 
-export { getCover, getImageError };
+export const getGallery = (categoryId?: string, productId?: string, gallery?: string) => {
+	const arr = gallery?.replaceAll(' ', '').split(',');
+	if (!arr) return undefined;
+	return arr.map((imageId) => getCover(categoryId, productId, imageId));
+};

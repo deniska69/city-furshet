@@ -1,10 +1,22 @@
 import { observer } from 'mobx-react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Dialog, Icon, Loader } from '@components';
-import { getCover, getImageError } from '@helpers';
+import { getCover, getGallery, getImageError } from '@helpers';
 import { useEscape } from '@hooks';
 import { basketStore, priceStore } from '@stores';
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import 'swiper/css';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import 'swiper/css/pagination';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import 'swiper/css/navigation';
 
 interface IComponent {
 	categoryId: string;
@@ -42,6 +54,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 		product_note,
 		product_price,
 		product_note_additional,
+		product_gallery,
 	} = item;
 
 	const handlePressAdd = () => basketStore.add(categoryId, productId);
@@ -52,14 +65,32 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 	const handlePressBasket = () => navigate('/basket');
 
+	const cover = getCover(categoryId, product_id, product_cover);
+
+	const gallery = getGallery(categoryId, productId, product_gallery);
+
 	return (
 		<Dialog title={product_title} onClose={handleClose} size="lg" className="min-content">
 			<div className="card-view hidescroll">
-				<img
-					onError={getImageError}
-					className="card-view-image"
-					src={getCover(categoryId, product_id, product_cover)}
-				/>
+				{gallery ? (
+					<div className="card-gallery-wrap">
+						<Swiper pagination={true} navigation={true} modules={[Navigation, Pagination]}>
+							{cover ? (
+								<SwiperSlide>
+									<img src={cover} onError={getImageError} className="card-view-image" />
+								</SwiperSlide>
+							) : null}
+
+							{gallery.map((el, index) => (
+								<SwiperSlide key={index}>
+									<img src={el} onError={getImageError} className="card-view-image" />
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</div>
+				) : (
+					<img src={cover} onError={getImageError} className="card-view-image" />
+				)}
 
 				<div className="card-view-footer">
 					<div className="card-view-text">

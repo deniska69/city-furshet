@@ -72,3 +72,15 @@ h1 {
 .dev {
 	border: 1px solid red;
 }
+
+.swiper-button-prev::after {
+	color: #8cbe22;
+}
+
+.swiper-button-next::after {
+	color: #8cbe22;
+}
+
+.swiper-pagination-bullet-active {
+	background: #8cbe22 !important;
+}
