@@ -208,6 +208,8 @@ class BasketStore {
 				runInAction(() => {
 					this.items = new Map();
 				});
+
+				this.setOrderStatus(true);
 			})
 			.catch(() => alert('Ошибка отправки заказа #1.'));
 	};

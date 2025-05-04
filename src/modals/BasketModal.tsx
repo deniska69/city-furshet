@@ -32,17 +32,19 @@ const Component = () => {
 
 	return (
 		<Dialog title="Корзина" onClose={handleClose} className="min-content">
-			{items ? (
-				<div className="basket">
-					{isSuccessOrder ? null : (
-						<div className="basket-body hidescroll">
-							{items.map((item, index) => (
-								<CardBasket key={index} {...item} />
-							))}
-						</div>
-					)}
+			{isSuccessOrder ? <BasketSuccess /> : null}
 
-					{isSuccessOrder ? null : basketTotalCount ? (
+			{!isSuccessOrder && !items ? <BasketEmpty onClose={handleClose} /> : null}
+
+			{!isSuccessOrder && items ? (
+				<div className="basket">
+					<div className="basket-body hidescroll">
+						{items.map((item, index) => (
+							<CardBasket key={index} {...item} />
+						))}
+					</div>
+
+					{basketTotalCount ? (
 						<div className="basket-footer">
 							<form onSubmit={handleSubmit}>
 								<input
@@ -61,12 +63,8 @@ const Component = () => {
 							</form>
 						</div>
 					) : null}
-
-					{isSuccessOrder ? <BasketSuccess /> : null}
 				</div>
-			) : (
-				<BasketEmpty onClose={handleClose} />
-			)}
+			) : null}
 		</Dialog>
 	);
 };
