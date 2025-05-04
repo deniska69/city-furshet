@@ -21,6 +21,7 @@ const Layout = () => {
 
 	useEffect(() => {
 		stores.priceStore.getPrice();
+		stores.basketStore.restoreBasketFromStore();
 	}, []);
 
 	return (

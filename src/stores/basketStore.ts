@@ -5,6 +5,8 @@ import { sendOrder } from '@services';
 import { ordersStore } from './ordersStore';
 import { priceStore } from './priceStore';
 
+const key = 'basket_v2';
+
 class BasketStore {
 	items: TypeBasket | undefined;
 	isSuccessOrder: boolean = false;
@@ -18,6 +20,8 @@ class BasketStore {
 			const count = items && items[productId] ? items[productId] : 0;
 			this.items.set(categoryId, { ...items, [productId]: count + 1 });
 		}
+
+		this.saveBasketToStore();
 	};
 
 	remove = (categoryId: string, productId: string) => {
@@ -26,6 +30,8 @@ class BasketStore {
 		const items = toJS(this.items.get(categoryId));
 		const count = items && items[productId] ? items[productId] : 0;
 		this.items.set(categoryId, { ...items, [productId]: count > 0 ? count - 1 : 0 });
+
+		this.saveBasketToStore();
 	};
 
 	delete = (categoryId: string, productId: string) => {
@@ -37,6 +43,8 @@ class BasketStore {
 			delete items[productId];
 			this.items.set(categoryId, items);
 		}
+
+		this.saveBasketToStore();
 	};
 
 	getCountProduct = (categoryId: string, productId: string) => {
@@ -206,12 +214,20 @@ class BasketStore {
 				ordersStore.add(this.items);
 
 				runInAction(() => {
-					this.items = new Map();
+					this.items = undefined;
+					this.saveBasketToStore();
 				});
 
 				this.setOrderStatus(true);
 			})
 			.catch(() => alert('Ошибка отправки заказа #1.'));
+	};
+
+	private saveBasketToStore = () => localStorage.setItem(key, JSON.stringify(this.items));
+
+	restoreBasketFromStore = () => {
+		const store = localStorage.getItem(key);
+		this.items = store ? new Map(JSON.parse(store)) : undefined;
 	};
 }
 
