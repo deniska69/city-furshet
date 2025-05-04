@@ -1,4 +1,5 @@
 import logo from '@assets/home/logo-color-500w.png';
+import { scrollToMenu } from '@helpers';
 
 export const Home = () => (
 	<div id="home" className="noselect">
@@ -11,9 +12,9 @@ export const Home = () => (
 
 			<span className="home-text">Фуршет, Кофе-брейк , гастробоксы, выездное накрытие</span>
 
-			<a id="home-container-button" href="#menu">
+			<button id="home-container-button" onClick={() => scrollToMenu()}>
 				Посмотреть меню
-			</a>
+			</button>
 		</div>
 	</div>
 );

@@ -12,6 +12,7 @@ import { createBrowserRouter, Outlet, RouterProvider, useSearchParams } from 're
 
 import { Home } from '@components';
 import { Header, Menu } from '@containers';
+import { scrollToMenu } from '@helpers';
 import * as stores from '@stores';
 
 const Layout = () => {
@@ -23,6 +24,10 @@ const Layout = () => {
 		stores.priceStore.getPrice();
 		stores.basketStore.restoreBasketFromStore();
 	}, []);
+
+	useEffect(() => {
+		if (categoryId && !productId) scrollToMenu(250);
+	}, [categoryId, productId]);
 
 	return (
 		<Fragment>

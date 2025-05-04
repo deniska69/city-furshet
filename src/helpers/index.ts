@@ -19,3 +19,11 @@ export const getGallery = (categoryId?: string, productId?: string, gallery?: st
 	if (!arr) return undefined;
 	return arr.map((imageId) => getCover(categoryId, productId, imageId));
 };
+
+export const scrollToMenu = (delay?: number) => {
+	setTimeout(() => {
+		const menu = document.getElementById('menu');
+
+		if (menu) menu.scrollIntoView({ behavior: 'smooth' });
+	}, delay);
+};

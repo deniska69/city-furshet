@@ -13,29 +13,30 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesMobile) =>
 	if (!categories) return null;
 
 	return (
-		<div id="menu-categories-mobile">
-			{categories.map((item) => {
-				const active = item.category_id === selectedId ? ' active' : '';
-				const count = basketStore.getCountCategory(item.category_id);
+		<div className="menu-categories-mobile-wrap">
+			<div id="menu-categories-mobile">
+				{categories.map((item) => {
+					const active = item.category_id === selectedId ? ' active' : '';
+					const count = basketStore.getCountCategory(item.category_id);
 
-				return (
-					<a
-						key={item.category_id}
-						id={item.category_id}
-						className={`category-button${active}`}
-						href={`#menu-main-${item.category_id}`}
-						onClick={() => onPressCategory(item.category_id)}
-					>
-						{item.category_title}
+					return (
+						<button
+							key={item.category_id}
+							id={item.category_id}
+							className={`category-button${active}`}
+							onClick={() => onPressCategory(item.category_id)}
+						>
+							{item.category_title}
 
-						{count ? (
-							<div id="header-basket-badge-wrap">
-								<span id="header-basket-badge-counter">{count}</span>
-							</div>
-						) : null}
-					</a>
-				);
-			})}
+							{count ? (
+								<div id="header-basket-badge-wrap">
+									<span id="header-basket-badge-counter">{count}</span>
+								</div>
+							) : null}
+						</button>
+					);
+				})}
+			</div>
 		</div>
 	);
 };

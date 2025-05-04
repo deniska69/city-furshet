@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { Loader } from '@components';
 import { useWindowDimensions } from '@hooks';
@@ -10,7 +11,11 @@ import { CategoriesMobile } from './CategoriesMobile';
 import { MenuSections } from './MenuSections';
 
 const Component = () => {
+	const navigate = useNavigate();
 	const { isMobile } = useWindowDimensions();
+	const [searchParams] = useSearchParams();
+
+	const categoryId = searchParams.get('category_id') || null;
 
 	const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
 
@@ -18,12 +23,13 @@ const Component = () => {
 	const categories = priceStore.getCategories();
 
 	useEffect(() => {
-		if (priceStore.isPrice && categories) {
-			setSelectedId(categories[0].category_id);
-		}
-	}, [priceStore.isPrice]);
+		if (categoryId) setSelectedId(categoryId);
+	}, [categoryId]);
 
-	const handlePressCategory = (categoryId: string) => setSelectedId(categoryId);
+	const handlePressCategory = (categoryId: string) => {
+		setSelectedId(categoryId);
+		navigate(`?category_id=${categoryId}`);
+	};
 
 	if (loading || !categories || !selectedId) return <LoadPlaceholder />;
 
