@@ -1,6 +1,9 @@
 import { ReactNode, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { goBack } from '@helpers';
+import { useEscape } from '@hooks';
+
 import { Icon } from './Icon';
 
 interface IDialog {
@@ -29,11 +32,13 @@ export const Dialog = (props: IDialog) => {
 
 	const handleClose = () => {
 		if (onClose) return onClose();
-		navigate('/');
+		navigate(goBack());
 	};
 
+	useEscape(handleClose);
+
 	return (
-		<dialog ref={refDialog} className="dialog-root noselect" onClick={onClose}>
+		<dialog ref={refDialog} className="dialog-root noselect" onClick={handleClose}>
 			<div
 				className={`dialog-content dialog-size-${size} ${className ? className : ''}`}
 				onClick={(e) => e.stopPropagation()}

@@ -2,6 +2,7 @@ import { observer } from 'mobx-react';
 import { useNavigate } from 'react-router-dom';
 
 import { HeaderDesktop, HeaderMobile } from '@components';
+import { scrollToMenu } from '@helpers';
 import { useWindowDimensions } from '@hooks';
 import { basketStore } from '@stores';
 
@@ -11,21 +12,36 @@ const Component = () => {
 
 	const basketTotal = basketStore.getCountTotal();
 
-	const onOpenBasket = () => navigate('/basket');
+	const handleOpenMenu = () => scrollToMenu();
 
-	const onOpenMobileMenu = () => navigate('/mobile-menu');
+	const handleOpenBasket = () => navigate('/basket');
 
-	const onOpenOrders = () => navigate('/orders');
+	const handleOpenMobileMenu = () => navigate('/mobile-menu');
 
-	const onOpenDelivery = () => navigate('/delivery');
+	const handleOpenOrders = () => navigate('/orders');
 
-	const onOpenContacts = () => navigate('/contacts');
+	const handleOpenDelivery = () => navigate('/delivery');
 
-	if (isMobile) return <HeaderMobile {...{ basketTotal, onOpenBasket, onOpenMobileMenu }} />;
+	const handleOpenContacts = () => navigate('/contacts');
+
+	if (isMobile) {
+		return (
+			<HeaderMobile
+				basketTotal={basketTotal}
+				onOpenBasket={handleOpenBasket}
+				onOpenMobileMenu={handleOpenMobileMenu}
+			/>
+		);
+	}
 
 	return (
 		<HeaderDesktop
-			{...{ basketTotal, onOpenBasket, onOpenOrders, onOpenDelivery, onOpenContacts }}
+			basketTotal={basketTotal}
+			onOpenMenu={handleOpenMenu}
+			onOpenBasket={handleOpenBasket}
+			onOpenOrders={handleOpenOrders}
+			onOpenDelivery={handleOpenDelivery}
+			onOpenContacts={handleOpenContacts}
 		/>
 	);
 };

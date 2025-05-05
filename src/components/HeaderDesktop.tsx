@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 interface IHeaderDesktop {
 	basketTotal?: string | number;
+	onOpenMenu: () => void;
 	onOpenDelivery: () => void;
 	onOpenContacts: () => void;
 	onOpenBasket: () => void;
@@ -9,7 +10,8 @@ interface IHeaderDesktop {
 }
 
 export const HeaderDesktop = (props: IHeaderDesktop) => {
-	const { basketTotal, onOpenBasket, onOpenOrders, onOpenDelivery, onOpenContacts } = props;
+	const { basketTotal, onOpenMenu, onOpenBasket, onOpenOrders, onOpenDelivery, onOpenContacts } =
+		props;
 
 	useEffect(() => {
 		const headerEl = document.getElementById('header-desktop');
@@ -31,7 +33,7 @@ export const HeaderDesktop = (props: IHeaderDesktop) => {
 
 	return (
 		<div id="header-desktop" className="noselect">
-			<a href="#menu">Меню</a>
+			<a onClick={onOpenMenu}>Меню</a>
 			<a onClick={onOpenDelivery}>Доставка и оплата</a>
 			<a onClick={onOpenContacts}>Контакты</a>
 			<a id="header-basket-wrap" onClick={onOpenBasket}>

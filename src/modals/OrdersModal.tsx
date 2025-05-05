@@ -4,19 +4,20 @@ import { ordersStore } from 'src/stores/ordersStore';
 
 import { Dialog, OrdersEmpty } from '@components';
 import { CardOrder } from '@containers';
-import { useEscape } from '@hooks';
+import { goBack, scrollToMenu } from '@helpers';
 
 const Component = () => {
 	const navigate = useNavigate();
 
-	const handleClose = () => navigate('/');
-
-	useEscape(handleClose);
-
 	const items = ordersStore.getItems();
 
+	const handleBack = () => {
+		navigate(goBack());
+		setTimeout(scrollToMenu, 250);
+	};
+
 	return (
-		<Dialog title="Заказы" onClose={handleClose} className="min-content">
+		<Dialog title="Заказы" className="min-content">
 			{items && items.length ? (
 				<div className="orders-list hidescroll">
 					{items.map((order, index) => (
@@ -39,7 +40,7 @@ const Component = () => {
 					))}
 				</div>
 			) : (
-				<OrdersEmpty onClose={handleClose} />
+				<OrdersEmpty onClose={handleBack} />
 			)}
 		</Dialog>
 	);

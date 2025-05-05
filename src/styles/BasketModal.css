@@ -32,7 +32,12 @@
 
 .basket-empty a {
 	color: gray;
+	text-decoration: underline;
 	text-decoration-color: #8cbe22;
+}
+
+.basket-empty a:hover {
+	cursor: pointer;
 }
 
 .basket-success {

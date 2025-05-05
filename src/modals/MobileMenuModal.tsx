@@ -1,14 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 
 import { Dialog } from '@components';
-import { useEscape } from '@hooks';
+import { goBack, scrollToMenu } from '@helpers';
 
 export const MobileMenuModal = () => {
 	const navigate = useNavigate();
 
-	const handleClose = () => navigate('/');
+	const handleOpenMenu = () => {
+		navigate(goBack());
+		setTimeout(scrollToMenu, 250);
+	};
 
-	useEscape(handleClose);
+	const handleClose = () => navigate(goBack());
 
 	const handleOpenOrders = () => navigate('/orders');
 
@@ -17,9 +20,9 @@ export const MobileMenuModal = () => {
 	const handleOpenContacts = () => navigate('/contacts');
 
 	return (
-		<Dialog title="City Furshet" onClose={handleClose}>
+		<Dialog title="City Furshet">
 			<div className="mobile-menu">
-				<a href="#menu" className="mobile-menu-link" onClick={handleClose}>
+				<a className="mobile-menu-link" onClick={handleOpenMenu}>
 					Меню
 				</a>
 				<a className="mobile-menu-link" onClick={handleOpenDelivery}>

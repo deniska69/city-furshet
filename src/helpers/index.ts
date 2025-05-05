@@ -1,5 +1,7 @@
 import { SyntheticEvent } from 'react';
-import imagePlaceholder from 'assets/image_placeholder.jpg';
+import { To } from 'react-router';
+
+import imagePlaceholder from '@assets/image_placeholder.jpg';
 
 export const getCover = (categoryId?: string, productId?: string, imageId?: string) => {
 	if (categoryId && productId && imageId) {
@@ -26,4 +28,10 @@ export const scrollToMenu = (delay?: number) => {
 
 		if (menu) menu.scrollIntoView({ behavior: 'smooth' });
 	}, delay);
+};
+
+export const goBack = (): To => {
+	const h = window.history;
+	if (!!h?.length && h.length > 1 && h.state.idx > 0) return -1 as To;
+	return '/';
 };

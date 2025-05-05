@@ -23,8 +23,12 @@ const Component = () => {
 	const categories = priceStore.getCategories();
 
 	useEffect(() => {
-		if (categoryId) setSelectedId(categoryId);
-	}, [categoryId]);
+		if (categoryId) {
+			setSelectedId(categoryId);
+		} else if (categories) {
+			setSelectedId(categories[0].category_id);
+		}
+	}, [categoryId, categories?.length]);
 
 	const handlePressCategory = (categoryId: string) => {
 		setSelectedId(categoryId);

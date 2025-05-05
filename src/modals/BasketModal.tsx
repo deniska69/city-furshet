@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { BasketEmpty, BasketSuccess, Dialog } from '@components';
 import { CardBasket } from '@containers';
-import { useEscape } from '@hooks';
+import { goBack, scrollToMenu } from '@helpers';
 import { basketStore } from '@stores';
 
 const Component = () => {
@@ -13,10 +13,6 @@ const Component = () => {
 	useEffect(() => {
 		basketStore.setOrderStatus(false);
 	}, []);
-
-	const handleClose = () => navigate('/');
-
-	useEscape(handleClose);
 
 	const items = basketStore.getItems();
 	const basketTotalCount = basketStore.getCountTotal();
@@ -30,11 +26,16 @@ const Component = () => {
 		if (contact) basketStore.submit(contact.toString());
 	};
 
+	const handleBack = () => {
+		navigate(goBack());
+		setTimeout(scrollToMenu, 250);
+	};
+
 	return (
-		<Dialog title="Корзина" onClose={handleClose} className="min-content">
+		<Dialog title="Корзина" className="min-content">
 			{isSuccessOrder ? <BasketSuccess /> : null}
 
-			{!isSuccessOrder && !items ? <BasketEmpty onClose={handleClose} /> : null}
+			{!isSuccessOrder && !items ? <BasketEmpty onClose={handleBack} /> : null}
 
 			{!isSuccessOrder && items ? (
 				<div className="basket">

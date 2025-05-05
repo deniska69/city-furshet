@@ -1,11 +1,10 @@
 import { observer } from 'mobx-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Dialog, Icon, Loader } from '@components';
 import { getCover, getGallery, getImageError } from '@helpers';
-import { useEscape } from '@hooks';
 import { basketStore, priceStore } from '@stores';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -25,11 +24,6 @@ interface IComponent {
 
 const Component = ({ productId, categoryId }: IComponent) => {
 	const navigate = useNavigate();
-	const location = useLocation();
-
-	const handleClose = () => navigate(location.pathname);
-
-	useEscape(handleClose);
 
 	if (!priceStore.getProducts(categoryId)) return <Loader />;
 
@@ -37,7 +31,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 	if (!item) {
 		return (
-			<Dialog onClose={handleClose}>
+			<Dialog>
 				<div className="card-view-empty">
 					<Icon color="gray" />
 					<span>Ошибка параметров товара.</span>
@@ -70,7 +64,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 	const gallery = getGallery(categoryId, productId, product_gallery);
 
 	return (
-		<Dialog title={product_title} onClose={handleClose} size="lg" className="min-content">
+		<Dialog title={product_title} size="lg" className="min-content">
 			<div className="card-view hidescroll">
 				{gallery ? (
 					<div className="card-gallery-wrap">
