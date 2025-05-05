@@ -31,7 +31,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 	if (!item) {
 		return (
-			<Dialog>
+			<Dialog className="min-content">
 				<div className="card-view-empty">
 					<Icon color="gray" />
 					<span>Ошибка параметров товара.</span>

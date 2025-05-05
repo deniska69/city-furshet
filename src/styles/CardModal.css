@@ -162,6 +162,7 @@
 	color: gray;
 	text-align: center;
 	row-gap: 1rem;
+	min-height: 50vh;
 }
 
 .card-view-empty a {

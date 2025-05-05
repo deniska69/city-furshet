@@ -32,7 +32,7 @@
 	column-gap: 0.3rem;
 }
 
-#header-desktop a:last-of-type {
+#header-desktop:last-child {
 	margin-right: 4rem;
 }
 
@@ -63,11 +63,5 @@
 @media (min-width: 1279px) {
 	#header-desktop {
 		display: flex;
-	}
-}
-
-@media (min-width: 1281px) {
-	#header-desktop a:last-of-type {
-		margin-right: 16rem;
 	}
 }

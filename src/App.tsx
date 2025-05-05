@@ -1,4 +1,10 @@
 import { Fragment, useEffect } from 'react';
+import { Provider } from 'mobx-react';
+import { createBrowserRouter, Outlet, RouterProvider, useSearchParams } from 'react-router-dom';
+
+import { Home } from '@components';
+import { Header, Menu } from '@containers';
+import { scrollToMenu } from '@helpers';
 import {
 	BasketModal,
 	CardModal,
@@ -7,12 +13,6 @@ import {
 	MobileMenuModal,
 	OrdersModal,
 } from '@modals';
-import { Provider } from 'mobx-react';
-import { createBrowserRouter, Outlet, RouterProvider, useSearchParams } from 'react-router-dom';
-
-import { Home } from '@components';
-import { Header, Menu } from '@containers';
-import { scrollToMenu } from '@helpers';
 import * as stores from '@stores';
 
 const Layout = () => {

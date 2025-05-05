@@ -1,4 +1,5 @@
 import { SyntheticEvent } from 'react';
+import classNames from 'classnames';
 import { To } from 'react-router';
 
 import imagePlaceholder from '@assets/image_placeholder.jpg';
@@ -35,3 +36,5 @@ export const goBack = (): To => {
 	if (!!h?.length && h.length > 1 && h.state.idx > 0) return -1 as To;
 	return '/';
 };
+
+export { classNames as cn };
