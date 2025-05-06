@@ -1,4 +1,4 @@
-import { Loader } from './Loader';
+import { Loader } from '@ui';
 
 export const BasketSuccess = () => (
 	<div className="basket-success">

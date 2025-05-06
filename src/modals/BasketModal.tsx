@@ -2,10 +2,11 @@ import { FormEvent, useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { useNavigate } from 'react-router-dom';
 
-import { BasketEmpty, BasketSuccess, Dialog } from '@components';
+import { BasketEmpty, BasketSuccess } from '@components';
 import { CardBasket } from '@containers';
 import { goBack, scrollToMenu } from '@helpers';
 import { basketStore } from '@stores';
+import { Modal } from '@ui';
 
 const Component = () => {
 	const navigate = useNavigate();
@@ -32,7 +33,7 @@ const Component = () => {
 	};
 
 	return (
-		<Dialog title="Корзина" className="min-content">
+		<Modal title="Корзина" className="min-content">
 			{isSuccessOrder ? <BasketSuccess /> : null}
 
 			{!isSuccessOrder && !items ? <BasketEmpty onClose={handleBack} /> : null}
@@ -66,7 +67,7 @@ const Component = () => {
 					) : null}
 				</div>
 			) : null}
-		</Dialog>
+		</Modal>
 	);
 };
 

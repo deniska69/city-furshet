@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Dialog, Icon, Loader } from '@components';
 import { getCover, getGallery, getImageError } from '@helpers';
 import { basketStore, priceStore } from '@stores';
+import { Icon, Loader, Modal } from '@ui';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -31,12 +31,12 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 	if (!item) {
 		return (
-			<Dialog className="min-content">
+			<Modal className="min-content">
 				<div className="card-view-empty">
 					<Icon color="gray" />
 					<span>Ошибка параметров товара.</span>
 				</div>
-			</Dialog>
+			</Modal>
 		);
 	}
 
@@ -64,7 +64,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 	const gallery = getGallery(categoryId, productId, product_gallery);
 
 	return (
-		<Dialog title={product_title} size="lg" className="min-content">
+		<Modal title={product_title} size="lg" className="min-content">
 			<div className="card-view hidescroll">
 				{gallery ? (
 					<div className="card-gallery-wrap">
@@ -118,7 +118,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 					) : null}
 				</div>
 			</div>
-		</Dialog>
+		</Modal>
 	);
 };
 

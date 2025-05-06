@@ -10,30 +10,27 @@
 	background-color: rgba(255, 255, 255, 0);
 	backdrop-filter: blur(0px);
 	z-index: 9;
+	padding-right: 2rem;
 }
 
 #header-desktop a {
 	font-size: 1.2rem;
 	font-weight: 500;
 	text-decoration: none;
-	color: #8cbe22;
+	color: var(--color-primary);
 	text-transform: uppercase;
 }
 
 #header-desktop a:hover {
 	text-decoration: underline;
 	cursor: pointer;
-	text-decoration-color: #f7852f;
+	text-decoration-color: var(--color-secondary);
 }
 
 #header-basket-wrap {
 	display: flex;
 	flex-direction: row;
 	column-gap: 0.3rem;
-}
-
-#header-desktop:last-child {
-	margin-right: 4rem;
 }
 
 #header-basket-badge-wrap {
@@ -43,7 +40,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #f7852f;
+	background-color: var(--color-secondary);
 	transition: all 0.2s;
 }
 

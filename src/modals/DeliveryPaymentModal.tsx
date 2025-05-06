@@ -1,7 +1,7 @@
-import { Dialog } from '@components';
+import { Modal } from '@ui';
 
 export const DeliveryPaymentModal = () => (
-	<Dialog title="Доставка и оплата" className="min-content">
+	<Modal title="Доставка и оплата" className="min-content">
 		<div id="delivery-text-wrap">
 			<span>Минимальная сумма заказа 3000₽</span>
 			<span>Приём заказа минимум за 2 дня до Мероприятия</span>
@@ -19,5 +19,5 @@ export const DeliveryPaymentModal = () => (
 				районов уточняйте)
 			</span>
 		</div>
-	</Dialog>
+	</Modal>
 );

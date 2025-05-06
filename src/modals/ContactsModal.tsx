@@ -1,7 +1,7 @@
-import { Dialog } from '@components';
+import { Modal } from '@ui';
 
 export const ContactsModal = () => (
-	<Dialog title="Контакты" className="min-content">
+	<Modal title="Контакты" className="min-content">
 		<div id="contacts-text-wrap">
 			<span className="contacts-text-title">City Furshet</span>
 			<span className="contacts-text-title">Новокузнецк, проезд Курбатова, 1</span>
@@ -29,5 +29,5 @@ export const ContactsModal = () => (
 				</div>
 			</div>
 		</div>
-	</Dialog>
+	</Modal>
 );

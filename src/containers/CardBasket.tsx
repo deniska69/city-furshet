@@ -2,9 +2,9 @@ import { MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 import { useNavigate } from 'react-router-dom';
 
-import { Icon } from '@components';
 import { getCover, getImageError } from '@helpers';
 import { basketStore, priceStore } from '@stores';
+import { Icon } from '@ui';
 
 const Component = ({ categoryId, productId, count }: TypeBasketGetItem) => {
 	const navigate = useNavigate();

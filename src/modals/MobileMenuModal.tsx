@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Dialog } from '@components';
 import { goBack, scrollToMenu } from '@helpers';
+import { Modal } from '@ui';
 
 export const MobileMenuModal = () => {
 	const navigate = useNavigate();
@@ -20,7 +20,7 @@ export const MobileMenuModal = () => {
 	const handleOpenContacts = () => navigate('/contacts');
 
 	return (
-		<Dialog title="City Furshet">
+		<Modal title="City Furshet">
 			<div className="mobile-menu">
 				<a className="mobile-menu-link" onClick={handleOpenMenu}>
 					Меню
@@ -38,6 +38,6 @@ export const MobileMenuModal = () => {
 					Закрыть
 				</a>
 			</div>
-		</Dialog>
+		</Modal>
 	);
 };

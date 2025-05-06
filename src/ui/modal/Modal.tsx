@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { goBack } from '@helpers';
 import { useEscape } from '@hooks';
 
-import { Icon } from './Icon';
+import { Icon } from '../icon';
 
-interface IDialog {
+interface IModal {
 	title?: string;
 	onClose?: () => void;
 	size?: 'md' | 'lg';
@@ -14,7 +14,7 @@ interface IDialog {
 	children?: ReactNode;
 }
 
-export const Dialog = (props: IDialog) => {
+export const Modal = (props: IModal) => {
 	const { title, onClose, size = 'md', className, children } = props;
 
 	const refDialog = useRef<HTMLDialogElement>(null);

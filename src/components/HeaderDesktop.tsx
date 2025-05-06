@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
 
-import { ThemeWidget } from './ThemeWidget';
-
 interface IHeaderDesktop {
 	basketTotal?: string | number;
 	onOpenMenu: () => void;
@@ -16,7 +14,7 @@ export const HeaderDesktop = (props: IHeaderDesktop) => {
 		props;
 
 	useEffect(() => {
-		const headerEl = document.getElementById('header-desktop-scroll');
+		const headerEl = document.getElementById('header-desktop');
 
 		const onScroll = () => {
 			const pos = (document.documentElement || document.body.parentNode || document.body)
@@ -34,10 +32,7 @@ export const HeaderDesktop = (props: IHeaderDesktop) => {
 	}, []);
 
 	return (
-		<div
-			id="header-desktop-scroll"
-			className="noselect fixed min-h-20 hidden md:!flex items-center justify-end gap-x-1 backdrop-blur-none z-100 flex-row dev w-full"
-		>
+		<div id="header-desktop">
 			<a onClick={onOpenMenu}>Меню</a>
 			<a onClick={onOpenDelivery}>Доставка и оплата</a>
 			<a onClick={onOpenContacts}>Контакты</a>
@@ -51,7 +46,6 @@ export const HeaderDesktop = (props: IHeaderDesktop) => {
 				) : null}
 			</a>
 			<a onClick={onOpenOrders}>Заказы</a>
-			<ThemeWidget />
 		</div>
 	);
 };

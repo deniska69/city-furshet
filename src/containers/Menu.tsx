@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import { Loader } from '@components';
 import { useWindowDimensions } from '@hooks';
 import { priceStore } from '@stores';
+import { Loader } from '@ui';
 
 import { CategoriesDesktop } from './CategoriesDesktop';
 import { CategoriesMobile } from './CategoriesMobile';

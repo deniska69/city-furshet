@@ -2,9 +2,10 @@ import { observer } from 'mobx-react';
 import { useNavigate } from 'react-router-dom';
 import { ordersStore } from 'src/stores/ordersStore';
 
-import { Dialog, OrdersEmpty } from '@components';
+import { OrdersEmpty } from '@components';
 import { CardOrder } from '@containers';
 import { goBack, scrollToMenu } from '@helpers';
+import { Modal } from '@ui';
 
 const Component = () => {
 	const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Component = () => {
 	};
 
 	return (
-		<Dialog title="Заказы" className="min-content">
+		<Modal title="Заказы" className="min-content">
 			{items && items.length ? (
 				<div className="orders-list hidescroll">
 					{items.map((order, index) => (
@@ -42,7 +43,7 @@ const Component = () => {
 			) : (
 				<OrdersEmpty onClose={handleBack} />
 			)}
-		</Dialog>
+		</Modal>
 	);
 
 	return null;

@@ -21,6 +21,9 @@
 
 @theme {
 	--color-primary: #8cbe22;
+	--color-secondary: #f7852f;
+	--color-light: #404040;
+	--color-dark: #f7f7f7;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
