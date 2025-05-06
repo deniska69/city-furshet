@@ -1,110 +1,11 @@
-#home {
-	min-height: 100vh;
-	max-height: 100vh;
-	width: 100%;
-	display: flex;
-	justify-content: flex-start;
-	background-color: white;
-}
-
 #home-container {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding-left: 3%;
-	padding-right: 3%;
 	background-image: url('../assets/home/shapes.png');
 	background-position: center;
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 }
 
-#home-container-logo {
-	max-width: 80vw;
-	/* margin-bottom: 1.5rem; */
-}
-
-#home-container-description_first-wrap {
-	width: 100%;
-	max-width: 450px;
-	height: 95px;
-	background-image: url('../assets/home/text-description.png');
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 1.5rem;
-}
-
-#home-container-description_first {
-	font-size: 1.5rem;
-	color: white;
-	font-weight: 500;
-}
-
-#home-container-description_second {
-	font-size: 1.5rem;
-	color: #8cbe22;
-	font-weight: 500;
-	margin-bottom: 2rem;
-}
-
-#home-container-button {
-	background: #8cbe22;
-	border-radius: 10px;
-	text-decoration: none;
-	color: white;
-	font-size: 1.5rem;
-	font-weight: 500;
-	padding: 10px 20px;
-	text-align: center;
-	box-sizing: border-box;
-	border: none;
-	cursor: pointer;
-}
-
-.home-text {
-	text-align: center;
-	margin: 2rem;
-	color: #f7852f;
-	font-weight: 500;
-	font-size: 1.1rem;
-	max-width: 600px;
-
-	@media (min-height: 700px) {
-		font-size: 1.4rem;
-	}
-}
-
-@media (min-width: 500px) {
-	#home-container-logo {
-		/* margin-bottom: 3rem; */
-	}
-
-	#home-container-description_first {
-		font-size: 2rem;
-	}
-
-	#home-container-description_second {
-		font-size: 2rem;
-		margin-bottom: 4rem;
-	}
-
-	#home-container-button {
-		font-size: 2rem;
-		padding: 20px 40px;
-	}
-}
-
-#home-container-button:hover {
-	background: #86b421;
-}
-
-@media (min-width: 1280px) {
+@media (width >= 64rem) {
 	#home {
 		background-image: url('../assets/home/bg-desktop.jpg');
 		background-position: center;
@@ -112,32 +13,12 @@
 	}
 
 	#home-container {
-		width: 50%;
-		margin-left: 40%;
 		background-size: 80% auto;
-	}
-
-	.home-text {
-		margin-top: 5rem;
-		margin-bottom: 4rem;
-	}
-
-	#home-container-logo {
-		max-width: 500px;
-		/* margin-top: 1rem; */
-		/* margin-bottom: 2rem; */
-	}
-
-	#home-container-description_first-wrap {
-		width: 450px;
-		height: 95px;
 	}
 }
 
 @media (min-width: 1536px) {
 	#home-container {
-		width: 50%;
-		margin-left: 40%;
 		background-size: 70% auto;
 	}
 }

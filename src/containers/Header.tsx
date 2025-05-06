@@ -24,10 +24,12 @@ const Component = () => {
 
 	const handleOpenContacts = () => navigate('/contacts');
 
+	console.log({ basketTotal });
+
 	if (isMobile) {
 		return (
 			<HeaderMobile
-				basketTotal={basketTotal}
+				basketTotal={1}
 				onOpenBasket={handleOpenBasket}
 				onOpenMobileMenu={handleOpenMobileMenu}
 			/>
@@ -36,7 +38,7 @@ const Component = () => {
 
 	return (
 		<HeaderDesktop
-			basketTotal={basketTotal}
+			basketTotal={1}
 			onOpenMenu={handleOpenMenu}
 			onOpenBasket={handleOpenBasket}
 			onOpenOrders={handleOpenOrders}

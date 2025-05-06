@@ -10,7 +10,7 @@
 	background-color: rgba(255, 255, 255, 0);
 	backdrop-filter: blur(0px);
 	z-index: 9;
-	padding-right: 2rem;
+	padding-right: 4rem;
 }
 
 #header-desktop a {
@@ -60,5 +60,13 @@
 @media (min-width: 1279px) {
 	#header-desktop {
 		display: flex;
+		padding-right: 16rem;
+	}
+}
+
+@media (min-width: 1900px) {
+	#header-desktop {
+		display: flex;
+		padding-right: 16rem;
 	}
 }

@@ -1,12 +1,8 @@
 .card {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 	row-gap: 10px;
 	min-width: 46%;
 	max-width: 46%;
-	cursor: pointer;
-	position: relative;
+	@apply rounded-xl p-4 bg-card-background relative cursor-pointer flex flex-col justify-between;
 }
 
 .card-info:active,

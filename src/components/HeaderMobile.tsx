@@ -8,25 +8,32 @@ interface IHeaderMobile {
 	onOpenMobileMenu: () => void;
 }
 
-export const HeaderMobile = ({ basketTotal, onOpenBasket, onOpenMobileMenu }: IHeaderMobile) => (
-	<div id="header-mobile" className="noselect">
-		<a href="/" id="header-mobile-logo-wrap">
-			<img id="header-mobile-logo" src={mobileLogo} alt="logo_white_250w" />
+export const HeaderMobile = (props: IHeaderMobile) => (
+	<div className="noselect flex lg:hidden fixed min-h-(--header-height) items-center justify-between w-full backdrop-blur-lg z-10 px-4">
+		<a href="/" className="flex items-center active:scale-95 transition-all">
+			<img className="w-12 h-12" src={mobileLogo} alt="Логотип" />
 		</a>
 
-		<div id="header-mobile-container" className="hstack gap-x-4">
-			<a id="header-mobile-basket-wrap" onClick={onOpenBasket}>
-				<img id="header-mobile-basket" src={mobileBasket} alt="icon_basket_64w" />
-				{basketTotal ? (
-					<div id="header-mobile-basket-badge-wrap">
-						<span id="header-mobile-basket-badge-counter">{basketTotal}</span>
+		<div className="flex flex-row gap-x-4 items-center">
+			<div
+				className="flex items-center relative active:scale-95 transition-all"
+				onClick={props.onOpenBasket}
+			>
+				<img className="w-12 h-12" src={mobileBasket} alt="Корзина" />
+
+				{props.basketTotal ? (
+					<div className="absolute rounded-full bg-secondary w-6 h-6 flex items-center justify-center right-[-5px]">
+						<span className="text-white font-semibold leading-4">{props.basketTotal}</span>
 					</div>
 				) : null}
-			</a>
+			</div>
 
-			<a id="header-mobile-burger-wrap" onClick={onOpenMobileMenu}>
-				<img id="header-mobile-burger" src={mobileBurger} alt="icon_burger_64w" />
-			</a>
+			<img
+				className="w-12 h-12 active:scale-95 transition-all"
+				src={mobileBurger}
+				alt="Бургер меню"
+				onClick={props.onOpenMobileMenu}
+			/>
 		</div>
 	</div>
 );

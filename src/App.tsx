@@ -33,8 +33,8 @@ const Layout = () => {
 		<Fragment>
 			<Header />
 			<Home />
-			<Menu />
-			{categoryId && productId ? <CardModal {...{ categoryId, productId }} /> : <Outlet />}
+			{/* <Menu /> */}
+			{/* {categoryId && productId ? <CardModal {...{ categoryId, productId }} /> : <Outlet />} */}
 		</Fragment>
 	);
 };

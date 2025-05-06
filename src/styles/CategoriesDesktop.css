@@ -9,8 +9,8 @@
 		flex-direction: column;
 		row-gap: 0.5rem;
 		border-radius: 20px;
-		min-width: 200px;
-		max-width: 200px;
+		min-width: 240px;
+		max-width: 240px;
 		padding: 16px;
 	}
 
@@ -33,6 +33,7 @@
 		column-gap: 0.5rem;
 		justify-content: space-between;
 		align-items: center;
+		text-wrap: nowrap;
 	}
 
 	.category-button:hover {
