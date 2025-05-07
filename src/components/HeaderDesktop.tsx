@@ -32,20 +32,35 @@ export const HeaderDesktop = (props: IHeaderDesktop) => {
 	}, []);
 
 	return (
-		<div id="header-desktop">
-			<a onClick={onOpenMenu}>Меню</a>
-			<a onClick={onOpenDelivery}>Доставка и оплата</a>
-			<a onClick={onOpenContacts}>Контакты</a>
-			<a id="header-basket-wrap" onClick={onOpenBasket}>
-				<span>Корзина</span>
+		<div id="header-desktop" className="fixed w-full hidden lg:flex backdrop-blur-none z-10">
+			<div className="flex flex-row items-center justify-center w-full lg:w-2/3 lg:ml-[32%] lg:gap-y-12 min-h-(--header-height) gap-x-4">
+				<a className="header-desktop-link" onClick={onOpenMenu}>
+					Меню
+				</a>
+				<a className="header-desktop-link" onClick={onOpenDelivery}>
+					Доставка и оплата
+				</a>
+				<a className="header-desktop-link" onClick={onOpenContacts}>
+					Контакты
+				</a>
+				<a
+					className="header-desktop-link relative flex flex-row items-center gap-x-1"
+					onClick={onOpenBasket}
+				>
+					<span>Корзина</span>
 
-				{basketTotal ? (
-					<div id="header-basket-badge-wrap">
-						<span id="header-basket-badge-counter">{basketTotal}</span>
-					</div>
-				) : null}
-			</a>
-			<a onClick={onOpenOrders}>Заказы</a>
+					{basketTotal ? (
+						<div className="rounded-full min-w-6 h-6 flex items-center justify-center bg-secondary transition-all">
+							<span className="text-white font-semibold text-[1rem] transition-all">
+								{basketTotal}
+							</span>
+						</div>
+					) : null}
+				</a>
+				<a className="header-desktop-link" onClick={onOpenOrders}>
+					Заказы
+				</a>
+			</div>
 		</div>
 	);
 };

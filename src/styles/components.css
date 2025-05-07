@@ -26,4 +26,8 @@
 	.switch-toggler.checked {
 		@apply !border-primary !ml-6;
 	}
+
+	.header-desktop-link {
+		@apply text-xl font-medium text-primary hover:underline decoration-secondary uppercase hover:cursor-pointer;
+	}
 }

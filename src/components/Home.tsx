@@ -5,7 +5,7 @@ export const Home = () => (
 	<div id="home" className="noselect min-h-[100vh] flex justify-start bg-white w-full">
 		<div
 			id="home-container"
-			className="flex flex-col items-center justify-center w-full gap-y-6 px-6 dev lg:w-1/2 lg:ml-[40%] lg:gap-y-12 pt-(--header-height) pb-6"
+			className="flex flex-col items-center justify-center w-full gap-y-6 px-6 lg:w-1/2 lg:ml-[40%] lg:gap-y-12 pt-(--header-height) pb-6"
 		>
 			<span className="text-secondary text-xl text-center md:max-w-[600px] md:text-2xl md:font-medium">
 				Готовые боксы с закусками на любое мероприятие от нашей фуршетной мастерской
