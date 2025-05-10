@@ -10,7 +10,7 @@ const Component = () => {
 	const navigate = useNavigate();
 	const { isMobile } = useWindowDimensions();
 
-	const basketTotal = basketStore.getCountTotal();
+	const basketTotal = basketStore.getCountTotal(); // TODO
 
 	const handleOpenMenu = () => scrollToMenu();
 
@@ -24,7 +24,7 @@ const Component = () => {
 
 	const handleOpenContacts = () => navigate('/contacts');
 
-	console.log({ basketTotal });
+	console.log({ basketTotal }); // TODO
 
 	if (isMobile) {
 		return (
