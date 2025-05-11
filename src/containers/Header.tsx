@@ -24,8 +24,6 @@ const Component = () => {
 
 	const handleOpenContacts = () => navigate('/contacts');
 
-	console.log({ basketTotal }); // TODO
-
 	if (isMobile) {
 		return (
 			<HeaderMobile
