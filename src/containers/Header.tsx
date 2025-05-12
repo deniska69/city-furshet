@@ -10,7 +10,7 @@ const Component = () => {
 	const navigate = useNavigate();
 	const { isMobile } = useWindowDimensions();
 
-	const basketTotal = basketStore.getCountTotal(); // TODO
+	const basketTotal = basketStore.getCountTotal();
 
 	const handleOpenMenu = () => scrollToMenu();
 
@@ -27,7 +27,7 @@ const Component = () => {
 	if (isMobile) {
 		return (
 			<HeaderMobile
-				basketTotal={1}
+				basketTotal={basketTotal}
 				onOpenBasket={handleOpenBasket}
 				onOpenMobileMenu={handleOpenMobileMenu}
 			/>
@@ -36,7 +36,7 @@ const Component = () => {
 
 	return (
 		<HeaderDesktop
-			basketTotal={1}
+			basketTotal={basketTotal}
 			onOpenMenu={handleOpenMenu}
 			onOpenBasket={handleOpenBasket}
 			onOpenOrders={handleOpenOrders}

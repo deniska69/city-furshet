@@ -11,14 +11,14 @@ class BasketStore {
 	items: TypeBasket | undefined;
 	isSuccessOrder: boolean = false;
 
-	add = (categoryId: string, productId: string) => {
+	add = (categoryId: string, productId: string, count?: number) => {
 		if (!this.items) this.items = new Map();
 		if (!this.items.has(categoryId)) {
-			this.items.set(categoryId, { [productId]: 1 });
+			this.items.set(categoryId, { [productId]: count || 1 });
 		} else {
 			const items = toJS(this.items.get(categoryId));
-			const count = items && items[productId] ? items[productId] : 0;
-			this.items.set(categoryId, { ...items, [productId]: count + 1 });
+			const currentCount = items && items[productId] ? items[productId] : 0;
+			this.items.set(categoryId, { ...items, [productId]: currentCount + (count || 1) });
 		}
 
 		this.saveBasketToStore();
@@ -227,7 +227,20 @@ class BasketStore {
 
 	restoreBasketFromStore = () => {
 		const store = localStorage.getItem(key);
-		this.items = store ? new Map(JSON.parse(store)) : undefined;
+		const storeItems = store ? new Map(JSON.parse(store)) : undefined;
+
+		if (!storeItems) return;
+
+		this.items = new Map();
+
+		storeItems.keys().forEach((categoryId) => {
+			const category = storeItems.get(categoryId) as unknown as Record<string, number>;
+
+			for (const productId in category) {
+				const count = category[productId];
+				if (count) this.add(categoryId as unknown as string, productId, count);
+			}
+		});
 	};
 }
 
