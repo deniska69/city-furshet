@@ -29,6 +29,9 @@ class BasketStore {
 		if (!this.items.has(categoryId)) return;
 		const items = toJS(this.items.get(categoryId));
 		const count = items && items[productId] ? items[productId] : 0;
+
+		if (count < 2) return this.delete(categoryId, productId);
+
 		this.items.set(categoryId, { ...items, [productId]: count > 0 ? count - 1 : 0 });
 
 		this.saveBasketToStore();
