@@ -39,28 +39,30 @@ const Component = () => {
 			{!isSuccessOrder && !items ? <BasketEmpty onClose={handleBack} /> : null}
 
 			{!isSuccessOrder && items ? (
-				<div className="basket">
-					<div className="basket-body hidescroll">
+				<div className="flex flex-col h-full min-h-[50vh] max-h-[calc(100vh - 250px)] justify-between">
+					<div className="flex flex-col h-full p-4 gap-y-4 overflow-y-scroll hidescroll">
 						{items.map((item, index) => (
 							<CardBasket key={index} {...item} />
 						))}
 					</div>
 
 					{basketTotalCount ? (
-						<div className="basket-footer">
-							<form onSubmit={handleSubmit}>
+						<div>
+							<form
+								onSubmit={handleSubmit}
+								className="flex flex-col gap-y-4 p-4 border-t border-t-border"
+							>
 								<input
 									type="text"
 									name="contact"
 									required={true}
-									className="basket-footer-input"
 									placeholder="Телефон или эл.почта"
-									value="dev"
+									className="rounded-lg h-10 w-full text-base placeholder:text-base/60 border border-border py-1 px-2.5 text-lg"
 								/>
 								<input
 									type="submit"
-									className="basket-footer-submit"
 									value={`Заказать ${basketTotalPrice} ₽`}
+									className="bg-primary hover:bg-primary/80 active:bg-primary/80 transition-all active:scale-[98%] text-lg rounded-lg text-white p-5 hover:cursor-pointer"
 								/>
 							</form>
 						</div>

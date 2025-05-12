@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @import './styles/components.css';
 
-@import './styles/BasketModal.css';
 @import './styles/Card.css';
 @import './styles/CardBasket.css';
 @import './styles/CardModal.css';
@@ -24,6 +23,7 @@
 	--color-muted: #a6a6a6;
 	--color-root-background: #f2f2f2;
 	--color-card-background: #fff;
+	--color-border: var(--color-neutral-300);
 
 	--header-height: 10vh;
 }
