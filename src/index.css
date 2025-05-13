@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import './styles/components.css';
 
 @import './styles/CategoriesDesktop.css';
 @import './styles/ContactsModal.css';
@@ -19,6 +18,12 @@
 	--color-border: var(--color-neutral-300);
 
 	--header-height: 10vh;
+}
+
+@layer components {
+	.header-desktop-link {
+		@apply text-xl font-medium text-primary hover:underline decoration-secondary uppercase hover:cursor-pointer;
+	}
 }
 
 body {
@@ -68,10 +73,6 @@ h1 {
 	margin: 0;
 }
 
-/* .hidden {
-	visibility: hidden;
-} */
-
 .hidescroll {
 	overflow: auto;
 	-ms-overflow-style: none;
@@ -88,15 +89,15 @@ h1 {
 }
 
 .swiper-button-prev::after {
-	color: var(--primary);
+	color: var(--color-primary);
 }
 
 .swiper-button-next::after {
-	color: var(--primary);
+	color: var(--color-primary);
 }
 
 .swiper-pagination-bullet-active {
-	background: var(--primary) !important;
+	background: var(--color-primary) !important;
 }
 
 .card-view-image {
