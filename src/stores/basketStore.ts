@@ -232,11 +232,11 @@ class BasketStore {
 		const store = localStorage.getItem(key);
 		const storeItems = store ? new Map(JSON.parse(store)) : undefined;
 
-		if (!storeItems) return;
+		if (!storeItems || !storeItems.keys()) return;
 
 		this.items = new Map();
 
-		storeItems.keys().forEach((categoryId) => {
+		Array.from(storeItems.keys()).forEach((categoryId) => {
 			const category = storeItems.get(categoryId) as unknown as Record<string, number>;
 
 			for (const productId in category) {
