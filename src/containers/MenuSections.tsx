@@ -19,25 +19,23 @@ const Component = ({ selectedCategory }: IMenuMain) => {
 	const cards = handleGetProducts(selectedCategory.category_id);
 
 	return (
-		<div id="menu-main">
-			<div key={idSection} id={idSection} className="menu-section">
-				<div className="menu-main-header">
-					<span className="menu-main-title">{title}</span>
-					{selectedCategory.category_description ? (
-						<span>{selectedCategory.category_description}</span>
-					) : null}
-				</div>
+		<div key={idSection} id={idSection} className="flex flex-col justify-start">
+			<div className="flex flex-col pl-5">
+				<span className="text-base text-xl font-bold">{title}</span>
+				{selectedCategory.category_description ? (
+					<span className="font-light">{selectedCategory.category_description}</span>
+				) : null}
+			</div>
 
-				<div id={idGrid} className="menu-items">
-					{cards &&
-						cards.map((card) => (
-							<Card
-								key={card.product_id}
-								productId={card.product_id}
-								categoryId={selectedCategory.category_id}
-							/>
-						))}
-				</div>
+			<div id={idGrid} className="flex flex-row flex-wrap gap-3 mt-2 pl-3 pb-8">
+				{cards &&
+					cards.map((card) => (
+						<Card
+							key={card.product_id}
+							productId={card.product_id}
+							categoryId={selectedCategory.category_id}
+						/>
+					))}
 			</div>
 		</div>
 	);

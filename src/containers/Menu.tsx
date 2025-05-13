@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
+import { MenuLoader } from '@components';
 import { useWindowDimensions } from '@hooks';
 import { priceStore } from '@stores';
-import { Loader } from '@ui';
 
 import { CategoriesDesktop } from './CategoriesDesktop';
 import { CategoriesMobile } from './CategoriesMobile';
@@ -35,15 +35,18 @@ const Component = () => {
 		navigate(`?category_id=${categoryId}`);
 	};
 
-	if (loading || !categories || !selectedId) return <LoadPlaceholder />;
+	if (loading || !categories || !selectedId) return <MenuLoader />;
 
 	const selectedCategory = priceStore.getCategory(selectedId);
 
-	if (!selectedCategory) return <LoadPlaceholder />;
+	if (!selectedCategory) return <MenuLoader />;
 
 	return (
-		<div id="menu" className="noselect min-h-[100vh] w-full flex justify-center">
-			<div className="w-full max-w-7xl gap-5 flex items-start flex-col">
+		<div
+			id="menu"
+			className="noselect min-h-[100vh] w-full flex justify-center scroll-mt-(--header-height)"
+		>
+			<div className="w-full max-w-7xl flex items-start flex-col lg:flex-row">
 				{isMobile ? (
 					<CategoriesMobile selectedId={selectedId} onPressCategory={handlePressCategory} />
 				) : (
@@ -56,11 +59,3 @@ const Component = () => {
 };
 
 export const Menu = observer(Component);
-
-const LoadPlaceholder = () => (
-	<div id="menu">
-		<div id="loader-wrap">
-			<Loader />
-		</div>
-	</div>
-);
