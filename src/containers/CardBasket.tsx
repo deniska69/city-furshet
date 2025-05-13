@@ -33,39 +33,53 @@ const Component = ({ categoryId, productId, count }: TypeBasketGetItem) => {
 	};
 
 	return (
-		<div className="card-basket" onClick={handlePressCard}>
+		<div
+			className="flex flex-row gap-x-2 pb-4 group border-b border-b-border last-of-type:border-none hover:cursor-pointer"
+			onClick={handlePressCard}
+		>
 			<img
 				onError={getImageError}
-				className="card-basket-image"
+				className="w-full max-w-22 max-h-22 object-cover rounded-lg"
 				src={getCover(categoryId, productId, product.product_cover)}
 			/>
 
-			<div className="card-basket-inner">
-				<div className="card-basket-inner-header">
-					<div className="card-basket-text">
-						<span className="card-title">{product.product_title}</span>
+			<div className="flex flex-col justify-between gap-y-2 w-full">
+				<div className="flex flex-row justify-between items-start">
+					<div className="flex flex-col gap-y-1">
+						<span className="group-hover:underline text-base text-md font-semibold">
+							{product.product_title}
+						</span>
 						<span className="card-subtitle">{product.product_note}</span>
 					</div>
 
-					<button className="card-basket-delete-button" onClick={handlePressDelete}>
+					<button
+						className="bg-white p-2 rounded-full flex justify-center items-center hover:cursor-pointer transition-all hover:scale-90 active:scale-90"
+						onClick={handlePressDelete}
+					>
 						<Icon name="close" color="gray" size={16} />
 					</button>
 				</div>
 
-				<div className="card-basket-inner-footer">
-					<div className="card-basket-buttons">
-						<button className="card-btn-minus" onClick={handlePressRemove}>
+				<div className="flex flex-row justify-between items-center">
+					<div className="flex flex-row items-center gap-x-2">
+						<button
+							className="bg-muted transition-all active:scale-90 px-4 py-2 rounded-full hover:cursor-pointer"
+							onClick={handlePressRemove}
+						>
 							<Icon name="minus" color="white" />
 						</button>
 
-						<span className="card-basket-counter">{count}</span>
+						<span className="text-xl text-base">{count}</span>
 
-						<button className="card-btn-plus" onClick={handlePressAdd}>
+						<button
+							className="bg-primary transition-all active:scale-90 px-4 py-2 rounded-full hover:cursor-pointer"
+							onClick={handlePressAdd}
+						>
 							<Icon name="plus" color="white" />
 						</button>
 					</div>
 
-					<span className="card-basket-total-price">{`${count * parseInt(product.product_price)} ₽`}</span>
+					<span className="text-lg text-muted">{`${count * parseInt(product.product_price)} ₽`}</span>
 				</div>
 			</div>
 		</div>
