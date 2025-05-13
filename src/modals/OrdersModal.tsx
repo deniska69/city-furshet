@@ -20,12 +20,17 @@ const Component = () => {
 	return (
 		<Modal title="Заказы" className="min-content">
 			{items && items.length ? (
-				<div className="orders-list hidescroll">
+				<div className="hidescroll flex flex-col h-full p-4 gap-y-4 overflow-y-scroll max-h-[calc(100vh-100px)] min-h-[50vh] lg:max-h-[calc(90vh-100px)]">
 					{items.map((order, index) => (
-						<div key={index} className="order">
-							<span className="order-date">{new Date(order.date).toLocaleDateString()}</span>
+						<div
+							key={index}
+							className="flex flex-col pb-4 border-b border-b-border border-dotted last:border-none"
+						>
+							<span className="text-muted mb-4 font-medium text-xl">
+								{new Date(order.date).toLocaleDateString()}
+							</span>
 
-							<div className="order-items">
+							<div className="flex flex-col gap-y-4">
 								{order?.items.map((card, index) => (
 									<CardOrder
 										key={index}
@@ -36,7 +41,7 @@ const Component = () => {
 								))}
 							</div>
 
-							<span className="order-footer">{`Итого: ${order.total} ₽`}</span>
+							<span className="text-muted self-end text-xl font-medium">{`Итого: ${order.total} ₽`}</span>
 						</div>
 					))}
 				</div>

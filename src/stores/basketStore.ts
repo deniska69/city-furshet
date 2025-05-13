@@ -230,7 +230,7 @@ class BasketStore {
 
 	restoreBasketFromStore = () => {
 		const store = localStorage.getItem(key);
-		const storeItems = store ? new Map(JSON.parse(store)) : undefined;
+		const storeItems = store && store !== 'undefined' ? new Map(JSON.parse(store)) : undefined;
 
 		if (!storeItems || !storeItems.keys()) return;
 

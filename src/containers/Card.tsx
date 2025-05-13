@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -64,10 +63,12 @@ export const Component = ({ productId, categoryId }: ICard) => {
 				) : null}
 
 				<button
-					className="flex h-8 bg-primary px-3 py-2 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full"
+					className="flex h-8 bg-primary px-3 py-2 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1"
 					onClick={handlePressAdd}
 				>
-					<span className="card-price">{product.product_price || '0'} ₽</span>
+					<span className="text-white font-medium text-lg">
+						{product.product_price || '0'} ₽
+					</span>
 					<Icon name="plus" color="white" />
 				</button>
 			</div>
