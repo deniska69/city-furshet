@@ -45,11 +45,11 @@ const Component = ({ categoryId, productId, count }: TypeBasketGetItem) => {
 
 			<div className="flex flex-col justify-between gap-y-2 w-full">
 				<div className="flex flex-row justify-between items-start">
-					<div className="flex flex-col gap-y-1">
+					<div className="flex flex-col">
 						<span className="group-hover:underline text-base text-md font-semibold">
 							{product.product_title}
 						</span>
-						<span className="card-subtitle">{product.product_note}</span>
+						<span className="text-muted">{product.product_note}</span>
 					</div>
 
 					<button

@@ -27,7 +27,7 @@ const Component = ({ selectedCategory }: IMenuMain) => {
 				) : null}
 			</div>
 
-			<div id={idGrid} className="flex flex-row flex-wrap gap-3 mt-2 pl-3 pb-8">
+			<div id={idGrid} className="flex flex-row flex-wrap gap-3 mt-2 px-2 pb-8">
 				{cards &&
 					cards.map((card) => (
 						<Card
