@@ -39,7 +39,7 @@ const Component = () => {
 			{!isSuccessOrder && !items ? <BasketEmpty onClose={handleBack} /> : null}
 
 			{!isSuccessOrder && items ? (
-				<div className="flex flex-col h-full min-h-[50vh] max-h-[calc(100vh - 250px)] justify-between">
+				<div className="flex flex-col h-full min-h-[50vh] lg:max-h-[calc(90vh-100px)] max-h-[calc(100vh - 250px)] justify-between">
 					<div className="flex flex-col h-full p-4 gap-y-4 overflow-y-scroll hidescroll">
 						{items.map((item, index) => (
 							<CardBasket key={index} {...item} />

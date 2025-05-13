@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @import './styles/components.css';
 
-@import './styles/CardModal.css';
 @import './styles/CategoriesDesktop.css';
 @import './styles/ContactsModal.css';
 @import './styles/DeliveryPaymentModal.css';
@@ -98,4 +97,35 @@ h1 {
 
 .swiper-pagination-bullet-active {
 	background: var(--primary) !important;
+}
+
+.card-view-image {
+	width: 100%;
+	min-width: calc(100vw - 2rem);
+	max-width: calc(100vw - 2rem);
+	min-height: calc(100vw - 2rem);
+	max-height: calc(100vw - 2rem);
+	object-fit: cover;
+	border-radius: 8px;
+
+	@media (min-width: 1279px) {
+		min-width: 400px;
+		max-width: 400px;
+		min-height: 400px;
+		max-height: 400px;
+	}
+}
+
+.swiper-slide > .card-view-image {
+	border-radius: 0px;
+}
+
+.swiper-slide:first-child > .card-view-image {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.swiper-slide:last-child > .card-view-image {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
