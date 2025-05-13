@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react';
 
+import { cn } from '@helpers';
 import { basketStore, priceStore } from '@stores';
 
 interface ICategoriesMobile {
@@ -13,8 +14,8 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesMobile) =>
 	if (!categories) return null;
 
 	return (
-		<div className="menu-categories-mobile-wrap">
-			<div id="menu-categories-mobile">
+		<div className="px-2 w-full max-w-[100vw] xl:hidden">
+			<div className="flex flex-row flex-nowrap w-full overflow-auto gap-x-2.5 hidescroll">
 				{categories.map((item) => {
 					const active = item.category_id === selectedId ? ' active' : '';
 					const count = basketStore.getCountCategory(item.category_id);
@@ -23,14 +24,19 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesMobile) =>
 						<button
 							key={item.category_id}
 							id={item.category_id}
-							className={`category-button${active}`}
+							className={cn(
+								'rounded-4xl font-medium hover:cursor-pointer transition-all flex flex-row gap-x-2 items-center flex-nowrap h-10 py-0 px-4 text-nowrap',
+								active
+									? 'bg-primary active:bg-primary/80 hover:bg-primary/80 text-white'
+									: 'bg-white active:bg-white/80 hover:bg-white/80 text-base',
+							)}
 							onClick={() => onPressCategory(item.category_id)}
 						>
 							{item.category_title}
 
 							{count ? (
-								<div id="header-basket-badge-wrap">
-									<span id="header-basket-badge-counter">{count}</span>
+								<div className="rounded-full bg-secondary w-6 h-6 flex items-center justify-center">
+									<span className="text-white font-semibold leading-4">{count}</span>
 								</div>
 							) : null}
 						</button>
