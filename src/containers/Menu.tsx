@@ -42,8 +42,8 @@ const Component = () => {
 	if (!selectedCategory) return <LoadPlaceholder />;
 
 	return (
-		<div id="menu" className="noselect">
-			<div id="menu-container">
+		<div className="noselect min-h-[100vh] w-full flex justify-center">
+			<div className="w-full max-w-7xl gap-5 flex items-start flex-col">
 				{isMobile ? (
 					<CategoriesMobile selectedId={selectedId} onPressCategory={handlePressCategory} />
 				) : (

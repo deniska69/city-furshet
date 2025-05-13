@@ -1,22 +1,4 @@
-#menu {
-	min-height: 90vh;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-}
-
-#menu-container {
-	width: 100%;
-	max-width: 1280px;
-	gap: 20px;
-	display: flex;
-	align-items: flex-start;
-	flex-direction: column;
-	padding: 20px 0px;
-}
-
 #menu-main {
-	/* background-color: #fff; */
 	border-radius: 20px;
 	width: 90%;
 	display: flex;

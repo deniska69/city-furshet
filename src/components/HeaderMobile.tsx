@@ -9,7 +9,7 @@ interface IHeaderMobile {
 }
 
 export const HeaderMobile = (props: IHeaderMobile) => (
-	<div className="noselect flex lg:hidden fixed min-h-(--header-height) items-center justify-between w-full backdrop-blur-lg z-10 px-4">
+	<div className="noselect flex lg:hidden fixed min-h-(--header-height) items-center justify-between w-full z-10 px-4 bg-white">
 		<a href="/" className="flex items-center active:scale-95 transition-all">
 			<img className="w-12 h-12" src={mobileLogo} alt="Логотип" />
 		</a>

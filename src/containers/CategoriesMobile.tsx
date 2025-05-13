@@ -14,7 +14,7 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesMobile) =>
 	if (!categories) return null;
 
 	return (
-		<div className="px-2 w-full max-w-[100vw] xl:hidden">
+		<div className="px-2 w-full max-w-[100vw] xl:hidden sticky top-[var(--header-height)] z-10 py-3 bg-root-background">
 			<div className="flex flex-row flex-nowrap w-full overflow-auto gap-x-2.5 hidescroll">
 				{categories.map((item) => {
 					const active = item.category_id === selectedId ? ' active' : '';
