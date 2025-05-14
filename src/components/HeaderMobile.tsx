@@ -1,6 +1,7 @@
 import mobileBasket from '@assets/header/icon_basket_64w.png';
 import mobileBurger from '@assets/header/icon_burger_64w.png';
 import mobileLogo from '@assets/header/logo_250w.png';
+import { cn } from '@helpers';
 
 interface IHeaderMobile {
 	basketTotal?: string | number;
@@ -22,7 +23,12 @@ export const HeaderMobile = (props: IHeaderMobile) => (
 				<img className="w-12 h-12" src={mobileBasket} alt="Корзина" />
 
 				{props.basketTotal ? (
-					<div className="absolute rounded-full bg-secondary w-6 h-6 flex items-center justify-center right-[-5px]">
+					<div
+						className={cn(
+							'absolute rounded-full bg-secondary w-6 h-6 flex items-center justify-center right-[-5px]',
+							parseInt(props.basketTotal.toString()) > 9 ? 'px-4' : 'px-0',
+						)}
+					>
 						<span className="text-white font-semibold leading-4">{props.basketTotal}</span>
 					</div>
 				) : null}

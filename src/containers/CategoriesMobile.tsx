@@ -35,7 +35,12 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesMobile) =>
 							{item.category_title}
 
 							{count ? (
-								<div className="rounded-full bg-secondary w-6 h-6 flex items-center justify-center">
+								<div
+									className={cn(
+										'rounded-full bg-secondary w-6 h-6 flex items-center justify-center',
+										count > 9 ? 'px-4' : 'px-0',
+									)}
+								>
 									<span className="text-white font-semibold leading-4">{count}</span>
 								</div>
 							) : null}

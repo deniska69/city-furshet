@@ -31,7 +31,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 	if (!item) {
 		return (
-			<Modal className="min-content">
+			<Modal className="h-min">
 				<div className="flex flex-col items-center justify-center gap-y-3 min-h-[30vh]">
 					<Icon color="gray" />
 					<span className="text-2xl text-muted">Ошибка параметров товара</span>
@@ -65,7 +65,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 	const gallery = getGallery(categoryId, productId, product_gallery);
 
 	return (
-		<Modal title={product_title} size="lg" className="min-content">
+		<Modal title={product_title} size="lg">
 			<div className="flex flex-col lg:flex-row p-4 gap-y-6 h-full max-h-[calc(100vh-110px)] lg:max-h-[calc(90vh-110px)] overflow-scroll hidescroll gap-4">
 				{gallery ? (
 					<div className="rounded-lg overflow-hidden min-w-[calc(100vw-2rem)] max-w-[calc(100vw-2rem)] min-h-[calc(100vw-2rem)] max-h-[calc(100vw-2rem)] lg:min-w-[400px] lg:max-w-[400px] lg:min-h-[400px] lg:max-h-[400px]">

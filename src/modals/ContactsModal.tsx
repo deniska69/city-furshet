@@ -1,7 +1,7 @@
 import { Modal } from '@ui';
 
 export const ContactsModal = () => (
-	<Modal title="Контакты" className="min-content">
+	<Modal title="Контакты" className="h-min">
 		<div id="contacts-text-wrap">
 			<span className="contacts-text-title">City Furshet</span>
 			<span className="contacts-text-title">Новокузнецк, проезд Курбатова, 1</span>

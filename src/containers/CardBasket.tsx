@@ -34,7 +34,7 @@ const Component = ({ categoryId, productId, count }: TypeBasketGetItem) => {
 
 	return (
 		<div
-			className="flex flex-row gap-x-2 pb-4 group border-b border-b-border last-of-type:border-none hover:cursor-pointer"
+			className="flex flex-row gap-x-2 py-4 px-2 group border-b border-b-border last-of-type:border-none hover:cursor-pointer"
 			onClick={handlePressCard}
 		>
 			<img

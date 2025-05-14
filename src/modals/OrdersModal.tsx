@@ -18,7 +18,7 @@ const Component = () => {
 	};
 
 	return (
-		<Modal title="Заказы" className="min-content">
+		<Modal title="Заказы" className="h-min">
 			{items && items.length ? (
 				<div className="hidescroll flex flex-col h-full p-4 gap-y-4 overflow-y-scroll max-h-[calc(100vh-100px)] min-h-[50vh] lg:max-h-[calc(90vh-100px)]">
 					{items.map((order, index) => (

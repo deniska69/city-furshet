@@ -5,13 +5,17 @@ export const Home = () => (
 	<div id="home" className="noselect min-h-[100vh] flex justify-start bg-white w-full">
 		<div
 			id="home-container"
-			className="flex flex-col items-center justify-center w-full gap-y-6 px-6 lg:w-1/2 lg:ml-[40%] lg:gap-y-12 pb-6"
+			className="flex flex-col items-center justify-center w-full gap-y-6 px-6 lg:w-1/2 lg:ml-[40%] lg:gap-y-6 pb-6"
 		>
 			<span className="text-secondary text-xl text-center md:max-w-[600px] md:text-2xl md:font-medium">
 				Готовые боксы с закусками на любое мероприятие от нашей фуршетной мастерской
 			</span>
 
-			<img className="max-w-[80vw] md:max-w-[500px]" src={logo} alt="logo_color_500w" />
+			<img
+				className="max-w-[80vw] md:max-w-[400px] 2xl:max-w-[500px]"
+				src={logo}
+				alt="logo_color_500w"
+			/>
 
 			<span className="text-secondary text-xl text-center md:max-w-[600px] md:text-2xl md:font-medium">
 				Фуршет, Кофе-брейк , гастробоксы, выездное накрытие

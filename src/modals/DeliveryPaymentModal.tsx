@@ -1,7 +1,7 @@
 import { Modal } from '@ui';
 
 export const DeliveryPaymentModal = () => (
-	<Modal title="Доставка и оплата" className="min-content">
+	<Modal title="Доставка и оплата" className="h-min">
 		<div id="delivery-text-wrap">
 			<span>Минимальная сумма заказа 3000₽</span>
 			<span>Приём заказа минимум за 2 дня до Мероприятия</span>

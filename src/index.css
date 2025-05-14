@@ -3,7 +3,6 @@
 @import './styles/CategoriesDesktop.css';
 @import './styles/ContactsModal.css';
 @import './styles/DeliveryPaymentModal.css';
-@import './styles/Dialog.css';
 @import './styles/MobileMenuModal.css';
 
 @theme {
@@ -16,11 +15,29 @@
 	--color-border: var(--color-neutral-300);
 
 	--header-height: 10vh;
+
+	--modal-header-height: 60px;
+	--modal-header-height-mt: 10px;
+	--modal-form-height: 160px;
 }
 
 @layer components {
 	.header-desktop-link {
 		@apply text-xl font-medium text-primary hover:underline decoration-secondary uppercase hover:cursor-pointer;
+	}
+
+	body.modal-open {
+		@apply overflow-hidden pr-4;
+	}
+
+	body.modal-open .modal-root {
+		@apply flex w-full;
+	}
+
+	@media (min-width: 1280px) {
+		body.modal-open .modal-root {
+			@apply flex items-center justify-center;
+		}
 	}
 }
 
@@ -140,7 +157,7 @@ h1 {
 	background-repeat: no-repeat;
 }
 
-@media (width >= 64rem) {
+@media (width >= 1024px) {
 	#home {
 		background-image: url('./assets/home/bg-desktop.jpg');
 		background-position: center;
@@ -149,6 +166,7 @@ h1 {
 
 	#home-container {
 		background-size: 80% auto;
+		/* max-width: 500px; */
 	}
 }
 
