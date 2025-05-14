@@ -22,11 +22,11 @@ export const Modal = (props: IModal) => {
 
 	useEffect(() => {
 		if (refDialog.current) refDialog.current.showModal();
-		document.body.classList.add('dialog-open');
+		document.body.classList.add('modal-open');
 
 		return () => {
 			if (refDialog.current) refDialog.current.close();
-			document.body.classList.remove('dialog-open');
+			document.body.classList.remove('modal-open');
 		};
 	}, []);
 
@@ -38,20 +38,20 @@ export const Modal = (props: IModal) => {
 	useEscape(handleClose);
 
 	return (
-		<dialog ref={refDialog} className="dialog-root noselect" onClick={handleClose}>
+		<dialog ref={refDialog} className="modal-root noselect" onClick={handleClose}>
 			<div
-				className={`dialog-content dialog-size-${size} ${className ? className : ''}`}
+				className={`modal-content modal-size-${size} ${className ? className : ''}`}
 				onClick={(e) => e.stopPropagation()}
 			>
 				<div className="dialog-header">
 					<span>{title}</span>
 
-					<button className="dialog-header-close" onClick={handleClose}>
+					<button className="modal-header-close" onClick={handleClose}>
 						<Icon name="close" color="#404040" />
 					</button>
 				</div>
 
-				<div className="dialog-body">{children}</div>
+				<div className="modal-body">{children}</div>
 			</div>
 		</dialog>
 	);

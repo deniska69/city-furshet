@@ -4,8 +4,6 @@
 @import './styles/ContactsModal.css';
 @import './styles/DeliveryPaymentModal.css';
 @import './styles/Dialog.css';
-@import './styles/Home.css';
-@import './styles/Loader.css';
 @import './styles/MobileMenuModal.css';
 
 @theme {
@@ -88,6 +86,8 @@ h1 {
 	border: 1px solid red;
 }
 
+/* Card modal */
+
 .swiper-button-prev::after {
 	color: var(--color-primary);
 }
@@ -129,4 +129,31 @@ h1 {
 .swiper-slide:last-child > .card-view-image {
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
+}
+
+/* Home */
+
+#home-container {
+	background-image: url('./assets/home/shapes.png');
+	background-position: center;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+
+@media (width >= 64rem) {
+	#home {
+		background-image: url('./assets/home/bg-desktop.jpg');
+		background-position: center;
+		background-size: cover;
+	}
+
+	#home-container {
+		background-size: 80% auto;
+	}
+}
+
+@media (min-width: 1536px) {
+	#home-container {
+		background-size: 70% auto;
+	}
 }
