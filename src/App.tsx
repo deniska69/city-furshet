@@ -84,13 +84,21 @@ const Layout = () => {
 
 			{isCard ? (
 				<CardModal
-					categoryId={searchParams.get('category_id')}
+					onOpenBasket={handleOpenBasket}
 					productId={searchParams.get('card_id')}
+					categoryId={searchParams.get('category_id')}
 				/>
 			) : null}
-			{isBasket ? <BasketModal /> : null}
-			{isOrders ? <OrdersModal /> : null}
-			{isMobileMenu ? <MobileMenuModal /> : null}
+			{isBasket ? <BasketModal onOpenCard={handleOpenCard} /> : null}
+			{isOrders ? <OrdersModal onOpenCard={handleOpenCard} /> : null}
+			{isMobileMenu ? (
+				<MobileMenuModal
+					onOpenOrders={handleOpenOrders}
+					onOpenBasket={handleOpenBasket}
+					onOpenContacts={handleOpenContacts}
+					onOpenDelivery={handleOpenDelivery}
+				/>
+			) : null}
 			{isDelivery ? <DeliveryPaymentModal /> : null}
 			{isContacts ? <ContactsModal /> : null}
 		</Fragment>

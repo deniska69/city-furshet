@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react';
-import { useNavigate } from 'react-router-dom';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -20,6 +19,7 @@ import 'swiper/css/navigation';
 interface IComponent {
 	categoryId: string | null;
 	productId: string | null;
+	onOpenBasket: () => void;
 }
 
 const Error = () => (
@@ -32,9 +32,7 @@ const Error = () => (
 	</Modal>
 );
 
-const Component = ({ categoryId, productId }: IComponent) => {
-	const navigate = useNavigate();
-
+const Component = ({ categoryId, productId, onOpenBasket }: IComponent) => {
 	if (!categoryId || !productId) return <Error />;
 
 	if (!priceStore.getProducts(categoryId)) return <Loader />;
@@ -59,8 +57,6 @@ const Component = ({ categoryId, productId }: IComponent) => {
 	const handlePressRemove = () => basketStore.remove(categoryId, productId);
 
 	const count = () => basketStore.getCountProduct(categoryId, productId);
-
-	const handlePressBasket = () => navigate('/basket');
 
 	const cover = getCover(categoryId, product_id, product_cover);
 
@@ -124,7 +120,7 @@ const Component = ({ categoryId, productId }: IComponent) => {
 								'flex h-8 bg-primary px-3 py-1.5 cursor-pointer items-center justify-center hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1 transition-all duration-300',
 								count() ? 'opacity-100' : 'opacity-0',
 							)}
-							onClick={handlePressBasket}
+							onClick={onOpenBasket}
 						>
 							<Icon name="basket" color="white" />
 						</button>

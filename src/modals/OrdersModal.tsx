@@ -7,7 +7,11 @@ import { CardOrder } from '@containers';
 import { goBack } from '@helpers';
 import { Modal } from '@ui';
 
-const Component = () => {
+interface IOrdersModal {
+	onOpenCard: (categoryId: string, productId: string) => void;
+}
+
+const Component = ({ onOpenCard }: IOrdersModal) => {
 	const navigate = useNavigate();
 
 	const items = ordersStore.getItems();
@@ -32,6 +36,7 @@ const Component = () => {
 									<CardOrder
 										key={index}
 										count={card.count}
+										onOpenCard={onOpenCard}
 										productId={card.product_id}
 										categoryId={card.category_id}
 									/>

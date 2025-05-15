@@ -8,7 +8,11 @@ import { goBack } from '@helpers';
 import { basketStore } from '@stores';
 import { Modal } from '@ui';
 
-const Component = () => {
+interface IBasketModal {
+	onOpenCard: (categoryId: string, productId: string) => void;
+}
+
+const Component = ({ onOpenCard }: IBasketModal) => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -39,7 +43,7 @@ const Component = () => {
 				<div className="flex flex-col justify-between min-h-full w-full">
 					<div className="flex flex-col max-h-[calc(100svh-var(--modal-header-height)-var(--modal-header-height-mt)-var(--modal-form-height))] lg:max-h-[calc(90svh-var(--modal-header-height)-var(--modal-form-height))] overflow-auto hidescroll">
 						{items.map((item, index) => (
-							<CardBasket key={index} {...item} />
+							<CardBasket key={index} {...item} onOpenCard={onOpenCard} />
 						))}
 					</div>
 

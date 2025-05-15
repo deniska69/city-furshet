@@ -1,21 +1,20 @@
 import { MouseEvent } from 'react';
 import { observer } from 'mobx-react';
-import { useNavigate } from 'react-router-dom';
 
 import { getCover, getImageError } from '@helpers';
 import { basketStore, priceStore } from '@stores';
 import { Icon } from '@ui';
 
-const Component = ({ categoryId, productId, count }: TypeBasketGetItem) => {
-	const navigate = useNavigate();
+interface ICardBasket extends TypeBasketGetItem {
+	onOpenCard: (categoryId: string, productId: string) => void;
+}
 
+const Component = ({ categoryId, productId, count, onOpenCard }: ICardBasket) => {
 	const product = priceStore.getProduct(categoryId, productId);
 
 	if (!product) return null;
 
-	const handlePressCard = () => {
-		navigate(`?category_id=${categoryId}&card_id=${productId}`);
-	};
+	const handlePressCard = () => onOpenCard(categoryId, productId);
 
 	const handlePressAdd = (e: MouseEvent<HTMLButtonElement>) => {
 		e.stopPropagation();

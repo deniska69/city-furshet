@@ -1,26 +1,18 @@
 import { observer } from 'mobx-react';
-import { useNavigate } from 'react-router-dom';
 
 import { getCover, getImageError } from '@helpers';
 import { priceStore } from '@stores';
 
-interface ICardOrder {
-	categoryId: string;
-	productId: string;
-	count: number;
+interface ICardOrder extends TypeBasketGetItem {
+	onOpenCard: (categoryId: string, productId: string) => void;
 }
 
-const Component = ({ categoryId, productId, count }: ICardOrder) => {
-	const navigate = useNavigate();
-
+const Component = ({ categoryId, productId, count, onOpenCard }: ICardOrder) => {
 	const product = priceStore.getProduct(categoryId, productId);
 
 	if (!product) return null;
 
-	const handlePressCard = () => {
-		navigate(`?category_id=${categoryId}&card_id=${productId}`);
-	};
-
+	const handlePressCard = () => onOpenCard(categoryId, productId);
 	return (
 		<div
 			className="flex flex-row gap-x-2 active:scale-98 transition-all group hover:cursor-pointer"
