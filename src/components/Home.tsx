@@ -18,7 +18,7 @@ export const Home = () => (
 			/>
 
 			<span className="text-secondary text-xl text-center md:max-w-[600px] md:text-2xl md:font-medium">
-				Фуршет, Кофе-брейк , гастробоксы, выездное накрытие
+				Фуршет, Кофе-брейк, гастробоксы, выездное накрытие
 			</span>
 
 			<button
