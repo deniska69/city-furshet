@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-@import './styles/CategoriesDesktop.css';
 @import './styles/ContactsModal.css';
 @import './styles/DeliveryPaymentModal.css';
 @import './styles/MobileMenuModal.css';
@@ -19,6 +18,8 @@
 	--modal-header-height: 60px;
 	--modal-header-height-mt: 10px;
 	--modal-form-height: 160px;
+
+	--categories-width-desktop: 260px;
 }
 
 @layer components {

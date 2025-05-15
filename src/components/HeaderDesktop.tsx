@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import { cn } from '@helpers';
+
 interface IHeaderDesktop {
 	basketTotal?: string | number;
 	onOpenMenu: () => void;
@@ -49,15 +51,24 @@ export const HeaderDesktop = (props: IHeaderDesktop) => {
 				>
 					<span>Корзина</span>
 
-					{basketTotal ? (
-						<div className="rounded-full min-w-6 h-6 flex items-center justify-center bg-secondary transition-all">
-							<span className="text-white font-semibold text-[1rem] transition-all">
-								{basketTotal}
-							</span>
-						</div>
-					) : null}
+					<div
+						className={cn(
+							'rounded-full min-w-6 h-6 flex items-center justify-center bg-secondary transition-all duration-300',
+							basketTotal ? 'scale-100 opacity-100' : 'scale-0 opacity-0',
+						)}
+					>
+						<span className="text-white font-semibold text-[1rem] transition-all">
+							{basketTotal || 1}
+						</span>
+					</div>
 				</a>
-				<a className="header-desktop-link" onClick={onOpenOrders}>
+				<a
+					className={cn(
+						'header-desktop-link transition-all duration-300',
+						basketTotal ? '' : 'translate-x-[-24px]',
+					)}
+					onClick={onOpenOrders}
+				>
 					Заказы
 				</a>
 			</div>

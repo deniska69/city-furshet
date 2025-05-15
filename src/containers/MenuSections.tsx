@@ -19,7 +19,11 @@ const Component = ({ selectedCategory }: IMenuMain) => {
 	const cards = handleGetProducts(selectedCategory.category_id);
 
 	return (
-		<div key={idSection} id={idSection} className="flex flex-col justify-start w-full">
+		<div
+			key={idSection}
+			id={idSection}
+			className="flex flex-col justify-start w-full pt-4 pb-8 lg:max-h-[calc(100vh-var(--header-height))] overflow-y-auto"
+		>
 			<div className="flex flex-col pl-5">
 				<span className="text-base text-xl font-bold">{title}</span>
 				{selectedCategory.category_description ? (
@@ -27,7 +31,7 @@ const Component = ({ selectedCategory }: IMenuMain) => {
 				) : null}
 			</div>
 
-			<div id={idGrid} className="flex flex-row flex-wrap gap-3 mt-2 px-2 pb-8 w-full">
+			<div id={idGrid} className="flex flex-row flex-wrap gap-3 mt-2 px-2 w-full">
 				{cards &&
 					cards.map((card) => (
 						<Card

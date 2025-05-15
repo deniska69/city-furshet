@@ -44,9 +44,9 @@ const Component = () => {
 	return (
 		<div
 			id="menu"
-			className="noselect min-h-[100vh] w-full flex justify-center scroll-mt-(--header-height)"
+			className="noselect min-h-[calc(100vh-var(--header-height))] lg:max-h-[calc(100vh-var(--header-height))] w-full flex justify-center scroll-mt-(--header-height)"
 		>
-			<div className="w-full max-w-7xl flex items-start flex-col lg:flex-row">
+			<div className="w-full max-w-7xl flex items-start flex-col lg:flex-row lg:w-min lg:min-w-[1150px]">
 				{isMobile ? (
 					<CategoriesMobile selectedId={selectedId} onPressCategory={handlePressCategory} />
 				) : (

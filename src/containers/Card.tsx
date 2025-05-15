@@ -32,20 +32,23 @@ export const Component = ({ productId, categoryId }: ICard) => {
 			className="noselect rounded-xl p-4 bg-card-background relative cursor-pointer flex flex-col justify-between max-w-[48%] lg:max-w-[200px] gap-y-3"
 		>
 			<div className="flex flex-col gap-y-2 h-full" onClick={handlePressCard}>
-				<div className="relative max-h-[200px] aspect-square overflow-hidden rounded-lg">
+				<div className="relative min-w-[100px] lg:min-w-[150px] min-h-[100px] max-h-[200px] aspect-square overflow-hidden rounded-lg">
 					<img
 						src={getCover(categoryId, productId, product.product_cover)}
-						className="w-full max-w-[200px] object-cover aspect-square"
+						className="w-full min-w-[100px] lg:min-w-[150px] max-w-[200px] object-cover aspect-square"
 						onError={getImageError}
 					/>
 
-					{count ? (
-						<div className="absolute top-0 left-0 right-0 bottom-0">
-							<div className="w-full h-full bg-black/50 flex items-center justify-center">
-								<span className="text-7xl text-white">{count}</span>
-							</div>
+					<div
+						className={cn(
+							'absolute top-0 left-0 right-0 bottom-0 transition-all duration-150',
+							count ? 'opacity-100' : 'opacity-0',
+						)}
+					>
+						<div className="w-full h-full bg-black/50 flex items-center justify-center">
+							<span className="text-7xl text-white">{count || 1}</span>
 						</div>
-					) : null}
+					</div>
 				</div>
 
 				<span className="text-base font-semibold leading-4">{product.product_title}</span>
@@ -53,21 +56,20 @@ export const Component = ({ productId, categoryId }: ICard) => {
 			</div>
 
 			<div className="flex flex-row gap-x-1 gap-y-2 items-center justify-start">
-				{count ? (
-					<button
-						className={cn(
-							'flex h-8 bg-muted p-2 cursor-pointer items-center justify-center transition-all hover:bg-muted/80 active:bg-muted/80 active:scale-98 rounded-l-4xl rounded-r-xl',
-						)}
-						onClick={handlePressRemove}
-					>
-						<Icon name="minus" color="white" />
-					</button>
-				) : null}
+				<button
+					className={cn(
+						'flex h-8 bg-muted p-2 cursor-pointer items-center justify-center transition-all hover:bg-muted/80 active:bg-muted/80 active:scale-98 rounded-l-4xl rounded-r-xl duration-300 origin-left',
+						count ? 'opacity-100' : 'opacity-35 scale-x-0',
+					)}
+					onClick={handlePressRemove}
+				>
+					<Icon name="minus" color="white" />
+				</button>
 
 				<button
 					className={cn(
-						'flex h-8 bg-primary p-2 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 gap-x-1',
-						count ? 'rounded-l-xl rounded-r-4xl' : 'rounded-4xl',
+						'flex h-8 bg-primary p-2 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 gap-x-1 duration-300',
+						count ? 'rounded-l-xl rounded-r-4xl' : 'rounded-4xl -translate-x-9',
 					)}
 					onClick={handlePressAdd}
 				>
