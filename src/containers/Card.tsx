@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react';
-import { useNavigate } from 'react-router-dom';
 
 import { cn, getCover, getImageError } from '@helpers';
 import { useWindowDimensions } from '@hooks';
@@ -9,10 +8,10 @@ import { Icon } from '@ui';
 interface ICard {
 	productId: string;
 	categoryId: string;
+	onOpenCard: (categoryId: string, productId: string) => void;
 }
 
-export const Component = ({ productId, categoryId }: ICard) => {
-	const navigate = useNavigate();
+export const Component = ({ productId, categoryId, onOpenCard }: ICard) => {
 	const { isXS } = useWindowDimensions();
 
 	const count = basketStore.getCountProduct(categoryId, productId);
@@ -20,9 +19,7 @@ export const Component = ({ productId, categoryId }: ICard) => {
 
 	if (!product) return null;
 
-	const handlePressCard = () => {
-		navigate(`?category_id=${categoryId}&card_id=${productId}`);
-	};
+	const handlePressCard = () => onOpenCard(categoryId, productId);
 
 	const handlePressAdd = () => basketStore.add(categoryId, productId);
 

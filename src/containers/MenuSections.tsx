@@ -5,10 +5,11 @@ import { priceStore } from '@stores';
 import { Card } from './Card';
 
 interface IMenuMain {
+	onOpenCard: (categoryId: string, productId: string) => void;
 	selectedCategory: TypePriceCategory;
 }
 
-const Component = ({ selectedCategory }: IMenuMain) => {
+const Component = ({ onOpenCard, selectedCategory }: IMenuMain) => {
 	const handleGetProducts = (categoryId: string) => priceStore.getProducts(categoryId);
 
 	if (!selectedCategory) return null;
@@ -36,6 +37,7 @@ const Component = ({ selectedCategory }: IMenuMain) => {
 					cards.map((card) => (
 						<Card
 							key={card.product_id}
+							onOpenCard={onOpenCard}
 							productId={card.product_id}
 							categoryId={selectedCategory.category_id}
 						/>

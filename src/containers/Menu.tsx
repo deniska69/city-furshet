@@ -10,7 +10,11 @@ import { CategoriesDesktop } from './CategoriesDesktop';
 import { CategoriesMobile } from './CategoriesMobile';
 import { MenuSections } from './MenuSections';
 
-const Component = () => {
+interface IMenu {
+	onOpenCard: (categoryId: string, productId: string) => void;
+}
+
+const Component = ({ onOpenCard }: IMenu) => {
 	const navigate = useNavigate();
 	const { isMobile } = useWindowDimensions();
 	const [searchParams] = useSearchParams();
@@ -52,7 +56,7 @@ const Component = () => {
 				) : (
 					<CategoriesDesktop selectedId={selectedId} onPressCategory={handlePressCategory} />
 				)}
-				<MenuSections selectedCategory={selectedCategory} />
+				<MenuSections {...{ onOpenCard, selectedCategory }} />
 			</div>
 		</div>
 	);

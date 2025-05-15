@@ -4,7 +4,7 @@ import { ordersStore } from 'src/stores/ordersStore';
 
 import { OrdersEmpty } from '@components';
 import { CardOrder } from '@containers';
-import { goBack, scrollToMenu } from '@helpers';
+import { goBack } from '@helpers';
 import { Modal } from '@ui';
 
 const Component = () => {
@@ -12,10 +12,7 @@ const Component = () => {
 
 	const items = ordersStore.getItems();
 
-	const handleBack = () => {
-		navigate(goBack());
-		setTimeout(scrollToMenu, 250);
-	};
+	const handleBack = () => navigate(goBack());
 
 	return (
 		<Modal title="Заказы" className="h-min">

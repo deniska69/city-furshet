@@ -18,28 +18,30 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 interface IComponent {
-	categoryId: string;
-	productId: string;
+	categoryId: string | null;
+	productId: string | null;
 }
 
-const Component = ({ productId, categoryId }: IComponent) => {
+const Error = () => (
+	<Modal className="h-min">
+		<div className="flex flex-col items-center justify-center gap-y-3 min-h-[30vh]">
+			<Icon color="gray" />
+			<span className="text-2xl text-muted">Ошибка параметров товара</span>
+			<span className="text-muted text-2xl">или товар снят с продажи</span>
+		</div>
+	</Modal>
+);
+
+const Component = ({ categoryId, productId }: IComponent) => {
 	const navigate = useNavigate();
+
+	if (!categoryId || !productId) return <Error />;
 
 	if (!priceStore.getProducts(categoryId)) return <Loader />;
 
 	const item = priceStore.getProduct(categoryId, productId);
 
-	if (!item) {
-		return (
-			<Modal className="h-min">
-				<div className="flex flex-col items-center justify-center gap-y-3 min-h-[30vh]">
-					<Icon color="gray" />
-					<span className="text-2xl text-muted">Ошибка параметров товара</span>
-					<span className="text-muted text-2xl">или товар снят с продажи</span>
-				</div>
-			</Modal>
-		);
-	}
+	if (!item) return <Error />;
 
 	const {
 		product_id,

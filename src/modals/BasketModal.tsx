@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { BasketEmpty, BasketSuccess } from '@components';
 import { CardBasket } from '@containers';
-import { goBack, scrollToMenu } from '@helpers';
+import { goBack } from '@helpers';
 import { basketStore } from '@stores';
 import { Modal } from '@ui';
 
@@ -27,10 +27,7 @@ const Component = () => {
 		if (contact) basketStore.submit(contact.toString());
 	};
 
-	const handleBack = () => {
-		navigate(goBack());
-		setTimeout(scrollToMenu, 250);
-	};
+	const handleBack = () => navigate(goBack());
 
 	return (
 		<Modal title="Корзина">
