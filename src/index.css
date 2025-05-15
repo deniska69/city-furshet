@@ -176,3 +176,15 @@ h1 {
 		background-size: 70% auto;
 	}
 }
+
+/* Scroll bar */
+* {
+	@apply [&::-webkit-scrollbar]:my-4 [&::-webkit-scrollbar]:w-2;
+	@apply [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:rounded-full;
+
+	@apply [&::-webkit-scrollbar-track]:bg-neutral-300;
+	@apply [&::-webkit-scrollbar-thumb]:bg-neutral-400;
+
+	@apply dark:[&::-webkit-scrollbar-thumb]:bg-neutral-300;
+	@apply dark:[&::-webkit-scrollbar-track]:bg-neutral-400;
+}

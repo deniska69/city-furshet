@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { cn } from '@helpers';
 
 interface IHeaderDesktop {
-	basketTotal?: string | number;
+	basketTotal?: number;
 	onOpenMenu: () => void;
 	onOpenDelivery: () => void;
 	onOpenContacts: () => void;
@@ -57,7 +57,12 @@ export const HeaderDesktop = (props: IHeaderDesktop) => {
 							basketTotal ? 'scale-100 opacity-100' : 'scale-0 opacity-0',
 						)}
 					>
-						<span className="text-white font-semibold text-[1rem] transition-all">
+						<span
+							className={cn(
+								'text-white font-semibold text-[1rem] transition-all',
+								basketTotal && basketTotal > 9 ? 'px-2' : 'px-1',
+							)}
+						>
 							{basketTotal || 1}
 						</span>
 					</div>

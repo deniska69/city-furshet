@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { getCover, getGallery, getImageError } from '@helpers';
+import { cn, getCover, getGallery, getImageError } from '@helpers';
 import { basketStore, priceStore } from '@stores';
 import { Icon, Loader, Modal } from '@ui';
 
@@ -65,7 +65,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 	const gallery = getGallery(categoryId, productId, product_gallery);
 
 	return (
-		<Modal title={product_title} size="lg">
+		<Modal title={product_title} size="lg" className="lg:!max-h-[490px]">
 			<div className="flex flex-col lg:flex-row p-4 gap-y-6 h-full max-h-[calc(100vh-110px)] lg:max-h-[calc(90vh-110px)] overflow-scroll hidescroll gap-4">
 				{gallery ? (
 					<div className="rounded-lg overflow-hidden min-w-[calc(100vw-2rem)] max-w-[calc(100vw-2rem)] min-h-[calc(100vw-2rem)] max-h-[calc(100vw-2rem)] lg:min-w-[400px] lg:max-w-[400px] lg:min-h-[400px] lg:max-h-[400px]">
@@ -94,7 +94,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 					</div>
 
 					<div className="flex w-full flex-row gap-x-4">
-						<div className="flex w-full flex-row gap-x-4 items-center">
+						<div className="flex w-full flex-row gap-x-2 items-center">
 							<button
 								className="flex h-8 bg-muted px-3 py-1.5 cursor-pointer items-center justify-center transition-all hover:bg-muted/80 active:bg-muted/80 active:scale-98 rounded-full"
 								onClick={handlePressRemove}
@@ -102,27 +102,30 @@ const Component = ({ productId, categoryId }: IComponent) => {
 								<Icon name="minus" color="white" />
 							</button>
 
-							<span className="text-xl text-base">{count() || '0'}</span>
+							<div className="flex items-center justify-center min-w-5">
+								<span className="text-xl text-base">{count() || '0'}</span>
+							</div>
 
 							<button
 								className="flex h-8 bg-primary px-3 py-1.5 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1"
 								onClick={handlePressAdd}
 							>
-								<span className="text-white font-medium text-md">
+								<span className="text-white text-center font-medium text-md">
 									{product_price || '0'} ₽
 								</span>
 								<Icon name="plus" color="white" />
 							</button>
 						</div>
 
-						{count() ? (
-							<button
-								className="flex h-8 bg-primary px-3 py-1.5 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1"
-								onClick={handlePressBasket}
-							>
-								<Icon name="basket" color="white" />
-							</button>
-						) : null}
+						<button
+							className={cn(
+								'flex h-8 bg-primary px-3 py-1.5 cursor-pointer items-center justify-center hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1 transition-all duration-300',
+								count() ? 'opacity-100' : 'opacity-0',
+							)}
+							onClick={handlePressBasket}
+						>
+							<Icon name="basket" color="white" />
+						</button>
 					</div>
 
 					{product_note_additional ? (

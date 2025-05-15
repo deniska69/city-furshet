@@ -29,7 +29,7 @@ export const Component = ({ productId, categoryId }: ICard) => {
 	return (
 		<div
 			id={productId}
-			className="noselect rounded-xl p-4 bg-card-background relative cursor-pointer flex flex-col justify-between max-w-[48%] lg:max-w-[200px] gap-y-3"
+			className="noselect rounded-xl p-4 bg-card-background relative cursor-pointer flex flex-col justify-between max-w-[48%] lg:max-w-[200px] gap-y-3 shadow-xl/10"
 		>
 			<div className="flex flex-col gap-y-2 h-full" onClick={handlePressCard}>
 				<div className="relative min-w-[100px] lg:min-w-[150px] min-h-[100px] max-h-[200px] aspect-square overflow-hidden rounded-lg">
@@ -41,7 +41,7 @@ export const Component = ({ productId, categoryId }: ICard) => {
 
 					<div
 						className={cn(
-							'absolute top-0 left-0 right-0 bottom-0 transition-all duration-150',
+							'absolute top-0 left-0 right-0 bottom-0 transition-all duration-300',
 							count ? 'opacity-100' : 'opacity-0',
 						)}
 					>

@@ -15,7 +15,7 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesDesktop) =
 
 	return (
 		<div className="lg:min-h-[calc(100vh-var(--header-height))] lg:max-h-[calc(100vh-var(--header-height))] overflow-y-auto hidden min-w-(--categories-width-desktop) max-w-(--categories-width-desktop) lg:flex items-start justify-center pt-4 pb-8">
-			<div className="flex bg-white flex-col gap-y-2 rounded-3xl min-w-60 max-w-60 p-2">
+			<div className="flex bg-white flex-col gap-y-2 rounded-3xl min-w-60 max-w-60 p-2 shadow-xl/10">
 				{categories.map((item) => {
 					const active = item.category_id === selectedId ? ' active' : '';
 					const count = basketStore.getCountCategory(item.category_id);
@@ -38,7 +38,7 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesDesktop) =
 								className={cn(
 									'min-w-6 h-6 bg-secondary flex items-center justify-center transition-all rounded-full duration-300',
 									count ? 'opacity-100 scale-100' : 'opacity-0 scale-0',
-									count > 9 ? 'px-4' : 'px-2',
+									count > 9 ? 'px-3' : 'px-2',
 								)}
 							>
 								<span className="text-white font-semibold leading-4">{count || 1}</span>
