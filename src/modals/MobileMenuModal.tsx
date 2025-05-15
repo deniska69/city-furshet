@@ -20,21 +20,21 @@ export const MobileMenuModal = () => {
 	const handleOpenContacts = () => navigate('/contacts');
 
 	return (
-		<Modal title="City Furshet">
-			<div className="mobile-menu">
-				<a className="mobile-menu-link" onClick={handleOpenMenu}>
+		<Modal title="City Furshet" className="h-min">
+			<div className="flex flex-col gap-y-4 p-4">
+				<a className="text-2xl text-base" onClick={handleOpenMenu}>
 					Меню
 				</a>
-				<a className="mobile-menu-link" onClick={handleOpenDelivery}>
+				<a className="text-2xl text-base" onClick={handleOpenDelivery}>
 					Доставка и оплата
 				</a>
-				<a className="mobile-menu-link" onClick={handleOpenContacts}>
+				<a className="text-2xl text-base" onClick={handleOpenContacts}>
 					Контакты
 				</a>
-				<a className="mobile-menu-link" onClick={handleOpenOrders}>
+				<a className="text-2xl text-base" onClick={handleOpenOrders}>
 					Заказы
 				</a>
-				<a className="mobile-menu-link" onClick={handleClose}>
+				<a className="text-2xl text-base border-t border-t-border pt-4" onClick={handleClose}>
 					Закрыть
 				</a>
 			</div>
