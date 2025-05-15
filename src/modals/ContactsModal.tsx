@@ -2,7 +2,7 @@ import { Modal } from '@ui';
 
 export const ContactsModal = () => (
 	<Modal title="Контакты" className="h-min">
-		<div className="flex flex-col gap-y-4 p-4 pb-8">
+		<div className="flex flex-col gap-y-4 p-4 overflow-y-auto max-h-[calc(100svh-var(--modal-header-height)-var(--modal-header-height-mt))]">
 			<span className="text-base text-xl font-semibold">City Furshet</span>
 			<span className="text-base text-xl font-semibold">Новокузнецк, проезд Курбатова, 1</span>
 

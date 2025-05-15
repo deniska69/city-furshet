@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-@import './styles/DeliveryPaymentModal.css';
 @import './styles/MobileMenuModal.css';
 
 @theme {
@@ -166,7 +165,6 @@ h1 {
 
 	#home-container {
 		background-size: 80% auto;
-		/* max-width: 500px; */
 	}
 }
 
