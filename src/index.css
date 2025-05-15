@@ -16,6 +16,8 @@
 	--modal-form-height: 160px;
 
 	--categories-width-desktop: 260px;
+
+	--breakpoint-xs: 360px;
 }
 
 @layer components {

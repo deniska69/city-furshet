@@ -66,7 +66,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 	return (
 		<Modal title={product_title} size="lg" className="lg:!max-h-[490px]">
-			<div className="flex flex-col lg:flex-row p-4 gap-y-6 h-full max-h-[calc(100vh-110px)] lg:max-h-[calc(90vh-110px)] overflow-scroll hidescroll gap-4">
+			<div className="flex flex-col lg:flex-row p-4 gap-y-6 h-full max-h-[calc(100svh-var(--modal-header-height)-var(--modal-header-height-mt))] lg:max-h-[calc(90svh-var(--modal-header-height))] overflow-scroll hidescroll gap-4">
 				{gallery ? (
 					<div className="rounded-lg overflow-hidden min-w-[calc(100vw-2rem)] max-w-[calc(100vw-2rem)] min-h-[calc(100vw-2rem)] max-h-[calc(100vw-2rem)] lg:min-w-[400px] lg:max-w-[400px] lg:min-h-[400px] lg:max-h-[400px]">
 						<Swiper pagination={true} navigation={true} modules={[Navigation, Pagination]}>

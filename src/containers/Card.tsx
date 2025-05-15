@@ -2,6 +2,7 @@ import { observer } from 'mobx-react';
 import { useNavigate } from 'react-router-dom';
 
 import { cn, getCover, getImageError } from '@helpers';
+import { useWindowDimensions } from '@hooks';
 import { basketStore, priceStore } from '@stores';
 import { Icon } from '@ui';
 
@@ -12,6 +13,7 @@ interface ICard {
 
 export const Component = ({ productId, categoryId }: ICard) => {
 	const navigate = useNavigate();
+	const { isXS } = useWindowDimensions();
 
 	const count = basketStore.getCountProduct(categoryId, productId);
 	const product = priceStore.getProduct(categoryId, productId);
@@ -29,7 +31,7 @@ export const Component = ({ productId, categoryId }: ICard) => {
 	return (
 		<div
 			id={productId}
-			className="noselect rounded-xl p-4 bg-card-background relative cursor-pointer flex flex-col justify-between max-w-[48%] lg:max-w-[200px] gap-y-3 shadow-xl/10"
+			className="noselect rounded-xl p-2 xs:p-4 bg-card-background relative cursor-pointer flex flex-col justify-between max-w-[48%] lg:max-w-[200px] gap-y-3 shadow-xl/10"
 		>
 			<div className="flex flex-col gap-y-2 h-full" onClick={handlePressCard}>
 				<div className="relative min-w-[100px] lg:min-w-[150px] min-h-[100px] max-h-[200px] aspect-square overflow-hidden rounded-lg">
@@ -63,7 +65,7 @@ export const Component = ({ productId, categoryId }: ICard) => {
 					)}
 					onClick={handlePressRemove}
 				>
-					<Icon name="minus" color="white" />
+					<Icon name="minus" color="white" size={isXS ? 16 : 20} />
 				</button>
 
 				<button
@@ -73,10 +75,10 @@ export const Component = ({ productId, categoryId }: ICard) => {
 					)}
 					onClick={handlePressAdd}
 				>
-					<span className="text-white font-medium text-md">
+					<span className={cn('text-white font-medium', isXS ? 'text-xs' : 'text-md')}>
 						{product.product_price || '0'} ₽
 					</span>
-					<Icon name="plus" color="white" />
+					<Icon name="plus" color="white" size={isXS ? 16 : 20} />
 				</button>
 			</div>
 		</div>

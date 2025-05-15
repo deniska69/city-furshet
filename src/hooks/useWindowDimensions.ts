@@ -4,8 +4,9 @@ const getWindowDimensions = () => {
 	const width = window.innerWidth;
 	const height = window.innerHeight;
 	const isMobile = width < 1280;
+	const isXS = width < 360;
 
-	return { width, height, isMobile };
+	return { width, height, isMobile, isXS };
 };
 
 export const useWindowDimensions = () => {
