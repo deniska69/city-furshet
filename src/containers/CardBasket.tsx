@@ -63,7 +63,7 @@ const Component = ({ categoryId, productId, count }: TypeBasketGetItem) => {
 				<div className="flex flex-row justify-between items-center">
 					<div className="flex flex-row items-center gap-x-2">
 						<button
-							className="bg-muted transition-all active:scale-90 px-4 py-2 rounded-full hover:cursor-pointer"
+							className="bg-muted transition-all active:scale-90 px-3 py-1.5 rounded-full hover:cursor-pointer"
 							onClick={handlePressRemove}
 						>
 							<Icon name="minus" color="white" />
@@ -72,7 +72,7 @@ const Component = ({ categoryId, productId, count }: TypeBasketGetItem) => {
 						<span className="text-xl text-base">{count}</span>
 
 						<button
-							className="bg-primary transition-all active:scale-90 px-4 py-2 rounded-full hover:cursor-pointer"
+							className="bg-primary transition-all active:scale-90 px-3 py-1.5 rounded-full hover:cursor-pointer"
 							onClick={handlePressAdd}
 						>
 							<Icon name="plus" color="white" />

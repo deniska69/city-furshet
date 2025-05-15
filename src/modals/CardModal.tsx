@@ -96,7 +96,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 					<div className="flex w-full flex-row gap-x-4">
 						<div className="flex w-full flex-row gap-x-4 items-center">
 							<button
-								className="flex h-8 bg-muted px-4 py-2 cursor-pointer items-center justify-center transition-all hover:bg-muted/80 active:bg-muted/80 active:scale-98 rounded-full"
+								className="flex h-8 bg-muted px-3 py-1.5 cursor-pointer items-center justify-center transition-all hover:bg-muted/80 active:bg-muted/80 active:scale-98 rounded-full"
 								onClick={handlePressRemove}
 							>
 								<Icon name="minus" color="white" />
@@ -105,10 +105,10 @@ const Component = ({ productId, categoryId }: IComponent) => {
 							<span className="text-xl text-base">{count() || '0'}</span>
 
 							<button
-								className="flex h-8 bg-primary px-3 py-2 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1"
+								className="flex h-8 bg-primary px-3 py-1.5 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1"
 								onClick={handlePressAdd}
 							>
-								<span className="text-white font-medium text-lg">
+								<span className="text-white font-medium text-md">
 									{product_price || '0'} ₽
 								</span>
 								<Icon name="plus" color="white" />
@@ -117,7 +117,7 @@ const Component = ({ productId, categoryId }: IComponent) => {
 
 						{count() ? (
 							<button
-								className="flex h-8 bg-primary px-3 py-2 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1"
+								className="flex h-8 bg-primary px-3 py-1.5 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1"
 								onClick={handlePressBasket}
 							>
 								<Icon name="basket" color="white" />

@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react';
 import { useNavigate } from 'react-router-dom';
 
-import { getCover, getImageError } from '@helpers';
+import { cn, getCover, getImageError } from '@helpers';
 import { basketStore, priceStore } from '@stores';
 import { Icon } from '@ui';
 
@@ -52,10 +52,12 @@ export const Component = ({ productId, categoryId }: ICard) => {
 				<span className="text-muted leading-4">{product.product_note}</span>
 			</div>
 
-			<div className="flex flex-row gap-x-2 gap-y-2 items-center justify-start flex-wrap-reverse">
+			<div className="flex flex-row gap-x-1 gap-y-2 items-center justify-start">
 				{count ? (
 					<button
-						className="flex h-8 bg-muted px-4 py-2 cursor-pointer items-center justify-center transition-all hover:bg-muted/80 active:bg-muted/80 active:scale-98 rounded-full"
+						className={cn(
+							'flex h-8 bg-muted p-2 cursor-pointer items-center justify-center transition-all hover:bg-muted/80 active:bg-muted/80 active:scale-98 rounded-l-4xl rounded-r-xl',
+						)}
 						onClick={handlePressRemove}
 					>
 						<Icon name="minus" color="white" />
@@ -63,10 +65,13 @@ export const Component = ({ productId, categoryId }: ICard) => {
 				) : null}
 
 				<button
-					className="flex h-8 bg-primary px-3 py-2 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 rounded-full gap-x-1"
+					className={cn(
+						'flex h-8 bg-primary p-2 cursor-pointer items-center justify-center transition-all hover:bg-primary/80 active:bg-primary/80 active:scale-98 gap-x-1',
+						count ? 'rounded-l-xl rounded-r-4xl' : 'rounded-4xl',
+					)}
 					onClick={handlePressAdd}
 				>
-					<span className="text-white font-medium text-lg">
+					<span className="text-white font-medium text-md">
 						{product.product_price || '0'} ₽
 					</span>
 					<Icon name="plus" color="white" />
