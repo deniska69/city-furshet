@@ -1,3 +1,4 @@
+import { Documents } from '@components';
 import { Modal } from '@ui';
 
 export const DeliveryPaymentModal = () => (
@@ -22,6 +23,8 @@ export const DeliveryPaymentModal = () => (
 				При заказе на сумму от 10.000₽ доставка бесплатная в неотдаленные районы ( список
 				районов уточняйте)
 			</span>
+
+			<Documents />
 		</div>
 	</Modal>
 );

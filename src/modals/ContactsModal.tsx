@@ -1,3 +1,5 @@
+import vkontakte from '@assets/vkontakte.png';
+import { Documents } from '@components';
 import { Modal } from '@ui';
 
 export const ContactsModal = () => (
@@ -36,6 +38,22 @@ export const ContactsModal = () => (
 					<span className="text-base text-xl">По договорённости</span>
 				</div>
 			</div>
+
+			<div className="flex flex-col gap-y-2">
+				<div className="flex flex-row items-center gap-x-1 flex-wrap">
+					<img src={vkontakte} alt="Вконтакте" />
+					<span className="text-base text-xl font-semibold mr-1">Вконтакте:</span>
+					<a
+						className="text-secondary text-xl font-medium hover:underline action:underline cursor-pointer"
+						href="https://vk.com/cityfurshet"
+						target="_blank"
+					>
+						vk.com/cityfurshet
+					</a>
+				</div>
+			</div>
+
+			<Documents />
 		</div>
 	</Modal>
 );
