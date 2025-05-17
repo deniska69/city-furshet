@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { BasketEmpty, BasketSuccess } from '@components';
 import { CardBasket } from '@containers';
-import { goBack } from '@helpers';
+import { goBack, scrollToMenu } from '@helpers';
 import { basketStore } from '@stores';
 import { Modal } from '@ui';
 
@@ -31,13 +31,16 @@ const Component = ({ onOpenCard }: IBasketModal) => {
 		if (contact) basketStore.submit(contact.toString());
 	};
 
-	const handleBack = () => navigate(goBack());
+	const handleCloseEmpty = () => {
+		navigate(goBack());
+		setTimeout(scrollToMenu, 1);
+	};
 
 	return (
 		<Modal title="Корзина">
 			{isSuccessOrder ? <BasketSuccess /> : null}
 
-			{!isSuccessOrder && !items ? <BasketEmpty onClose={handleBack} /> : null}
+			{!isSuccessOrder && !items ? <BasketEmpty onClose={handleCloseEmpty} /> : null}
 
 			{!isSuccessOrder && items ? (
 				<div className="flex flex-col justify-between min-h-full w-full">

@@ -4,7 +4,7 @@ import { ordersStore } from 'src/stores/ordersStore';
 
 import { OrdersEmpty } from '@components';
 import { CardOrder } from '@containers';
-import { goBack } from '@helpers';
+import { goBack, scrollToMenu } from '@helpers';
 import { Modal } from '@ui';
 
 interface IOrdersModal {
@@ -16,7 +16,10 @@ const Component = ({ onOpenCard }: IOrdersModal) => {
 
 	const items = ordersStore.getItems();
 
-	const handleBack = () => navigate(goBack());
+	const handleCloseEmpty = () => {
+		navigate(goBack());
+		setTimeout(scrollToMenu, 1);
+	};
 
 	return (
 		<Modal title="Заказы" className="h-min">
@@ -48,7 +51,7 @@ const Component = ({ onOpenCard }: IOrdersModal) => {
 					))}
 				</div>
 			) : (
-				<OrdersEmpty onClose={handleBack} />
+				<OrdersEmpty onClose={handleCloseEmpty} />
 			)}
 		</Modal>
 	);
