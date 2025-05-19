@@ -28,7 +28,7 @@ export const Component = ({ productId, categoryId, onOpenCard }: ICard) => {
 	return (
 		<div
 			id={productId}
-			className="noselect rounded-xl p-2 xs:p-4 bg-card-background relative cursor-pointer flex flex-col justify-between max-w-[48%] lg:max-w-[200px] gap-y-3 shadow-xl/10"
+			className="noselect rounded-xl p-2 xs:p-4 bg-card-background relative cursor-pointer flex flex-col justify-between max-w-[48%] lg:max-w-[200px] gap-y-3 shadow-xl/5"
 		>
 			<div className="flex flex-col gap-y-2 h-full" onClick={handlePressCard}>
 				<div className="relative min-w-[100px] lg:min-w-[150px] min-h-[100px] max-h-[200px] aspect-square overflow-hidden rounded-lg">

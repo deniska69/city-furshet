@@ -15,7 +15,7 @@ export const Component = ({ selectedId, onPressCategory }: ICategoriesDesktop) =
 
 	return (
 		<div className="lg:min-h-[calc(100vh-var(--header-height))] lg:max-h-[calc(100vh-var(--header-height))] overflow-y-auto hidden min-w-(--categories-width-desktop) max-w-(--categories-width-desktop) lg:flex items-start justify-center pt-4 pb-8">
-			<div className="flex bg-white flex-col gap-y-2 rounded-3xl min-w-60 max-w-60 p-2 shadow-xl/10">
+			<div className="flex bg-white flex-col gap-y-2 rounded-3xl min-w-60 max-w-60 p-2 shadow-xl/5">
 				{categories.map((item) => {
 					const active = item.category_id === selectedId ? ' active' : '';
 					const count = basketStore.getCountCategory(item.category_id);
